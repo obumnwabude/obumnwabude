@@ -1,0 +1,28 @@
+#body-content {
+	margin: 0;
+	padding: 0.1rem;
+}
+
+#profile-pic {
+	width: 14rem;
+	height: 14rem;
+	border-radius: 250px;
+	display: block;
+	margin: 0 auto;
+	margin-bottom: -100px;
+	margin-top: 60px;
+	border: 4px solid white;
+	position: relative;	
+	z-index: 100;
+}
+
+#social-icons-body {
+	max-width: 400px;
+	min-height: 600px;
+	background-color: gray;
+	border-radius: 16px;
+	margin: 0 auto;
+	padding-top: 100px;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
