@@ -1,0 +1,56 @@
+/**
+ * Contains the styles for various texts 
+ */
+
+/*
+ * Centralizes text 
+ */
+.text-center {
+	text-align: center;
+}
+
+/*
+ * Styles the main heading 
+ */
+.text-heading {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 2rem;
+	line-height: 1;
+	color: hsl(264, 4%, 24%);
+	letter-spacing: 0.45px;
+}
+
+/*
+ * Styles the subheadings
+ */
+.text-subheading {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 1.5rem;
+	line-height: 1;
+	color: hsl(264, 4%, 24%);
+	letter-spacing: 0.45px;
+	font-weight: 500;
+}
+
+/*
+ * Styles the captions to headings
+ */
+.text-caption {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 0.9rem;
+	line-height: 1.25;
+	color: hsl(264, 4%, 24%);
+	letter-spacing: 0.4	px;
+}
+
+/*
+ * Styles regular text
+ */
+.text-regular {
+	font-family: 'Roboto', sans-serif;
+	text-decoration-style: bold;
+	font-size: 1.1rem;
+	line-height: 1.4;
+	letter-spacing: 0.5px;
+	color: black;
+}
