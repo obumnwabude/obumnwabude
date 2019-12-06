@@ -1,8 +1,20 @@
 @import url("styles/text-styles.css");
 @import url("styles/mobile-styles.css");
+@import url("styles/desktop-styles-1.css");
+@import url("styles/desktop-styles-2.css");
 
+/**
+ *  normalize
+ */
 html, body {
 	margin: 0;
 	padding: 0;
 	font-size: 100%;
+}
+
+/*
+ * styles both main heading and its caption
+ */
+h1#main-heading, h4#main-heading-caption {
+	margin: 0;
 }

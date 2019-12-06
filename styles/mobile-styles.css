@@ -2,21 +2,22 @@
  * Defines the various styles applied for mobile
  */
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1100px) {
+
 
 	/* 
-	 * The main backgroundj
+	 * The main background
 	 */
 	main {
 		margin: 0;
-		padding: 1rem;
+		padding: 20px;
 		background-color: hsl(238, 92%, 97%);
 	}
 
 	/*
 	 * Styles the profile picture in mobile, gives it a central layout
 	 */
-	#profile-pic {
+	#profile-pic-mobile {
 		width: 220px;
 		height: 220px;
 		border-radius: 250px;
@@ -29,11 +30,15 @@
 		z-index: 3;
 	}
 
+	#profile-pic-desktop {
+		display: none;
+	}
+
 	/*
 	 * The outer border of the mobile design
 	 */
 	#outer-body-content {
-		max-width: 450px;
+		max-width: 525px;
 		border-radius: 40px 40px 16px 16px;
 		border: 5px solid hsl(238, 82%, 87%);
 		margin: 0 auto;
@@ -59,17 +64,11 @@
 	}
 
 	/*
-	 * styles both main heading and its caption
-	 */
-	h1#main-heading, h4#main-heading-caption {
-		margin: 0;
-	}
-
-	/*
 	 * the first hr
 	 */
 	hr#first-hr {
 		margin: 0rem 2rem;
+		height: 1.5px;
 		color: hsl(264, 4%, 24%);
 	}
 
@@ -78,6 +77,7 @@
 	 */
 	#inner-body-content {
 		padding: 1rem 0.75rem;
+		color: black;
 	}
 
 	/*
@@ -86,9 +86,11 @@
 	#footer {
 		background-color: hsl(238, 88%, 18%);
 		border-radius: 0px 0px 8px 8px;
-		text-align: center;
 		color: hsl(238, 92%, 97%);
 		padding: 1rem 0rem;
 	}
 
+	footer {
+		display: none;
+	}
 }
