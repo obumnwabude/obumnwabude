@@ -1,0 +1,117 @@
+/**
+ * Contains the styles for various texts 
+ */
+
+/*
+ * Centralizes text 
+ */
+.text-center {
+	text-align: center;
+}
+
+/*
+ * Styles the main heading 
+ */
+.text-heading {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 36px;
+	line-height: 1;
+	color: hsl(264, 4%, 24%);
+	letter-spacing: 0.45px;
+}
+
+/*
+ * Styles the subheadings
+ */
+.text-subheading {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 24px;
+	line-height: 1;
+	color: hsl(264, 4%, 24%);
+	letter-spacing: 0.45px;
+	font-weight: 500;
+}
+
+/*
+ * Styles the captions to headings
+ */
+.text-caption {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18px;
+	line-height: 1.25;
+	color: hsl(264, 4%, 24%);
+	letter-spacing: 0.4px;
+}
+
+/*
+ * Styles regular text
+ */
+.text-regular {
+	font-family: 'Roboto', sans-serif;
+	text-decoration-style: bold;
+	font-size: 1.1rem;
+	line-height: 1.4;
+	letter-spacing: 0.5px;
+}
+
+/**
+ * contains the text styles for desktop view
+ */
+@media screen and (min-width: 1100px) {
+	/*
+	 * Styles text in desktop view
+	 */
+	.text-heading {
+		font-size: 48px;
+		letter-spacing: 0.6px;
+		text-align: left;
+	}
+
+	/*
+	 * styles the caption to the main heading
+	 */
+	.text-caption {
+		font-size: 24px;
+	}
+
+	/*
+	 * Styles regular text in  desktop view
+	 */
+	.text-regular {
+		font-size: 20px;
+		letter-spacing: 0.8px;
+		word-spacing: 1.5px;
+		line-height: 1.4;
+	}
+}
+
+/**
+ * contains the text styles when the desktop is large
+ */
+@media screen and (min-width: 1400px) {
+	/*
+	 * Styles text in large desktop view
+	 */
+	.text-heading {
+		font-size: 65px;
+		letter-spacing: 0.6px;
+		text-align: left;
+	}
+
+	/*
+	 * styles the caption to the main heading
+	 */
+	.text-caption {
+		font-size: 28px;
+	}
+
+	/*
+	 * Styles regular text in large desktop view
+	 */
+	.text-regular {
+		font-size: 28px;
+		letter-spacing: 0.8px;
+		word-spacing: 2px;
+		line-height: 1.55;
+	}
+}
