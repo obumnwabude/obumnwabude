@@ -56,18 +56,27 @@
 		z-index: 2;
 	}
 
+	#header, #header-right {
+		margin: 0;
+		padding: 0;
+	}
+
 	/* 
 	 * styles the section with the main heading or profile name
 	 */
-	#header {
-		padding: 0rem 1.5rem 1rem 1.5rem;
+	#header-text {
+		padding: 0px 24px 20px 24px;
+	}
+
+	#header-social-icons {
+		height: 75px;
 	}
 
 	/*
-	 * the first hr
+	 * styles hr
 	 */
-	hr#first-hr {
-		margin: 0rem 2rem;
+	hr {
+		margin: 0px 24px;
 		height: 1.5px;
 		color: hsl(264, 4%, 24%);
 	}
@@ -76,7 +85,7 @@
 	 * styles the inner interior
 	 */
 	#inner-body-content {
-		padding: 1rem 0.75rem;
+		padding: 16px 12px;
 		color: black;
 	}
 
