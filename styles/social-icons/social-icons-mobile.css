@@ -1,9 +1,17 @@
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1100px) and (min-width: 550px) {
   #social-icons {
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    margin: 15px 0;
+  }
+
+  .social-icons-row {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     margin-bottom: 5px;
+    width: 100%;
   }
 
   .links-to-social {
@@ -33,6 +41,25 @@
     height: 88px;
     margin: 15px 10px 0 20px;
   }
+}
 
+@media screen and (max-width: 549px)  {
+  .social-icons-row {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 30px 0;
+    width: 100%;
+  }
 
+  #facebook-svg {
+    width: 110px;
+    height: 110px;
+  }
+
+  #instagram-svg {
+    width: 120px;
+    height: 120px;
+    margin-left: -15px;
+  }
 }
