@@ -54,6 +54,10 @@
 	letter-spacing: 0.5px;
 }
 
+  h3.text-subheading {
+    margin-left: 20px;
+  }
+
 /**
  * contains the text styles for desktop view
  */
@@ -84,6 +88,7 @@
 		line-height: 1.4;
 	}
 }
+
 
 /**
  * contains the text styles when the desktop is large

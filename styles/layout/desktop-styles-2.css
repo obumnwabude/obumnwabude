@@ -4,7 +4,7 @@
 
 @media screen and (min-width: 1400px) {
 
-	/* 
+	/*
 	 * styles the main background in large desktops
 	 */
 	main {
@@ -41,9 +41,9 @@
 	}
 
 	/*
-	 * styles the header section 
+	 * styles the header section
 	 */
-	#header {	
+	#header {
 		display: flex;
 	}
 
@@ -71,15 +71,15 @@
 	}
 
 	/*
-	 * styles the first hr
+	 * styles hr
 	 */
-	hr#first-hr {
-		margin: 0 3rem;
+	hr {
+		margin: 0 72px;
 		height: 2px;
 		color: hsl(264, 4%, 24%);
 	}
 
-	/* 
+	/*
 	 * styles the inner interior
 	 */
 	#inner-body-content {
@@ -92,7 +92,7 @@
 	}
 
 	/*
-	 * Styles the footer 
+	 * Styles the footer
 	 */
 	footer {
 		background-color: hsl(238, 88%, 18%);

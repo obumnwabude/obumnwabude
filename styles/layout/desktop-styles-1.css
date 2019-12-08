@@ -70,10 +70,10 @@
 	}
 
 	/*
-	 * styles the first hr
-	 */
-	hr#first-hr {
-		margin: 0 3rem;
+   * styles hr
+   */
+  hr {
+		margin: 0 72px;
 		height: 2px;
 		color: hsl(264, 4%, 24%);
 	}
