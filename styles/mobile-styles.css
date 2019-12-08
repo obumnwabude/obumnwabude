@@ -69,7 +69,7 @@
 	}
 
 	#header-social-icons {
-		height: 200px;
+		height: 650px;
 	}
 
 	/*
@@ -79,6 +79,10 @@
 		margin: 0px 24px;
 		height: 1.5px;
 		color: hsl(264, 4%, 24%);
+	}
+
+	a {
+		text-decoration: none;
 	}
 
 	svg {
