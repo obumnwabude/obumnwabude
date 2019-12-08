@@ -5,7 +5,7 @@
 @media screen and (max-width: 1100px) {
 
 
-	/* 
+	/*
 	 * The main background
 	 */
 	main {
@@ -26,7 +26,7 @@
 		margin-bottom: -100px;
 		margin-top: 60px;
 		border: 5px solid hsl(238, 92%, 97%);
-		position: relative;	
+		position: relative;
 		z-index: 3;
 	}
 
@@ -61,7 +61,7 @@
 		padding: 0;
 	}
 
-	/* 
+	/*
 	 * styles the section with the main heading or profile name
 	 */
 	#header-text {
@@ -81,16 +81,7 @@
 		color: hsl(264, 4%, 24%);
 	}
 
-	a {
-		text-decoration: none;
-	}
-
-	svg {
-		width: 100px;
-		height: 100px;
-	}
-
-	/* 
+	/*
 	 * styles the inner interior
 	 */
 	#inner-body-content {
@@ -99,7 +90,7 @@
 	}
 
 	/*
-	 * styles the footer 
+	 * styles the footer
 	 */
 	#footer {
 		background-color: hsl(238, 88%, 18%);

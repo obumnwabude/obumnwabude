@@ -1,0 +1,15 @@
+@import url("mobile-styles.css");
+@import url("desktop-styles-1.css");
+@import url("desktop-styles-2.css");
+
+/**
+ * Gathers all styles for basic layout
+ */
+
+
+/*
+ * styles both main heading and its caption
+ */
+h1#main-heading, h4#main-heading-caption {
+  margin: 0;
+}
