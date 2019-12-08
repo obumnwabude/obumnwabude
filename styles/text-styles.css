@@ -1,16 +1,16 @@
 /**
- * Contains the styles for various texts 
+ * Contains the styles for various texts
  */
 
 /*
- * Centralizes text 
+ * Centralizes text
  */
 .text-center {
 	text-align: center;
 }
 
 /*
- * Styles the main heading 
+ * Styles the main heading
  */
 .text-heading {
 	font-family: 'Source Sans Pro', sans-serif;
@@ -57,7 +57,7 @@
 /**
  * contains the text styles for desktop view
  */
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 1101px) {
 	/*
 	 * Styles text in desktop view
 	 */

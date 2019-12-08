@@ -2,9 +2,9 @@
  * contains the styles when the desktop is large
  */
 
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 1101px) {
 
-	/* 
+	/*
 	 * styles the main background in desktops
 	 */
 	main {
@@ -41,9 +41,9 @@
 	}
 
 	/*
-	 * styles the header section 
+	 * styles the header section
 	 */
-	#header {	
+	#header {
 		display: flex;
 	}
 
@@ -78,7 +78,7 @@
 		color: hsl(264, 4%, 24%);
 	}
 
-	/* 
+	/*
 	 * styles the inner interior
 	 */
 	#inner-body-content {
@@ -91,7 +91,7 @@
 	}
 
 	/*
-	 * Styles the footer 
+	 * Styles the footer
 	 */
 	footer {
 		background-color: hsl(238, 88%, 18%);
