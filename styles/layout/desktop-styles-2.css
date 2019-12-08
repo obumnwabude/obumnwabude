@@ -65,7 +65,7 @@
 	 */
 	#header-right {
 		width: 1100px;
-		margin-top: 40px;
+		margin-top: 15px;
 		display: flex;
 		flex-direction: column;
 	}
@@ -83,7 +83,7 @@
 	 * styles the inner interior
 	 */
 	#inner-body-content {
-		padding: 2rem 2rem;
+		padding: 48px;
 		border-radius: 0px 0px 64px 64px;
 	}
 

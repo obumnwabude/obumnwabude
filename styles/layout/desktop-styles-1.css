@@ -64,10 +64,17 @@
 	 */
 	#header-right {
 		width: 850px;
-		margin-top: 40px;
+		margin-top: 10px;
 		display: flex;
 		flex-direction: column;
 	}
+
+  /*
+   * adds space to the bottom of profile name
+   */
+  #header-text {
+    margin-bottom: 10px;
+  }
 
 	/*
    * styles hr
