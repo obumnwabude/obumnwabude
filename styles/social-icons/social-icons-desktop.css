@@ -3,7 +3,7 @@
  * and linkedin profile badge when in desktop view
  */
 
-@media screen and (min-width: 1101px) {
+@media screen and (min-width: 1150px) {
   /*
    * styles the container of the badge and social icons to lay them side-by-side
    */
@@ -21,7 +21,6 @@
     margin-left: 0px;
     display: flex;
     flex-direction: column;
-    min-width: 350px;
   }
 
   /*
@@ -96,4 +95,45 @@
     justify-content: space-evenly;
     padding: 20px;
   }
+}
+
+/**
+ * styles the icons and makes them bigger on larger screens
+ */
+@media screen and (min-width: 1400px) {
+
+  /*
+   * shapes the facebook icon to be equal to others
+   */
+  #facebook-svg {
+    width: 125px;
+    height: 125px;
+  }
+
+  /*
+   * shapes the instagram icon to be equal to others
+   */
+  #instagram-svg {
+    width: 140px;
+    height: 140px;
+    margin-left: -15px;
+  }
+
+  /*
+   * makes the twitter icon equal to others
+   */
+  #twitter-svg {
+    width: 120px;
+    height: 120px;
+  }
+
+  /*
+   * makes the linkedin icon equal to others
+   */
+  #linkedin-svg {
+    width: 105px;
+    height: 105px;
+  }
+
+
 }

@@ -57,7 +57,7 @@
 /**
  * Achieves the indentation of text in mobile
  */
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1149px) {
   h3.text-subheading {
     margin-left: 20px;
   }
@@ -66,7 +66,7 @@
 /**
  * contains the text styles for desktop view
  */
-@media screen and (min-width: 1101px) {
+@media screen and (min-width: 1150px) {
 	/*
 	 * Styles text in desktop view
 	 */
@@ -109,13 +109,6 @@
    * styles the subheading of social icons
    */
   h3.text-subheading {
-    margin: 5px 0px 0px 0px;
-  }
-
-  /*
-   * styles the second subheading of social icons
-   */
-  h3.text-subheading:nth-of-type(2) {
     margin: 5px 0px 0px 20px;
   }
 }

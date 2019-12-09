@@ -2,16 +2,13 @@
  * contains the styles when the desktop is large
  */
 
-@media screen and (min-width: 1101px) {
+@media screen and (min-width: 1150px) {
 
 	/*
 	 * styles the main background in desktops
 	 */
 	main {
-		padding-left: 7.5%;
-		padding-right: 7.5%;
-		padding-top: 40px;
-		padding-bottom: 55px;
+		padding: 40px 6% 55px 6%;
 		margin: 0;
 		background-color: hsl(238, 92%, 97%);
 	}
@@ -65,7 +62,7 @@
 	 */
 	#header-right {
 		width: 850px;
-		margin-top: 10px;
+		margin-top: 20px;
 		display: flex;
 		flex-direction: column;
 	}
@@ -90,7 +87,7 @@
 	 * styles the inner interior
 	 */
 	#inner-body-content {
-		padding: 2rem 2rem;
+		padding: 40px;
 		border-radius: 0px 0px 64px 64px;
 	}
 

@@ -6,7 +6,7 @@
 /**
  * styles common to both large and small mobile views
  */
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1149px) {
 
   /*
    * invalidates the social and badge container as well as the social text and icons container
@@ -88,7 +88,7 @@
  * styles the social media icons when the mobile view is large
  * it places them on a straight line
  */
-@media screen and (max-width: 1100px) and (min-width: 550px) {
+@media screen and (max-width: 1149px) and (min-width: 550px) {
   /*
    * helps in arranging the social media icons in a straight line
    */
