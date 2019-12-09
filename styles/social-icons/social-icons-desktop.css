@@ -77,8 +77,20 @@
 
   /*
    * hides the hr that divides the social icons and badge in mobile
+   * and the linkedin badge for mobile
    */
-  hr#before-linkedin-badge {
+  hr#before-linkedin-badge, #header-linkedin-badge-container-mobile {
     display: none;
+  }
+
+  /*
+   * styles the linkedin badge container for desktop
+   * centralises it
+   */
+  #header-linkedin-badge-container-desktop {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
   }
 }
