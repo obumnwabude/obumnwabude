@@ -19,6 +19,9 @@
    */
   #social-icons {
     margin-left: 0px;
+    display: flex;
+    flex-direction: column;
+    min-width: 350px;
   }
 
   /*

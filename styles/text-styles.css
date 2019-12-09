@@ -81,10 +81,10 @@
    */
   .text-subheading {
     font-family: 'Source Sans Pro', sans-serif;
-    font-size: 24px;
+    font-size: 26px;
     line-height: 1;
     color: hsl(264, 4%, 24%);
-    letter-spacing: 0.45px;
+    letter-spacing: 0.65px;
     font-weight: 500;
   }
 
@@ -140,10 +140,10 @@
    */
   .text-subheading {
     font-family: 'Source Sans Pro', sans-serif;
-    font-size: 28px;
+    font-size: 32px;
     line-height: 1;
     color: hsl(264, 4%, 24%);
-    letter-spacing: 0.45px;
+    letter-spacing: 0.5px;
     font-weight: 500;
   }
 
