@@ -1,10 +1,8 @@
 @import url("social-icons-mobile.css");
+@import url("social-icons-desktop.css");
 
 /**
  * contains the styles controlling the social media icons and linkedin profile badge
  */
 
-svg {
-  width: 100px;
-  height: 100px;
-}
+

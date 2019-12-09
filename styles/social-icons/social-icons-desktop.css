@@ -1,0 +1,84 @@
+/**
+ * This file contains the styles that arrange the social media icons
+ * and linkedin profile badge when in desktop view
+ */
+
+@media screen and (min-width: 1101px) {
+  /*
+   * styles the container of the badge and social icons to lay them side-by-side
+   */
+  #header-social-and-badge-container {
+      display: flex;
+      align-items: start;
+      justify-content: space-evenly;
+      width: 100%;
+  }
+
+  /*
+   * brings the icons closer to the profile picture at the extreme right
+   */
+  #social-icons {
+    margin-left: 0px;
+  }
+
+  /*
+   * evenly arranges the social media icon in rows
+   */
+  .social-icons-row {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0px 0px 10px 0px;
+    width: 100%;
+  }
+
+
+  /*
+   * normalizes the blue underline of browsers
+   */
+  .links-to-social {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /*
+   * shapes the facebook icon to be equal to others
+   */
+  #facebook-svg {
+    width: 110px;
+    height: 110px;
+  }
+
+  /*
+   * shapes the instagram icon to be equal to others
+   */
+  #instagram-svg {
+    width: 115px;
+    height: 115px;
+    margin-left: -15px;
+  }
+
+  /*
+   * makes the twitter icon equal to others
+   */
+  #twitter-svg {
+    width: 100px;
+    height: 100px;
+  }
+
+  /*
+   * makes the linkedin icon equal to others
+   */
+  #linkedin-svg {
+    width: 90px;
+    height: 90px;
+  }
+
+  /*
+   * hides the hr that divides the social icons and badge in mobile
+   */
+  hr#before-linkedin-badge {
+    display: none;
+  }
+}

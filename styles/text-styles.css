@@ -109,7 +109,14 @@
    * styles the subheading of social icons
    */
   h3.text-subheading {
-    margin: 10px 0px 20px 20px;
+    margin: 5px 0px 0px 0px;
+  }
+
+  /*
+   * styles the second subheading of social icons
+   */
+  h3.text-subheading:nth-of-type(2) {
+    margin: 5px 0px 0px 20px;
   }
 }
 

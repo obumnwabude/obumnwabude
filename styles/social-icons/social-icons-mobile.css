@@ -4,9 +4,24 @@
  */
 
 /**
- * Achieves centralisation of the linkedin profile badge in mobile
+ * styles common to both large and small mobile views
  */
 @media screen and (max-width: 1100px) {
+
+  /*
+   * invalidates the social and badge container as well as the social text and icons container
+   * and badge text and icons container
+   */
+  #header-social-and-badge-container, #header-social-text-and-icons,
+  #header-badge-and-text-container {
+      display: block;
+      margin: 0;
+      padding: 0;
+  }
+
+  /*
+   * Achieves centralisation of the linkedin profile badge in mobile
+   */
   #header-linkedin-badge-container {
     margin: 25px auto;
     display: flex;
@@ -46,6 +61,22 @@
     width: 120px;
     height: 120px;
     margin-left: -15px;
+  }
+
+  /*
+   * makes the twitter icon equal to others
+   */
+  #twitter-svg {
+    width: 100px;
+    height: 100px;
+  }
+
+  /*
+   * makes the linkedin icon equal to others
+   */
+  #linkedin-svg {
+    width: 88px;
+    height: 88px;
   }
 }
 
