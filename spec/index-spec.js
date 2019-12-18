@@ -13,4 +13,12 @@ describe('server', () => {
       });
     });
   });
+  describe('GET /test', () => {
+    it('redirects to /', (done) => {
+      request.get(baseUrl, (error, response) => {
+        expect(response.request.href).toBe(baseUrl);
+        done();
+      });
+    });
+  });
 });

@@ -9,6 +9,10 @@ app.get('/', (req, res) => {
   res.sendFile('src/index.html', { root: __dirname });
 });
 
+app.get('*', (req, res) => {
+  res.redirect('/');
+});
+
 const server = app.listen(port);
 
 module.exports = server;
