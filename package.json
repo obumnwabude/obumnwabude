@@ -4,6 +4,7 @@
   "description": "Contains the obumnwabude.com website",
   "main": "index.js",
   "scripts": {
+    "pretest": "eslint --fix .",
     "test": "jasmine"
   },
   "repository": {
@@ -11,8 +12,7 @@
     "url": "git+https://github.com/obumnwabude/obumnwabude.git"
   },
   "keywords": [
-    "Obumuneme",
-    "Nwabude"
+    "Obumuneme Nwabude"
   ],
   "author": "Obumuneme Nwabude",
   "license": "ISC",
@@ -24,9 +24,10 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.2",
     "eslint": "^6.7.2",
-    "jasmine": "^3.5.0"
-
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.19.1",
+    "jasmine": "^3.5.0",
+    "nodemon": "^2.0.2"
   }
 }
