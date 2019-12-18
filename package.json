@@ -1,0 +1,26 @@
+{
+  "name": "obumnwabude",
+  "version": "1.0.0",
+  "description": "Contains the obumnwabude.com website",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/obumnwabude/obumnwabude.git"
+  },
+  "keywords": [
+    "Obumuneme",
+    "Nwabude"
+  ],
+  "author": "Obumuneme Nwabude",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/obumnwabude/obumnwabude/issues"
+  },
+  "homepage": "https://github.com/obumnwabude/obumnwabude#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
