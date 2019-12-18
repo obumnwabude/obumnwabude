@@ -1,0 +1,35 @@
+{
+  "name": "obumnwabude",
+  "version": "1.0.0",
+  "description": "Contains the obumnwabude.com website",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "eslint --fix .",
+    "test": "jasmine",
+    "start": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/obumnwabude/obumnwabude.git"
+  },
+  "keywords": [
+    "Obumuneme Nwabude"
+  ],
+  "author": "Obumuneme Nwabude",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/obumnwabude/obumnwabude/issues"
+  },
+  "homepage": "https://github.com/obumnwabude/obumnwabude#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.19.1",
+    "jasmine": "^3.5.0",
+    "request": "^2.88.0"
+  }
+}
