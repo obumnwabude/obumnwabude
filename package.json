@@ -20,7 +20,13 @@
     "url": "https://github.com/obumnwabude/obumnwabude/issues"
   },
   "homepage": "https://github.com/obumnwabude/obumnwabude#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
   "devDependencies": {
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "eslint": "^6.7.2",
+    "jasmine": "^3.5.0"
+
   }
 }
