@@ -1,7 +1,10 @@
 {
   "name": "obumnwabude",
-  "redirects": [
-    { "source": "/", "destination": "/index.html"},
-    { "source": "/.*", "destination": "/index.html"}
+  "routes": [
+    { "src": "/", "dest": "/index.html"},
+    { "src": "/styles.css", "dest": "/styles.css"},
+    { "src": "/styles/.*", "dest": "/styles/.*"},
+    { "src": "/obum-1.jpg", "dest": "/obum-1.jpg"},
+    { "src": "/.*", "dest": "/"}
   ]
 }
