@@ -51,11 +51,11 @@
 	 * Styles the profile picture in large desktop places at top right position
 	 */
 	 #profile-pic-desktop {
-	 	width: 320px;
-	 	height: 320px;
-	 	border-radius: 250px;
+	 	width: 400px;
+	 	height: 400px;
+	 	border-radius: 300px;
 	 	margin: 30px;
-	 	margin-bottom: 35px;
+	 	margin-right: 0px;
 	 	border: 7.5px solid hsl(238, 92%, 97%);
 	 	z-index: 3;
 	 }
@@ -65,7 +65,7 @@
 	 */
 	#header-right {
 		width: 1100px;
-		margin-top: 40px;
+		margin-top: 25px;
 		display: flex;
 		flex-direction: column;
 	}
@@ -83,7 +83,7 @@
 	 * styles the inner interior
 	 */
 	#inner-body-content {
-		padding: 2rem 2rem;
+		padding: 48px;
 		border-radius: 0px 0px 64px 64px;
 	}
 

@@ -2,16 +2,13 @@
  * contains the styles when the desktop is large
  */
 
-@media screen and (min-width: 1101px) {
+@media screen and (min-width: 1150px) {
 
 	/*
 	 * styles the main background in desktops
 	 */
 	main {
-		padding-left: 7.5%;
-		padding-right: 7.5%;
-		padding-top: 40px;
-		padding-bottom: 55px;
+		padding: 40px 6% 55px 6%;
 		margin: 0;
 		background-color: hsl(238, 92%, 97%);
 	}
@@ -51,10 +48,11 @@
 	 * Styles the profile picture in large desktop places at top right position
 	 */
 	 #profile-pic-desktop {
-	 	width: 240px;
-	 	height: 240px;
-	 	border-radius: 250px;
-	 	margin: 25px;
+	 	width: 320px;
+	 	height: 320px;
+	 	border-radius: 275px;
+	 	margin: 35px;
+    margin-right: 0px;
 	 	border: 7.5px solid hsl(238, 92%, 97%);
 	 	z-index: 3;
 	 }
@@ -64,10 +62,17 @@
 	 */
 	#header-right {
 		width: 850px;
-		margin-top: 40px;
+		margin-top: 20px;
 		display: flex;
 		flex-direction: column;
 	}
+
+  /*
+   * adds space to the bottom of profile name
+   */
+  #header-text {
+    margin-bottom: 10px;
+  }
 
 	/*
    * styles hr
@@ -82,7 +87,7 @@
 	 * styles the inner interior
 	 */
 	#inner-body-content {
-		padding: 2rem 2rem;
+		padding: 40px;
 		border-radius: 0px 0px 64px 64px;
 	}
 
