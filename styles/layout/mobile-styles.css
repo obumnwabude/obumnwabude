@@ -63,14 +63,14 @@
    * styles the section with the main heading or profile name
    */
   #header-text {
-   padding: 0px 24px 20px 24px;
+   padding: 0px 24px;
   }
 
   /*
    * styles hr
    */
   hr {
-   margin: 0px 24px;
+   margin: 17.5px 24px;
    height: 1.5px;
    color: hsl(264, 4%, 24%);
   }
@@ -79,7 +79,7 @@
    * styles the inner interior
    */
   #main-content {
-   padding: 16px 12px;
+   padding: 12px;
    color: black;
   }
 

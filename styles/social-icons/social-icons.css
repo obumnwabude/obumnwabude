@@ -5,4 +5,12 @@
  * contains the styles controlling the social media icons and linkedin profile badge
  */
 
-
+/*
+ * Achieves centralisation of the linkedin profile badge in mobile
+ */
+.badge-and-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}

@@ -48,19 +48,6 @@
 	}
 
 	/*
-	 * Styles the profile picture in large desktop places at top right position
-	 */
-	 #profile-pic-desktop {
-	 	width: 400px;
-	 	height: 400px;
-	 	border-radius: 300px;
-	 	margin: 30px;
-	 	margin-right: 0px;
-	 	border: 7.5px solid hsl(238, 92%, 97%);
-	 	z-index: 3;
-	 }
-
-	/*
 	 * Styles the right portion of header
 	 */
 	#header-right {
@@ -71,20 +58,10 @@
 	}
 
 	/*
-	 * styles hr
-	 */
-	hr {
-		margin: 0 72px;
-		height: 2px;
-		color: hsl(264, 4%, 24%);
-	}
-
-	/*
 	 * styles the inner interior
 	 */
 	#main-content {
-		padding: 48px;
-		border-radius: 0px 0px 64px 64px;
+		padding: 40px;
 	}
 
 	#footer {
