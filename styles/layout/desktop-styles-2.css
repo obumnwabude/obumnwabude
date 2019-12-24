@@ -23,7 +23,7 @@
 	/*
 	 * The outer border of the large desktop design
 	 */
-	#outer-body-content {
+	#outer-border-lining {
 		max-width: 1500px;
 		border-radius: 75px 75px 75px 75px;
 		border: 7.5px solid hsl(238, 82%, 87%);
@@ -34,7 +34,7 @@
 	/*
 	 * the inner body of the large design
 	 */
-	#middle-body-content {
+	#inner-border-lining {
 		border-radius: 64px 64px 64px 64px;
 		background-color: hsl(238, 82%, 87%);
 		z-index: 2;
@@ -82,7 +82,7 @@
 	/*
 	 * styles the inner interior
 	 */
-	#inner-body-content {
+	#main-content {
 		padding: 48px;
 		border-radius: 0px 0px 64px 64px;
 	}
@@ -92,7 +92,7 @@
 	}
 
 	/*
-	 * Styles the footer
+	 * Styles the footer in desktop
 	 */
 	footer {
 		background-color: hsl(238, 88%, 18%);
