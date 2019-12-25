@@ -35,7 +35,7 @@
   /*
    * The outer border of the mobile design
    */
-  #outer-body-content {
+  #outer-border-lining {
    max-width: 525px;
    border-radius: 40px 40px 16px 16px;
    border: 5px solid hsl(238, 82%, 87%);
@@ -46,7 +46,7 @@
   /*
    * the inner body of the mobile design
    */
-  #middle-body-content {
+  #inner-border-lining {
    position: relative;
    border-radius: 32px 32px 8px 8px;
    padding-top: 100px;
@@ -63,14 +63,14 @@
    * styles the section with the main heading or profile name
    */
   #header-text {
-   padding: 0px 24px 20px 24px;
+   padding: 0px 24px;
   }
 
   /*
    * styles hr
    */
   hr {
-   margin: 0px 24px;
+   margin: 17.5px 24px;
    height: 1.5px;
    color: hsl(264, 4%, 24%);
   }
@@ -78,13 +78,13 @@
   /*
    * styles the inner interior
    */
-  #inner-body-content {
-   padding: 16px 12px;
+  #main-content {
+   padding: 12px;
    color: black;
   }
 
   /*
-   * styles the footer
+   * styles the footer in mobile
    */
   #footer {
    background-color: hsl(238, 88%, 18%);

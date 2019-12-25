@@ -7,33 +7,34 @@
   /*
    * styles the container of the badge and social icons to lay them side-by-side
    */
-  #header-social-and-badge-container {
+  #social-and-badge-container {
       display: flex;
-      align-items: start;
+      align-items: center;
       justify-content: space-evenly;
       width: 100%;
+      padding-bottom: 20px;
   }
 
   /*
-   * brings the icons closer to the profile picture at the extreme right
+   * helps in arranging the social media icons in a straight line
    */
   #social-icons {
-    margin-left: 0px;
     display: flex;
-    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 550px;
+    padding-top: 20px;
   }
 
-  /*
+   /*
    * evenly arranges the social media icon in rows
    */
   .social-icons-row {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
-    margin: 0px 0px 10px 0px;
+    margin: 10px 0px;
     width: 100%;
   }
-
 
   /*
    * normalizes the blue underline of browsers
@@ -45,95 +46,10 @@
   }
 
   /*
-   * shapes the facebook icon to be equal to others
-   */
-  #facebook-svg {
-    width: 110px;
-    height: 110px;
-  }
-
-  /*
-   * shapes the instagram icon to be equal to others
-   */
-  #instagram-svg {
-    width: 115px;
-    height: 115px;
-    margin-left: -15px;
-  }
-
-  /*
-   * makes the twitter icon equal to others
-   */
-  #twitter-svg {
-    width: 100px;
-    height: 100px;
-  }
-
-  /*
-   * makes the linkedin icon equal to others
-   */
-  #linkedin-svg {
-    width: 90px;
-    height: 90px;
-  }
-
-  /*
    * hides the hr that divides the social icons and badge in mobile
    * and the linkedin badge for mobile
    */
-  hr#before-linkedin-badge, #header-linkedin-badge-container-mobile {
+  hr.before-linkedin-badge, .badge-and-text-container:nth-of-type(1) {
     display: none;
   }
-
-  /*
-   * styles the linkedin badge container for desktop
-   * centralises it
-   */
-  #header-linkedin-badge-container-desktop {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    padding: 20px;
-  }
-}
-
-/**
- * styles the icons and makes them bigger on larger screens
- */
-@media screen and (min-width: 1400px) {
-
-  /*
-   * shapes the facebook icon to be equal to others
-   */
-  #facebook-svg {
-    width: 125px;
-    height: 125px;
-  }
-
-  /*
-   * shapes the instagram icon to be equal to others
-   */
-  #instagram-svg {
-    width: 140px;
-    height: 140px;
-    margin-left: -15px;
-  }
-
-  /*
-   * makes the twitter icon equal to others
-   */
-  #twitter-svg {
-    width: 120px;
-    height: 120px;
-  }
-
-  /*
-   * makes the linkedin icon equal to others
-   */
-  #linkedin-svg {
-    width: 105px;
-    height: 105px;
-  }
-
-
 }
