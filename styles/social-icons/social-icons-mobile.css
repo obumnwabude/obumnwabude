@@ -18,7 +18,7 @@
       padding: 0;
   }
 
-  .before-linkedin-badge:nth-of-type(2),
+  hr.before-linkedin-badge:nth-child(2),
   .badge-and-text-container:nth-of-type(2) {
     display: none;
   }

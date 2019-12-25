@@ -10,7 +10,7 @@
 /*
  * styles both main heading and its caption
  */
-h1#main-heading, h5#main-heading-caption {
+h1#main-heading, h3, h5#main-heading-caption {
   margin: 0;
 }
 

@@ -9,32 +9,32 @@
    */
   #social-and-badge-container {
       display: flex;
-      align-items: start;
+      align-items: center;
       justify-content: space-evenly;
       width: 100%;
+      padding-bottom: 20px;
   }
 
   /*
-   * brings the icons closer to the profile picture at the extreme right
+   * helps in arranging the social media icons in a straight line
    */
   #social-icons {
-    margin-left: 0px;
-    margin-top: 15px;
     display: flex;
-    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 550px;
+    padding-top: 20px;
   }
 
-  /*
+   /*
    * evenly arranges the social media icon in rows
    */
   .social-icons-row {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
-    margin: 0px 0px 10px 0px;
+    margin: 10px 0px;
     width: 100%;
   }
-
 
   /*
    * normalizes the blue underline of browsers
