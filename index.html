@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145689771-3"></script>
@@ -34,6 +34,23 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i|Roboto:400,500|Source+Sans+Pro:700&display=swap" rel="stylesheet">
   <!-- styles -->
+  <style type="text/css">
+    /*
+     * Hides all duplicates and hideables of mobile/desktop views
+     */
+    @media screen and (max-width: 1149px) {
+      #profile-pic-desktop, footer, hr.before-linkedin-badge:nth-child(2),
+      .badge-and-text-container:nth-of-type(2) {
+        display: none;
+      }
+    }
+    @media screen and (min-width: 1150px) {
+      #profile-pic-mobile, #footer, hr.before-linkedin-badge,
+      .badge-and-text-container:nth-of-type(1) {
+        display: none;
+      }
+    }
+  </style>
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
@@ -43,7 +60,7 @@
     <div id="outer-border-lining">
       <!-- these two divs sandwiching this comment help achieving the double-line border -->
       <div id="inner-border-lining">
-        <section id="header">
+        <div id="header">
           <!-- this image serves as profile picture when view is desktop -->
           <img id="profile-pic-desktop" src="face-of-obum.jpg" alt="Face of Obumuneme Nwabude" title="Face of Obumuneme Nwabude">
           <div id="header-right">
@@ -53,11 +70,11 @@
               <h5 id="main-heading-caption" class="text-center text-caption">Mobile Web Specialist, Public Speaker, Digital Marketer</h5>
             </div>
           </div>
-        </section>
+        </div>
 
         <hr id="before-main-content">
 
-        <section id="main-content" class="text-regular">
+        <div id="main-content" class="text-regular">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
           <hr class="before-linkedin-badge">
@@ -166,10 +183,10 @@
               </div>
             </div>
           </div>
-        </section>
-        <section id="footer" class="text-center text-regular">
+        </div>
+        <div id="footer" class="text-center text-regular">
           Obumuneme Nwabude<br>All Rights Reserved &copy;2020
-        </section>
+        </div>
       </div>
     </div>
   </main>
