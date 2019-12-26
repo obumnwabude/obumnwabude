@@ -4,6 +4,7 @@
     { "src": "/", "dest": "/index.html"},
     { "src": "/styles.css", "dest": "/styles.css"},
     { "src": "/styles/.*", "dest": "/styles/.*"},
+    { "src": "/face-of-obum.webp", "dest": "/face-of-obum.webp"},
     { "src": "/face-of-obum.jpg", "dest": "/face-of-obum.jpg"},
     { "src": "/.*", "dest": "/"}
   ]

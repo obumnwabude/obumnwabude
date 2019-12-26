@@ -34,7 +34,7 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i|Roboto:400,500|Source+Sans+Pro:700&display=swap" rel="stylesheet">
   <!-- styles -->
-  <style type="text/css">
+  <style>
     /*
      * Hides all duplicates and hideables of mobile/desktop views
      */
@@ -56,13 +56,21 @@
 <body>
   <main>
     <!-- this image serves as profile picture when view is mobile -->
-    <img id="profile-pic-mobile" src="face-of-obum.jpg" alt="Face of Obumuneme Nwabude" title="Face of Obumuneme Nwabude">
+    <picture>
+      <source srcset="face-of-obum.webp" type="image/webp">
+      <source srcset="face-of-obum.jpg" type="image/jpeg">
+      <img id="profile-pic-mobile" src="face-of-obum.jpg" alt="Face of Obumuneme Nwabude" title="Face of Obumuneme Nwabude">
+    </picture>
     <div id="outer-border-lining">
       <!-- these two divs sandwiching this comment help achieving the double-line border -->
       <div id="inner-border-lining">
         <div id="header">
           <!-- this image serves as profile picture when view is desktop -->
-          <img id="profile-pic-desktop" src="face-of-obum.jpg" alt="Face of Obumuneme Nwabude" title="Face of Obumuneme Nwabude">
+          <picture>
+            <source srcset="face-of-obum.webp" type="image/webp">
+            <source srcset="face-of-obum.jpg" type="image/jpeg">
+            <img id="profile-pic-desktop" src="face-of-obum.jpg" alt="Face of Obumuneme Nwabude" title="Face of Obumuneme Nwabude">
+          </picture>
           <div id="header-right">
             <!-- profile name and caption -->
             <div id="header-heading-text">
@@ -113,7 +121,7 @@
                   <div class="social-icons-row">
                     <!-- facebook -->
                     <a href="https://www.facebook.com/obumnwabude" title="Click to visit my profile on Facebook" rel="noopener noreferrer" target="_blank" class="links-to-social">
-                      <svg enable-background="new 0 0 128 128" height="100px" id="Layer_1" version="1.1" viewBox="0 0 128 128" width="100px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="button" aria-label="Click to visit my profile on Facebook">
+                      <svg enable-background="new 0 0 128 128" height="100px" version="1.1" viewBox="0 0 128 128" width="100px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="button" aria-label="Click to visit my profile on Facebook">
                         <title>Click to visit my profile on Facebook</title>
                         <g>
                           <g>
@@ -127,7 +135,7 @@
                     </a>
                     <!-- instagram -->
                     <a href="https://www.instagram.com/obumnwabude" title="Click to visit my profile on Instagram" rel="noopener noreferrer" target="_blank" class="links-to-social">
-                      <svg enable-background="new 0 0 128 128" height="100px" id="Layer_1" version="1.1" viewBox="0 0 128 128" width="100px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="button" aria-label="Click to visit my profile on Instagram">
+                      <svg enable-background="new 0 0 128 128" height="100px" version="1.1" viewBox="0 0 128 128" width="100px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="button" aria-label="Click to visit my profile on Instagram">
                         <title>Click to visit my profile on Instagram</title>
                         <g>
                           <linearGradient gradientTransform="matrix(1 0 0 -1 594 633)" gradientUnits="userSpaceOnUse" id="SVGID_1_" x1="-566.7114" x2="-493.2875" y1="516.5693" y2="621.4296">
@@ -150,7 +158,7 @@
                   <div class="social-icons-row">
                     <!-- twitter -->
                     <a href="https://www.twitter.com/obumnwabude" title="Click to visit my profile on Twitter" rel="noopener noreferrer" target="_blank" class="links-to-social">
-                      <svg enable-background="new 0 0 128 128" height="100px" id="Layer_1" version="1.1" viewBox="0 0 128 128" width="100px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="button" aria-label="Click to visit my profile on Twitter">
+                      <svg enable-background="new 0 0 128 128" height="100px" version="1.1" viewBox="0 0 128 128" width="100px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="button" aria-label="Click to visit my profile on Twitter">
                         <title>Click to visit my profile on Twitter</title>
                         <g>
                           <circle cx="64" cy="64" fill="#55ACEE" r="64"/>
@@ -162,7 +170,7 @@
                     </a>
                     <!-- linkedin -->
                     <a href="https://www.linkedin.com/in/obumnwabude" title="Click to visit my profile on LinkedIn" rel="noopener noreferrer" target="_blank" class="links-to-social">
-                      <svg enable-background="new 0 0 128 128" height="100px" id="Layer_1" version="1.1" viewBox="0 0 128 128" width="100px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="button" aria-label="Click to visit my profile on LinkedIn">
+                      <svg enable-background="new 0 0 128 128" height="100px" version="1.1" viewBox="0 0 128 128" width="100px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="button" aria-label="Click to visit my profile on LinkedIn">
                         <title>Click to visit my profile on LinkedIn</title>
                         <g>
                           <circle cx="64" cy="64" fill="#0076B4" r="64"/>
@@ -203,6 +211,6 @@
   </footer>
 
   <!-- LinkedIn Profile Badge JS -->
-  <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+  <script src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
 </body>
 </html>
