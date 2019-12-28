@@ -49,10 +49,29 @@
  */
 .text-regular {
 	font-family: 'Roboto', sans-serif;
-	text-decoration-style: bold;
 	font-size: 16px;
 	line-height: 1.4;
 	letter-spacing: 0.5px;
+}
+
+/*
+ * styles links 
+ */
+a {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 500;
+	color: hsl(264, 4%, 24%);
+	text-decoration: none;
+}
+
+a:hover {
+	background-color: hsl(238, 92%, 97%);
+	text-decoration: underline;
+	border-radius: 10px;
+}
+
+a:visited {
+	text-decoration: underline;
 }
 
 /**
@@ -85,6 +104,7 @@
    */
   .text-caption {
     font-size: 18px;
+	 text-align: left;
   }
 
   /*
