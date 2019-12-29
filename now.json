@@ -2,10 +2,11 @@
   "name": "obumnwabude",
   "routes": [
     { "src": "/", "dest": "/index.html"},
+    { "src": "/face-of-obum.jpg", "dest": "/face-of-obum.jpg"},
+    { "src": "/face-of-obum.webp", "dest": "/face-of-obum.webp"},
+    { "src": "/icons/.*", "dest": "/icons/.*"},
     { "src": "/styles.css", "dest": "/styles.css"},
     { "src": "/styles/.*", "dest": "/styles/.*"},
-    { "src": "/face-of-obum.webp", "dest": "/face-of-obum.webp"},
-    { "src": "/face-of-obum.jpg", "dest": "/face-of-obum.jpg"},
     { "src": "/.*", "dest": "/"}
   ]
 }
