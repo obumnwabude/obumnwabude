@@ -1,7 +1,7 @@
 /**
  * Contains styles for main content
  */
-section h3.text-subheading {
+section.content-container h3.text-subheading {
     background-color: hsl(264, 4%, 24%);
     color: hsl(238, 92%, 97%);
     border-radius: 15px;
@@ -14,12 +14,16 @@ section h3.text-subheading {
     max-width: 360px;
   }
 
-section h3.text-subheading svg {
+#main-content section.content-container:nth-child(2) h3.text-subheading {
+  margin-top: 20px;
+}
+
+section.content-container h3.text-subheading svg {
   width: 20%;
   margin-right: 5px;
 }
 
-section h3.text-subheading p {
+section.content-container h3.text-subheading p {
   margin: 0;
   width: 75%;
   display: inline-block;
