@@ -8,7 +8,7 @@
 /*
  * Achieves centralisation of the linkedin profile badge in mobile
  */
-.badge-and-text-container {
+#portfolio {
   display: flex;
   flex-direction: column;
   justify-content: space-around;

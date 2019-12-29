@@ -24,6 +24,7 @@
     align-items: center;
     min-width: 525px;
     margin-top: 20px;
+    margin-left: 20px;
     width: 100%;
   }
 
@@ -40,7 +41,7 @@
    * hides the hr that divides the social icons and badge in mobile
    * and the linkedin badge for mobile
    */
-  hr.before-linkedin-badge, .badge-and-text-container:nth-of-type(1) {
+  .linkedin-badge-container:nth-of-type(1), hr#before-social-icons {
     display: none;
   }
 }

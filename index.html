@@ -47,14 +47,13 @@
      * Hides all duplicates and hideables of mobile/desktop views
      */
     @media screen and (max-width: 1149px) {
-      #profile-pic-desktop, footer, hr.before-linkedin-badge:nth-child(2),
-      .badge-and-text-container:nth-of-type(2) {
+      #profile-pic-desktop, footer, .linkedin-badge-container:nth-of-type(2) {
         display: none;
       }
     }
     @media screen and (min-width: 1150px) {
-      #profile-pic-mobile, #footer, hr.before-linkedin-badge,
-      .badge-and-text-container:nth-of-type(1) {
+      #profile-pic-mobile, #footer, hr#before-social-icons
+      .linkedin-badge-container:nth-of-type(1) {
         display: none;
       }
     }
@@ -99,7 +98,7 @@
             <!-- profile about -->
             <div id="header-about-text" class="text-regular text-center">
               <h3 class="text-subheading">About Me</h3>
-              Hey, I'm Obumuneme Nwabude and I am from <a href="https://wikipedia.org/wiki/Anambra_State" title="Anambra State, Nigeria" rel="noreferrer noopener" target="_blank">Anambra State</a>, in <a href="https://wikipedia.org/wiki/Nigeria" title="Nigeria" rel="noreferrer noopener" target="_blank">Nigeria</a>. I'm a <a href="https://knvgmedia.com" title="Konverge Media Ltd" rel="noreferrer noopener" target="_blank">Konverge Media</a> trainer for the <a href="https://konverge.co" title="Google Digital Skills for Africa - Free Online Marketing Courses From Google" rel="noreferrer noopener" target="_blank">Google Digital Skills for Africa</a> program, sponsored by <a href="https://about.google" title="Google Inc." rel="noreferrer noopener" target="_blank">Google</a>. I also spend time creating <a href="https://wikipedia.org/wiki/Progressive_web_application" title="Progressive Web Applications" rel="noreferrer noopener" target="_blank">Progressive Web Apps</a>, which are websites with focus of how users perceive them on mobile devices.
+              Hey, I'm Obumuneme Nwabude and I am from <a href="https://wikipedia.org/wiki/Anambra_State" title="Anambra State, Nigeria" rel="noreferrer noopener" target="_blank">Anambra State</a>, in <a href="https://wikipedia.org/wiki/Nigeria" title="Nigeria" rel="noreferrer noopener" target="_blank">Nigeria</a>. I'm a <a href="http://knvgmedia.com" title="Konverge Media Ltd" rel="noreferrer noopener" target="_blank">Konverge Media</a> trainer for the <a href="https://konverge.co" title="Google Digital Skills for Africa - Free Online Marketing Courses From Google" rel="noreferrer noopener" target="_blank">Google Digital Skills for Africa</a> program, sponsored by <a href="https://about.google" title="Google Inc." rel="noreferrer noopener" target="_blank">Google</a>. I also spend time creating <a href="https://wikipedia.org/wiki/Progressive_web_application" title="Progressive Web Applications" rel="noreferrer noopener" target="_blank">Progressive Web Apps</a>, which are websites with focus of how users perceive them on mobile devices.
             </div>
           </div>
         </div>
@@ -139,10 +138,12 @@
             I'm ever grateful for being part of the tech community in my locality.
           </section>
 
-          <hr class="before-linkedin-badge">
+          <hr id="before-linkedin-badge">
 
+          <!-- helps in lying the social icons and the linkedin badge side-by-side when in desktop view -->
+          <div id="social-and-badge-container">
           <!-- text and linkedin badge mobile -->
-          <div class="badge-and-text-container" id="portfolio">
+          <div id="portfolio">
             <!-- text before linkedin badge -->
             <h3 class="text-subheading text-center">View my portfolio </h3>
             <div class="linkedin-badge-container">
@@ -151,12 +152,17 @@
                 <a class="LI-simple-link" href='https://ng.linkedin.com/in/obumnwabude?trk=profile-badge' rel="noreferrer noopener" target="_blank">Obumuneme Nwabude</a>
               </div>
             </div>
+            <div class="linkedin-badge-container">
+              <!-- linkedin profile badge -->
+              <div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="horizontal" data-theme="dark" data-vanity="obumnwabude">
+                <a class="LI-simple-link" href='https://ng.linkedin.com/in/obumnwabude?trk=profile-badge' rel="noreferrer noopener" target="_blank">Obumuneme Nwabude</a>
+              </div>
+            </div>
           </div>
 
           <hr id="before-social-icons">
 
-          <!-- helps in lying the social icons and the linkedin badge side-by-side when in desktop view -->
-          <div id="social-and-badge-container">
+
             <!-- text and social icons -->
             <div id="social-text-and-icons">
               <!-- text before social icons -->
@@ -223,20 +229,6 @@
                         </g>
                       </svg>
                     </a>
-                </div>
-              </div>
-            </div>
-
-            <hr class="before-linkedin-badge">
-
-            <!-- text and linkedin badge -->
-            <div class="badge-and-text-container">
-              <!-- text before linkedin badge -->
-              <h3 class="text-subheading text-center">View my portfolio </h3>
-              <div class="linkedin-badge-container">
-                <!-- linkedin profile badge -->
-                <div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="horizontal" data-theme="dark" data-vanity="obumnwabude">
-                  <a class="LI-simple-link" href='https://ng.linkedin.com/in/obumnwabude?trk=profile-badge' rel="noreferrer noopener" target="_blank">Obumuneme Nwabude</a>
                 </div>
               </div>
             </div>
