@@ -20,19 +20,10 @@
    */
   #social-icons {
     display: flex;
-    justify-content: flex-start;
-    min-width: 550px;
-    margin-top: 20px;
-  }
-
-   /*
-   * evenly arranges the social media icon in rows
-   */
-  .social-icons-row {
-    display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 10px 0px;
+    min-width: 525px;
+    margin-top: 20px;
     width: 100%;
   }
 
