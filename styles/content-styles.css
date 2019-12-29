@@ -32,3 +32,10 @@ section.content-container h3.text-subheading p {
   right: 0;
   bottom: 0;
 }
+
+@media screen and (min-width: 1150px) {
+  section.content-container {
+    width: 70%;
+    margin: 0 auto;
+  }
+}
