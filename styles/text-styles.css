@@ -70,10 +70,6 @@ a:hover {
 	border-radius: 10px;
 }
 
-a:visited {
-	text-decoration: underline;
-}
-
 /**
  * contains the text styles for desktop view
  */
