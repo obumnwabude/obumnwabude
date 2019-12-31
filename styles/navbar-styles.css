@@ -2,7 +2,7 @@
  * contains styles for nav
  */
 nav {
-  background-color: hsl(238, 88%, 18%);
+  background-color: hsl(238, 92%, 97%);
   margin: 0;
   padding: 7.5px;
   position: fixed;
@@ -10,6 +10,7 @@ nav {
   left: 0;
   z-index: 9999;
   width: 100%;
+  box-shadow: 0px 1.5px 6px hsl(255, 5%, 50%);
 }
 
 nav ul {
@@ -36,17 +37,5 @@ nav ul:after {
 }
 
 nav ul li a {
-  color: hsl(238, 92%, 97%);
-  width: 100%;
-}
-
-nav ul li a:active {
   text-decoration: underline;
 }
-
-nav ul li a:hover {
-  background-color: hsl(264, 4%, 24%);
-  text-decoration: none;
-}
-
-
