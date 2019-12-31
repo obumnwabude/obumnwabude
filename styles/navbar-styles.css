@@ -17,17 +17,49 @@ nav ul {
   margin: 0;
   padding: 0;
   list-style: none;
-  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 nav ul li {
   display: inline;
-  width: 25%;
   text-align: center;
-  float: left;
 }
 
-nav ul:after {
+nav ul li a {
+  text-decoration: underline;
+}
+
+
+nav #nav-collapse {
+  width: 70px;
+  height: 10px;
+  float: right;
+}
+
+nav #nav-collapse input, nav #nav-collapse label svg#close-menu-icon {
+  display: none;
+}
+
+nav #nav-collapse input:unchecked + label svg#menu-icon {
+  display: inline;
+}
+
+nav #nav-collapse input:unchecked + label svg#close-menu-icon {
+  display: none;
+}
+
+
+nav #nav-collapse input:checked + label svg#menu-icon {
+  display: none;
+}
+nav #nav-collapse input:checked + label svg#close-menu-icon {
+  display: inline;
+}
+
+
+nav:after {
   content: "";
   display: block;
   clear: both;
@@ -36,6 +68,3 @@ nav ul:after {
   line-height: 0;
 }
 
-nav ul li a {
-  text-decoration: underline;
-}
