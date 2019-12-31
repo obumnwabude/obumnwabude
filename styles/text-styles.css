@@ -16,7 +16,7 @@
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 32px;
 	line-height: 1;
-	color: hsl(264, 4%, 24%);
+	color: #000;
 	letter-spacing: 0.45px;
 }
 
@@ -27,7 +27,7 @@
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 20px;
 	line-height: 1;
-	color: hsl(264, 4%, 24%);
+	color: #000;
 	letter-spacing: 0.45px;
 	font-weight: 500;
   text-decoration: underline;
@@ -40,7 +40,7 @@
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
 	line-height: 1.25;
-	color: hsl(264, 4%, 24%);
+	color: #000;
 	letter-spacing: 0.4px;
 }
 
@@ -58,9 +58,8 @@
  * styles links
  */
 a {
-	font-family: 'Source Sans Pro', sans-serif;
-	font-weight: 500;
-	color: hsl(264, 4%, 24%);
+	font-family: 'Open Sans', sans-serif;
+	color: #000;
 	text-decoration: none;
 }
 
@@ -68,6 +67,11 @@ a:hover {
 	background-color: hsl(238, 92%, 97%);
 	text-decoration: underline;
 	border-radius: 10px;
+}
+
+nav ul li a {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 500;
 }
 
 /**
@@ -90,7 +94,6 @@ a:hover {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 20px;
     line-height: 1;
-    color: hsl(264, 4%, 24%);
     letter-spacing: 0.65px;
     font-weight: 500;
   }
