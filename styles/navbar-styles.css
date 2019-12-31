@@ -22,50 +22,59 @@ nav ul {
   align-items: center;
 }
 
+nav ul li:first-of-type {
+  margin-left: 5%;
+}
+
 nav ul li a {
   text-decoration: underline;
   text-align: center;
 }
 
+@media screen and (max-width: 576px) {
+  nav label {
+    width: 70px;
+    height: 10px;
+    float: right;
+  }
 
-nav label {
-  width: 70px;
-  height: 10px;
-  float: right;
+  nav input, nav label svg#close-menu-icon, nav ul li:not(:first-of-type) {
+    display: none;
+  }
+
+  nav input:unchecked + label svg#menu-icon {
+    display: inline;
+  }
+
+  nav input:unchecked + label svg#close-menu-icon {
+    display: none;
+  }
+
+
+  nav input:checked + label svg#menu-icon {
+    display: none;
+  }
+  nav input:checked + label svg#close-menu-icon {
+    display: inline;
+  }
+
+  nav:after {
+    content: "";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+    line-height: 0;
+  }
+
+  nav input:checked ~ ul, nav input:checked ~ ul li:not(:first-of-type) {
+    display: list-item;
+  }
 }
 
-nav input, nav label svg#close-menu-icon {
-  display: none;
-}
-
-nav input:unchecked + label svg#menu-icon {
-  display: inline;
-}
-
-nav input:unchecked + label svg#close-menu-icon {
-  display: none;
-}
-
-
-nav input:checked + label svg#menu-icon {
-  display: none;
-}
-nav input:checked + label svg#close-menu-icon {
-  display: inline;
-}
-
-nav:after {
-  content: "";
-  display: block;
-  clear: both;
-  visibility: hidden;
-  height: 0;
-  line-height: 0;
-}
-
-nav input:checked ~ ul {
-  display: list-item;
-  transition: all 5s;
-  transition-delay: 5s;
+@media screen and (min-width: 577px) {
+  nav input, nav label {
+    display: none;
+  }
 }
 
