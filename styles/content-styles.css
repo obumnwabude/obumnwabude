@@ -22,7 +22,6 @@ section.content-container h3.text-subheading {
 
 section.content-container h3.text-subheading svg {
   width: 20%;
-  margin-right: 5px;
 }
 
 section.content-container h3.text-subheading p {
@@ -35,10 +34,13 @@ section.content-container h3.text-subheading p {
   bottom: 0;
 }
 
-#portfolio h3.text-subheading p {
-    min-width: 165px;
-    padding-left: 5px;
-  }
+#portfolio h3.text-subheading {
+  min-width: 200px;
+}
+
+#portfolio h3.text-subheading svg {
+  min-width: 65px;
+}
 
 @media screen and (min-width: 1150px) {
   section.content-container {
