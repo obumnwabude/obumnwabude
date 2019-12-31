@@ -22,42 +22,37 @@ nav ul {
   align-items: center;
 }
 
-nav ul li {
-  display: inline;
+nav ul li a {
+  text-decoration: underline;
   text-align: center;
 }
 
-nav ul li a {
-  text-decoration: underline;
-}
 
-
-nav #nav-collapse {
+nav label {
   width: 70px;
   height: 10px;
   float: right;
 }
 
-nav #nav-collapse input, nav #nav-collapse label svg#close-menu-icon {
+nav input, nav label svg#close-menu-icon {
   display: none;
 }
 
-nav #nav-collapse input:unchecked + label svg#menu-icon {
+nav input:unchecked + label svg#menu-icon {
   display: inline;
 }
 
-nav #nav-collapse input:unchecked + label svg#close-menu-icon {
+nav input:unchecked + label svg#close-menu-icon {
   display: none;
 }
 
 
-nav #nav-collapse input:checked + label svg#menu-icon {
+nav input:checked + label svg#menu-icon {
   display: none;
 }
-nav #nav-collapse input:checked + label svg#close-menu-icon {
+nav input:checked + label svg#close-menu-icon {
   display: inline;
 }
-
 
 nav:after {
   content: "";
@@ -66,5 +61,11 @@ nav:after {
   visibility: hidden;
   height: 0;
   line-height: 0;
+}
+
+nav input:checked ~ ul {
+  display: list-item;
+  transition: all 5s;
+  transition-delay: 5s;
 }
 
