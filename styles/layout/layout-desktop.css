@@ -8,7 +8,7 @@
 	 * styles the main background in desktops
 	 */
 	main {
-		padding: 60px 6% 55px 6%;
+		padding: 100px 6% 55px 6%;
 		margin: 0;
 		background-color: hsl(238, 92%, 97%);
 	}
@@ -52,7 +52,7 @@
 	 	height: 240px;
 	 	border-radius: 275px;
 	 	margin: 25px;
-      margin-bottom: 0px;
+    margin-bottom: 0px;
 	 	border: 7.5px solid hsl(238, 92%, 97%);
 	 	z-index: 3;
 	 }

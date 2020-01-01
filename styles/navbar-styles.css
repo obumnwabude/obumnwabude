@@ -4,7 +4,6 @@
 nav {
   background-color: hsl(238, 92%, 97%);
   margin: 0;
-  padding: 7.5px;
   position: fixed;
   top: 0;
   left: 0;
@@ -36,19 +35,37 @@ nav ul li a {
   text-align: center;
 }
 
+nav ul li a:first-of-type {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
 nav ul li a span.show-at-large {
   display: none;
 }
 
 @media screen and (max-width: 576px) {
   nav label {
-    width: 70px;
-    height: 10px;
+    width: 35px;
     float: right;
-    }
+    margin: 15px;
+  }
 
   nav ul li:first-of-type {
-    margin-left: 5%;
+    margin-left: 3%;
+  }
+
+  nav ul li {
+    margin: 15px;
+  }
+
+  nav ul li a span.show-at-large:first-of-type {
+    display: inline;
+  }
+
+  nav ul li a span.show-at-large {
+    display: none;
   }
 
   nav input, nav label svg#close-menu-icon {
