@@ -287,7 +287,12 @@
     Obumuneme Nwabude<br>All Rights Reserved &copy;2020
   </footer>
   <script type="text/javascript">
-    window.addEventListener("scroll", function() {document.querySelector("nav").classList.add("scrolled");});
+    window.addEventListener("scroll", function() {
+      document.querySelector("nav").classList.add("scrolled");
+      if (document.querySelector("nav input").checked) {
+        document.querySelector("nav input").checked = false;
+      }
+    });
   </script>
 
   <!-- LinkedIn Profile Badge JS -->

@@ -51,7 +51,7 @@ nav ul li a span.show-at-large {
     margin-left: 5%;
   }
 
-  nav input, nav label svg#close-menu-icon, nav ul li:not(:first-of-type) {
+  nav input, nav label svg#close-menu-icon {
     display: none;
   }
 
@@ -80,10 +80,33 @@ nav ul li a span.show-at-large {
     line-height: 0;
   }
 
-  nav input:checked ~ ul, nav input:checked ~ ul li:not(:first-of-type) {
+  nav input:checked ~ ul {
     display: list-item;
-    transition: height 2s;
+    }
+
+   nav ul li:not(:first-of-type) {
+    width: 0px;
+    height: 0px;
+    visibility: hidden;
+    opacity: 0;
+   }
+
+  nav input:checked ~ ul li:not(:first-of-type) {
+    transition: all 3s;
+    height: auto;
+    width: auto;
+    visibility: visible;
+    opacity: 1;
   }
+
+  nav input:unchecked ~ ul li:not(:first-of-type) {
+    transition: all 3s;
+    width: 0px;
+    height: 0px;
+    visibility: hidden;
+    opacity: 0;
+  }
+
 }
 
 @media screen and (min-width: 577px) {
