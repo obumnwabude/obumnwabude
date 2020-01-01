@@ -73,7 +73,7 @@
       </svg>
     </label>
     <ul class="text-subheading">
-      <li><a href="#" role="button" title="Obumuneme Nwabude">
+      <li><a href="#" role="button" title="Obumuneme Nwabude" class="active">
         <svg width="40" height="40" viewBox="0 0 200 200" aria-label="O">
           <title>Logo</title>
           <g id="svg_46">
@@ -132,7 +132,7 @@
 
             <!-- profile about -->
             <div id="header-about-text" class="text-regular text-center" role="header">
-              <h3 class="text-subheading">About Me</h3>
+              <h3 class="text-subheading text-underline">About Me</h3>
               Hey, I'm Obumuneme Nwabude and I am from <a href="https://wikipedia.org/wiki/Anambra_State" title="Anambra State, Nigeria" rel="noreferrer noopener" target="_blank">Anambra State</a>, in <a href="https://wikipedia.org/wiki/Nigeria" title="Nigeria" rel="noreferrer noopener" target="_blank">Nigeria</a>. I'm a <a href="https://knvgmedia.com" title="Konverge Media Ltd" rel="noreferrer noopener" target="_blank">Konverge Media</a> trainer for the <a href="http://konverge.co" title="Google Digital Skills for Africa - Free Online Marketing Courses From Google" rel="noreferrer noopener" target="_blank">Google Digital Skills for Africa</a> program, sponsored by <a href="https://about.google" title="Google Inc." rel="noreferrer noopener" target="_blank">Google</a>. I also spend time creating <a href="https://wikipedia.org/wiki/Progressive_web_application" title="Progressive Web Applications" rel="noreferrer noopener" target="_blank">Progressive Web Apps</a>, which are websites with focus of how users perceive them on mobile devices.
             </div>
           </div>
@@ -209,7 +209,7 @@
             <!-- text and social icons -->
             <div id="social-text-and-icons">
               <!-- text before social icons -->
-              <h3 class="text-subheading text-center">I'm social, let's connect ... </h3>
+              <h3 class="text-subheading text-underline">I'm social, let's connect ... </h3>
               <!-- social media icons -->
               <div id="header-social-icons">
                 <div id="social-icons">
@@ -293,6 +293,15 @@
         document.querySelector("nav input").checked = false;
       }
     });
+    var navLinks = document.querySelectorAll("nav ul li a");
+    for (var i = 0; i < navLinks.length; i++) {
+      navLinks[i].addEventListener("click", function() {
+        var current = document.getElementsByClassName("active");
+        current[0].classList.remove("active");
+        this.classList.add("active");
+        console.log(this);
+      });
+    }
   </script>
 
   <!-- LinkedIn Profile Badge JS -->

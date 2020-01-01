@@ -31,8 +31,13 @@ nav ul {
 }
 
 nav ul li a {
-  text-decoration: underline;
+  text-decoration: none;
   text-align: center;
+}
+
+nav ul li a.active {
+  text-decoration: underline;
+  color: hsl(238, 88%, 18%)
 }
 
 nav ul li a:first-of-type {

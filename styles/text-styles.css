@@ -10,6 +10,13 @@
 }
 
 /*
+ * underlines text
+ */
+.text-underline {
+  text-decoration: underline;
+}
+
+/*
  * Styles the main heading
  */
 .text-heading {
@@ -30,7 +37,6 @@
 	color: #000;
 	letter-spacing: 0.45px;
 	font-weight: 500;
-  text-decoration: underline;
 }
 
 /*
