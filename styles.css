@@ -2,7 +2,7 @@
 @import url("styles/social-icons/social-icons.css");
 @import url("styles/text-styles.css");
 @import url("styles/content-styles.css");
-
+@import url("styles/navbar-styles.css");
 
 /**
  *  normalize
@@ -10,4 +10,8 @@
 html, body {
 	margin: 0;
 	padding: 0;
+}
+
+body {
+  overflow: auto;
 }

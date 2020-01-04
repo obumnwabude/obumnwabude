@@ -1,6 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Basic -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F0F1FE">
+  <meta charset="utf-8">
+  <title>Obumuneme Nwabude | Get to know Obumuneme</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i|Roboto:400,500|Source+Sans+Pro:700&display=swap" rel="stylesheet">
+  <!-- styles -->
+  <style>
+    /*
+     * Hides all duplicates and hideables of mobile/desktop views
+     */
+    @media screen and (max-width: 1149px) {
+      #profile-pic-desktop, footer, .linkedin-badge-container:nth-of-type(2) {
+        display: none;
+      }
+    }
+    @media screen and (min-width: 1150px) {
+      #profile-pic-mobile, #footer, hr#before-social-icons
+      .linkedin-badge-container:nth-of-type(1) {
+        display: none;
+      }
+    }
+  </style>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145689771-3"></script>
   <script>
@@ -10,10 +34,15 @@
 
     gtag('config', 'UA-145689771-3');
   </script>
-  <!-- Basic -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Obumuneme Nwabude | Get to know Obumuneme</title>
+  <!-- Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="shortcut icon" href="icons/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="icons/browserconfig.xml">
   <!-- SEO -->
   <meta name="keywords" content="Obumuneme Nwabude, Obum Nwabude, obumnwabude, Nwabude David Obumuneme, Nwabude Obumuneme, Nwabude Obum, Nwabude David, David Obumuneme Nwabude">
   <meta name="description" content="Obum is an experienced Digital Skills Trainer for Konverge Media. He is a web developer and has great skills in digital marketing.">
@@ -31,38 +60,50 @@
   <meta name="twitter:description" content="Obum is an experienced Digital Skills Trainer for Konverge Media. He is a web developer and has great skills in digital marketing.">
   <meta name="twitter:image" content="https://www.obumnwabude.com/face-of-obum.jpg">
   <meta name="twitter:image:alt" content="Face of Obumuneme Nwabude">
-  <!-- Icons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
-  <link rel="manifest" href="icons/site.webmanifest">
-  <link rel="shortcut icon" href="icons/favicon.ico">
-  <meta name="msapplication-TileColor" content="#00aba9">
-  <meta name="msapplication-config" content="icons/browserconfig.xml">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i|Roboto:400,500|Source+Sans+Pro:700&display=swap" rel="stylesheet">
-  <!-- styles -->
-  <style>
-    /*
-     * Hides all duplicates and hideables of mobile/desktop views
-     */
-    @media screen and (max-width: 1149px) {
-      #profile-pic-desktop, footer, hr.before-linkedin-badge:nth-child(2),
-      .badge-and-text-container:nth-of-type(2) {
-        display: none;
-      }
-    }
-    @media screen and (min-width: 1150px) {
-      #profile-pic-mobile, #footer, hr.before-linkedin-badge,
-      .badge-and-text-container:nth-of-type(1) {
-        display: none;
-      }
-    }
-  </style>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  <meta name="theme-color" content="#f0f1fe">
 </head>
 <body>
+  <nav role="navigation">
+    <input type="checkbox" name="nav-is-collapsed" id="nav-is-collapsed" aria-labelledby="menu-and-close-icons" role="button">
+    <label for="nav-is-collapsed" id="menu-and-close-icons" aria-label="Toggle Menu Button of Navigation Bar">
+      <svg width="25" height="25" viewBox="0 0 52 52" id="close-menu-icon">
+        <path fill="#060856" d="M28.228,23.986L47.092,5.122c1.172-1.171,1.172-3.071,0-4.242c-1.172-1.172-3.07-1.172-4.242,0L23.986,19.744L5.121,0.88 c-1.172-1.172-3.07-1.172-4.242,0c-1.172,1.171-1.172,3.071,0,4.242l18.865,18.864L0.879,42.85c-1.172,1.171-1.172,3.071,0,4.242 C1.465,47.677,2.233,47.97,3,47.97s1.535-0.293,2.121-0.879l18.865-18.864L42.85,47.091c0.586,0.586,1.354,0.879,2.121,0.879 s1.535-0.293,2.121-0.879c1.172-1.171,1.172-3.071,0-4.242L28.228,23.986z"/>
+      </svg>
+      <svg width="25" height="25" viewBox="0 0 612 612" id="menu-icon">
+        <path fill="#060856" d="M581.4,520.199H30.6c-16.891,0-30.6,13.709-30.6,30.6C0,567.691,13.709,581.4,30.6,581.4h550.8 c16.891,0,30.6-13.709,30.6-30.602C612,533.908,598.291,520.199,581.4,520.199z M30.6,91.799h550.8 c16.891,0,30.6-13.708,30.6-30.6c0-16.892-13.709-30.6-30.6-30.6H30.6C13.709,30.6,0,44.308,0,61.2 C0,78.091,13.709,91.799,30.6,91.799z M581.4,275.399H30.6C13.709,275.399,0,289.108,0,306s13.709,30.6,30.6,30.6h550.8 c16.891,0,30.6-13.709,30.6-30.6S598.291,275.399,581.4,275.399z"/>
+      </svg>
+    </label>
+    <ul class="text-subheading">
+      <li><a href="#" role="button" title="Obumuneme Nwabude" class="active">
+        <svg width="40" height="40" viewBox="0 0 200 200" aria-label="O">
+          <title>Logo</title>
+          <g id="svg_46">
+           <ellipse cx="101" cy="96.324074" fill="#ffffff" fill-opacity="0.1" id="svg_4" rx="49" ry="56" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="13"/>
+           <ellipse cx="101" cy="96.324074" fill="#ffffff" fill-opacity="0.1" id="svg_8" rx="68" ry="75" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="25"/>
+           <path d="m23.01484,68.034664a80,80 0 0 1 45.35218,-54.09312" fill="#ffffff" fill-opacity="0.1" id="svg_9" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/>
+           <path d="m7.704981,153.728327a80,82.457867 0 0 1 48.60218,-47.251573" fill="#ffffff" fill-opacity="0.1" id="svg_2" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="10" transform="rotate(-68 32.0061 130.103)"/>
+           <path d="m145.169765,154.291704a80,82.45787 0 0 1 48.60218,-47.25157" fill="#ffffff" fill-opacity="0.1" id="svg_3" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="10" transform="rotate(157 169.471 130.666)"/>
+           <path d="m127.578355,61.806246a83.995484,77.655603 0 0 1 58.510377,-41.084697" fill="#ffffff" fill-opacity="0.1" id="svg_5" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="10" transform="rotate(85 156.834 41.2639)"/>
+           <path d="m77.939049,200.533924a80,82.45787 0 0 1 47.10446,-50.18886" fill="#ffffff" fill-opacity="0.1" id="svg_6" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="10" transform="rotate(-133 101.491 175.439)"/>
+           <path d="m79.111103,212.79963a77.167184,77.878232 0 0 1 45.436481,-47.401415" fill="#ffffff" fill-opacity="0.1" id="svg_23" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" transform="rotate(-133 101.829 189.099)"/>
+           <path d="m-0.357576,171.184314a91.622223,75.14808 0 0 1 53.947692,-45.739679" fill="#ffffff" fill-opacity="0.1" id="svg_24" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" transform="rotate(-83 26.6163 148.314)"/>
+           <path d="m151.537071,167.934996a86.033542,66.937757 0 0 1 50.657044,-40.742379" fill="#ffffff" fill-opacity="0.1" id="svg_25" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" transform="rotate(160 176.866 147.564)"/>
+           <line fill="none" fill-opacity="0.1" id="svg_35" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" x1="20.375" x2="16.875" y1="59.949074" y2="53.199074"/>
+           <line fill="none" fill-opacity="0.1" id="svg_37" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" x1="17.875" x2="29.375" y1="52.199074" y2="43.199074"/>
+           <line fill="none" fill-opacity="0.1" id="svg_38" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" x1="184.375" x2="172.625" y1="51.449074" y2="43.699074"/>
+           <line fill="none" fill-opacity="0.1" id="svg_39" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" x1="20.625" x2="23.875" y1="57.199074" y2="48.949074"/>
+           <path d="m19.125,54.449074c0,-1.099998 0.291107,-2.238819 0.660706,-1.749084c0.560112,0.74218 -0.491737,2.310394 -0.908035,1.628418c-0.441223,-0.722813 0.56987,-1.583794 0.74733,-1.384708l0,0.887501l-0.109001,-0.545124l-0.599335,0.162998" fill="none" fill-opacity="0.1" id="svg_41" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+           <line fill="none" fill-opacity="0.1" id="svg_36" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" x1="181.375" x2="185.125" y1="60.949074" y2="52.949074"/>
+           <line fill="none" fill-opacity="0.1" id="svg_40" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" x1="180.125" x2="178.875" y1="57.449074" y2="50.199074"/>
+           <path d="m182.375,54.199074c0.25,0.382332 0.343262,-0.436287 0.106323,-1.362999c-0.110046,-0.430477 0.62326,1.184002 -0.347321,1.250999c-0.411102,0.028378 -0.191406,-0.943729 -0.365326,-0.169666c-0.098053,0.436398 -0.646454,-0.741043 -0.143677,-1.248001c0.038971,-0.039288 0.12915,-0.860653 0.178986,-1.569332c0.077118,-1.096565 0.071014,-0.576416 0.071014,0.400665c0,0.793335 0,0.944752 0,0.073334l-0.014282,-0.857124" fill="none" fill-opacity="0.1" id="svg_42" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+          </g>
+         </g>
+        </svg>
+      <span>bumuneme </span><span class="show-at-large">&nbsp;Nwabude</span></a></li>
+      <li><a href="#digital-skills" role="button" title="Being a Digital Skills Trainer">Digital Skills&nbsp;<span class="show-at-large">Trainer</span></a></li>
+      <li><a href="#mobile-web" role="button" title="Being a Mobile Web Specialist">Mobile Web&nbsp;<span class="show-at-large">Specialist</span></a></li>
+      <li><a href="#portfolio" role="button" title="View my Portfolio"><span class="show-at-large">View my&nbsp;</span>Portfolio</a></li>
+    </ul>
+  </nav>
   <main>
     <!-- this image serves as profile picture when view is mobile -->
     <picture>
@@ -90,21 +131,22 @@
             <hr id="before-about-text">
 
             <!-- profile about -->
-            <div id="header-about-text" class="text-regular text-center">
-              <h3 class="text-subheading">About Me</h3>
-              Hey, I'm Obumuneme Nwabude and I am from <a href="https://wikipedia.org/wiki/Anambra_State" title="Anambra State, Nigeria" rel="noreferrer noopener" target="_blank">Anambra State</a>, in <a href="https://wikipedia.org/wiki/Nigeria" title="Nigeria" rel="noreferrer noopener" target="_blank">Nigeria</a>. I'm a <a href="https://knvgmedia.com" title="Konverge Media Ltd" rel="noreferrer noopener" target="_blank">Konverge Media</a> trainer for the <a href="https://konverge.co" title="Google Digital Skills for Africa - Free Online Marketing Courses From Google" rel="noreferrer noopener" target="_blank">Google Digital Skills for Africa</a> program, sponsored by <a href="https://about.google" title="Google Inc." rel="noreferrer noopener" target="_blank">Google</a>. I also spend time creating <a href="https://wikipedia.org/wiki/Progressive_web_application" title="Progressive Web Applications" rel="noreferrer noopener" target="_blank">Progressive Web Apps</a>, which are websites with focus of how users perceive them on mobile devices.
+            <div id="header-about-text" class="text-regular text-center" role="header">
+              <h3 class="text-subheading text-underline">About Me</h3>
+              Hey, I'm Obumuneme Nwabude and I am from <a href="https://wikipedia.org/wiki/Anambra_State" title="Anambra State, Nigeria" rel="noreferrer noopener" target="_blank">Anambra State</a>, in <a href="https://wikipedia.org/wiki/Nigeria" title="Nigeria" rel="noreferrer noopener" target="_blank">Nigeria</a>. I'm a <a href="https://knvgmedia.com" title="Konverge Media Ltd" rel="noreferrer noopener" target="_blank">Konverge Media</a> trainer for the <a href="http://konverge.co" title="Google Digital Skills for Africa - Free Online Marketing Courses From Google" rel="noreferrer noopener" target="_blank">Google Digital Skills for Africa</a> program, sponsored by <a href="https://about.google" title="Google Inc." rel="noreferrer noopener" target="_blank">Google</a>. I also spend time creating <a href="https://wikipedia.org/wiki/Progressive_web_application" title="Progressive Web Applications" rel="noreferrer noopener" target="_blank">Progressive Web Apps</a>, which are websites with focus of how users perceive them on mobile devices.
             </div>
           </div>
         </div>
 
         <hr id="before-main-content">
 
-        <div id="main-content" class="text-regular">
-          <section class="content-container">
+        <div id="main-content" class="text-regular" role="main">
+          <section class="content-container" id="digital-skills">
             <h3 class="text-subheading">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 36 36" width="50" height="50">
+              <!-- trainer icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 36 36" width="50" height="50" aria-hidden>
                 <circle cx="16" cy="16" r="18" fill="#ffffff" fill-opacity="0.1"/>
-                <path stroke="#f0f1fe" style="text-indent:0;text-align:start;line-height:normal;text-transform:none;block-progression:tb;-inkscape-font-specification:Bitstream Vera Sans;" d="M 9.5 4 C 7.578848 4 6 5.578848 6 7.5 C 6 9.421152 7.578848 11 9.5 11 C 11.421152 11 13 9.4211519 13 7.5 C 13 5.5788481 11.421152 4 9.5 4 z M 9.5 6 C 10.340272 6 11 6.6597281 11 7.5 C 11 8.3402719 10.340272 9 9.5 9 C 8.6597282 9 8 8.3402718 8 7.5 C 8 6.6597282 8.6597282 6 9.5 6 z M 17 7 L 17 8 L 15 8 L 15 10 L 25 10 L 25 20 L 14 20 L 14 22 L 16.5 22 L 14 27 L 16 27 L 18 23 L 20 27 L 22 27 L 19.5 22 L 26 22 L 27 22 L 27 21 L 27 9 L 27 8 L 26 8 L 19 8 L 19 7 L 17 7 z M 9 12 C 6.8026661 12 5 13.802666 5 16 L 5 20.625 L 5 21.25 L 5.5625 21.53125 L 7 22.25 L 7 28 L 9 28 L 9 21.625 L 9 21 L 8.4375 20.75 L 7 20.03125 L 7 16 C 7 14.883334 7.8833339 14 9 14 L 10.75 14 C 11.281343 14 11.78179 14.218623 12.15625 14.59375 L 14.28125 16.71875 L 14.59375 17 L 15 17 L 19 17 L 19 15 L 15.4375 15 L 13.59375 13.1875 C 13.58755 13.1813 13.56871 13.1936 13.5625 13.1875 C 12.814756 12.448204 11.801915 12 10.75 12 L 9 12 z M 10 21 L 10 28 L 12 28 L 12 21 L 10 21 z" overflow="visible" font-family="Bitstream Vera Sans"/>
+                <path stroke="#f0f1fe" stroke-width="0.940" style="text-indent:0;text-align:start;line-height:normal;text-transform:none;block-progression:tb;-inkscape-font-specification:Bitstream Vera Sans;" d="M 9.5 4 C 7.578848 4 6 5.578848 6 7.5 C 6 9.421152 7.578848 11 9.5 11 C 11.421152 11 13 9.4211519 13 7.5 C 13 5.5788481 11.421152 4 9.5 4 z M 9.5 6 C 10.340272 6 11 6.6597281 11 7.5 C 11 8.3402719 10.340272 9 9.5 9 C 8.6597282 9 8 8.3402718 8 7.5 C 8 6.6597282 8.6597282 6 9.5 6 z M 17 7 L 17 8 L 15 8 L 15 10 L 25 10 L 25 20 L 14 20 L 14 22 L 16.5 22 L 14 27 L 16 27 L 18 23 L 20 27 L 22 27 L 19.5 22 L 26 22 L 27 22 L 27 21 L 27 9 L 27 8 L 26 8 L 19 8 L 19 7 L 17 7 z M 9 12 C 6.8026661 12 5 13.802666 5 16 L 5 20.625 L 5 21.25 L 5.5625 21.53125 L 7 22.25 L 7 28 L 9 28 L 9 21.625 L 9 21 L 8.4375 20.75 L 7 20.03125 L 7 16 C 7 14.883334 7.8833339 14 9 14 L 10.75 14 C 11.281343 14 11.78179 14.218623 12.15625 14.59375 L 14.28125 16.71875 L 14.59375 17 L 15 17 L 19 17 L 19 15 L 15.4375 15 L 13.59375 13.1875 C 13.58755 13.1813 13.56871 13.1936 13.5625 13.1875 C 12.814756 12.448204 11.801915 12 10.75 12 L 9 12 z M 10 21 L 10 28 L 12 28 L 12 21 L 10 21 z" overflow="visible" font-family="Bitstream Vera Sans"/>
             </svg>
             <p>Being a Digital Skills Trainer</p>
           </h3>
@@ -115,49 +157,63 @@
 
           <hr id="between-body-sections">
 
-          <section class="content-container">
+          <section class="content-container" id="mobile-web">
             <h3 class="text-subheading">
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="35" viewBox="-2 -2 54 54">
+              <!-- laptop icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="35" viewBox="-2 -2 54 54" aria-hidden>
                 <circle cx="25" cy="25" r="40" fill="#ffffff" fill-opacity="0.1"/>
-                  <path stroke="#f0f1fe" style="text-indent:0;text-align:start;line-height:normal;text-transform:none;block-progression:tb;-inkscape-font-specification:Bitstream Vera Sans" d="M 5 2 C 3.9069372 2 3 2.9069372 3 4 L 3 31 C 3 31.395104 3.1095472 31.781326 3.3125 32.09375 C 3.2184688 32.26893 3.1419181 32.451747 3.09375 32.65625 L 0.0625 45.625 A 1.0001 1.0001 0 0 0 0.03125 45.71875 L 0.03125 45.78125 A 1.0001 1.0001 0 0 0 0 45.8125 A 1.0001 1.0001 0 0 0 0 45.875 A 1.0001 1.0001 0 0 0 0 45.90625 A 1.0001 1.0001 0 0 0 0 45.96875 A 1.0001 1.0001 0 0 0 0 46 A 1.0001 1.0001 0 0 0 0 46.09375 L 0 48 C 0 49.093063 0.9069372 50 2 50 L 48 50 C 49.093063 50 50 49.093063 50 48 L 50 46.0625 A 1.0001 1.0001 0 0 0 49.96875 45.78125 L 46.90625 32.65625 C 46.858359 32.451124 46.78145 32.269113 46.6875 32.09375 C 46.890453 31.781326 47 31.395104 47 31 L 47 4 C 47 2.9069372 46.093063 2 45 2 L 5 2 z M 5 4 L 45 4 L 45 31 L 40.6875 31 L 40.3125 31 L 34.46875 31 A 1.0001 1.0001 0 0 0 34.0625 31 L 22.03125 31 A 1.0001 1.0001 0 0 0 21.8125 31 L 15.8125 31 A 1.0001 1.0001 0 0 0 15.5 31 L 9.65625 31 A 1.0001 1.0001 0 0 0 9.375 31 L 5 31 L 5 4 z M 7.8125 6 A 1.0001 1.0001 0 0 0 7 7 L 7 28 A 1.0001 1.0001 0 0 0 8 29 L 42 29 A 1.0001 1.0001 0 0 0 43 28 L 43 7 A 1.0001 1.0001 0 0 0 42 6 L 8 6 A 1.0001 1.0001 0 0 0 7.90625 6 A 1.0001 1.0001 0 0 0 7.8125 6 z M 9 8 L 41 8 L 41 27 L 9 27 L 9 8 z M 5.125 33 L 8.3125 33 L 7.03125 39.8125 A 1.0001 1.0001 0 0 0 8.46875 41 A 1.001098 1.001098 0 0 0 8.5 41 L 14.28125 41 A 1.0001 1.0001 0 0 0 15.25 41 L 34.75 41 A 1.0001 1.0001 0 0 0 35.71875 41 L 41.46875 41 A 1.0001 1.0001 0 0 0 41.5 41 A 1.0001 1.0001 0 0 0 42.96875 39.8125 L 41.6875 33 L 44.875 33 C 44.80972 33 44.9708 33.102541 44.96875 33.09375 L 47.75 45 L 30.6875 45 L 30.15625 43.625 L 30.09375 43.46875 L 30.0625 43.46875 C 29.779728 42.524921 28.930365 42 28 42 L 22 42 C 21.069635 42 20.219967 42.524717 19.9375 43.46875 L 19.90625 43.46875 L 19.84375 43.625 L 19.3125 45 L 2.25 45 L 5.03125 33.09375 C 5.0298783 33.099574 5.1902781 33 5.125 33 z M 10.3125 33 L 14.59375 33 L 14.375 35 L 10 35 A 1.0001 1.0001 0 0 0 9.9375 35 L 10.3125 33 z M 16.59375 33 L 20.875 33 L 20.78125 35 L 16.375 35 L 16.59375 33 z M 22.875 33 L 27.125 33 L 27.21875 35 L 22.78125 35 L 22.875 33 z M 29.125 33 L 33.40625 33 L 33.625 35 L 29.21875 35 L 29.125 33 z M 35.40625 33 L 39.6875 33 L 40.0625 35 A 1.0001 1.0001 0 0 0 40 35 L 35.625 35 L 35.40625 33 z M 40.40625 36.90625 L 40.8125 39 L 36.09375 39 L 35.875 37 L 40 37 A 1.0001 1.0001 0 0 0 40.40625 36.90625 z M 9.5625 36.9375 A 1.001098 1.001098 0 0 0 10 37 L 14.125 37 L 13.90625 39 L 9.1875 39 L 9.5625 36.9375 z M 16.125 37 L 20.71875 37 L 20.625 39 L 15.90625 39 L 16.125 37 z M 22.71875 37 L 27.28125 37 L 27.375 39 L 22.625 39 L 22.71875 37 z M 29.28125 37 L 33.875 37 L 34.09375 39 L 29.375 39 L 29.28125 37 z M 22 44 L 28 44 C 28.083384 44 28.16459 44.103916 28.1875 44.09375 A 1.0001 1.0001 0 0 0 28.21875 44.1875 L 28.53125 45 L 21.46875 45 L 21.78125 44.1875 A 1.0001 1.0001 0 0 0 21.8125 44.09375 C 21.835472 44.103644 21.916616 44 22 44 z M 2 47 L 19.71875 47 A 1.0001 1.0001 0 0 0 20.3125 47 L 29.75 47 A 1.0001 1.0001 0 0 0 30.34375 47 L 48 47 L 48 48 L 2 48 L 2 47 z"/>
+                  <path stroke="#f0f1fe" style="text-indent:0;text-align:start;line-height:normal;text-transform:none;block-progression:tb;-inkscape-font-specification:Bitstream Vera Sans" stroke-width="1.4" d="M 5 2 C 3.9069372 2 3 2.9069372 3 4 L 3 31 C 3 31.395104 3.1095472 31.781326 3.3125 32.09375 C 3.2184688 32.26893 3.1419181 32.451747 3.09375 32.65625 L 0.0625 45.625 A 1.0001 1.0001 0 0 0 0.03125 45.71875 L 0.03125 45.78125 A 1.0001 1.0001 0 0 0 0 45.8125 A 1.0001 1.0001 0 0 0 0 45.875 A 1.0001 1.0001 0 0 0 0 45.90625 A 1.0001 1.0001 0 0 0 0 45.96875 A 1.0001 1.0001 0 0 0 0 46 A 1.0001 1.0001 0 0 0 0 46.09375 L 0 48 C 0 49.093063 0.9069372 50 2 50 L 48 50 C 49.093063 50 50 49.093063 50 48 L 50 46.0625 A 1.0001 1.0001 0 0 0 49.96875 45.78125 L 46.90625 32.65625 C 46.858359 32.451124 46.78145 32.269113 46.6875 32.09375 C 46.890453 31.781326 47 31.395104 47 31 L 47 4 C 47 2.9069372 46.093063 2 45 2 L 5 2 z M 5 4 L 45 4 L 45 31 L 40.6875 31 L 40.3125 31 L 34.46875 31 A 1.0001 1.0001 0 0 0 34.0625 31 L 22.03125 31 A 1.0001 1.0001 0 0 0 21.8125 31 L 15.8125 31 A 1.0001 1.0001 0 0 0 15.5 31 L 9.65625 31 A 1.0001 1.0001 0 0 0 9.375 31 L 5 31 L 5 4 z M 7.8125 6 A 1.0001 1.0001 0 0 0 7 7 L 7 28 A 1.0001 1.0001 0 0 0 8 29 L 42 29 A 1.0001 1.0001 0 0 0 43 28 L 43 7 A 1.0001 1.0001 0 0 0 42 6 L 8 6 A 1.0001 1.0001 0 0 0 7.90625 6 A 1.0001 1.0001 0 0 0 7.8125 6 z M 9 8 L 41 8 L 41 27 L 9 27 L 9 8 z M 5.125 33 L 8.3125 33 L 7.03125 39.8125 A 1.0001 1.0001 0 0 0 8.46875 41 A 1.001098 1.001098 0 0 0 8.5 41 L 14.28125 41 A 1.0001 1.0001 0 0 0 15.25 41 L 34.75 41 A 1.0001 1.0001 0 0 0 35.71875 41 L 41.46875 41 A 1.0001 1.0001 0 0 0 41.5 41 A 1.0001 1.0001 0 0 0 42.96875 39.8125 L 41.6875 33 L 44.875 33 C 44.80972 33 44.9708 33.102541 44.96875 33.09375 L 47.75 45 L 30.6875 45 L 30.15625 43.625 L 30.09375 43.46875 L 30.0625 43.46875 C 29.779728 42.524921 28.930365 42 28 42 L 22 42 C 21.069635 42 20.219967 42.524717 19.9375 43.46875 L 19.90625 43.46875 L 19.84375 43.625 L 19.3125 45 L 2.25 45 L 5.03125 33.09375 C 5.0298783 33.099574 5.1902781 33 5.125 33 z M 10.3125 33 L 14.59375 33 L 14.375 35 L 10 35 A 1.0001 1.0001 0 0 0 9.9375 35 L 10.3125 33 z M 16.59375 33 L 20.875 33 L 20.78125 35 L 16.375 35 L 16.59375 33 z M 22.875 33 L 27.125 33 L 27.21875 35 L 22.78125 35 L 22.875 33 z M 29.125 33 L 33.40625 33 L 33.625 35 L 29.21875 35 L 29.125 33 z M 35.40625 33 L 39.6875 33 L 40.0625 35 A 1.0001 1.0001 0 0 0 40 35 L 35.625 35 L 35.40625 33 z M 40.40625 36.90625 L 40.8125 39 L 36.09375 39 L 35.875 37 L 40 37 A 1.0001 1.0001 0 0 0 40.40625 36.90625 z M 9.5625 36.9375 A 1.001098 1.001098 0 0 0 10 37 L 14.125 37 L 13.90625 39 L 9.1875 39 L 9.5625 36.9375 z M 16.125 37 L 20.71875 37 L 20.625 39 L 15.90625 39 L 16.125 37 z M 22.71875 37 L 27.28125 37 L 27.375 39 L 22.625 39 L 22.71875 37 z M 29.28125 37 L 33.875 37 L 34.09375 39 L 29.375 39 L 29.28125 37 z M 22 44 L 28 44 C 28.083384 44 28.16459 44.103916 28.1875 44.09375 A 1.0001 1.0001 0 0 0 28.21875 44.1875 L 28.53125 45 L 21.46875 45 L 21.78125 44.1875 A 1.0001 1.0001 0 0 0 21.8125 44.09375 C 21.835472 44.103644 21.916616 44 22 44 z M 2 47 L 19.71875 47 A 1.0001 1.0001 0 0 0 20.3125 47 L 29.75 47 A 1.0001 1.0001 0 0 0 30.34375 47 L 48 47 L 48 48 L 2 48 L 2 47 z"/>
               </svg>
               <p>Being a Mobile Web Specialist</p>
             </h3>
             I always wondered how the bits all joined together to form the various systems and devices we use today. My enthusiasm for technology was fully expressed during the time I spent learning how to code. I'm a self taught developer and as of last year, it was a very great opportunity for me to be part of two special training programs that cemented my gains in web development.
             First is the <a href="https://developers.google.com/training/programs/africa" title="Google Africa Developer Scholarship" rel="noreferrer noopener" target="_blank">Google Africa Developer Scholarship</a>
-            <div style="display:flex;justify-content:space-around;align-items:center;">
-            <blockquote class="twitter-tweet" data-theme="dark" id="twitter-post" data-width="500"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/GoogleAfricaDeveloperScholarship?src=hash&amp;ref_src=twsrc%5Etfw">#GoogleAfricaDeveloperScholarship</a> had it&#39;s meetup finale today. At <a href="https://twitter.com/hashtag/ALC_Enugu?src=hash&amp;ref_src=twsrc%5Etfw">#ALC_Enugu</a> we had live and direct: <a href="https://twitter.com/sasschristina?ref_src=twsrc%5Etfw">@sasschristina</a>, founder of <a href="https://twitter.com/Andela?ref_src=twsrc%5Etfw">@Andela</a> and also <a href="https://twitter.com/Esidemsam?ref_src=twsrc%5Etfw">@Esidemsam</a>, program manager for <a href="https://twitter.com/hashtag/ALC4?src=hash&amp;ref_src=twsrc%5Etfw">#ALC4</a>.0. <a href="https://twitter.com/Google?ref_src=twsrc%5Etfw">@Google</a> <a href="https://twitter.com/googleafrica?ref_src=twsrc%5Etfw">@googleafrica</a> <a href="https://twitter.com/andela_alc?ref_src=twsrc%5Etfw">@andela_alc</a> <a href="https://twitter.com/Andela_Nigeria?ref_src=twsrc%5Etfw">@Andela_Nigeria</a> <a href="https://twitter.com/Andela?ref_src=twsrc%5Etfw">@Andela</a> <a href="https://twitter.com/pluralsight?ref_src=twsrc%5Etfw">@pluralsight</a> <a href="https://t.co/8f0kgoEU6M">pic.twitter.com/8f0kgoEU6M</a></p>&mdash; Obumuneme Nwabude (@obumnwabude) <a href="https://twitter.com/obumnwabude/status/1205893214869307392?ref_src=twsrc%5Etfw">December 14, 2019</a></blockquote></div> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <div style="display:flex;justify-content:space-around;align-items:center;margin-bottom:20px;">
+            <blockquote class="twitter-tweet" data-theme="dark" id="twitter-post" data-width="500"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/GoogleAfricaDeveloperScholarship?src=hash&amp;ref_src=twsrc%5Etfw">#GoogleAfricaDeveloperScholarship</a> had it&#39;s meetup finale today. At <a href="https://twitter.com/hashtag/ALC_Enugu?src=hash&amp;ref_src=twsrc%5Etfw">#ALC_Enugu</a> we had live and direct: <a href="https://twitter.com/sasschristina?ref_src=twsrc%5Etfw">@sasschristina</a>, founder of <a href="https://twitter.com/Andela?ref_src=twsrc%5Etfw">@Andela</a> and also <a href="https://twitter.com/Esidemsam?ref_src=twsrc%5Etfw">@Esidemsam</a>, program manager for <a href="https://twitter.com/hashtag/ALC4?src=hash&amp;ref_src=twsrc%5Etfw">#ALC4</a>.0. <a href="https://twitter.com/Google?ref_src=twsrc%5Etfw">@Google</a> <a href="https://twitter.com/googleafrica?ref_src=twsrc%5Etfw">@googleafrica</a> <a href="https://twitter.com/andela_alc?ref_src=twsrc%5Etfw">@andela_alc</a> <a href="https://twitter.com/Andela_Nigeria?ref_src=twsrc%5Etfw">@Andela_Nigeria</a> <a href="https://twitter.com/Andela?ref_src=twsrc%5Etfw">@Andela</a> <a href="https://twitter.com/pluralsight?ref_src=twsrc%5Etfw">@pluralsight</a> <a href="https://t.co/8f0kgoEU6M">pic.twitter.com/8f0kgoEU6M</a></p>&mdash; Obumuneme Nwabude (@obumnwabude) <a href="https://twitter.com/obumnwabude/status/1205893214869307392?ref_src=twsrc%5Etfw">December 14, 2019</a></blockquote></div> <script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             Then came <a href="https://devctraining.andela.com/" title="DevC Training With Andela" target="_blank">DevC Training With Andela</a>.
             <iframe src="https://web.facebook.com/plugins/post.php?href=https%3A%2F%2Fweb.facebook.com%2Fobumnwabude%2Fposts%2F2552277501547109&width=auto"  height="630" style="border:none;overflow:hidden;display:block;margin:10px auto;width:100%;max-width:600px;" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"><a href="https://facebook.com/obumnwabude/posts/2552277501547109" rel="noreferrer noopener" target="_blank" title="Being in #DevCTrainingWithAndela">Being in #DevCTrainingWithAndela</a></iframe>
             I'm ever grateful for being part of the tech community in my locality.
           </section>
 
-          <hr class="before-linkedin-badge">
-
-          <!-- text and linkedin badge mobile -->
-          <div class="badge-and-text-container">
-            <!-- text before linkedin badge -->
-            <h3 class="text-subheading text-center">View my portfolio </h3>
-            <div class="linkedin-badge-container">
-              <!-- linkedin profile badge -->
-              <div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="obumnwabude">
-                <a class="LI-simple-link" href='https://ng.linkedin.com/in/obumnwabude?trk=profile-badge' rel="noreferrer noopener" target="_blank">Obumuneme Nwabude</a>
-              </div>
-            </div>
-          </div>
-
-          <hr id="before-social-icons">
+          <hr id="before-linkedin-badge">
 
           <!-- helps in lying the social icons and the linkedin badge side-by-side when in desktop view -->
           <div id="social-and-badge-container">
+          <!-- text and linkedin badge mobile -->
+          <section class="content-container" id="portfolio">
+            <!-- text before linkedin badge -->
+            <h3 class="text-subheading">
+              <!-- portfolio icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -10 80 85" width="42" height="42"  aria-hidden>
+                <circle cx="30" cy="30" r="45" fill="#ffffff" fill-opacity="0.1"/><path stroke="#f0f1fe" stroke-width="1.8" d="M 26.070313 4 C 25.066406 4 24.128906 4.5 23.574219 5.335938 L 20.464844 10 L 3 10 C 1.34375 10 0 11.34375 0 13 L 0 22.800781 C 0 24.425781 0.773438 25.867188 2 26.785156 L 2 52 C 2 54.210938 3.789063 56 6 56 L 58 56 C 60.210938 56 62 54.210938 62 52 L 62 26.785156 C 63.226563 25.867188 64 24.425781 64 22.800781 L 64 13 C 64 11.34375 62.65625 10 61 10 L 43.535156 10 L 40.425781 5.335938 C 39.871094 4.5 38.933594 4 37.929688 4 Z M 26.070313 6 L 37.929688 6 C 38.265625 6 38.574219 6.167969 38.761719 6.445313 L 41.128906 10 L 22.871094 10 L 25.238281 6.445313 C 25.425781 6.167969 25.734375 6 26.070313 6 Z M 3 12 L 61 12 C 61.550781 12 62 12.449219 62 13 L 62 14 C 61.449219 14 61 14.445313 61 15 L 61 17 C 61 17.554688 61.449219 18 62 18 L 62 22.800781 C 62 24.214844 61.039063 25.417969 59.660156 25.730469 L 36 31.070313 L 36 31 C 36 29.898438 35.101563 29 34 29 L 30 29 C 28.898438 29 28 29.898438 28 31 L 28 31.070313 L 4.339844 25.730469 C 2.960938 25.417969 2 24.214844 2 22.800781 L 2 18 C 2.550781 18 3 17.554688 3 17 L 3 15 C 3 14.445313 2.550781 14 2 14 L 2 13 C 2 12.449219 2.449219 12 3 12 Z M 7 14 C 6.449219 14 6 14.445313 6 15 L 6 17 C 6 17.554688 6.449219 18 7 18 C 7.550781 18 8 17.554688 8 17 L 8 15 C 8 14.445313 7.550781 14 7 14 Z M 12 14 C 11.449219 14 11 14.445313 11 15 L 11 17 C 11 17.554688 11.449219 18 12 18 C 12.550781 18 13 17.554688 13 17 L 13 15 C 13 14.445313 12.550781 14 12 14 Z M 17 14 C 16.449219 14 16 14.445313 16 15 L 16 17 C 16 17.554688 16.449219 18 17 18 C 17.550781 18 18 17.554688 18 17 L 18 15 C 18 14.445313 17.550781 14 17 14 Z M 22 14 C 21.449219 14 21 14.445313 21 15 L 21 17 C 21 17.554688 21.449219 18 22 18 C 22.550781 18 23 17.554688 23 17 L 23 15 C 23 14.445313 22.550781 14 22 14 Z M 27 14 C 26.449219 14 26 14.445313 26 15 L 26 17 C 26 17.554688 26.449219 18 27 18 C 27.550781 18 28 17.554688 28 17 L 28 15 C 28 14.445313 27.550781 14 27 14 Z M 32 14 C 31.449219 14 31 14.445313 31 15 L 31 17 C 31 17.554688 31.449219 18 32 18 C 32.550781 18 33 17.554688 33 17 L 33 15 C 33 14.445313 32.550781 14 32 14 Z M 37 14 C 36.449219 14 36 14.445313 36 15 L 36 17 C 36 17.554688 36.449219 18 37 18 C 37.550781 18 38 17.554688 38 17 L 38 15 C 38 14.445313 37.550781 14 37 14 Z M 42 14 C 41.449219 14 41 14.445313 41 15 L 41 17 C 41 17.554688 41.449219 18 42 18 C 42.550781 18 43 17.554688 43 17 L 43 15 C 43 14.445313 42.550781 14 42 14 Z M 47 14 C 46.449219 14 46 14.445313 46 15 L 46 17 C 46 17.554688 46.449219 18 47 18 C 47.550781 18 48 17.554688 48 17 L 48 15 C 48 14.445313 47.550781 14 47 14 Z M 52 14 C 51.449219 14 51 14.445313 51 15 L 51 17 C 51 17.554688 51.449219 18 52 18 C 52.550781 18 53 17.554688 53 17 L 53 15 C 53 14.445313 52.550781 14 52 14 Z M 57 14 C 56.449219 14 56 14.445313 56 15 L 56 17 C 56 17.554688 56.449219 18 57 18 C 57.550781 18 58 17.554688 58 17 L 58 15 C 58 14.445313 57.550781 14 57 14 Z M 60 27.703125 L 60 52 C 60 53.105469 59.105469 54 58 54 L 6 54 C 4.894531 54 4 53.105469 4 52 L 4 27.703125 L 28 33.125 L 28 37 C 28 38.105469 28.894531 39 30 39 L 34 39 C 35.105469 39 36 38.105469 36 37 L 36 33.121094 Z M 30 31 L 34 31 L 34 37 L 30 37 Z M 7 48 C 6.449219 48 6 48.445313 6 49 C 6 49.554688 6.449219 50 7 50 L 49 50 C 49.550781 50 50 49.554688 50 49 C 50 48.445313 49.550781 48 49 48 Z M 53 48 C 52.449219 48 52 48.445313 52 49 C 52 49.554688 52.449219 50 53 50 L 57 50 C 57.550781 50 58 49.554688 58 49 C 58 48.445313 57.550781 48 57 48 Z" overflow="visible" font-family="Bitstream Vera Sans"/></svg>
+
+             <p>View my Portfolio</p>
+           </h3>
+            <div class="linkedin-badge-container">
+              <!-- linkedin profile badge -->
+              <div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="obumnwabude">
+                <a class="LI-simple-link text-center" href='https://ng.linkedin.com/in/obumnwabude?trk=profile-badge' rel="noreferrer noopener" target="_blank">Obumuneme Nwabude</a>
+              </div>
+            </div>
+            <div class="linkedin-badge-container">
+              <!-- linkedin profile badge -->
+              <div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="horizontal" data-theme="dark" data-vanity="obumnwabude">
+                <a class="LI-simple-link text-center" href='https://ng.linkedin.com/in/obumnwabude?trk=profile-badge' rel="noreferrer noopener" target="_blank">Obumuneme Nwabude</a>
+              </div>
+            </div>
+          </section>
+
+          <hr id="before-social-icons">
+
+
             <!-- text and social icons -->
             <div id="social-text-and-icons">
               <!-- text before social icons -->
-              <h3 class="text-subheading text-center">I'm social, let's connect ... </h3>
+              <h3 class="text-subheading text-underline">I'm social, let's connect ... </h3>
               <!-- social media icons -->
               <div id="header-social-icons">
                 <div id="social-icons">
-                <!-- facebook -->
+                <!-- facebook icon -->
                     <a href="https://www.facebook.com/obumnwabude" title="Click to visit my profile on Facebook" rel="noreferrer noopener" target="_blank" class="links-to-social">
                       <svg enable-background="new 0 0 128 128" height="100px" version="1.1" viewBox="0 0 128 128" width="100px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="button" aria-label="Click to visit my profile on Facebook">
                         <title>Click to visit my profile on Facebook</title>
@@ -171,7 +227,7 @@
                         </g>
                       </svg>
                     </a>
-                    <!-- instagram -->
+                    <!-- instagram icon -->
                     <a href="https://www.instagram.com/obumnwabude" title="Click to visit my profile on Instagram"  rel="noreferrer noopener" target="_blank" class="links-to-social">
                       <svg enable-background="new 0 0 128 128" height="100px" version="1.1" viewBox="0 0 128 128" width="100px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="button" aria-label="Click to visit my profile on Instagram">
                         <title>Click to visit my profile on Instagram</title>
@@ -192,7 +248,7 @@
                         </g>
                       </svg>
                     </a>
-                    <!-- twitter -->
+                    <!-- twitter icon -->
                     <a href="https://www.twitter.com/obumnwabude" title="Click to visit my profile on Twitter" rel="noreferrer noopener" target="_blank" class="links-to-social">
                       <svg enable-background="new 0 0 128 128" height="100px" version="1.1" viewBox="0 0 128 128" width="100px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="button" aria-label="Click to visit my profile on Twitter">
                         <title>Click to visit my profile on Twitter</title>
@@ -204,7 +260,7 @@
                         </g>
                       </svg>
                     </a>
-                    <!-- linkedin -->
+                    <!-- linkedin icon -->
                     <a href="https://www.linkedin.com/in/obumnwabude" title="Click to visit my profile on LinkedIn" rel="noreferrer noopener" target="_blank" class="links-to-social">
                       <svg enable-background="new 0 0 128 128" height="100px" version="1.1" viewBox="0 0 128 128" width="100px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="button" aria-label="Click to visit my profile on LinkedIn">
                         <title>Click to visit my profile on LinkedIn</title>
@@ -219,23 +275,9 @@
                 </div>
               </div>
             </div>
-
-            <hr class="before-linkedin-badge">
-
-            <!-- text and linkedin badge -->
-            <div class="badge-and-text-container">
-              <!-- text before linkedin badge -->
-              <h3 class="text-subheading text-center">View my portfolio </h3>
-              <div class="linkedin-badge-container">
-                <!-- linkedin profile badge -->
-                <div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="horizontal" data-theme="dark" data-vanity="obumnwabude">
-                  <a class="LI-simple-link" href='https://ng.linkedin.com/in/obumnwabude?trk=profile-badge' rel="noreferrer noopener" target="_blank">Obumuneme Nwabude</a>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
-        <div id="footer" class="text-center text-regular">
+        <div id="footer" class="text-center text-regular" role="footer">
           Obumuneme Nwabude<br>All Rights Reserved &copy;2020
         </div>
       </div>
@@ -244,6 +286,23 @@
   <footer class="text-center text-regular">
     Obumuneme Nwabude<br>All Rights Reserved &copy;2020
   </footer>
+  <script type="text/javascript">
+    window.addEventListener("scroll", function() {
+      document.querySelector("nav").classList.add("scrolled");
+      if (document.querySelector("nav input").checked) {
+        document.querySelector("nav input").checked = false;
+      }
+    });
+    var navLinks = document.querySelectorAll("nav ul li a");
+    for (var i = 0; i < navLinks.length; i++) {
+      navLinks[i].addEventListener("click", function() {
+        var current = document.getElementsByClassName("active");
+        current[0].classList.remove("active");
+        this.classList.add("active");
+        console.log(this);
+      });
+    }
+  </script>
 
   <!-- LinkedIn Profile Badge JS -->
   <script src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>

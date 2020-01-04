@@ -1,7 +1,8 @@
 {
-    "name": "Obumuneme Nwabude",
-    "short_name": "Obumuneme Nwabude",
-    "icons": [
+  "name": "Obumuneme Nwabude",
+  "short_name": "Obumuneme Nwabude",
+  "description": "Get to know Obumuneme",
+  "icons": [
         {
             "src": "/icons/android-chrome-192x192.png",
             "sizes": "192x192",
@@ -13,7 +14,9 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#f0f1fe",
-    "background_color": "#f0f1fe",
-    "display": "standalone"
+    "theme_color": "#F0F1FE",
+    "background_color": "#F0F1FE",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/index.html"
 }

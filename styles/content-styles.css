@@ -11,16 +11,17 @@ section.content-container h3.text-subheading {
     margin-bottom: 10px;
     display: flex;
     align-items: center;
-    max-width: 360px;
+    max-width: 400px;
   }
 
-#main-content section.content-container:nth-child(2) h3.text-subheading {
-  margin-top: 20px;
+
+
+#main-content section.content-container {
+  padding-top: 35px;
 }
 
 section.content-container h3.text-subheading svg {
   width: 20%;
-  margin-right: 5px;
 }
 
 section.content-container h3.text-subheading p {
@@ -31,6 +32,14 @@ section.content-container h3.text-subheading p {
   top: 0;
   right: 0;
   bottom: 0;
+}
+
+#portfolio h3.text-subheading {
+  min-width: 200px;
+}
+
+#portfolio h3.text-subheading svg {
+  min-width: 65px;
 }
 
 @media screen and (min-width: 1150px) {

@@ -1,0 +1,145 @@
+/**
+ * contains styles for nav
+ */
+nav {
+  background-color: hsl(238, 92%, 97%);
+  margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  box-shadow: 0px 1.5px 6px hsl(255, 5%, 50%);
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.scrolled {
+  transition: all 3s;
+  opacity: 1;
+  height: auto;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+nav ul li a {
+  text-decoration: none;
+  text-align: center;
+}
+
+nav ul li a.active {
+  text-decoration: underline;
+  color: hsl(238, 88%, 18%)
+}
+
+nav ul li a:first-of-type {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+nav ul li a span.show-at-large {
+  display: none;
+}
+
+@media screen and (max-width: 576px) {
+  nav label {
+    width: 35px;
+    float: right;
+    margin: 15px;
+  }
+
+  nav ul li:first-of-type {
+    margin-left: 3%;
+  }
+
+  nav ul li {
+    margin: 15px;
+  }
+
+  nav ul li a span.show-at-large:first-of-type {
+    display: inline;
+  }
+
+  nav ul li a span.show-at-large {
+    display: none;
+  }
+
+  nav input, nav label svg#close-menu-icon {
+    display: none;
+  }
+
+  nav input:unchecked + label svg#menu-icon {
+    display: inline;
+  }
+
+  nav input:unchecked + label svg#close-menu-icon {
+    display: none;
+  }
+
+
+  nav input:checked + label svg#menu-icon {
+    display: none;
+  }
+  nav input:checked + label svg#close-menu-icon {
+    display: inline;
+  }
+
+  nav:after {
+    content: "";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+    line-height: 0;
+  }
+
+  nav input:checked ~ ul {
+    display: list-item;
+    }
+
+   nav ul li:not(:first-of-type) {
+    width: 0px;
+    height: 0px;
+    visibility: hidden;
+    opacity: 0;
+   }
+
+  nav input:checked ~ ul li:not(:first-of-type) {
+    transition: all 3s;
+    height: auto;
+    width: auto;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  nav input:unchecked ~ ul li:not(:first-of-type) {
+    transition: all 3s;
+    width: 0px;
+    height: 0px;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+}
+
+@media screen and (min-width: 577px) {
+  nav input, nav label {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 950px) {
+  nav ul li a span.show-at-large {
+    display: inline;
+  }
+}
+

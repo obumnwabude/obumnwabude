@@ -5,6 +5,7 @@
     { "src": "/face-of-obum.jpg", "dest": "/face-of-obum.jpg"},
     { "src": "/face-of-obum.webp", "dest": "/face-of-obum.webp"},
     { "src": "/icons/.*", "dest": "/icons/.*"},
+    { "src": "/manifest.json", "dest": "/manifest.json"},
     { "src": "/styles.css", "dest": "/styles.css"},
     { "src": "/styles/.*", "dest": "/styles/.*"},
     { "src": "/.*", "dest": "/"}

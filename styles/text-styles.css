@@ -10,13 +10,20 @@
 }
 
 /*
+ * underlines text
+ */
+.text-underline {
+  text-decoration: underline;
+}
+
+/*
  * Styles the main heading
  */
 .text-heading {
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 32px;
 	line-height: 1;
-	color: hsl(264, 4%, 24%);
+	color: #000;
 	letter-spacing: 0.45px;
 }
 
@@ -27,10 +34,9 @@
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 20px;
 	line-height: 1;
-	color: hsl(264, 4%, 24%);
+	color: #000;
 	letter-spacing: 0.45px;
 	font-weight: 500;
-  text-decoration: underline;
 }
 
 /*
@@ -40,7 +46,7 @@
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
 	line-height: 1.25;
-	color: hsl(264, 4%, 24%);
+	color: #000;
 	letter-spacing: 0.4px;
 }
 
@@ -55,12 +61,11 @@
 }
 
 /*
- * styles links 
+ * styles links
  */
 a {
-	font-family: 'Source Sans Pro', sans-serif;
-	font-weight: 500;
-	color: hsl(264, 4%, 24%);
+	font-family: 'Open Sans', sans-serif;
+	color: #000;
 	text-decoration: none;
 }
 
@@ -70,8 +75,9 @@ a:hover {
 	border-radius: 10px;
 }
 
-a:visited {
-	text-decoration: underline;
+nav ul li a {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 500;
 }
 
 /**
@@ -94,7 +100,6 @@ a:visited {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 20px;
     line-height: 1;
-    color: hsl(264, 4%, 24%);
     letter-spacing: 0.65px;
     font-weight: 500;
   }
