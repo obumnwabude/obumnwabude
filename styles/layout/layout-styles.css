@@ -4,23 +4,10 @@
  * Gathers all styles for basic layout
  */
 
-
-/*
- * styles both main heading and its caption
- */
-h1#main-heading, h3  {
-  margin: 0;
-}
-
-p#main-heading-caption, #header-about-text p {
-  margin: 0;
-  padding: 0;
-}
-
 /*
  * adds space between about me heading and text
  */
-#header-about-text h3 {
+#header-about-text h2 {
   margin-bottom: 10px;
 }
 

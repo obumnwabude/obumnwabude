@@ -94,7 +94,7 @@
 	/*
 	 * styles the inner interior
 	 */
-	#main-content {
+	main {
 		padding: 0px 32px;
 		border-radius: 0px 0px 64px 64px;
 	}

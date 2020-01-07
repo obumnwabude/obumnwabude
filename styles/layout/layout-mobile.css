@@ -85,9 +85,8 @@
   /*
    * styles the inner interior
    */
-  #main-content {
+  main {
    padding: 12px;
-   color: black;
   }
 
 
