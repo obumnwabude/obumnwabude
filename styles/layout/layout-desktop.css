@@ -7,7 +7,7 @@
 	/*
 	 * styles the main background in desktops
 	 */
-	main {
+	#body-container {
 		padding: 100px 6% 55px 6%;
 		margin: 0;
 		background-color: hsl(238, 92%, 97%);
