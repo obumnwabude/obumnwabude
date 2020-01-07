@@ -6,7 +6,7 @@
   /*
    * The main background
    */
-  main {
+  #body-container {
    margin: 0;
    padding: 20px;
    background-color: hsl(238, 92%, 97%);
@@ -54,7 +54,7 @@
    z-index: 2;
   }
 
-  #header, #header-right {
+  header, #header-text {
    margin: 0;
    padding: 0;
   }
@@ -85,9 +85,8 @@
   /*
    * styles the inner interior
    */
-  #main-content {
+  main {
    padding: 12px;
-   color: black;
   }
 
 

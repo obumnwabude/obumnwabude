@@ -7,7 +7,7 @@
 	/*
 	 * styles the main background in desktops
 	 */
-	main {
+	#body-container {
 		padding: 100px 6% 55px 6%;
 		margin: 0;
 		background-color: hsl(238, 92%, 97%);
@@ -40,7 +40,7 @@
 	/*
 	 * styles the header section
 	 */
-	#header {
+	header {
 		display: flex;
 	}
 
@@ -60,7 +60,7 @@
 	/*
 	 * Styles the right portion of header
 	 */
-	#header-right {
+	#header-text {
 		width: 850px;
 		margin-top: 50px;
 		margin-left: 0px;
@@ -94,7 +94,7 @@
 	/*
 	 * styles the inner interior
 	 */
-	#main-content {
+	main {
 		padding: 0px 32px;
 		border-radius: 0px 0px 64px 64px;
 	}
