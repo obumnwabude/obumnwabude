@@ -8,8 +8,13 @@
 /*
  * styles both main heading and its caption
  */
-h1#main-heading, h3, h5#main-heading-caption {
+h1#main-heading, h3  {
   margin: 0;
+}
+
+p#main-heading-caption, #header-about-text p {
+  margin: 0;
+  padding: 0;
 }
 
 /*
