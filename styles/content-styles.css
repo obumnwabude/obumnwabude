@@ -7,8 +7,8 @@ main .content-container {
 }
 
 .content-container .text-subheading {
-  background-color: hsl(264, 4%, 24%);
-  color: hsl(238, 92%, 97%);
+  background-color: #000;
+  color: #fff;
   border-radius: 15px;
   text-decoration: none;
   padding: 10px;
