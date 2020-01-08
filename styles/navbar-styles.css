@@ -16,7 +16,7 @@ nav {
 }
 
 .scrolled {
-  transition: all 3s;
+  transition: all 2s;
   opacity: 1;
   height: auto;
 }
@@ -31,7 +31,7 @@ nav ul {
 }
 
 nav ul li {
-  margin: 15px;
+  margin: 7.5px;
 }
 
 nav ul li a.active {
@@ -40,10 +40,10 @@ nav ul li a.active {
 }
 
 nav ul li a:first-of-type {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 nav ul li a span.show-at-large {
   display: none;
@@ -53,23 +53,7 @@ nav ul li a span.show-at-large {
   nav label {
     width: 35px;
     float: right;
-    margin: 15px;
-  }
-
-  nav ul li:first-of-type {
-    margin-left: 3%;
-  }
-
-  nav ul li a span.show-at-large {
-    display: none;
-  }
-
-  nav ul li a span.show-at-large:first-of-type {
-    display: inline;
-  }
-
-  nav input, nav label svg#close-menu-icon {
-    display: none;
+    margin: 10px 15px 0px 0px;
   }
 
   nav input:unchecked + label svg#menu-icon {
@@ -87,28 +71,39 @@ nav ul li a span.show-at-large {
     display: inline;
   }
 
-  nav:after {
-    content: "";
-    display: block;
-    clear: both;
-    visibility: hidden;
-    height: 0;
-    line-height: 0;
-  }
-
   nav input:checked ~ ul {
     display: list-item;
-    }
+  }
 
-   nav ul li:not(:first-of-type) {
+  nav ul li a span.show-at-large {
+    display: none;
+  }
+
+  nav ul li a span.show-at-large:first-of-type {
+    display: inline;
+  }
+
+  nav input, nav label svg#close-menu-icon {
+    display: none;
+  }
+
+  nav ul li:not(:first-of-type) {
     width: 0px;
     height: 0px;
     visibility: hidden;
     opacity: 0;
-   }
+  }
+
+  nav input:checked ~ label svg {
+    margin-top: 7.5px;
+  }
+
+  nav input:checked ~ ul li {
+    margin: 15px;
+  }
 
   nav input:checked ~ ul li:not(:first-of-type) {
-    transition: all 3s;
+    transition: all 0.75s;
     height: auto;
     width: auto;
     visibility: visible;
@@ -116,11 +111,19 @@ nav ul li a span.show-at-large {
   }
 
   nav input:unchecked ~ ul li:not(:first-of-type) {
-    transition: all 3s;
+    transition: all 0.75s;
     width: 0px;
     height: 0px;
     visibility: hidden;
     opacity: 0;
+  }
+  nav:after {
+    content: "";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+    line-height: 0;
   }
 }
 
