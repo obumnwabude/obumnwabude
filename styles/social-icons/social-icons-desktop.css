@@ -3,7 +3,7 @@
  * and linkedin profile badge when in desktop view
  */
 
-@media screen and (min-width: 1150px) {
+@media screen and (min-width: 1200px) {
   /*
    * styles the container of the badge and social icons to lay them side-by-side
    */

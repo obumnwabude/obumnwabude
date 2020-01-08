@@ -2,7 +2,7 @@
  * contains the styles when the desktop is large
  */
 
-@media screen and (min-width: 1150px) {
+@media screen and (min-width: 1200px) {
 
 	/*
 	 * styles the main background in desktops
@@ -34,6 +34,7 @@
 	#inner-border-lining {
 		border-radius: 64px 64px 64px 64px;
 		background-color: hsl(238, 82%, 87%);
+    padding-top: 0;
 		z-index: 2;
 	}
 
@@ -48,6 +49,7 @@
 	 * Styles the profile picture in large desktop places at top right position
 	 */
 	 #profile-pic-desktop {
+    display: inline-block;
 	 	width: 240px;
 	 	height: 240px;
 	 	border-radius: 275px;

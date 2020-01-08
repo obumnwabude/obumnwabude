@@ -6,7 +6,7 @@
 /**
  * styles common to both large and small mobile views
  */
-@media screen and (max-width: 1149px) {
+@media screen and (max-width: 1199px) {
 
   /*
    * invalidates the social and badge container as well as the social text and icons container

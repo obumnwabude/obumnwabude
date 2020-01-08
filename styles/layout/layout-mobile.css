@@ -1,8 +1,6 @@
 /**
  * Defines the various styles applied for mobile
  */
-
-@media screen and (max-width: 1149px) {
   /*
    * The main background
    */
@@ -36,7 +34,7 @@
    * The outer border of the mobile design
    */
   #outer-border-lining {
-   max-width: 650px;
+   max-width: 576px;
    border-radius: 40px 40px 16px 16px;
    border: 5px solid hsl(238, 82%, 87%);
    margin: 0 auto;
@@ -103,4 +101,3 @@
   footer {
    display: none;
   }
-}

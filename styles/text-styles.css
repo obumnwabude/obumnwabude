@@ -75,12 +75,14 @@ a:hover {
 nav ul li a {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 500;
+  text-decoration: none;
+  text-align: center;
 }
 
 /**
  * contains the text styles for desktop view
  */
-@media screen and (min-width: 1150px) {
+@media screen and (min-width: 1200px) {
 	/*
 	 * Styles text in desktop view
 	 */
