@@ -86,13 +86,6 @@
 		color: hsl(264, 4%, 24%);
 	}
 
-  /*
-   * extends the hr before social icons and linkedin badge in desktop
-   */
-  hr#before-social-icons {
-    margin: 18px 40px;
-  }
-
 	/*
 	 * styles the inner interior
 	 */
@@ -109,6 +102,7 @@
 	 * Styles the footer
 	 */
 	footer {
+    display: block;
 		background-color: hsl(238, 88%, 18%);
 		color: hsl(238, 92%, 97%);
 		padding: 15px 0 15px 0;

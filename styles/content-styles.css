@@ -2,60 +2,34 @@
  * Contains styles for main content
  */
 
-main .content-container {
-  padding-top: 35px;
-}
-
 .content-container .text-subheading {
   background-color: #000;
   color: #fff;
   border-radius: 15px;
   text-decoration: none;
-  padding: 10px;
+  padding: 15px;
   margin: 0 auto;
   margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  max-width: 400px;
-}
-
-.content-container .text-subheading svg {
-  width: 20%;
-}
-
-.content-container .text-subheading p {
-  margin: 0;
-  width: 75%;
-  display: inline-block;
-  position: relative;
-  top: 0;
-  right: 0;
-  bottom: 0;
-}
-
-#portfolio .text-subheading {
-  min-width: 200px;
-}
-
-#portfolio .text-subheading svg {
-  min-width: 65px;
+  max-width: 350px;
 }
 
 @media screen and (min-width: 1200px) {
-  hr#before-mobile-web, hr#before-linkedin-badge {
+  hr#before-mobile-web {
     display: none;
   }
 
-  .content-container, #portfolio, #contact-me {
+  .content-container {
     width: 47%;
   }
 
-  #digital-skills.content-container, #portfolio.content-container, #contact-me {
-    float: left;
+  hr#before-linkedin-badge, hr#before-social-icons {
+    width: 37%;
+    margin-top: 75px;
   }
 
-  #social-and-badge-container {
-    flex-direction: column;
+  #digital-skills, hr#before-linkedin-badge, #portfolio,
+  hr#before-social-icons, #contact-me {
+    float: left;
   }
 
   #mobile-web.content-container {

@@ -92,6 +92,7 @@
    * styles the footer in mobile
    */
   #footer {
+   display: block;
    background-color: hsl(238, 88%, 18%);
    border-radius: 0px 0px 8px 8px;
    color: hsl(238, 92%, 97%);
