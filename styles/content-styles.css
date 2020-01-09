@@ -42,8 +42,31 @@ main .content-container {
 }
 
 @media screen and (min-width: 1200px) {
-  section.content-container {
-    width: 70%;
-    margin: 0 auto;
+  hr#before-mobile-web, hr#before-linkedin-badge {
+    display: none;
+  }
+
+  .content-container, #social-and-badge-container {
+    width: 47%;
+  }
+
+  #digital-skills.content-container, #social-and-badge-container {
+    float: left;
+  }
+
+  #social-and-badge-container {
+    flex-direction: column;
+  }
+
+  #mobile-web.content-container {
+    float: right;
+  }
+
+  main:after {
+    content: "";
+    clear: both;
+    display: block;
+    visibility: hidden;
+    height: 0;
   }
 }
