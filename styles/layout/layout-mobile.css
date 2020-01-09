@@ -7,7 +7,7 @@
   #body-container {
    margin: 0;
    padding: 20px;
-   background-color: hsl(238, 92%, 97%);
+   background-color: hsl(90, 95%, 97%);
   }
 
   /*
@@ -21,7 +21,7 @@
    margin: 0 auto;
    margin-bottom: -100px;
    margin-top: 100px;
-   border: 5px solid hsl(238, 92%, 97%);
+   border: 5px solid hsl(90, 95%, 97%);
    position: relative;
    z-index: 3;
   }
@@ -36,7 +36,7 @@
   #outer-border-lining {
    max-width: 576px;
    border-radius: 40px 40px 16px 16px;
-   border: 5px solid hsl(238, 82%, 87%);
+   border: 5px solid hsl(206, 82%, 92%);
    margin: 0 auto;
    padding: 5px;
   }
@@ -48,7 +48,7 @@
    position: relative;
    border-radius: 32px 32px 8px 8px;
    padding-top: 100px;
-   background-color: hsl(238, 82%, 87%);
+   background-color: hsl(206, 82%, 92%);
    z-index: 2;
   }
 
@@ -95,7 +95,7 @@
    display: block;
    background-color: hsl(238, 88%, 18%);
    border-radius: 0px 0px 8px 8px;
-   color: hsl(238, 92%, 97%);
+   color: hsl(90, 95%, 97%);
    padding: 1rem 0rem;
   }
 

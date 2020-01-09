@@ -2,6 +2,8 @@
  * contains the styles controlling the social media icons and linkedin profile badge
  */
 
+
+
 /*
  * Achieves centralisation of the linkedin profile badge and social media icons
  */
@@ -9,6 +11,13 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+/*
+ * Gives the linkedin badge a white background
+ */
+#linkedin-badge-container {
+  background-color: white;
 }
 
 /*
