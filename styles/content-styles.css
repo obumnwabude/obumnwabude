@@ -10,6 +10,7 @@
   padding: 15px;
   margin: 15px auto;
   max-width: 350px;
+  box-shadow: 0px 0px 2px 0.5px hsl(255, 5%, 50%);
 }
 
 @media screen and (min-width: 1200px) {

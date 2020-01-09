@@ -7,7 +7,7 @@
   #body-container {
    margin: 0;
    padding: 20px;
-   background-color: hsl(90, 95%, 97%);
+   background-color: #fff;
   }
 
   /*
@@ -21,7 +21,7 @@
    margin: 0 auto;
    margin-bottom: -100px;
    margin-top: 100px;
-   border: 5px solid hsl(90, 95%, 97%);
+   border: 5px solid #fff;
    position: relative;
    z-index: 3;
   }
@@ -39,6 +39,7 @@
    border: 5px solid hsl(206, 82%, 92%);
    margin: 0 auto;
    padding: 5px;
+   box-shadow: 0px 0px 2px 0.5px hsl(255, 5%, 50%);
   }
 
   /*
@@ -50,6 +51,7 @@
    padding-top: 100px;
    background-color: hsl(206, 82%, 92%);
    z-index: 2;
+   box-shadow: 0px 0px 2px 0.5px hsl(255, 5%, 50%);
   }
 
   header, #header-text {
@@ -78,6 +80,7 @@
    margin: 17.5px 24px;
    height: 1.5px;
    color: hsl(264, 4%, 24%);
+   box-shadow: 0px 0px 1px 0.25px hsl(255, 5%, 50%);
   }
 
   /*
@@ -95,8 +98,9 @@
    display: block;
    background-color: hsl(238, 88%, 18%);
    border-radius: 0px 0px 8px 8px;
-   color: hsl(90, 95%, 97%);
+   color: #fff;
    padding: 1rem 0rem;
+   box-shadow: 0px 0px 2px 0.5px hsl(255, 5%, 50%);
   }
 
   footer {

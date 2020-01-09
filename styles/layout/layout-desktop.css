@@ -4,71 +4,73 @@
 
 @media screen and (min-width: 1200px) {
 
-	/*
-	 * styles the main background in desktops
-	 */
-	#body-container {
-		padding: 100px 6% 55px 6%;
-		margin: 0;
-		background-color: hsl(90, 95%, 97%);
-	}
+  /*
+   * styles the main background in desktops
+   */
+  #body-container {
+    padding: 100px 6% 55px 6%;
+    margin: 0;
+    background-color: #fff;
+  }
 
-	#profile-pic-mobile {
-		display: none;
-	}
+  #profile-pic-mobile {
+    display: none;
+  }
 
-	/*
-	 * The outer border of the large desktop design
-	 */
-	#outer-border-lining {
-		max-width: 1150px;
-		border-radius: 75px 75px 75px 75px;
-		border: 7.5px solid hsl(206, 82%, 92%);
-		margin: 0 auto;
-		padding: 7.5px;
-	}
+  /*
+   * The outer border of the large desktop design
+   */
+  #outer-border-lining {
+    max-width: 1150px;
+    border-radius: 75px 75px 75px 75px;
+    border: 7.5px solid hsl(206, 82%, 92%);
+    margin: 0 auto;
+    padding: 7.5px;
+    box-shadow: 0px 0px 2px 0.5px hsl(255, 5%, 50%);
+  }
 
-	/*
-	 * the inner body of the large design
-	 */
-	#inner-border-lining {
-		border-radius: 64px 64px 64px 64px;
-		background-color: hsl(206, 82%, 92%);
+  /*
+   * the inner body of the large design
+   */
+  #inner-border-lining {
+    border-radius: 64px 64px 64px 64px;
+    background-color: hsl(206, 82%, 92%);
     padding-top: 0;
-		z-index: 2;
-	}
+    z-index: 2;
+    box-shadow: 0px 0px 2px 0.5px hsl(255, 5%, 50%);
+  }
 
-	/*
-	 * styles the header section
-	 */
-	header {
-		display: flex;
-	}
+  /*
+   * styles the header section
+   */
+  header {
+    display: flex;
+  }
 
-	/*
-	 * Styles the profile picture in large desktop places at top right position
-	 */
-	 #profile-pic-desktop {
+  /*
+   * Styles the profile picture in large desktop places at top right position
+   */
+   #profile-pic-desktop {
     display: inline-block;
-	 	width: 240px;
-	 	height: 240px;
-	 	border-radius: 275px;
-	 	margin: 25px;
+    width: 240px;
+    height: 240px;
+    border-radius: 275px;
+    margin: 25px;
     margin-bottom: 0px;
-	 	border: 7.5px solid hsl(90, 95%, 97%);
-	 	z-index: 3;
-	 }
+    border: 7.5px solid #fff;
+    z-index: 3;
+   }
 
-	/*
-	 * Styles the right portion of header
-	 */
-	#header-text {
-		width: 850px;
-		margin-top: 50px;
-		margin-left: 0px;
-		display: flex;
-		flex-direction: column;
-	}
+  /*
+   * Styles the right portion of header
+   */
+  #header-text {
+    width: 850px;
+    margin-top: 50px;
+    margin-left: 0px;
+    display: flex;
+    flex-direction: column;
+  }
 
   /*
    * styles the about text
@@ -77,35 +79,36 @@
     padding: 0px 20px;
   }
 
-	/*
+  /*
    * styles hr
    */
   hr {
-		margin: 18px 72px;
-		height: 2px;
-		color: hsl(264, 4%, 24%);
-	}
+    margin: 18px 72px;
+    height: 2px;
+    color: hsl(264, 4%, 24%);
+    box-shadow: 0px 0px 1px 0.25px hsl(255, 5%, 50%);
+  }
 
-	/*
-	 * styles the inner interior
-	 */
-	main {
-		padding: 0px 32px;
-		border-radius: 0px 0px 64px 64px;
-	}
+  /*
+   * styles the inner interior
+   */
+  main {
+    padding: 0px 32px;
+    border-radius: 0px 0px 64px 64px;
+  }
 
-	#footer {
-		display: none;
-	}
+  #footer {
+    display: none;
+  }
 
-	/*
-	 * Styles the footer
-	 */
-	footer {
+  /*
+   * Styles the footer
+   */
+  footer {
     display: block;
-		background-color: hsl(238, 88%, 18%);
-		color: hsl(238, 92%, 97%);
-		padding: 15px 0 15px 0;
-		margin: 0;
-	}
+    background-color: hsl(238, 88%, 18%);
+    color: hsl(238, 92%, 97%);
+    padding: 15px 0 15px 0;
+    margin: 0;
+  }
 }
