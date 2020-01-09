@@ -2,48 +2,44 @@
  * Contains styles for main content
  */
 
-main .content-container {
-  padding-top: 35px;
-}
-
 .content-container .text-subheading {
-  background-color: hsl(264, 4%, 24%);
-  color: hsl(238, 92%, 97%);
+  background-color: #000;
+  color: #fff;
   border-radius: 15px;
   text-decoration: none;
-  padding: 10px;
-  margin: 0 auto;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  max-width: 400px;
+  padding: 15px;
+  margin: 15px auto;
+  max-width: 350px;
 }
 
-.content-container .text-subheading svg {
-  width: 20%;
-}
+@media screen and (min-width: 1200px) {
+  hr#before-mobile-web {
+    display: none;
+  }
 
-.content-container .text-subheading p {
-  margin: 0;
-  width: 75%;
-  display: inline-block;
-  position: relative;
-  top: 0;
-  right: 0;
-  bottom: 0;
-}
+  .content-container {
+    width: 47%;
+  }
 
-#portfolio .text-subheading {
-  min-width: 200px;
-}
+  hr#before-linkedin-badge, hr#before-social-icons {
+    width: 37%;
+    margin-top: 75px;
+  }
 
-#portfolio .text-subheading svg {
-  min-width: 65px;
-}
+  #digital-skills, hr#before-linkedin-badge, #portfolio,
+  hr#before-social-icons, #contact-me {
+    float: left;
+  }
 
-@media screen and (min-width: 1150px) {
-  section.content-container {
-    width: 70%;
-    margin: 0 auto;
+  #mobile-web.content-container {
+    float: right;
+  }
+
+  main:after {
+    content: "";
+    clear: both;
+    display: block;
+    visibility: hidden;
+    height: 0;
   }
 }
