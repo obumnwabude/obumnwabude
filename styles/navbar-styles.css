@@ -34,9 +34,14 @@ nav ul li {
   margin: 10px;
 }
 
+
+nav ul li a, nav ul li a:visited {
+  color: #000000;
+}
+
 nav ul li a.active {
   text-decoration: underline;
-  color: hsl(238, 88%, 18%)
+  color: hsl(238, 88%, 18%);
 }
 
 nav ul li a:first-of-type {
