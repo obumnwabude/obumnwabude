@@ -5,66 +5,23 @@
 /*
  * Styles the main heading
  */
-.text-heading {
-	font-family: 'Source Sans Pro', sans-serif;
-	font-size: 32px;
-	line-height: 1;
-	letter-spacing: 0.45px;
-  text-align: center;
-}
-
-/*
- * Styles the subheadings
- */
-.text-subheading {
-	font-family: 'Source Sans Pro', sans-serif;
-	font-size: 20px;
-	line-height: 1;
-	letter-spacing: 0.45px;
-	font-weight: 500;
+#header-heading-text h1 {
+  font-family: 'Source Sans Pro', sans-serif;
+	font-size: 2.4rem;
+  line-height: 0.9;
+	letter-spacing: 0.25px;
   text-align: center;
 }
 
 /*
  * Styles the captions to headings
  */
-.text-caption {
-	font-family: 'Open Sans', sans-serif;
-	font-size: 14px;
-	line-height: 1.25;
-	letter-spacing: 0.4px;
-  text-align: center;
-}
-
-/*
- * Styles regular text
- */
-.text-regular {
-	font-family: 'Roboto', sans-serif;
-	font-size: 16px;
-	line-height: 1.4;
-	letter-spacing: 0.5px;
-}
-
-/*
- * styles links
- */
-a {
-	font-family: 'Open Sans', sans-serif;
-	color: #000;
-	text-decoration: none;
-}
-
-a:hover {
-	background-color: hsl(238, 92%, 97%);
-	text-decoration: underline;
-	border-radius: 10px;
-}
-
-nav ul li a {
+#header-heading-text p {
   font-family: 'Source Sans Pro', sans-serif;
-  font-weight: 500;
-  text-decoration: none;
+	font-size: 1.2rem;
+	letter-spacing: 0.55px;
+  word-spacing: 1.7px;
+  font-style: italic;
   text-align: center;
 }
 
@@ -76,50 +33,52 @@ nav ul li a {
 }
 
 /*
- * Centralizes footer text
+ * Centralizes  text
  */
-#footer, footer {
+#header-about-text, #footer, footer {
   text-align: center;
 }
 
-/**
- * contains the text styles for desktop view
+/*
+ * Styles the subheadings
+ */
+.text-subheading {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.3px;
+  line-height: 0.9;
+  word-spacing: 1.1px;
+  text-align: center;
+}
+
+/*
+ * Styles regular text
+ */
+.text-regular {
+  font-family: 'Noto Sans JP', sans-serif;
+	font-size: 1rem;
+	line-height: 1.55;
+	letter-spacing: 0.55px;
+  word-spacing: 1.7px;
+}
+
+/*
+ * styles links
+ */
+a, a:visited {
+  color: hsl(238, 88%, 18%);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+/*
+ * left aligns heading and subheading
  */
 @media screen and (min-width: 1200px) {
-	/*
-	 * Styles text in desktop view
-	 */
-	.text-heading {
-		font-size: 40px;
-		letter-spacing: 0.6px;
+  #header-heading-text h1, #header-heading-text p {
 		text-align: left;
 	}
-
-  /*
-   * Styles the subheadings
-   */
-  .text-subheading {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 20px;
-    line-height: 1;
-    letter-spacing: 0.65px;
-    font-weight: 500;
-  }
-
-  /*
-   * styles the caption to the main heading
-   */
-  .text-caption {
-    font-size: 18px;
-    text-align: left;
-  }
-
-  /*
-   * Styles regular text in  desktop view
-   */
-  .text-regular {
-    letter-spacing: 0.75px;
-    word-spacing: 1.5px;
-    line-height: 1.45;
-  }
 }

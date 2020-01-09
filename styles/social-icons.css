@@ -23,15 +23,6 @@
   margin: 10px auto;
 }
 
-/*
- * normalizes the blue underline of browsers
- */
-.links-to-social {
-  text-decoration: none;
-  margin: 0;
-  padding: 0;
-}
-
 /**
  * styles the social media icons when the mobile view is relatively small
  */
