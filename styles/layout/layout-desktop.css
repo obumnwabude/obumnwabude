@@ -10,7 +10,7 @@
 	#body-container {
 		padding: 100px 6% 55px 6%;
 		margin: 0;
-		background-color: hsl(238, 92%, 97%);
+		background-color: hsl(90, 95%, 97%);
 	}
 
 	#profile-pic-mobile {
@@ -23,7 +23,7 @@
 	#outer-border-lining {
 		max-width: 1150px;
 		border-radius: 75px 75px 75px 75px;
-		border: 7.5px solid hsl(238, 82%, 87%);
+		border: 7.5px solid hsl(206, 82%, 92%);
 		margin: 0 auto;
 		padding: 7.5px;
 	}
@@ -33,7 +33,7 @@
 	 */
 	#inner-border-lining {
 		border-radius: 64px 64px 64px 64px;
-		background-color: hsl(238, 82%, 87%);
+		background-color: hsl(206, 82%, 92%);
     padding-top: 0;
 		z-index: 2;
 	}
@@ -55,7 +55,7 @@
 	 	border-radius: 275px;
 	 	margin: 25px;
     margin-bottom: 0px;
-	 	border: 7.5px solid hsl(238, 92%, 97%);
+	 	border: 7.5px solid hsl(90, 95%, 97%);
 	 	z-index: 3;
 	 }
 
