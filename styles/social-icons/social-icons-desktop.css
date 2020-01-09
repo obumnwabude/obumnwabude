@@ -5,27 +5,15 @@
 
 @media screen and (min-width: 1200px) {
   /*
-   * styles the container of the badge and social icons to lay them side-by-side
-   */
-  #social-and-badge-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-evenly;
-      width: 100%;
-      padding-bottom: 20px;
-  }
-
-  /*
    * helps in arranging the social media icons in a straight line
    */
   #social-icons {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    min-width: 525px;
+    min-width: 400px;
+    max-width: 400px;
     margin-top: 20px;
-    margin-left: 20px;
-    width: 100%;
   }
 
   /*

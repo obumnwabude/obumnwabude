@@ -8,16 +8,6 @@
  */
 @media screen and (max-width: 1199px) {
 
-  /*
-   * invalidates the social and badge container as well as the social text and icons container
-   * and badge text and icons container
-   */
-  #social-and-badge-container, #social-text-and-icons {
-      display: block;
-      margin: 0;
-      padding: 0;
-  }
-
   .linkedin-badge-container:nth-of-type(2) {
     display: none;
   }
@@ -39,25 +29,12 @@
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    max-width: 550px;
+    max-width: 400px;
     margin: 10px auto;
     margin-top: 20px;
   }
 }
 
-/**
- * styles the social media icons when the mobile view is relatively small
- * it places them in a grid
- */
-@media screen and (max-width: 550px)  {
-  /*
-   * helps in arranging the social media icons in a straight line
-   */
-  .links-to-social svg {
-    width: 75px;
-    height: 75px;
-  }
-}
 /**
  * styles the social media icons when the mobile view is relatively small
  * it places them in a grid

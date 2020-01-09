@@ -46,11 +46,11 @@ main .content-container {
     display: none;
   }
 
-  .content-container, #social-and-badge-container {
+  .content-container, #portfolio, #contact-me {
     width: 47%;
   }
 
-  #digital-skills.content-container, #social-and-badge-container {
+  #digital-skills.content-container, #portfolio.content-container, #contact-me {
     float: left;
   }
 
