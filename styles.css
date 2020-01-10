@@ -6,6 +6,10 @@ html, body, p, h1, h2 {
 	padding: 0;
 }
 
+html {
+  scroll-padding-top: 60px;
+}
+
 body {
   overflow: auto;
 }
