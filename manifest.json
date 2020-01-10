@@ -1,6 +1,6 @@
 {
   "name": "Obumuneme Nwabude",
-  "short_name": "Obumuneme Nwabude",
+  "short_name": "Obum",
   "description": "Get to know Obumuneme",
   "icons": [
         {
@@ -14,7 +14,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#F0F1FE",
+    "theme_color": "#FFFFFF",
     "background_color": "#FFFFFF",
     "display": "standalone",
     "scope": "/",

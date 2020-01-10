@@ -8,6 +8,7 @@
     { "src": "/manifest.json", "dest": "/manifest.json"},
     { "src": "/styles.css", "dest": "/styles.css"},
     { "src": "/styles/.*", "dest": "/styles/.*"},
+    { "src": "/service-worker.js", "dest": "/service-worker.js"},
     { "src": "/.*", "dest": "/"}
   ]
 }
