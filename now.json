@@ -2,9 +2,13 @@
   "name": "obumnwabude",
   "routes": [
     { "src": "/", "dest": "/index.html"},
+    { "src": "/face-of-obum.jpg", "dest": "/face-of-obum.jpg"},
+    { "src": "/face-of-obum.webp", "dest": "/face-of-obum.webp"},
+    { "src": "/icons/.*", "dest": "/icons/.*"},
+    { "src": "/manifest.json", "dest": "/manifest.json"},
     { "src": "/styles.css", "dest": "/styles.css"},
     { "src": "/styles/.*", "dest": "/styles/.*"},
-    { "src": "/obum-1.jpg", "dest": "/obum-1.jpg"},
+    { "src": "/service-worker.js", "dest": "/service-worker.js"},
     { "src": "/.*", "dest": "/"}
   ]
 }

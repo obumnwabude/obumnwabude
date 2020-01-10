@@ -1,183 +1,316 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <!-- Basic -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta charset="utf-8">
+  <title>Obumuneme Nwabude</title>
   <!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300i|Roboto:400,500|Source+Sans+Pro:700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Source+Sans+Pro:400i,700&display=swap" rel="stylesheet">
   <!-- styles -->
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	<title>Obumuneme Nwabude</title>
+  <style>
+    /*
+     * Hides duplicates of mobile/desktop views
+     */
+    @media screen and (max-width: 1199px) {
+      #profile-pic-desktop, footer {
+        display: none;
+      }
+    }
+    @media screen and (min-width: 1200px) {
+      #profile-pic-mobile, #footer, hr#before-mobile-web {
+        display: none;
+      }
+    }
+  </style>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145689771-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-145689771-3');
+  </script>
+  <!-- Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="shortcut icon" href="icons/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="icons/browserconfig.xml">
+  <!-- SEO -->
+  <meta name="keywords" content="Obumuneme Nwabude, Obum Nwabude, obumnwabude, Nwabude David Obumuneme, Nwabude Obumuneme, Nwabude Obum, Nwabude David, David Obumuneme Nwabude">
+  <meta name="description" content="Obumuneme is an experienced Digital Skills Trainer for Konverge Media. He is a web developer and has great skills in digital marketing.">
+  <link rel="canonical" href="https://www.obumnwabude.com">
+  <!-- JSON-LD markup for schema.org -->
+  <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type": "Person",
+      "name": "Obumuneme Nwabude",
+      "description": "Obumuneme is an experienced Digital Skills Trainer for Konverge Media. He is a web developer and has great skills in digital marketing.",
+      "image": "https://www.obumnwabude.com/face-of-obum.jpg",
+      "url": "https://www.obumnwabude.com",
+      "nationality" : "NG"
+    }
+  </script>
+  <!-- Open Graph -->
+  <meta name="og:title" content="Obumuneme Nwabude | Get to know Obumuneme">
+  <meta name="og:type" content="website">
+  <meta name="og:url" content="https://www.obumnwabude.com">
+  <meta name="og:image" content="https://www.obumnwabude.com/face-of-obum.jpg">
+  <meta name="og:description" content="Obum is an experienced Digital Skills Trainer for Konverge Media. He is a web developer and has great skills in digital marketing.">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@obumnwabude">
+  <meta name="twitter:title" content="Obumuneme Nwabude | Get to know Obumuneme">
+  <meta name="twitter:description" content="Obum is an experienced Digital Skills Trainer for Konverge Media. He is a web developer and has great skills in digital marketing.">
+  <meta name="twitter:image" content="https://www.obumnwabude.com/face-of-obum.jpg">
+  <meta name="twitter:image:alt" content="Face of Obumuneme Nwabude">
+  <!-- in case of no script, navigation bar should be available -->
+  <noscript>
+    <style type="text/css">
+      nav {
+        opacity: 1;
+        height: auto;
+      }
+    </style>
+  </noscript>
 </head>
 <body>
-	<main>
+  <nav>
+    <input type="checkbox" name="nav-is-collapsed" id="nav-is-collapsed" aria-labelledby="menu-and-close-icons" role="button">
+    <label for="nav-is-collapsed" id="menu-and-close-icons" aria-label="Toggle Menu Button of Navigation Bar">
+      <svg width="25" height="25" viewBox="0 0 52 52" id="close-menu-icon">
+        <path fill="#060856" d="M28.228,23.986L47.092,5.122c1.172-1.171,1.172-3.071,0-4.242c-1.172-1.172-3.07-1.172-4.242,0L23.986,19.744L5.121,0.88 c-1.172-1.172-3.07-1.172-4.242,0c-1.172,1.171-1.172,3.071,0,4.242l18.865,18.864L0.879,42.85c-1.172,1.171-1.172,3.071,0,4.242 C1.465,47.677,2.233,47.97,3,47.97s1.535-0.293,2.121-0.879l18.865-18.864L42.85,47.091c0.586,0.586,1.354,0.879,2.121,0.879 s1.535-0.293,2.121-0.879c1.172-1.171,1.172-3.071,0-4.242L28.228,23.986z"/>
+      </svg>
+      <svg width="25" height="25" viewBox="0 0 612 612" id="menu-icon">
+        <path fill="#060856" d="M581.4,520.199H30.6c-16.891,0-30.6,13.709-30.6,30.6C0,567.691,13.709,581.4,30.6,581.4h550.8 c16.891,0,30.6-13.709,30.6-30.602C612,533.908,598.291,520.199,581.4,520.199z M30.6,91.799h550.8 c16.891,0,30.6-13.708,30.6-30.6c0-16.892-13.709-30.6-30.6-30.6H30.6C13.709,30.6,0,44.308,0,61.2 C0,78.091,13.709,91.799,30.6,91.799z M581.4,275.399H30.6C13.709,275.399,0,289.108,0,306s13.709,30.6,30.6,30.6h550.8 c16.891,0,30.6-13.709,30.6-30.6S598.291,275.399,581.4,275.399z"/>
+      </svg>
+    </label>
+    <ul class="text-subheading">
+      <li><a href="#" role="button" title="Obumuneme Nwabude" class="active">
+        <!-- logo icon -->
+        <svg width="28" height="28" viewBox="0 0 200 200" aria-label="O">
+          <title>Logo</title>
+          <g id="svg_46">
+           <ellipse cx="101" cy="96.324074" fill="#ffffff" fill-opacity="0.1" id="svg_4" rx="49" ry="56" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="13"/>
+           <ellipse cx="101" cy="96.324074" fill="#ffffff" fill-opacity="0.1" id="svg_8" rx="68" ry="75" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="25"/>
+           <path d="m23.01484,68.034664a80,80 0 0 1 45.35218,-54.09312" fill="#ffffff" fill-opacity="0.1" id="svg_9" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/>
+           <path d="m7.704981,153.728327a80,82.457867 0 0 1 48.60218,-47.251573" fill="#ffffff" fill-opacity="0.1" id="svg_2" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="10" transform="rotate(-68 32.0061 130.103)"/>
+           <path d="m145.169765,154.291704a80,82.45787 0 0 1 48.60218,-47.25157" fill="#ffffff" fill-opacity="0.1" id="svg_3" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="10" transform="rotate(157 169.471 130.666)"/>
+           <path d="m127.578355,61.806246a83.995484,77.655603 0 0 1 58.510377,-41.084697" fill="#ffffff" fill-opacity="0.1" id="svg_5" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="10" transform="rotate(85 156.834 41.2639)"/>
+           <path d="m77.939049,200.533924a80,82.45787 0 0 1 47.10446,-50.18886" fill="#ffffff" fill-opacity="0.1" id="svg_6" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="10" transform="rotate(-133 101.491 175.439)"/>
+           <path d="m79.111103,212.79963a77.167184,77.878232 0 0 1 45.436481,-47.401415" fill="#ffffff" fill-opacity="0.1" id="svg_23" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" transform="rotate(-133 101.829 189.099)"/>
+           <path d="m-0.357576,171.184314a91.622223,75.14808 0 0 1 53.947692,-45.739679" fill="#ffffff" fill-opacity="0.1" id="svg_24" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" transform="rotate(-83 26.6163 148.314)"/>
+           <path d="m151.537071,167.934996a86.033542,66.937757 0 0 1 50.657044,-40.742379" fill="#ffffff" fill-opacity="0.1" id="svg_25" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" transform="rotate(160 176.866 147.564)"/>
+           <line fill="none" fill-opacity="0.1" id="svg_35" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" x1="20.375" x2="16.875" y1="59.949074" y2="53.199074"/>
+           <line fill="none" fill-opacity="0.1" id="svg_37" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" x1="17.875" x2="29.375" y1="52.199074" y2="43.199074"/>
+           <line fill="none" fill-opacity="0.1" id="svg_38" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" x1="184.375" x2="172.625" y1="51.449074" y2="43.699074"/>
+           <line fill="none" fill-opacity="0.1" id="svg_39" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" x1="20.625" x2="23.875" y1="57.199074" y2="48.949074"/>
+           <path d="m19.125,54.449074c0,-1.099998 0.291107,-2.238819 0.660706,-1.749084c0.560112,0.74218 -0.491737,2.310394 -0.908035,1.628418c-0.441223,-0.722813 0.56987,-1.583794 0.74733,-1.384708l0,0.887501l-0.109001,-0.545124l-0.599335,0.162998" fill="none" fill-opacity="0.1" id="svg_41" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+           <line fill="none" fill-opacity="0.1" id="svg_36" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" x1="181.375" x2="185.125" y1="60.949074" y2="52.949074"/>
+           <line fill="none" fill-opacity="0.1" id="svg_40" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" x1="180.125" x2="178.875" y1="57.449074" y2="50.199074"/>
+           <path d="m182.375,54.199074c0.25,0.382332 0.343262,-0.436287 0.106323,-1.362999c-0.110046,-0.430477 0.62326,1.184002 -0.347321,1.250999c-0.411102,0.028378 -0.191406,-0.943729 -0.365326,-0.169666c-0.098053,0.436398 -0.646454,-0.741043 -0.143677,-1.248001c0.038971,-0.039288 0.12915,-0.860653 0.178986,-1.569332c0.077118,-1.096565 0.071014,-0.576416 0.071014,0.400665c0,0.793335 0,0.944752 0,0.073334l-0.014282,-0.857124" fill="none" fill-opacity="0.1" id="svg_42" stroke="#fabc02" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+          </g>
+         </g>
+        </svg>
+      <span>bumuneme </span><span class="show-at-large">&nbsp;Nwabude</span></a></li>
+      <li><a href="#digital-skills" role="button" title="Being a Digital Skills Trainer">Digital Skills&nbsp;<span class="show-at-large">Trainer</span></a></li>
+      <li><a href="#mobile-web" role="button" title="Being a Mobile Web Specialist">Mobile Web&nbsp;<span class="show-at-large">Specialist</span></a></li>
+      <li><a href="#portfolio" role="button" title="View my Portfolio"><span class="show-at-large">View my&nbsp;</span>Portfolio</a></li>
+      <li><a href="#contact-me" role="button" title="Contact me">Contact<span class="show-at-large">&nbsp;me</span></a></li>
+    </ul>
+  </nav>
+  <div id="body-container">
+    <!-- this image serves as profile picture when view is mobile -->
+    <picture>
+      <source srcset="face-of-obum.webp" type="image/webp">
+      <source srcset="face-of-obum.jpg" type="image/jpeg">
+      <img id="profile-pic-mobile" src="face-of-obum.jpg" alt="Face of Obumuneme Nwabude" title="Face of Obumuneme Nwabude" width="400" height="400">
+    </picture>
+    <div id="outer-border-lining">
+      <!-- these two divs sandwiching this comment help achieving the double-line border -->
+      <div id="inner-border-lining">
+        <header>
+          <!-- this image serves as profile picture when view is desktop -->
+          <picture>
+            <source srcset="face-of-obum.webp" type="image/webp">
+            <source srcset="face-of-obum.jpg" type="image/jpeg">
+            <img id="profile-pic-desktop" src="face-of-obum.jpg" alt="Face of Obumuneme Nwabude" title="Face of Obumuneme Nwabude" width="300" height="300">
+          </picture>
+          <div id="header-text">
+            <!-- profile name and caption -->
+            <div id="header-heading-text">
+              <h1>Obumuneme Nwabude</h1>
+              <p>&nbsp; Digital Skills Trainer and Freelance Mobile Web Specialist</p>
+            </div>
 
-		<!-- this image serves as profile picture when view is mobile -->
-		<img id="profile-pic-mobile" src="obum-1.jpg" alt="Face of Obumuneme Nwabude" title="Obumuneme Nwabude">
-		<div id="outer-body-content">
-			<!-- these two divs sandwiching this comment help achieving the double-line border -->
-			<div id="middle-body-content">
-				<section id="header">
+            <hr id="before-about-text">
 
-					<!-- this image serves as profile picture when view is desktop -->
-					<img id="profile-pic-desktop" src="obum-1.jpg" alt="Face of Obumuneme Nwabude" title="Obumuneme Nwabude">
-					<div id="header-right">
-						<!-- profile name and picture -->
-						<div id="header-text">
-							<h1 id="main-heading" class="text-center text-heading">Obumuneme Nwabude</h1>
-							<h5 id="main-heading-caption" class="text-center text-caption">Mobile Web Specialist, Public Speaker, Digital Marketer</h5>
-						</div>
+            <!-- profile about -->
+            <div id="header-about-text">
+              <h2 class="text-subheading">About Me</h2>
+              <p class="text-regular">Hey, I'm Obumuneme Nwabude and I am from <a href="https://wikipedia.org/wiki/Anambra_State" title="Anambra State, Nigeria" rel="noreferrer noopener" target="_blank">Anambra State</a>, in <a href="https://wikipedia.org/wiki/Nigeria" title="Nigeria" rel="noreferrer noopener" target="_blank">Nigeria</a>. I'm a <a href="https://knvgmedia.com" title="Konverge Media Ltd" rel="noreferrer noopener" target="_blank">Konverge Media</a> trainer for the <a href="http://konverge.co" title="Google Digital Skills for Africa - Free Online Marketing Courses From Google" rel="noreferrer noopener" target="_blank">Google Digital Skills for Africa</a> program, sponsored by <a href="https://about.google" title="Google Inc." rel="noreferrer noopener" target="_blank">Google</a>. I also spend time creating <a href="https://wikipedia.org/wiki/Progressive_web_application" title="Progressive Web Applications" rel="noreferrer noopener" target="_blank">Progressive Web Apps</a>, which are websites with focus of how users perceive them on mobile devices.
+              </p>
+            </div>
+          </div>
+        </header>
 
-            <hr id="before-social-icons">
-            <!-- helps in lying the social icons and the linkedin badge side-by-side when in desktop view -->
-            <div id="header-social-and-badge-container">
+        <hr id="before-main">
 
-              <!-- text and social icons -->
-              <div id="header-social-text-and-icons">
+        <main class="text-regular">
+          <section class="content-container" id="digital-skills">
+            <h2 class="text-subheading">Being a Digital Skills Trainer</h2>
+            <p>It was in mid 2019 that I was privileged to start training for Konverge Media on Digital Skills. It has been an exciting journey: full of learning, meeting people and getting connected. Here is a record of one of such trainings.</p>
+            <iframe src="" data-src="https://web.facebook.com/plugins/post.php?href=https%3A%2F%2Fweb.facebook.com%2Fobumnwabude%2Fposts%2F2492077087567151&width=auto"  height="730" style="border:none;overflow:hidden;display:block;width:100%;margin:10px auto;max-width:600px;" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" title="A facebook post of one of my trainings on #GoogleDigitalSkills"><a href="https://facebook.com/obumnwabude/posts/2492077087567151" rel="noreferrer noopener" target="_blank" title="One of my trainings on #GoogleDigitalSkills">One of my trainings on #GoogleDigitalSkills</a></iframe>
+            <p>Courtesy of being a trainer, I have learnt a great deal of digital marketing; both from experience and from varying online courses. One of them being from <a href="https://skillshop.exceedlms.com/profiles/e209278a0e014f5d9b706be4b9411e0b" title="My Certificates on SkillShop" rel="noreferrer noopener" target="_blank">Google SkillShop</a>.</p>
+          </section>
 
-                <!-- text before social icons -->
-                <h3 class="text-subheading">I'm social, let's connect ... </h3>
+          <hr id="before-mobile-web">
 
-    						<!-- social media icons -->
-    						<div id="header-social-icons">
-                  <div id="social-icons">
+          <section class="content-container" id="mobile-web">
+            <h2 class="text-subheading">Being a Mobile Web Specialist</h2>
+            <p>I always wondered how the bits all joined together to form the various systems and devices we use today. My enthusiasm for technology was fully expressed during the time I spent learning how to code. I'm a self taught developer and as of last year, it was a very great opportunity for me to be part of two special training programs that cemented my gains in web development.
+            First is the <a href="https://developers.google.com/training/programs/africa" title="Google Africa Developer Scholarship" rel="noreferrer noopener" target="_blank">Google Africa Developer Scholarship</a></p>
+            <div style="display:flex;justify-content:space-around;align-items:center;margin-bottom:20px;">
+            <blockquote class="twitter-tweet" data-theme="light" id="twitter-post" data-width="500"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/GoogleAfricaDeveloperScholarship?src=hash&amp;ref_src=twsrc%5Etfw">#GoogleAfricaDeveloperScholarship</a> had it&#39;s meetup finale today. At <a href="https://twitter.com/hashtag/ALC_Enugu?src=hash&amp;ref_src=twsrc%5Etfw">#ALC_Enugu</a> we had live and direct: <a href="https://twitter.com/sasschristina?ref_src=twsrc%5Etfw">@sasschristina</a>, founder of <a href="https://twitter.com/Andela?ref_src=twsrc%5Etfw">@Andela</a> and also <a href="https://twitter.com/Esidemsam?ref_src=twsrc%5Etfw">@Esidemsam</a>, program manager for <a href="https://twitter.com/hashtag/ALC4?src=hash&amp;ref_src=twsrc%5Etfw">#ALC4</a>.0. <a href="https://twitter.com/Google?ref_src=twsrc%5Etfw">@Google</a> <a href="https://twitter.com/googleafrica?ref_src=twsrc%5Etfw">@googleafrica</a> <a href="https://twitter.com/andela_alc?ref_src=twsrc%5Etfw">@andela_alc</a> <a href="https://twitter.com/Andela_Nigeria?ref_src=twsrc%5Etfw">@Andela_Nigeria</a> <a href="https://twitter.com/Andela?ref_src=twsrc%5Etfw">@Andela</a> <a href="https://twitter.com/pluralsight?ref_src=twsrc%5Etfw">@pluralsight</a> <a href="https://t.co/8f0kgoEU6M">pic.twitter.com/8f0kgoEU6M</a></p>&mdash; Obumuneme Nwabude (@obumnwabude) <a href="https://twitter.com/obumnwabude/status/1205893214869307392?ref_src=twsrc%5Etfw">December 14, 2019</a></blockquote></div>
+            Then came <a href="https://devctraining.andela.com/" title="DevC Training With Andela" target="_blank" rel="noreferrer noopener">DevC Training With Andela</a>.
+            <iframe src="" data-src="https://web.facebook.com/plugins/post.php?href=https%3A%2F%2Fweb.facebook.com%2Fobumnwabude%2Fposts%2F2552277501547109&width=auto"  height="630" style="border:none;overflow:hidden;display:block;margin:10px auto;width:100%;max-width:600px;" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" title="A facebook post of being in #DevCTrainingWithAndela"><a href="https://facebook.com/obumnwabude/posts/2552277501547109" rel="noreferrer noopener" target="_blank" title="Being in #DevCTrainingWithAndela">Being in #DevCTrainingWithAndela</a></iframe>
+          </section>
 
-                    <div class="social-icons-row">
-                      <!-- facebook -->
-                      <a href="https://www.facebook.com/obumnwabude" title="Facebook" rel="noopener noreferrer" target="_blank" class="links-to-social">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 59 59" id="facebook-svg">
-                          <title>Facebook</title>
-                          <linearGradient id="nT5WH7nXAOiS46rXmee3Ob" x1="32" x2="32" y1="-3.34" y2="59.223" gradientTransform="matrix(1 0 0 -1 0 66)" gradientUnits="userSpaceOnUse">
-                            <stop offset="0" stop-color="#155cde"/>
-                            <stop offset=".278" stop-color="#1f7fe5"/>
-                            <stop offset=".569" stop-color="#279ceb"/>
-                            <stop offset=".82" stop-color="#2cafef"/>
-                            <stop offset="1" stop-color="#2eb5f0"/>
-                          </linearGradient>
-                          <path fill="url(#nT5WH7nXAOiS46rXmee3Ob)" d="M58,32c0,13.35-10.05,24.34-23,25.83C34.02,57.94,33.01,58,32,58c-1.71,0-3.38-0.17-5-0.49  C15.03,55.19,6,44.65,6,32C6,17.64,17.64,6,32,6S58,17.64,58,32z"/>
-                          <path fill="#fff" d="M42.8,36.05l-0.76,2C41.6,39.22,40.46,40,39.19,40H35v17.83C34.02,57.94,33.01,58,32,58 c-1.71,0-3.38-0.17-5-0.49V40h-2.95C22.36,40,21,38.66,21,37v-2c0-1.66,1.36-3,3.05-3H27v-6c0-5.51,4.49-10,10-10h3 c2.21,0,4,1.79,4,4s-1.79,4-4,4h-3c-1.1,0-2,0.9-2,2v6h4.95C42.08,32,43.55,34.09,42.8,36.05z"/>
-                        </svg>
-                      </a>
+          <hr id="before-linkedin-badge">
 
-                      <!-- instagram -->
-                      <a href="https://www.instagram.com/obumnwabude" title="Instagram" rel="noopener noreferrer" target="_blank" class="links-to-social">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 59 59" id="instagram-svg">
-                          <title>Instagram</title>
-                          <radialGradient id="TGwjmZMm2W~B4yrgup6jdb" cx="18.51" cy="66.293" r="69.648" gradientTransform="matrix(.6435 -.7654 .5056 .4251 -26.92 52.282)" gradientUnits="userSpaceOnUse">
-                            <stop offset=".073" stop-color="#eacc7b"/>
-                            <stop offset=".184" stop-color="#ecaa59"/>
-                            <stop offset=".307" stop-color="#ef802e"/>
-                            <stop offset=".358" stop-color="#ef6d3a"/>
-                            <stop offset=".46" stop-color="#f04b50"/>
-                            <stop offset=".516" stop-color="#f03e58"/>
-                            <stop offset=".689" stop-color="#db359e"/>
-                            <stop offset=".724" stop-color="#ce37a4"/>
-                            <stop offset=".789" stop-color="#ac3cb4"/>
-                            <stop offset=".877" stop-color="#7544cf"/>
-                            <stop offset=".98" stop-color="#2b4ff2"/>
-                          </radialGradient>
-                          <path fill="url(#TGwjmZMm2W~B4yrgup6jdb)" d="M45,57H19c-5.5,0-10-4.5-10-10V21c0-5.5,4.5-10,10-10h26c5.5,0,10,4.5,10,10v26C55,52.5,50.5,57,45,57z"/><path fill="#fff" d="M32,20c4.6,0,5.1,0,6.9,0.1c1.7,0.1,2.6,0.4,3.2,0.6c0.8,0.3,1.4,0.7,2,1.3c0.6,0.6,1,1.2,1.3,2 c0.2,0.6,0.5,1.5,0.6,3.2C46,28.9,46,29.4,46,34s0,5.1-0.1,6.9c-0.1,1.7-0.4,2.6-0.6,3.2c-0.3,0.8-0.7,1.4-1.3,2 c-0.6,0.6-1.2,1-2,1.3c-0.6,0.2-1.5,0.5-3.2,0.6C37.1,48,36.6,48,32,48s-5.1,0-6.9-0.1c-1.7-0.1-2.6-0.4-3.2-0.6 c-0.8-0.3-1.4-0.7-2-1.3c-0.6-0.6-1-1.2-1.3-2c-0.2-0.6-0.5-1.5-0.6-3.2C18,39.1,18,38.6,18,34s0-5.1,0.1-6.9 c0.1-1.7,0.4-2.6,0.6-3.2c0.3-0.8,0.7-1.4,1.3-2c0.6-0.6,1.2-1,2-1.3c0.6-0.2,1.5-0.5,3.2-0.6C26.9,20,27.4,20,32,20 M32,17 c-4.6,0-5.2,0-7,0.1c-1.8,0.1-3,0.4-4.1,0.8c-1.1,0.4-2.1,1-3,2s-1.5,1.9-2,3c-0.4,1.1-0.7,2.3-0.8,4.1C15,28.8,15,29.4,15,34 s0,5.2,0.1,7c0.1,1.8,0.4,3,0.8,4.1c0.4,1.1,1,2.1,2,3c0.9,0.9,1.9,1.5,3,2c1.1,0.4,2.3,0.7,4.1,0.8c1.8,0.1,2.4,0.1,7,0.1 s5.2,0,7-0.1c1.8-0.1,3-0.4,4.1-0.8c1.1-0.4,2.1-1,3-2c0.9-0.9,1.5-1.9,2-3c0.4-1.1,0.7-2.3,0.8-4.1c0.1-1.8,0.1-2.4,0.1-7 s0-5.2-0.1-7c-0.1-1.8-0.4-3-0.8-4.1c-0.4-1.1-1-2.1-2-3s-1.9-1.5-3-2c-1.1-0.4-2.3-0.7-4.1-0.8C37.2,17,36.6,17,32,17L32,17z"/>
-                          <path fill="#fff" d="M32,25c-5,0-9,4-9,9s4,9,9,9s9-4,9-9S37,25,32,25z M32,40c-3.3,0-6-2.7-6-6s2.7-6,6-6s6,2.7,6,6S35.3,40,32,40 z"/>
-                          <circle cx="41" cy="25" r="2" fill="#fff"/>
-                        </svg>
-                      </a>
-                    </div>
-
-                    <div class="social-icons-row">
-                      <!-- twitter -->
-                      <a href="https://www.twitter.com/obumnwabude" title="Twitter" rel="noopener noreferrer" target="_blank" class="links-to-social">
-                        <svg style="enable-background:new 0 0 112.197 112.197;" version="1.1" viewBox="0 0 112.197 112.197" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="twitter-svg">
-                          <title>Twitter</title>
-                          <g>
-                            <circle cx="56.099" cy="56.098" r="56.098" style="fill:#55ACEE;"/>
-                            <g>
-                              <path d="M90.461,40.316c-2.404,1.066-4.99,1.787-7.702,2.109c2.769-1.659,4.894-4.284,5.897-7.417    c-2.591,1.537-5.462,2.652-8.515,3.253c-2.446-2.605-5.931-4.233-9.79-4.233c-7.404,0-13.409,6.005-13.409,13.409    c0,1.051,0.119,2.074,0.349,3.056c-11.144-0.559-21.025-5.897-27.639-14.012c-1.154,1.98-1.816,4.285-1.816,6.742    c0,4.651,2.369,8.757,5.965,11.161c-2.197-0.069-4.266-0.672-6.073-1.679c-0.001,0.057-0.001,0.114-0.001,0.17    c0,6.497,4.624,11.916,10.757,13.147c-1.124,0.308-2.311,0.471-3.532,0.471c-0.866,0-1.705-0.083-2.523-0.239    c1.706,5.326,6.657,9.203,12.526,9.312c-4.59,3.597-10.371,5.74-16.655,5.74c-1.08,0-2.15-0.063-3.197-0.188    c5.931,3.806,12.981,6.025,20.553,6.025c24.664,0,38.152-20.432,38.152-38.153c0-0.581-0.013-1.16-0.039-1.734    C86.391,45.366,88.664,43.005,90.461,40.316L90.461,40.316z" style="fill:#F1F2F2;"/>
-                            </g>
-                          </g>
-                        </svg>
-                      </a>
-
-                      <!-- linkedin -->
-                      <a href="https://www.linkedin.com/in/obumnwabude" title="LinkedIn" rel="noopener noreferrer" target="_blank" class="links-to-social">
-                        <svg style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" version="1.1" viewBox="0 0 488 488"xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="linkedin-svg">
-                          <title>LinkedIn</title>
-                          <defs>
-                            <style type="text/css">
-                               <![CDATA[
-                                .fil2 {fill:#025E91}
-                                .fil0 {fill:#0273B3}
-                                .fil1 {fill:white}
-                               ]]>
-                              </style>
-                            </defs>
-                            <g id="Layer_x0020_1">
-                              <g id="_445027624">
-                                <rect class="fil0" height="488" rx="53" ry="53" width="488"/>
-                                <path class="fil1" d="M329 389l61 0 0 0 0 -114c1,-15 -4,-39 -10,-52 -7,-14 -17,-23 -33,-28 -16,-5 -38,-6 -54,0 -12,4 -19,10 -27,19 -1,1 -2,2 -3,4 -1,1 -1,2 -2,2 -1,3 1,2 -2,2l0 -27 -57 0c-1,3 -1,192 0,195l59 0c1,-4 1,-80 1,-90 0,-30 3,-55 34,-56 33,-2 33,27 33,56 0,7 1,84 0,89zm-200 -290c-18,3 -33,18 -30,40 2,18 19,33 40,30 17,-3 32,-19 29,-40 -2,-17 -19,-33 -39,-30zm-25 291l59 0c1,-5 1,-41 1,-49 0,-47 0,-98 0,-145l-60 0 0 0 0 194z"/>
-                                <path class="fil2" d="M261 390l-59 0c-1,-3 -1,-192 0,-195l54 0 -98 -86c6,5 9,12 10,20 3,21 -12,37 -29,40 -10,1 -19,-2 -26,-7l33 34 18 0c0,47 0,98 0,145 0,8 0,44 -1,49l-59 0 99 98 233 0 52 -52 0 -108 -116 -117c3,4 6,8 8,12 6,13 11,37 10,52l0 114 0 0 -61 0c1,-5 0,-82 0,-89 0,-29 0,-58 -33,-56 -31,1 -34,26 -34,56 0,10 0,86 -1,90z"/>
-                                <path class="fil2" d="M270 210l-11 -11 0 23c3,0 1,1 2,-2l2 -2 3 -4c1,-2 2,-3 4,-4z"/>
-                              </g>
-                            </g>
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <hr id="before-linkedin-badge">
-
-              <!-- text and linkedin badge -->
-              <div id="header-badge-and-text-container">
-
-                <!-- text before linkedin badge -->
-                <h3 class="text-subheading">View my portfolio </h3>
-
-                <div id="header-linkedin-badge-container-mobile">
-                  <!-- linkedin profile badge -->
-                  <div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="obumnwabude">
-                    <a class="LI-simple-link" href='https://ng.linkedin.com/in/obumnwabude?trk=profile-badge' rel="noreferrer noopener" target="_blank">Obumuneme Nwabude</a>
-                  </div>
-                </div>
-
-                <div id="header-linkedin-badge-container-desktop">
-                  <div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="horizontal" data-theme="dark" data-vanity="obumnwabude"><a class="LI-simple-link" href='https://ng.linkedin.com/in/obumnwabude?trk=profile-badge' rel="noreferrer noopener" target="_blank">Obumuneme Nwabude</a>
-                  </div>
-                </div>
+          <!-- text and linkedin badge -->
+          <div class="content-container" id="portfolio">
+            <!-- text before linkedin badge -->
+            <h2 class="text-subheading">View my Portfolio</h2>
+            <div id="linkedin-badge-container">
+              <!-- linkedin profile badge -->
+              <div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="horizontal" data-theme="light" data-vanity="obumnwabude">
+                <a class="LI-simple-link text-center" href='https://ng.linkedin.com/in/obumnwabude?trk=profile-badge' rel="noreferrer noopener" target="_blank">Obumuneme Nwabude</a>
               </div>
             </div>
-					</div>
-				</section>
+          </div>
 
-				<hr id="before-body-content">
+          <hr id="before-social-icons">
 
-				<section id="inner-body-content" class="text-regular">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</section>
-				<section id="footer" class="text-center text-regular">
-					Obumuneme Nwabude<br>All Rights Reserved &copy;2020
-				</section>
-			</div>
-		</main>
-		<footer class="text-center text-regular">
-			Obumuneme Nwabude<br>All Rights Reserved &copy;2020
-		</footer>
-	</div>
-
-	<!-- LinkedIn Profile Badge JS -->
-	<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+          <!-- text and social icons -->
+          <div class="content-container" id="contact-me">
+            <!-- text before social icons -->
+            <h2 class="text-subheading">Contact me</h2>
+            <!-- social media icons -->
+            <div id="social-icons">
+              <!-- facebook icon -->
+              <a href="https://www.facebook.com/obumnwabude" title="Click to visit my profile on Facebook" rel="noreferrer noopener" target="_blank" class="links-to-social">
+                <svg enable-background="new 0 0 128 128" viewBox="0 0 128 128" width="75" height="75" role="button" aria-label="Click to visit my profile on Facebook">
+                  <title>Click to visit my profile on Facebook</title>
+                  <g>
+                    <g>
+                      <circle cx="64" cy="64" fill="#176AE6" r="64"/>
+                    </g>
+                    <g>
+                      <path d="M87.308,81.011l2.738-16.756h-19.39V51.479c0-5.276,1.415-9.029,8.981-9.029l11.2,0.005V25.559    c0,0-7.108-1.559-13.776-1.559c-13.915,0-23.124,9.19-23.124,24.79v15.466H37.162v16.756h16.771v46.193    c3.281,0.519,6.642,0.795,10.067,0.795c2.248,0,4.468-0.119,6.656-0.345V81.011H87.308z" fill="#FFFFFF"/>
+                    </g>
+                  </g>
+                </svg>
+              </a>
+              <!-- instagram icon -->
+              <a href="https://www.instagram.com/obumnwabude" title="Click to visit my profile on Instagram"  rel="noreferrer noopener" target="_blank" class="links-to-social">
+                <svg enable-background="new 0 0 128 128" viewBox="0 0 128 128" width="75" height="75" role="button" aria-label="Click to visit my profile on Instagram">
+                  <title>Click to visit my profile on Instagram</title>
+                  <g>
+                    <linearGradient gradientTransform="matrix(1 0 0 -1 594 633)" gradientUnits="userSpaceOnUse" id="SVGID_1_" x1="-566.7114" x2="-493.2875" y1="516.5693" y2="621.4296">
+                      <stop offset="0" style="stop-color:#FFB900"/>
+                      <stop offset="1" style="stop-color:#9100EB"/>
+                    </linearGradient>
+                    <circle cx="64" cy="64" fill="url(#SVGID_1_)" r="64"/>
+                  </g>
+                  <g>
+                    <g>
+                      <path d="M82.333,104H45.667C33.72,104,24,94.281,24,82.333V45.667C24,33.719,33.72,24,45.667,24h36.666    C94.281,24,104,33.719,104,45.667v36.667C104,94.281,94.281,104,82.333,104z M45.667,30.667c-8.271,0-15,6.729-15,15v36.667    c0,8.271,6.729,15,15,15h36.666c8.271,0,15-6.729,15-15V45.667c0-8.271-6.729-15-15-15H45.667z" fill="#FFFFFF"/>
+                    </g>
+                    <g>
+                      <path d="M64,84c-11.028,0-20-8.973-20-20c0-11.029,8.972-20,20-20s20,8.971,20,20C84,75.027,75.028,84,64,84z     M64,50.667c-7.352,0-13.333,5.981-13.333,13.333c0,7.353,5.981,13.333,13.333,13.333S77.333,71.353,77.333,64    C77.333,56.648,71.353,50.667,64,50.667z" fill="#FFFFFF"/></g><g><circle cx="85.25" cy="42.75" fill="#FFFFFF" r="4.583"/>
+                    </g>
+                  </g>
+                </svg>
+              </a>
+              <!-- twitter icon -->
+              <a href="https://www.twitter.com/obumnwabude" title="Click to visit my profile on Twitter" rel="noreferrer noopener" target="_blank" class="links-to-social">
+                <svg enable-background="new 0 0 128 128" viewBox="0 0 128 128" width="75" height="75" role="button" aria-label="Click to visit my profile on Twitter">
+                  <title>Click to visit my profile on Twitter</title>
+                  <g>
+                    <circle cx="64" cy="64" fill="#55ACEE" r="64"/>
+                  </g>
+                  <g>
+                    <path d="M105,40.189c-2.943,1.306-6.105,2.188-9.428,2.584c3.39-2.031,5.99-5.248,7.217-9.08   c-3.171,1.881-6.684,3.247-10.422,3.983c-2.994-3.19-7.26-5.184-11.979-5.184c-9.065,0-16.414,7.349-16.414,16.412   c0,1.287,0.146,2.539,0.426,3.741C50.758,51.96,38.665,45.426,30.57,35.497c-1.413,2.423-2.223,5.243-2.223,8.251   c0,5.694,2.898,10.718,7.302,13.661c-2.69-0.085-5.222-0.824-7.434-2.054c-0.002,0.069-0.002,0.138-0.002,0.207   c0,7.954,5.657,14.584,13.166,16.093c-1.378,0.375-2.827,0.575-4.324,0.575c-1.058,0-2.086-0.103-3.088-0.295   c2.089,6.521,8.15,11.268,15.332,11.399c-5.617,4.401-12.694,7.024-20.384,7.024c-1.325,0-2.632-0.076-3.915-0.229   c7.263,4.657,15.892,7.374,25.16,7.374c30.188,0,46.697-25.01,46.697-46.698c0-0.711-0.018-1.42-0.049-2.123   C100.018,46.371,102.799,43.48,105,40.189" fill="#FFFFFF"/>
+                  </g>
+                </svg>
+              </a>
+              <!-- linkedin icon -->
+              <a href="https://www.linkedin.com/in/obumnwabude" title="Click to visit my profile on LinkedIn" rel="noreferrer noopener" target="_blank" class="links-to-social">
+                <svg enable-background="new 0 0 128 128" viewBox="0 0 128 128" width="75" height="75" role="button" aria-label="Click to visit my profile on LinkedIn">
+                  <title>Click to visit my profile on LinkedIn</title>
+                  <g>
+                    <circle cx="64" cy="64" fill="#0076B4" r="64"/>
+                  </g>
+                  <g>
+                    <path d="M44.119,95.934H29.184V47.93h14.935V95.934z M36.656,41.371c-4.792,0-8.656-3.876-8.656-8.653   c0-4.775,3.864-8.652,8.656-8.652c4.771,0,8.646,3.876,8.646,8.652C45.303,37.495,41.428,41.371,36.656,41.371z M100,95.934H85.081   V72.59c0-5.566-0.097-12.728-7.752-12.728c-7.765,0-8.948,6.065-8.948,12.33v23.742H53.479V47.93H67.78v6.562h0.204   c1.99-3.774,6.857-7.753,14.117-7.753c15.105,0,17.897,9.939,17.897,22.868L100,95.934L100,95.934z" fill="#FFFFFF"/>
+                  </g>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </main>
+        <div id="footer" class="text-center text-regular">
+          <p>Obumuneme Nwabude<br>All Rights Reserved &copy;2020</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="text-regular">
+    <p>Obumuneme Nwabude<br>All Rights Reserved &copy;2020</p>
+  </footer>
+  <script type="text/javascript">
+    window.addEventListener("scroll", function() {
+      document.querySelector("nav").classList.add("scrolled");
+      if (document.querySelector("nav input").checked) {
+        document.querySelector("nav input").checked = false;
+      }
+    });
+    var navLinks = document.querySelectorAll("nav ul li a");
+    for (var i = 0; i < navLinks.length; i++) {
+      navLinks[i].addEventListener("click", function() {
+        var current = document.getElementsByClassName("active");
+        current[0].classList.remove("active");
+        this.classList.add("active");
+      });
+    }
+    function initFBPosts() {
+      var fbPosts = document.getElementsByTagName("iframe");
+      for (var i = 0; i < fbPosts.length; i++) {
+        if (fbPosts[i].getAttribute("data-src")) {
+          fbPosts[i].setAttribute("src", fbPosts[i].getAttribute("data-src"));
+        }
+      }
+    }
+    window.onload = initFBPosts;
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(function(registration) {})
+          .catch(function(error) {});
+      });
+    }
+  </script>
+  <!-- twitter post script -->
+  <script defer src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <!-- LinkedIn Profile Badge JS -->
+  <script src="https://platform.linkedin.com/badges/js/profile.js" defer></script>
 </body>
 </html>
