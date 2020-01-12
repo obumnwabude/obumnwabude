@@ -1,17 +1,19 @@
-var version = 'v1::';
+var version = 'v1.11::';
 self.addEventListener('install', function(event) {
+  self.skipWaiting();
   event.waitUntil(
     caches
       .open(version + 'base')
       .then(function(cache) {
         return cache.addAll([
           '/',
-          '/index.html',
-          '/styles.css',
-          '/face-of-obum.webp',
-          '/face-of-obum.jpg',
-          '/icons/favicon.ico',
-          'https://fonts.googleapis.com/css?family=Noto+Sans+JP|Source+Sans+Pro:400i,700'
+          'index.html',
+          'styles.css',
+          'face-of-obum.webp',
+          'face-of-obum.jpg',
+          'icons/favicon.ico',
+          'manifest.json',
+          'https://fonts.googleapis.com/css?family=Noto+Sans+JP|Source+Sans+Pro:400i,700&display=swap'
         ]);
       })
       .catch(function(error) {})
@@ -35,34 +37,33 @@ self.addEventListener('activate', function(event) {
       .catch(function (error) {})
   );
 });
-self.addEventListener('fetch', function(event) {
-  if (event.request.method !== 'GET') return;
+self.addEventListener('fetch', event => {
+  console.log('Fetch event for ', event.request.url);
   event.respondWith(
-    caches
-      .match(event.request)
-      .then(function(cached) {
-        var networked = fetch(event.request)
-          .then(fetchedFromNetwork, unableToResolve)
-          .catch(unableToResolve);
-        return cached || networked;
-        function fetchedFromNetwork(response) {
-          var cacheCopy = response.clone();
-          caches
-            .open(version + 'progressive')
-            .then(function add(cache) {
-              cache.put(event.request, cacheCopy);
-            });
+    caches.match(event.request)
+    .then(response => {
+      if (response) {
+        return response;
+      }
+      return fetch(event.request)
+      .then(response => {
+        if (response.status === 404) {
+          return;
         }
-        function unableToResolve() {
-          return new Response('<h1>Service Unavailable</h1>', {
+        return caches.open(version + 'base')
+        .then(cache => {
+          cache.put(event.request.url, response.clone());
+          return response;
+        });
+      });
+    }).catch(error => {
+      return new Response('<h1>Service Unavailable</h1>', {
             status: 503,
             statusText: 'Service Unavailable',
             headers: new Headers({
               'Content-Type': 'text/html'
             })
           });
-        }
-      })
-      .catch(function(error) {})
+    })
   );
 });
