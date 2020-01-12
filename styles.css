@@ -255,7 +255,7 @@ main {
 
 .content-container .text-subheading {
   background-color: hsl(238, 88%, 18%);
-  color: hsl(90, 95%, 97%);
+  color: #fff;
   border-radius: 15px;
   text-decoration: none;
   padding: 15px;
