@@ -265,6 +265,37 @@ main {
 }
 
 /*
+ * styles the container of the link to github
+ */
+#github-link-container {
+  text-align: center;
+  background-color: white;
+  border-radius: 2px;
+  margin: 5px auto;
+  padding: 3px;
+  max-width: 210px;
+  font-size: 1.2rem;
+  box-shadow: 0px 0px 3px 0.75px hsl(255, 5%, 50%);
+}
+
+/**
+ * styles the link to github
+ */
+#github-link {
+  color: black;
+}
+
+/*
+ * styles the github link icon
+ */
+#github-link-icon {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  margin-left: 5px;
+}
+
+/*
  * Achieves centralisation of the linkedin profile badge and social media icons
  */
 #portfolio, #contact-me {
