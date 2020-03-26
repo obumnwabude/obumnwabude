@@ -1,4 +1,4 @@
-var version = 'v1.14::'
+var version = 'v1.16::'
 self.addEventListener('install', function(event) {
   self.skipWaiting();
   event.waitUntil(
@@ -13,6 +13,7 @@ self.addEventListener('install', function(event) {
           'face-of-obum.jpg',
           'icons/favicon.ico',
           'manifest.json',
+          'GitHub-Mark-32px.png',
           'https://fonts.googleapis.com/css?family=Noto+Sans+JP|Source+Sans+Pro:400i,700&display=swap'
         ]);
       })

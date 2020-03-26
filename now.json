@@ -1,10 +1,10 @@
 {
-  "name": "obumnwabude",
   "routes": [
     { "src": "/", "dest": "/index.html"},
     { "src": "/face-of-obum.jpg", "dest": "/face-of-obum.jpg"},
     { "src": "/face-of-obum.webp", "dest": "/face-of-obum.webp"},
     { "src": "/icons/.*", "dest": "/icons/.*"},
+    { "src": "/GitHub-Mark-32px.png", "dest": "/GitHub-Mark-32px.png"},
     { "src": "/manifest.json", "dest": "/manifest.json"},
     { "src": "/styles.css", "dest": "/styles.css"},
     { "src": "/styles/.*", "dest": "/styles/.*"},
