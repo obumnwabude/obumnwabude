@@ -1,4 +1,4 @@
-var version = 'v1.16::'
+var version = 'v1.17::'
 self.addEventListener('install', function(event) {
   self.skipWaiting();
   event.waitUntil(
@@ -39,7 +39,6 @@ self.addEventListener('activate', function(event) {
   );
 });
 self.addEventListener('fetch', event => {
-  console.log('Fetch event for ', event.request.url);
   event.respondWith(
     caches.match(event.request)
     .then(response => {
