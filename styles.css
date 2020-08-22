@@ -18,13 +18,28 @@ main {
 }
 
 main img {
+  border-radius: 50%;
+}
+
+main > div[left] > img {
   width: 50vw;
   height: 50vw;
   max-width: 312px;
   max-height: 312px;
-  border-radius: 50%;
   border: 5px solid #fff;
-  box-shadow: 0px 0px 10px #00f;
+  box-shadow: 0px 0px 10px #00f; 
+}
+
+main > div[right] > div[social] {
+  margin-top: 1rem;
+}
+
+main > div[right] > div[social] > a {
+  margin-right: 1rem;  
+}
+
+main > div[right] img {
+  box-shadow: 0px 0px 5px #00f;  
 }
 
 main h1 {
