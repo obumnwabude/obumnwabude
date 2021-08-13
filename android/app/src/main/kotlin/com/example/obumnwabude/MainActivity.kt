@@ -1,4 +1,4 @@
-package com.example.obumnwabude
+package com.obumnwabude
 
 import io.flutter.embedding.android.FlutterActivity
 
