@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:url_strategy/url_strategy.dart';
 import './social_icons.dart';
 import './social_links.dart';
 
 void main() {
+  setPathUrlStrategy();
   runApp(MyApp());
 }
 
