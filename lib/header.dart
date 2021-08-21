@@ -78,14 +78,14 @@ class Header extends StatelessWidget {
                 Expanded(child: _headerName(context, _isMobile))
               ])),
           Container(
-              margin: EdgeInsets.only(bottom: 32),
+              margin: EdgeInsets.only(bottom: 48),
               child: _headerIcons(_isMobile))
         ],
       );
     } else {
       return Container(
         height: _kHeaderImageDesktopHeight,
-        margin: EdgeInsets.only(top: 32, bottom: 32),
+        margin: EdgeInsets.only(top: 32, bottom: 48),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
