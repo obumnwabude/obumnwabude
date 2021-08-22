@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_strategy/url_strategy.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 import './header.dart';
 import './tab_body.dart';
 
@@ -17,15 +18,41 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.lightBlue,
         ),
-        home: SafeArea(bottom: false, child: HomeScreen()));
+        home: SafeArea(child: HomeScreen()));
   }
 }
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  bool _isMobileShowcaseVisible = true;
+
   @override
   Widget build(BuildContext context) {
+    bool _isMobile = MediaQuery.of(context).size.width < 600;
+
     return Scaffold(
-      body: ListView(children: <Widget>[Header(), TabBody()]),
-    );
+        appBar: (_isMobile && _isMobileShowcaseVisible) || !_isMobile
+            ? PreferredSize(
+                preferredSize: Size.fromHeight(288),
+                child: Header(),
+              )
+            : null,
+        body: ListView(children: [
+          if (_isMobile)
+            VisibilityDetector(
+              key: Key('my-widget-key'),
+              onVisibilityChanged: (vis) {
+                setState(() {
+                  _isMobileShowcaseVisible = vis.visibleFraction == 0;
+                });
+              },
+              child: MobileShowcase(),
+            ),
+          TabBody()
+        ]));
   }
 }

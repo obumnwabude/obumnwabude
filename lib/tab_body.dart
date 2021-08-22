@@ -29,12 +29,15 @@ class _TabBodyState extends State<TabBody> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Column(children: <Widget>[
-      TabBar(
-        controller: _tabController,
-        tabs: myTabs,
+      Container(
+        margin: EdgeInsets.only(top: 48),
+        child: TabBar(
+          controller: _tabController,
+          tabs: myTabs,
+        ),
       ),
       SizedBox(
-        height: 300,
+        height: 500,
         child: TabBarView(controller: _tabController, children: [
           Icon(Icons.directions_car),
           Icon(Icons.directions_transit),
