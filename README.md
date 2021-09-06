@@ -13,6 +13,10 @@
 
 <br />
 
+![](obum_speaking.png)
+
+<br />
+
 <h2>Where I've written stuff ✍</h2>
 <p>
   <a href="https://obumnwabude.medium.com"
