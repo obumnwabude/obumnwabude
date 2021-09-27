@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import './social_icons.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import './social_links.dart';
 
 Widget _headerImage({required double width}) => ClipRRect(
       borderRadius: BorderRadius.circular(10000),
-      child: Image.asset('assets/images/obum.jpg', width: width),
+      child: Image.asset('images/obum.jpg', width: width),
     );
 
 String _capitalize(String str) => str[0].toUpperCase() + str.substring(1);
@@ -14,11 +14,10 @@ Widget _headerIcons({alignment = MainAxisAlignment.start}) => Row(
     mainAxisAlignment: alignment,
     children: socialLinks.map((sL) {
       return IconButton(
-          padding: EdgeInsets.only(left: 2, right: 2),
-          icon: Icon(SocialIcons.icons[sL.icon], size: 36),
+          padding: EdgeInsets.all(2),
+          icon: SvgPicture.asset('icons/${sL.icon}.svg'),
           onPressed: () => launch(sL.link),
-          tooltip: _capitalize(sL.icon),
-          color: Colors.grey.shade700);
+          tooltip: _capitalize(sL.icon));
     }).toList());
 
 class MobileShowcase extends StatelessWidget {
