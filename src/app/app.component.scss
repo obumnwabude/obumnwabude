@@ -1,0 +1,31 @@
+#app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+mat-sidenav-container {
+  flex: 1 1 auto;
+}
+
+#mobile-showcase {
+  padding-top: 64px;
+  text-align: center;
+}
+
+#ms-img-container {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  background-color: darkgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#ms-img-container img {
+  width: 280px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px 3px black;
+}

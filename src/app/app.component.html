@@ -1,8 +1,21 @@
-<mat-toolbar>
-  <span class="spacer"></span>
-  <button mat-icon-button (click)="changeTheme()">
-    <mat-icon outlined>{{
-      themes.indexOf(cssClass) == 0 ? themes[1] : themes[0]
-    }}</mat-icon>
-  </button>
-</mat-toolbar>
+<div id="app-container">
+  <mat-toolbar>
+    <span class="spacer"></span>
+    <button mat-icon-button (click)="changeTheme()">
+      <mat-icon outlined>{{
+        themes.indexOf(cssClass) == 0 ? themes[1] : themes[0]
+      }}</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <mat-sidenav-container>
+    <mat-sidenav-content>
+      <div id="mobile-showcase">
+        <div id="ms-img-container">
+          <img src="assets/images/obum.jpg" alt="" />
+        </div>
+        <h1 class="mat-display-1">Obumuneme Nwabude</h1>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
