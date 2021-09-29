@@ -15,6 +15,21 @@
           <img src="assets/images/obum.jpg" alt="" />
         </div>
         <h1 class="mat-display-1">Obumuneme Nwabude</h1>
+        <div id="social-icons">
+          <a
+            target="_blank"
+            rel="noreferrer noopener"
+            *ngFor="let sL of socialLinks"
+            [href]="sL.link"
+            [title]="capitalize(sL.icon)"
+          >
+            <img
+              [src]="'assets/social_icons/' + sL.icon + '.svg'"
+              class="social-icon"
+              alt=""
+            />
+          </a>
+        </div>
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>

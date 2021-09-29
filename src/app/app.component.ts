@@ -10,6 +10,15 @@ import { ThemingService } from './theming.service';
 })
 export class AppComponent implements OnInit {
   themes = constants.THEMES;
+  socialLinks = [
+    { icon: 'facebook', link: 'https://facebook.com/obumnwabude' },
+    { icon: 'instagram', link: 'https://instagram.com/obumnwabude' },
+    { icon: 'twitter', link: 'https://twitter.com/obumnwabude' },
+    { icon: 'linkedin', link: 'https://linkedin.com/in/obumnwabude' },
+    { icon: 'medium', link: 'https://obumnwabude.medium.com' },
+    { icon: 'dev', link: 'https://dev.to/obumnwabude' },
+    { icon: 'hashnode', link: 'https://obumnwabude.hashnode.dev' },
+  ];
   @HostBinding('class') public cssClass = constants.DEFAULT_THEME;
   constructor(
     public themingService: ThemingService,
@@ -31,5 +40,9 @@ export class AppComponent implements OnInit {
       this.themes.indexOf(this.cssClass) == 0 ? this.themes[1] : this.themes[0];
     this.themingService.theme.next(this.cssClass);
     this.appRef.tick();
+  }
+
+  capitalize(str: string): string {
+    return str[0].toUpperCase() + str.substring(1);
   }
 }
