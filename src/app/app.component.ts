@@ -19,6 +19,36 @@ export class AppComponent implements OnInit {
     { icon: 'dev', link: 'https://dev.to/obumnwabude' },
     { icon: 'hashnode', link: 'https://obumnwabude.hashnode.dev' },
   ];
+  tabs = [
+    {
+      label: {
+        icon: 'laptop',
+        text: 'Coding',
+      },
+      contents: 'laptop',
+    },
+    {
+      label: {
+        icon: 'drive_file_rename_outline',
+        text: 'Writing',
+      },
+      contents: 'drive_file_rename_outline',
+    },
+    {
+      label: {
+        icon: 'campaign',
+        text: 'Speaking',
+      },
+      contents: 'campaign',
+    },
+    {
+      label: {
+        icon: 'groups',
+        text: 'Community',
+      },
+      contents: 'groups',
+    },
+  ];
   @HostBinding('class') public cssClass = constants.DEFAULT_THEME;
   constructor(
     public themingService: ThemingService,
