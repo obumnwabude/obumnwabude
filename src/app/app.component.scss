@@ -10,7 +10,7 @@ mat-sidenav-container {
 
 #mobile-showcase {
   padding-top: 64px;
-  text-align: center;
+  padding-bottom: 32px;
 }
 
 #ms-img-container {
@@ -32,9 +32,18 @@ mat-sidenav-container {
 
 h1.mat-display-1 {
   margin-bottom: 8px;
+  text-align: center;
+}
+
+#social-icons {
+  text-align: center;
 }
 
 .social-icon {
   width: 32px;
   margin-left: 8px;
+}
+
+#mobile-showcase ul {
+  text-align: left;
 }
