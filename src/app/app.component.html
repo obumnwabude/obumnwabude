@@ -1,16 +1,27 @@
 <div id="app-container">
-  <mat-toolbar>
-    <span class="spacer"></span>
-    <button mat-icon-button (click)="changeTheme()">
-      <mat-icon outlined>{{
-        themes.indexOf(cssClass) == 0 ? themes[1] : themes[0]
-      }}</mat-icon>
-    </button>
+  <mat-toolbar *ngIf="!mBSCInView">
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="scrollToTop()" title="Home">
+        <mat-icon>home</mat-icon>
+      </button>
+      <span class="spacer"></span>
+      <span>obumnwabude</span>
+      <span class="spacer"></span>
+      <button mat-icon-button (click)="changeTheme()" title="Switch Theme">
+        <mat-icon outlined>{{
+          themes.indexOf(cssClass) == 0 ? themes[1] : themes[0]
+        }}</mat-icon>
+      </button>
+    </mat-toolbar-row>
   </mat-toolbar>
 
   <mat-sidenav-container>
     <mat-sidenav-content>
-      <div id="mobile-showcase">
+      <div
+        id="mobile-showcase"
+        (nguiInview)="mBSCInView = true"
+        (nguiOutview)="mBSCInView = false"
+      >
         <div id="ms-img-container">
           <img src="assets/images/obum.jpg" alt="" />
         </div>
@@ -41,7 +52,7 @@
         </ul>
       </div>
 
-      <mat-tab-group>
+      <mat-tab-group mat-stretch-tabs class="body">
         <mat-tab *ngFor="let tab of tabs">
           <ng-template matTabLabel>
             <mat-icon>{{ tab.label.icon }}</mat-icon>

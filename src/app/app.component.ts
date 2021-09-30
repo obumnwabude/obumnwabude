@@ -3,12 +3,15 @@ import { OverlayContainer } from '@angular/cdk/overlay';
 import { constants } from './contants';
 import { ThemingService } from './theming.service';
 
+declare var document: any;
+
 @Component({
   selector: 'obum-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  mBSCInView = false;
   themes = constants.THEMES;
   socialLinks = [
     { icon: 'facebook', link: 'https://facebook.com/obumnwabude' },
@@ -51,9 +54,9 @@ export class AppComponent implements OnInit {
   ];
   @HostBinding('class') public cssClass = constants.DEFAULT_THEME;
   constructor(
-    public themingService: ThemingService,
     private appRef: ApplicationRef,
-    private overlayContainer: OverlayContainer
+    private overlayContainer: OverlayContainer,
+    public themingService: ThemingService
   ) {}
 
   ngOnInit(): void {
@@ -74,5 +77,9 @@ export class AppComponent implements OnInit {
 
   capitalize(str: string): string {
     return str[0].toUpperCase() + str.substring(1);
+  }
+
+  scrollToTop(): void {
+    document.querySelector('.mat-sidenav-content').scrollTop = 0;
   }
 }

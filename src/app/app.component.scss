@@ -10,7 +10,7 @@ mat-sidenav-container {
 
 #mobile-showcase {
   padding-top: 64px;
-  padding-bottom: 32px;
+  padding-bottom: 16px;
 }
 
 #ms-img-container {
@@ -46,6 +46,18 @@ h1.mat-display-1 {
 
 #mobile-showcase ul {
   text-align: left;
+  max-width: 420px;
+  margin: 16px auto 0;
+}
+
+.mat-tab-group.body {
+  margin-top: 16px;
+}
+
+:host ::ng-deep .mat-tab-header {
+  top: 0;
+  z-index: 1000;
+  position: sticky;
 }
 
 .tab-label-text {

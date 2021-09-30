@@ -28,3 +28,13 @@ body {
 .spacer {
   flex: 1 1 auto;
 }
+
+.light_mode .mat-tab-header {
+  background-color: #fafafa;
+  color: #000000de;
+}
+
+.dark_mode .mat-tab-header {
+  background-color: #303030;
+  color: white;
+}
