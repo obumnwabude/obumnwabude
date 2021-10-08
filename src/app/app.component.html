@@ -25,31 +25,32 @@
         <div id="ms-img-container">
           <img src="assets/images/obum.jpg" alt="" />
         </div>
-        <h1 class="mat-display-1">Obumuneme Nwabude</h1>
-        <div id="social-icons">
-          <a
-            target="_blank"
-            rel="noreferrer noopener"
-            *ngFor="let sL of socialLinks"
-            [href]="sL.link"
-            [title]="capitalize(sL.icon)"
-          >
-            <img
-              [src]="'assets/social_icons/' + sL.icon + '.svg'"
-              class="social-icon"
-              alt=""
-            />
-          </a>
+        <div>
+          <h1 class="mat-display-1">Obumuneme Nwabude</h1>
+          <div id="social-icons">
+            <a
+              target="_blank"
+              rel="noreferrer noopener"
+              *ngFor="let sL of socialLinks"
+              [href]="sL.link"
+              [title]="capitalize(sL.icon)"
+            >
+              <img
+                [src]="'assets/social_icons/' + sL.icon + '.svg'"
+                class="social-icon"
+                alt=""
+              />
+            </a>
+          </div>
+          <ul>
+            <li>Mobile and Web Developer</li>
+            <li>Genesys Campus Club Lead</li>
+            <li>Beta Microsoft Learn Student Ambassador</li>
+            <li>Digital Marketer</li>
+            <li>Former Trainer on Google Digital Skills for Africa</li>
+            <li>Former Google Developer Student Clubs Lead</li>
+          </ul>
         </div>
-
-        <ul>
-          <li>Mobile and Web Developer</li>
-          <li>Genesys Campus Club Lead</li>
-          <li>Beta Microsoft Learn Student Ambassador</li>
-          <li>Digital Marketer</li>
-          <li>Former Trainer on Google Digital Skills for Africa</li>
-          <li>Former Google Developer Student Clubs Lead</li>
-        </ul>
       </div>
 
       <mat-tab-group mat-stretch-tabs class="body">
