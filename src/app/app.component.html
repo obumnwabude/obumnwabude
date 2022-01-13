@@ -1,5 +1,5 @@
 <div id="app-container">
-  <mat-toolbar *ngIf="!mBSCInView">
+  <!-- <mat-toolbar *ngIf="!mBSCInView">
     <mat-toolbar-row>
       <button mat-icon-button (click)="scrollToTop()" title="Home">
         <mat-icon>home</mat-icon>
@@ -13,7 +13,7 @@
         }}</mat-icon>
       </button>
     </mat-toolbar-row>
-  </mat-toolbar>
+  </mat-toolbar> -->
 
   <mat-sidenav-container>
     <mat-sidenav-content>
@@ -53,7 +53,7 @@
         </div>
       </div>
 
-      <mat-tab-group mat-stretch-tabs class="body">
+      <!-- <mat-tab-group mat-stretch-tabs class="body">
         <mat-tab *ngFor="let tab of tabs">
           <ng-template matTabLabel>
             <mat-icon>{{ tab.label.icon }}</mat-icon>
@@ -63,7 +63,17 @@
             <mat-icon>{{ tab.contents }}</mat-icon>
           </div>
         </mat-tab>
-      </mat-tab-group>
+      </mat-tab-group> -->
+
+      <button
+        mat-fab
+        (click)="changeTheme()"
+        title="Switch Theme"
+      >
+        <mat-icon outlined>{{
+          themes.indexOf(cssClass) == 0 ? themes[1] : themes[0]
+        }}</mat-icon>
+      </button>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
