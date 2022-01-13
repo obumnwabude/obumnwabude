@@ -2,10 +2,9 @@
 @include mat-core();
 
 $accent: mat-palette($mat-light-blue, A200, A100, A400);
-$light-primary: mat-palette($mat-light-blue);
-$dark-primary: mat-palette($mat-grey);
-$light-theme: mat-light-theme($light-primary, $accent);
-$dark-theme: mat-dark-theme($dark-primary, $accent);
+$primary: mat-palette($mat-light-blue);
+$light-theme: mat-light-theme($primary, $accent);
+$dark-theme: mat-dark-theme($primary, $accent);
 
 .light_mode {
   @include angular-material-theme($light-theme);

@@ -1,4 +1,5 @@
 import { ApplicationRef, Component, HostBinding, OnInit } from '@angular/core';
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { constants } from './contants';
 import { ThemingService } from './theming.service';
@@ -8,10 +9,11 @@ declare var document: any;
 @Component({
   selector: 'obum-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  mBSCInView = false;
+  profileShowcaseInView = false;
+  isLargeScreen = false;
   themes = constants.THEMES;
   socialLinks = [
     { icon: 'facebook', link: 'https://facebook.com/obumnwabude' },
@@ -20,46 +22,50 @@ export class AppComponent implements OnInit {
     { icon: 'linkedin', link: 'https://linkedin.com/in/obumnwabude' },
     { icon: 'medium', link: 'https://obumnwabude.medium.com' },
     { icon: 'dev', link: 'https://dev.to/obumnwabude' },
-    { icon: 'hashnode', link: 'https://obumnwabude.hashnode.dev' },
+    { icon: 'hashnode', link: 'https://obumnwabude.hashnode.dev' }
   ];
   tabs = [
     {
       label: {
         icon: 'laptop',
-        text: 'Coding',
+        text: 'Coding'
       },
-      contents: 'laptop',
+      contents: 'laptop'
     },
     {
       label: {
         icon: 'drive_file_rename_outline',
-        text: 'Writing',
+        text: 'Writing'
       },
-      contents: 'drive_file_rename_outline',
+      contents: 'drive_file_rename_outline'
     },
     {
       label: {
         icon: 'campaign',
-        text: 'Speaking',
+        text: 'Speaking'
       },
-      contents: 'campaign',
+      contents: 'campaign'
     },
     {
       label: {
         icon: 'groups',
-        text: 'Community',
+        text: 'Community'
       },
-      contents: 'groups',
-    },
+      contents: 'groups'
+    }
   ];
   @HostBinding('class') public cssClass = constants.DEFAULT_THEME;
   constructor(
     private appRef: ApplicationRef,
+    private breakpoint: BreakpointObserver,
     private overlayContainer: OverlayContainer,
     public themingService: ThemingService
   ) {}
 
   ngOnInit(): void {
+    this.breakpoint
+      .observe('(min-width: 992px)')
+      .subscribe((b) => (this.isLargeScreen = b.matches));
     this.themingService.theme.subscribe((theme: string) => {
       this.cssClass = theme;
       const oCClasses = this.overlayContainer.getContainerElement().classList;
@@ -73,6 +79,7 @@ export class AppComponent implements OnInit {
       this.themes.indexOf(this.cssClass) == 0 ? this.themes[1] : this.themes[0];
     this.themingService.theme.next(this.cssClass);
     this.appRef.tick();
+    localStorage.setItem(constants.LOCALSTORAGE_THEME_KEY, this.cssClass);
   }
 
   capitalize(str: string): string {

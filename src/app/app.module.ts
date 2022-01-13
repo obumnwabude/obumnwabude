@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { LayoutModule } from '@angular/cdk/layout';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
@@ -15,6 +16,7 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    LayoutModule,
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,

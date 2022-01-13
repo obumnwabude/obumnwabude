@@ -1,5 +1,5 @@
 <div id="app-container">
-  <!-- <mat-toolbar *ngIf="!mBSCInView">
+  <mat-toolbar *ngIf="!profileShowcaseInView && !isLargeScreen">
     <mat-toolbar-row>
       <button mat-icon-button (click)="scrollToTop()" title="Home">
         <mat-icon>home</mat-icon>
@@ -13,47 +13,22 @@
         }}</mat-icon>
       </button>
     </mat-toolbar-row>
-  </mat-toolbar> -->
+  </mat-toolbar>
 
   <mat-sidenav-container>
+    <mat-sidenav mode="side" opened *ngIf="isLargeScreen">
+      <ng-template [ngTemplateOutlet]="profileShowcase"></ng-template>
+    </mat-sidenav>
+
     <mat-sidenav-content>
       <div
-        id="mobile-showcase"
-        (nguiInview)="mBSCInView = true"
-        (nguiOutview)="mBSCInView = false"
+        (nguiInview)="profileShowcaseInView = true"
+        (nguiOutview)="profileShowcaseInView = false"
       >
-        <div id="ms-img-container">
-          <img src="assets/images/obum.jpg" alt="" />
-        </div>
-        <div>
-          <h1 class="mat-display-1">Obumuneme Nwabude</h1>
-          <div id="social-icons">
-            <a
-              target="_blank"
-              rel="noreferrer noopener"
-              *ngFor="let sL of socialLinks"
-              [href]="sL.link"
-              [title]="capitalize(sL.icon)"
-            >
-              <img
-                [src]="'assets/social_icons/' + sL.icon + '.svg'"
-                class="social-icon"
-                alt=""
-              />
-            </a>
-          </div>
-          <ul>
-            <li>Mobile and Web Developer</li>
-            <li>Genesys Campus Club Lead</li>
-            <li>Beta Microsoft Learn Student Ambassador</li>
-            <li>Digital Marketer</li>
-            <li>Former Trainer on Google Digital Skills for Africa</li>
-            <li>Former Google Developer Student Clubs Lead</li>
-          </ul>
-        </div>
+        <ng-template [ngTemplateOutlet]="profileShowcase"></ng-template>
       </div>
 
-      <!-- <mat-tab-group mat-stretch-tabs class="body">
+      <mat-tab-group mat-stretch-tabs class="body">
         <mat-tab *ngFor="let tab of tabs">
           <ng-template matTabLabel>
             <mat-icon>{{ tab.label.icon }}</mat-icon>
@@ -63,12 +38,13 @@
             <mat-icon>{{ tab.contents }}</mat-icon>
           </div>
         </mat-tab>
-      </mat-tab-group> -->
+      </mat-tab-group>
 
       <button
         mat-fab
         (click)="changeTheme()"
         title="Switch Theme"
+        *ngIf="isLargeScreen"
       >
         <mat-icon outlined>{{
           themes.indexOf(cssClass) == 0 ? themes[1] : themes[0]
@@ -77,3 +53,37 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
+
+<ng-template #profileShowcase>
+  <div id="profile-showcase">
+    <div id="ps-img-container">
+      <img src="assets/images/obum.jpg" alt="" />
+    </div>
+    <div>
+      <h1 class="mat-display-1">Obumuneme Nwabude</h1>
+      <div id="social-icons">
+        <a
+          target="_blank"
+          rel="noreferrer noopener"
+          *ngFor="let sL of socialLinks"
+          [href]="sL.link"
+          [title]="capitalize(sL.icon)"
+        >
+          <img
+            [src]="'assets/social_icons/' + sL.icon + '.svg'"
+            class="social-icon"
+            alt=""
+          />
+        </a>
+      </div>
+      <ul>
+        <li>Mobile and Web Developer</li>
+        <li>Genesys Campus Club Lead</li>
+        <li>Beta Microsoft Learn Student Ambassador</li>
+        <li>Digital Marketer</li>
+        <li>Former Trainer on Google Digital Skills for Africa</li>
+        <li>Former Google Developer Student Clubs Lead</li>
+      </ul>
+    </div>
+  </div>
+</ng-template>
