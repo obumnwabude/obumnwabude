@@ -13,6 +13,16 @@ mat-sidenav {
   max-width: 312px;
 }
 
+mat-sidenav #social-icons {
+  max-width: 200px;
+  line-height: 24px;
+  margin: 8px auto 0;
+}
+
+mat-sidenav #profile-showcase {
+  padding-top: 32px;
+}
+
 #profile-showcase {
   padding-top: 64px;
   padding-bottom: 16px;

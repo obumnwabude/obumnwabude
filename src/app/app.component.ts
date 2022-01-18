@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
     { icon: 'instagram', link: 'https://instagram.com/obumnwabude' },
     { icon: 'twitter', link: 'https://twitter.com/obumnwabude' },
     { icon: 'linkedin', link: 'https://linkedin.com/in/obumnwabude' },
+    { icon: 'github', link: 'https://github.com/obumnwabude' },
     { icon: 'medium', link: 'https://obumnwabude.medium.com' },
     { icon: 'dev', link: 'https://dev.to/obumnwabude' },
     { icon: 'hashnode', link: 'https://obumnwabude.hashnode.dev' }
