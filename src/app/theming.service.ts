@@ -1,4 +1,5 @@
-import { ApplicationRef, Injectable } from '@angular/core';
+import { ApplicationRef, Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
 import { constants } from './contants';
 
@@ -8,16 +9,21 @@ import { constants } from './contants';
 export class ThemingService {
   theme = new BehaviorSubject(constants.DEFAULT_THEME);
 
-  constructor(private ref: ApplicationRef) {
-    window.matchMedia &&
+  constructor(
+    private ref: ApplicationRef,
+    @Inject(PLATFORM_ID) platformId: Object
+  ) {
+    isPlatformBrowser(platformId) &&
+      window.matchMedia &&
       window.matchMedia('(prefers-color-scheme: dark)').matches &&
       this.theme.next('dark_mode');
 
-    window
-      .matchMedia('(prefers-color-scheme: dark)')
-      .addEventListener('change', (e) => {
-        this.theme.next(e.matches ? 'dark_mode' : 'light_mode');
-        this.ref.tick();
-      });
+    isPlatformBrowser(platformId) &&
+      window
+        .matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', (e) => {
+          this.theme.next(e.matches ? 'dark_mode' : 'light_mode');
+          this.ref.tick();
+        });
   }
 }
