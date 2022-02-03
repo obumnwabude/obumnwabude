@@ -162,6 +162,18 @@
             }
           },
           "defaultConfiguration": "production"
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": true,
+            "ssr": false,
+            "browserTarget": "obumnwabude:build:production",
+            "firebaseProject": "obumnwabudee",
+            "firebaseHostingSite": "obumnwabude",
+            "serverTarget": "obumnwabude:server:production",
+            "prerenderTarget": "obumnwabude:prerender:production"
+          }
         }
       }
     }

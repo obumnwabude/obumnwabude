@@ -4,12 +4,13 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build && npm run build:ssr && npm run build:functions",
+    "build:functions": "npm run --prefix functions build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "dev:ssr": "ng run obumnwabude:serve-ssr",
     "serve:ssr": "node dist/obumnwabude/server/main.js",
-    "build:ssr": "ng build && ng run obumnwabude:server",
+    "build:ssr": "ng run obumnwabude:server",
     "prerender": "ng run obumnwabude:prerender"
   },
   "private": true,
@@ -19,6 +20,7 @@
     "@angular/common": "~12.2.0",
     "@angular/compiler": "~12.2.0",
     "@angular/core": "~12.2.0",
+    "@angular/fire": "^7.2.0",
     "@angular/forms": "~12.2.0",
     "@angular/material": "^12.2.7",
     "@angular/platform-browser": "~12.2.0",
@@ -30,7 +32,9 @@
     "express": "^4.15.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "firebase": "^9.4.0",
+    "rxfire": "^6.0.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.2.3",
@@ -46,6 +50,8 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
-    "typescript": "~4.3.5"
+    "typescript": "~4.3.5",
+    "firebase-admin": "^9.11.1",
+    "firebase-functions": "^3.6.0"
   }
 }
