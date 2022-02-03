@@ -8,7 +8,7 @@ declare var document: any;
 @Component({
   selector: 'obum-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
   mBSCInView = false;
@@ -18,39 +18,40 @@ export class AppComponent implements OnInit {
     { icon: 'instagram', link: 'https://instagram.com/obumnwabude' },
     { icon: 'twitter', link: 'https://twitter.com/obumnwabude' },
     { icon: 'linkedin', link: 'https://linkedin.com/in/obumnwabude' },
+    { icon: 'github', link: 'https://github.com/obumnwabude' },
     { icon: 'medium', link: 'https://obumnwabude.medium.com' },
     { icon: 'dev', link: 'https://dev.to/obumnwabude' },
-    { icon: 'hashnode', link: 'https://obumnwabude.hashnode.dev' },
+    { icon: 'hashnode', link: 'https://obumnwabude.hashnode.dev' }
   ];
   tabs = [
     {
       label: {
         icon: 'laptop',
-        text: 'Coding',
+        text: 'Coding'
       },
-      contents: 'laptop',
+      contents: 'laptop'
     },
     {
       label: {
         icon: 'drive_file_rename_outline',
-        text: 'Writing',
+        text: 'Writing'
       },
-      contents: 'drive_file_rename_outline',
+      contents: 'drive_file_rename_outline'
     },
     {
       label: {
         icon: 'campaign',
-        text: 'Speaking',
+        text: 'Speaking'
       },
-      contents: 'campaign',
+      contents: 'campaign'
     },
     {
       label: {
         icon: 'groups',
-        text: 'Community',
+        text: 'Community'
       },
-      contents: 'groups',
-    },
+      contents: 'groups'
+    }
   ];
   @HostBinding('class') public cssClass = constants.DEFAULT_THEME;
   constructor(
