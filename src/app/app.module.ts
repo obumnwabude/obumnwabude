@@ -9,11 +9,19 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { NguiInviewModule } from '@ngui/common';
 
 import { AppComponent } from './app.component';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import {
+  provideAnalytics,
+  getAnalytics,
+  ScreenTrackingService,
+  UserTrackingService
+} from '@angular/fire/analytics';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
@@ -21,8 +29,10 @@ import { AppComponent } from './app.component';
     MatTabsModule,
     MatToolbarModule,
     NguiInviewModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAnalytics(() => getAnalytics())
   ],
-  providers: [],
-  bootstrap: [AppComponent],
+  providers: [ScreenTrackingService],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
