@@ -32,7 +32,7 @@ import {
     MatToolbarModule,
     NguiInviewModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAnalytics(() => getAnalytics())
+    ...(environment.production ? [provideAnalytics(() => getAnalytics())] : [])
   ],
   providers: [ScreenTrackingService],
   bootstrap: [AppComponent]
