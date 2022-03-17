@@ -21,9 +21,9 @@ export class AppComponent implements OnInit {
     { icon: 'twitter', link: 'https://twitter.com/obumnwabude' },
     { icon: 'linkedin', link: 'https://linkedin.com/in/obumnwabude' },
     { icon: 'github', link: 'https://github.com/obumnwabude' },
-    { icon: 'medium', link: 'https://obumnwabude.medium.com' },
+    { icon: 'medium', link: 'https://stories.obumnwabude.com' },
     { icon: 'dev', link: 'https://dev.to/obumnwabude' },
-    { icon: 'hashnode', link: 'https://obumnwabude.hashnode.dev' }
+    { icon: 'hashnode', link: 'https://blog.obumnwabude.com' }
   ];
   tabs = [
     {
@@ -35,24 +35,17 @@ export class AppComponent implements OnInit {
     },
     {
       label: {
+        icon: 'groups',
+        text: 'Events'
+      },
+      contents: 'groups'
+    },
+    {
+      label: {
         icon: 'drive_file_rename_outline',
         text: 'Writing'
       },
       contents: 'drive_file_rename_outline'
-    },
-    {
-      label: {
-        icon: 'campaign',
-        text: 'Speaking'
-      },
-      contents: 'campaign'
-    },
-    {
-      label: {
-        icon: 'groups',
-        text: 'Community'
-      },
-      contents: 'groups'
     }
   ];
   @HostBinding('class') public cssClass = constants.DEFAULT_THEME;
