@@ -14,18 +14,26 @@ $dark-theme: mat-dark-theme($primary, $accent);
   @include angular-material-theme($dark-theme);
 }
 
-html,
-body {
+html {
+  scroll-behavior: smooth;
   height: 100%;
 }
 
 body {
+  height: 100%;
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  font-size: 16px;
 }
 
 .spacer {
   flex: 1 1 auto;
+}
+
+.body .mat-tab-header {
+  top: 0;
+  z-index: 1000;
+  position: sticky;
 }
 
 .light_mode .mat-tab-header {

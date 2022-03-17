@@ -16,7 +16,7 @@ mat-sidenav {
 mat-sidenav #social-icons {
   max-width: 200px;
   line-height: 24px;
-  margin: 8px auto 0;
+  margin: 0 auto 0.75rem;
 }
 
 mat-sidenav #profile-showcase {
@@ -24,13 +24,13 @@ mat-sidenav #profile-showcase {
 }
 
 #profile-showcase {
-  padding-top: 64px;
+  padding-top: 96px;
   padding-bottom: 16px;
 }
 
 #ps-img-container {
-  width: 300px;
-  height: 300px;
+  width: 235px;
+  height: 235px;
   border-radius: 50%;
   margin: 0 auto 16px;
   background-color: darkgray;
@@ -40,39 +40,52 @@ mat-sidenav #profile-showcase {
 }
 
 #ps-img-container img {
-  width: 280px;
+  width: 220px;
   border-radius: 50%;
   box-shadow: 0 0 8px 3px black;
 }
 
-h1.mat-display-1 {
-  margin-bottom: 8px;
+#full-name {
+  font-size: 1.75rem;
+  margin-bottom: 0;
+  font-weight: normal;
   text-align: center;
+}
+
+#obum-container {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  text-align: center;
+
+  span {
+    font-weight: bold;
+    font-size: 1.125rem;
+    letter-spacing: 0.8px;
+  }
 }
 
 #social-icons {
   text-align: center;
+  margin-bottom: 1rem;
 }
 
 .social-icon {
-  width: 32px;
+  width: 30px;
   margin-left: 8px;
 }
 
 #profile-showcase ul {
   text-align: left;
   max-width: 420px;
-  margin: 16px auto 0;
+  margin: 0 auto;
+
+  li {
+    margin-bottom: 2px;
+  }
 }
 
 .mat-tab-group.body {
-  margin-top: 16px;
-}
-
-:host ::ng-deep .mat-tab-header {
-  top: 0;
-  z-index: 1000;
-  position: sticky;
+  margin-top: 1rem;
 }
 
 .tab-label-text {
@@ -82,6 +95,7 @@ h1.mat-display-1 {
 
 .tab-content {
   padding: 32px;
+  height: 2000px;
 }
 
 button[mat-fab] {
@@ -92,13 +106,8 @@ button[mat-fab] {
 }
 
 @media (min-width: 768px) {
-  #ps-img-container {
-    width: 235px;
-    height: 235px;
-  }
-
-  #ps-img-container img {
-    width: 220px;
+  #profile-showcase {
+    padding-top: 32px;
   }
 }
 
@@ -111,6 +120,12 @@ button[mat-fab] {
 
   #ps-img-container {
     margin: 0;
+  }
+
+  #full-name,
+  #obum-container {
+    width: fit-content;
+    padding-left: 20px;
   }
 
   #social-icons {
