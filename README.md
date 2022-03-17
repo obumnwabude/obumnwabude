@@ -1,15 +1,17 @@
 <h2 align="center">Hello there 😎, Cheers 🍻🍻! This is</h2>
 <h1 align="center">Obumuneme Nwabude</h1>
-<h4 align="center">You can call me Obum 😉.</h4>
+<h4 align="center">call me <b>Obum</b> 😌.</h4>
 
 <br />
 
-<h3>I'm a Full Stack Mobile and Web Developer.</h3>
+<h3>I'm a Mobile and Fullstack Web Developer.</h3>
+<h3>I'm also a Beta Microsoft Learn Student Ambassador.</h3>
 <h3>
   I've led tech communities like
   <a href="https://github.com/gdscaefunai">@gdscaefunai</a> and
   <a href="https://twitter.com/GenesysAEFUNAI">@GenesysAEFUNAI</a>.
 </h3>
+<h3>I was once a trainer on the Google Digital Skills for Africa program.</h3>
 
 <br />
 
