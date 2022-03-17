@@ -15,15 +15,44 @@ import { environment } from '../environments/environment';
 import {
   provideAnalytics,
   getAnalytics,
-  ScreenTrackingService,
-  UserTrackingService
+  ScreenTrackingService
 } from '@angular/fire/analytics';
+import { Route, RouterModule } from '@angular/router';
+
+const routes: Route[] = [
+  { path: 'coding',
+    children: [
+      { path: '', component: AppComponent },
+      { path: 'angular', component: AppComponent },
+      { path: 'nodejs', component: AppComponent }
+    ] },
+  {
+    path: 'events',
+    children: [
+      { path: '', component: AppComponent },
+      { path: 'gdsc', component: AppComponent },
+      { path: 'genesys', component: AppComponent },
+      { path: 'mlsa', component: AppComponent }
+    ]
+  },
+  {
+    path: 'writing',
+    children: [
+      { path: '', component: AppComponent },
+      { path: 'stories', component: AppComponent },
+      { path: 'how-to', component: AppComponent },
+      { path: 'blog', component: AppComponent }
+    ]
+  },
+  { path: '**', component: AppComponent }
+];
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
+    RouterModule.forRoot(routes),
     LayoutModule,
     MatButtonModule,
     MatIconModule,

@@ -28,17 +28,37 @@
         <ng-template [ngTemplateOutlet]="profileShowcase"></ng-template>
       </div>
 
-      <mat-tab-group mat-stretch-tabs class="body">
-        <mat-tab *ngFor="let tab of tabs">
-          <ng-template matTabLabel>
-            <mat-icon>{{ tab.label.icon }}</mat-icon>
-            <span class="tab-label-text">{{ tab.label.text }}</span>
-          </ng-template>
-          <div class="tab-content">
-            <mat-icon>{{ tab.contents }}</mat-icon>
-          </div>
-        </mat-tab>
-      </mat-tab-group>
+      <nav mat-tab-nav-bar mat-stretch-tabs>
+        <a
+          mat-tab-link
+          *ngFor="let tab of tabs"
+          (click)="changeMainTab($event)"
+          [active]="activeTabMain == tab.link"
+          [title]="tab.link"
+        >
+          <mat-icon [title]="tab.link">{{ tab.icon }}</mat-icon>
+          <span [title]="tab.link" class="tab-label-text">{{
+            capitalize(tab.link)
+          }}</span>
+        </a>
+      </nav>
+      <nav mat-tab-nav-bar mat-stretch-tabs class="sub">
+        <a
+          mat-tab-link
+          *ngFor="let child of currentChildren()"
+          (click)="changeSubTab($event)"
+          [active]="child.active"
+          [title]="child.link"
+        >
+          <span class="tab-label-text" [title]="child.link">{{
+            child.view
+          }}</span>
+        </a>
+      </nav>
+
+      <div class="tab-content">
+        <mat-icon>{{ content }}</mat-icon>
+      </div>
 
       <button
         mat-fab

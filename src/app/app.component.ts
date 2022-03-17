@@ -3,6 +3,9 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { constants } from './contants';
 import { ThemingService } from './theming.service';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs/operators';
+import { content } from './content';
 
 declare var document: any;
 
@@ -27,31 +30,44 @@ export class AppComponent implements OnInit {
   ];
   tabs = [
     {
-      label: {
-        icon: 'laptop',
-        text: 'Coding'
-      },
-      contents: 'laptop'
+      link: 'coding',
+      icon: 'laptop',
+      children: [
+        { active: true, link: 'angular', view: 'Angular' },
+        { active: false, link: 'nodejs', view: 'NodeJS' }
+      ]
     },
     {
-      label: {
-        icon: 'groups',
-        text: 'Events'
-      },
-      contents: 'groups'
+      link: 'events',
+      icon: 'groups',
+      children: [
+        { active: true, link: 'gdsc', view: 'GDSC' },
+        { active: false, link: 'genesys', view: 'Genesys' },
+        { active: false, link: 'mlsa', view: 'MLSA' }
+      ]
     },
     {
-      label: {
-        icon: 'drive_file_rename_outline',
-        text: 'Writing'
-      },
-      contents: 'drive_file_rename_outline'
+      link: 'writing',
+      icon: 'drive_file_rename_outline',
+      children: [
+        { active: true, link: 'stories', view: 'Stories' },
+        { active: false, link: 'how-to', view: 'How To' },
+        { active: false, link: 'blog', view: 'Blog' }
+      ]
     }
   ];
+  activeTabMain = this.tabs[0].link;
+  activeTabSub = this.tabs[0].children[0].link;
+
+  get content(): string {
+    return (content as any)[this.activeTabMain][this.activeTabSub];
+  }
+
   @HostBinding('class') public cssClass = constants.DEFAULT_THEME;
   constructor(
     private breakpoint: BreakpointObserver,
     private overlayContainer: OverlayContainer,
+    private router: Router,
     public themingService: ThemingService
   ) {}
 
@@ -59,6 +75,33 @@ export class AppComponent implements OnInit {
     this.breakpoint
       .observe('(min-width: 992px)')
       .subscribe((b) => (this.isLargeScreen = b.matches));
+    this.router.events
+      .pipe(filter((e) => e instanceof NavigationEnd))
+      .subscribe((e) => {
+        const urlParts = (e as NavigationEnd).urlAfterRedirects
+          .split('?')[0]
+          .split('#')[0]
+          .substring(1) // remove the leading slash
+          .split('/');
+
+        if (this.tabs.map((t) => t.link).includes(urlParts[0])) {
+          this.activeTabMain = urlParts[0];
+          const cc = this.currentChildren();
+          if (
+            urlParts.length > 1 &&
+            cc.map((c) => c.link).includes(urlParts[1])
+          ) {
+            this.activeTabSub == urlParts[1];
+            for (let c of cc) c.active = c.link === this.activeTabSub;
+            this.router.navigate([this.activeTabMain, this.activeTabSub]);
+          } else {
+            this.activeTabSub = cc[0].link;
+            this.router.navigate([this.activeTabMain, this.activeTabSub]);
+          }
+        } else {
+          this.router.navigateByUrl(this.activeTabMain);
+        }
+      });
     this.themingService.theme.subscribe((theme: string) => {
       this.cssClass = theme;
       const oCClasses = this.overlayContainer.getContainerElement().classList;
@@ -76,6 +119,23 @@ export class AppComponent implements OnInit {
 
   capitalize(str: string): string {
     return str[0].toUpperCase() + str.substring(1);
+  }
+
+  changeMainTab(e: MouseEvent) {
+    this.activeTabMain = (e.target as HTMLElement).getAttribute('title') ?? '';
+    this.activeTabSub = this.currentChildren().filter((c) => c.active)[0].link;
+    this.router.navigate([this.activeTabMain, this.activeTabSub]);
+  }
+
+  changeSubTab(e: MouseEvent) {
+    this.activeTabSub = (e.target as HTMLElement).getAttribute('title') ?? '';
+    const data = this.tabs.filter((t) => t.link === this.activeTabMain)[0];
+    for (let c of data.children) c.active = c.link === this.activeTabSub;
+    this.router.navigate([this.activeTabMain, this.activeTabSub]);
+  }
+
+  currentChildren() {
+    return this.tabs.filter((t) => t.link === this.activeTabMain)[0].children;
   }
 
   scrollToTop(): void {

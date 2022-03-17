@@ -30,10 +30,14 @@ body {
   flex: 1 1 auto;
 }
 
-.body .mat-tab-header {
+.mat-tab-header {
   top: 0;
   z-index: 1000;
-  position: sticky;
+  position: sticky !important;
+}
+
+.mat-tab-header.sub {
+  top: 49px;
 }
 
 .light_mode .mat-tab-header {
