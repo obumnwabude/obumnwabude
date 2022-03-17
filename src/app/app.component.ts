@@ -1,4 +1,4 @@
-import { ApplicationRef, Component, HostBinding, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { constants } from './contants';
@@ -50,7 +50,6 @@ export class AppComponent implements OnInit {
   ];
   @HostBinding('class') public cssClass = constants.DEFAULT_THEME;
   constructor(
-    private appRef: ApplicationRef,
     private breakpoint: BreakpointObserver,
     private overlayContainer: OverlayContainer,
     public themingService: ThemingService
@@ -72,7 +71,6 @@ export class AppComponent implements OnInit {
     this.cssClass =
       this.themes.indexOf(this.cssClass) == 0 ? this.themes[1] : this.themes[0];
     this.themingService.theme.next(this.cssClass);
-    this.appRef.tick();
     localStorage.setItem(constants.LOCALSTORAGE_THEME_KEY, this.cssClass);
   }
 
