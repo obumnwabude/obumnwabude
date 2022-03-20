@@ -20,19 +20,12 @@ import {
 import { Route, RouterModule } from '@angular/router';
 
 const routes: Route[] = [
-  { path: 'coding',
+  {
+    path: 'coding',
     children: [
       { path: '', component: AppComponent },
       { path: 'angular', component: AppComponent },
       { path: 'nodejs', component: AppComponent }
-    ] },
-  {
-    path: 'events',
-    children: [
-      { path: '', component: AppComponent },
-      { path: 'gdsc', component: AppComponent },
-      { path: 'genesys', component: AppComponent },
-      { path: 'mlsa', component: AppComponent }
     ]
   },
   {
@@ -42,6 +35,15 @@ const routes: Route[] = [
       { path: 'stories', component: AppComponent },
       { path: 'how-to', component: AppComponent },
       { path: 'blog', component: AppComponent }
+    ]
+  },
+  {
+    path: 'events',
+    children: [
+      { path: '', component: AppComponent },
+      { path: 'gdsc', component: AppComponent },
+      { path: 'genesys', component: AppComponent },
+      { path: 'mlsa', component: AppComponent }
     ]
   },
   { path: '**', component: AppComponent }

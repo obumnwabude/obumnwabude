@@ -38,21 +38,21 @@ export class AppComponent implements OnInit {
       ]
     },
     {
-      link: 'events',
-      icon: 'groups',
-      children: [
-        { active: true, link: 'gdsc', view: 'GDSC' },
-        { active: false, link: 'genesys', view: 'Genesys' },
-        { active: false, link: 'mlsa', view: 'MLSA' }
-      ]
-    },
-    {
       link: 'writing',
       icon: 'drive_file_rename_outline',
       children: [
         { active: true, link: 'stories', view: 'Stories' },
         { active: false, link: 'how-to', view: 'How To' },
         { active: false, link: 'blog', view: 'Blog' }
+      ]
+    },
+    {
+      link: 'events',
+      icon: 'groups',
+      children: [
+        { active: true, link: 'gdsc', view: 'GDSC' },
+        { active: false, link: 'genesys', view: 'Genesys' },
+        { active: false, link: 'mlsa', view: 'MLSA' }
       ]
     }
   ];
