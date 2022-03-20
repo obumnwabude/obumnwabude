@@ -121,17 +121,10 @@ export class AppComponent implements OnInit {
     return str[0].toUpperCase() + str.substring(1);
   }
 
-  changeMainTab(e: MouseEvent) {
-    this.activeTabMain = (e.target as HTMLElement).getAttribute('title') ?? '';
-    this.activeTabSub = this.currentChildren().filter((c) => c.active)[0].link;
-    this.router.navigate([this.activeTabMain, this.activeTabSub]);
-  }
-
   changeSubTab(e: MouseEvent) {
     this.activeTabSub = (e.target as HTMLElement).getAttribute('title') ?? '';
-    const data = this.tabs.filter((t) => t.link === this.activeTabMain)[0];
-    for (let c of data.children) c.active = c.link === this.activeTabSub;
-    this.router.navigate([this.activeTabMain, this.activeTabSub]);
+    const parent = this.tabs.filter((t) => t.link === this.activeTabMain)[0];
+    for (let c of parent.children) c.active = c.link === this.activeTabSub;
   }
 
   currentChildren() {

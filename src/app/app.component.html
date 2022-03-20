@@ -32,14 +32,12 @@
         <a
           mat-tab-link
           *ngFor="let tab of tabs"
-          (click)="changeMainTab($event)"
+          (click)="activeTabMain = tab.link"
           [active]="activeTabMain == tab.link"
-          [title]="tab.link"
+          [routerLink]="tab.link"
         >
-          <mat-icon [title]="tab.link">{{ tab.icon }}</mat-icon>
-          <span [title]="tab.link" class="tab-label-text">{{
-            capitalize(tab.link)
-          }}</span>
+          <mat-icon>{{ tab.icon }}</mat-icon>
+          <span class="tab-label-text">{{ capitalize(tab.link) }}</span>
         </a>
       </nav>
       <nav mat-tab-nav-bar mat-stretch-tabs class="sub">
@@ -48,6 +46,7 @@
           *ngFor="let child of currentChildren()"
           (click)="changeSubTab($event)"
           [active]="child.active"
+          [routerLink]="[activeTabMain, child.link]"
           [title]="child.link"
         >
           <span class="tab-label-text" [title]="child.link">{{
