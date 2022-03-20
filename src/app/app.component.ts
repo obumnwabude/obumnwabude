@@ -114,7 +114,7 @@ export class AppComponent implements OnInit {
     this.cssClass =
       this.themes.indexOf(this.cssClass) == 0 ? this.themes[1] : this.themes[0];
     this.themingService.theme.next(this.cssClass);
-    localStorage.setItem(constants.LOCALSTORAGE_THEME_KEY, this.cssClass);
+    localStorage.setItem(constants.LS_THEME_KEY, this.cssClass);
   }
 
   capitalize(str: string): string {

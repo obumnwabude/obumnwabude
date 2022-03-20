@@ -7,12 +7,17 @@ import { constants } from './contants';
   providedIn: 'root'
 })
 export class ThemingService {
-  theme = new BehaviorSubject(constants.DEFAULT_THEME);
+  theme = new BehaviorSubject(
+    localStorage.getItem(constants.LS_THEME_KEY)
+      ? localStorage.getItem(constants.LS_THEME_KEY)!
+      : constants.DEFAULT_THEME
+  );
 
   constructor(@Inject(PLATFORM_ID) platformId: any) {
     isPlatformBrowser(platformId) &&
       window.matchMedia &&
       window.matchMedia('(prefers-color-scheme: dark)').matches &&
+      !localStorage.getItem(constants.LS_THEME_KEY) &&
       this.theme.next('dark_mode');
 
     isPlatformBrowser(platformId) &&
