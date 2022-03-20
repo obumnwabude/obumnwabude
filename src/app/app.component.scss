@@ -29,11 +29,11 @@ mat-sidenav #profile-showcase {
 }
 
 #ps-img-container {
-  width: 235px;
-  height: 235px;
+  width: 228px;
+  height: 228px;
   border-radius: 50%;
   margin: 0 auto 16px;
-  background-color: darkgray;
+  background-color: currentColor;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,7 +42,7 @@ mat-sidenav #profile-showcase {
 #ps-img-container img {
   width: 220px;
   border-radius: 50%;
-  box-shadow: 0 0 8px 3px black;
+  box-shadow: 0 0 4px 2px gray;
 }
 
 #full-name {
