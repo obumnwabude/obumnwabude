@@ -8,10 +8,19 @@ $dark-theme: mat-dark-theme($primary, $accent);
 
 .light_mode {
   @include angular-material-theme($light-theme);
+
+  .svg-icon {
+    filter: brightness(0) saturate(100%);
+    opacity: 0.87;
+  }
 }
 
 .dark_mode {
   @include angular-material-theme($dark-theme);
+
+  .svg-icon {
+    filter: brightness(0) saturate(100%) invert(1);
+  }
 }
 
 html {
