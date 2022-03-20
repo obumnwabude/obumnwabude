@@ -58,3 +58,7 @@ body {
   background-color: #303030;
   color: white;
 }
+
+nav[mat-tab-nav-bar] .mat-tab-label-active {
+  opacity: 1;
+}
