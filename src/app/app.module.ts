@@ -25,7 +25,8 @@ const routes: Route[] = [
     children: [
       { path: '', component: AppComponent },
       { path: 'angular', component: AppComponent },
-      { path: 'nodejs', component: AppComponent }
+      { path: 'nodejs', component: AppComponent },
+      { path: 'flutter', component: AppComponent }
     ]
   },
   {

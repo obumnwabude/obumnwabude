@@ -49,9 +49,12 @@
           [routerLink]="[activeTabMain, child.link]"
           [title]="child.link"
         >
-          <span class="tab-label-text" [title]="child.link">{{
-            child.view
-          }}</span>
+          <img
+            [src]="'assets/svgs/' + child.icon + '.svg'"
+            class="tab-header-svg svg-icon"
+            alt=""
+          />
+          <span [title]="child.link">{{ child.view }}</span>
         </a>
       </nav>
 
@@ -90,7 +93,7 @@
           [title]="capitalize(sL.icon)"
         >
           <img
-            [src]="'assets/social_icons/' + sL.icon + '.svg'"
+            [src]="'assets/svgs/' + sL.icon + '.svg'"
             class="social-icon svg-icon"
             alt=""
           />

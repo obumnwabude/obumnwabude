@@ -33,26 +33,27 @@ export class AppComponent implements OnInit {
       link: 'coding',
       icon: 'laptop',
       children: [
-        { active: true, link: 'angular', view: 'Angular' },
-        { active: false, link: 'nodejs', view: 'NodeJS' }
+        { active: true, icon: 'angular', link: 'angular', view: 'Angular' },
+        { active: false, icon: 'nodejs', link: 'nodejs', view: 'NodeJS' },
+        { active: false, icon: 'flutter', link: 'flutter', view: 'Flutter' }
       ]
     },
     {
       link: 'writing',
       icon: 'drive_file_rename_outline',
       children: [
-        { active: true, link: 'stories', view: 'Stories' },
-        { active: false, link: 'how-to', view: 'How To' },
-        { active: false, link: 'blog', view: 'Blog' }
+        { active: true, icon: 'medium', link: 'stories', view: 'Stories' },
+        { active: false, icon: 'dev', link: 'how-to', view: 'How To' },
+        { active: false, icon: 'hashnode', link: 'blog', view: 'Blog' }
       ]
     },
     {
       link: 'events',
       icon: 'groups',
       children: [
-        { active: true, link: 'gdsc', view: 'GDSC' },
-        { active: false, link: 'genesys', view: 'Genesys' },
-        { active: false, link: 'mlsa', view: 'MLSA' }
+        { active: true, icon: 'gdsc', link: 'gdsc', view: 'GDSC' },
+        { active: false, icon: 'genesys', link: 'genesys', view: 'Genesys' },
+        { active: false, icon: 'microsoft', link: 'mlsa', view: 'MLSA' }
       ]
     }
   ];

@@ -1,7 +1,8 @@
 export const content = {
   coding: {
     angular: 'laptop',
-    nodejs: 'laptop'
+    nodejs: 'laptop',
+    flutter: 'laptop'
   },
   writing: {
     stories: 'drive_file_rename_outline',
