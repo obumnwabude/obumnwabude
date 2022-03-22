@@ -32,8 +32,8 @@
         <a
           mat-tab-link
           *ngFor="let tab of tabs"
-          (click)="activeTabMain = tab.link"
-          [active]="activeTabMain == tab.link"
+          (click)="mainTab = tab.link"
+          [active]="mainTab == tab.link"
           [routerLink]="tab.link"
         >
           <mat-icon>{{ tab.icon }}</mat-icon>
@@ -46,7 +46,7 @@
           *ngFor="let child of currentChildren()"
           (click)="changeSubTab($event)"
           [active]="child.active"
-          [routerLink]="[activeTabMain, child.link]"
+          [routerLink]="[mainTab, child.link]"
           [title]="child.link"
         >
           <img
@@ -90,12 +90,12 @@
         <a
           target="_blank"
           rel="noreferrer noopener"
-          *ngFor="let sL of socialLinks"
-          [href]="sL.link"
-          [title]="capitalize(sL.icon)"
+          *ngFor="let l of links"
+          [href]="l.link"
+          [title]="capitalize(l.icon)"
         >
           <img
-            [src]="'assets/svgs/' + sL.icon + '.svg'"
+            [src]="'assets/svgs/' + l.icon + '.svg'"
             class="social-icon svg-icon"
             alt=""
           />

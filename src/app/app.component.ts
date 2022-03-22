@@ -5,7 +5,7 @@ import { constants } from './constants';
 import { ThemingService } from './theming.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { content } from './content';
+import { content, links, tabs } from './content';
 import { Title } from '@angular/platform-browser';
 
 declare var document: any;
@@ -19,69 +19,13 @@ export class AppComponent implements OnInit {
   profileShowcaseInView = false;
   isLargeScreen = false;
   themes = constants.THEMES;
-  socialLinks = [
-    { icon: 'facebook', link: 'https://facebook.com/obumnwabude' },
-    { icon: 'instagram', link: 'https://instagram.com/obumnwabude' },
-    { icon: 'twitter', link: 'https://twitter.com/obumnwabude' },
-    { icon: 'linkedin', link: 'https://linkedin.com/in/obumnwabude' },
-    { icon: 'github', link: 'https://github.com/obumnwabude' },
-    { icon: 'medium', link: 'https://stories.obumnwabude.com' },
-    { icon: 'keepdeploying', link: 'https://keepdeploying.com' },
-    { icon: 'dev', link: 'https://dev.to/obumnwabude' },
-    { icon: 'hashnode', link: 'https://blog.obumnwabude.com' }
-  ];
-  tabs = [
-    {
-      link: 'coding',
-      icon: 'laptop',
-      children: [
-        { active: true, link: 'angular' },
-        { active: false, link: 'firebase' },
-        { active: false, link: 'flutter' },
-        { active: false, link: 'nodejs', view: 'NodeJS' }
-      ]
-    },
-    {
-      link: 'writing',
-      icon: 'drive_file_rename_outline',
-      children: [
-        { active: true, icon: 'medium', link: 'stories' },
-        { active: false, icon: 'dev', link: 'how-to', view: 'How To' },
-        { active: false, icon: 'hashnode', link: 'blog' },
-        { active: false, link: 'freecodecamp', view: 'freeCodeCamp' },
-        { active: false, link: 'keepdeploying', view: 'Keep Deploying' }
-      ]
-    },
-    {
-      link: 'events',
-      icon: 'groups',
-      children: [
-        {
-          active: true,
-          link: 'gdsc',
-          title: 'Google Developer Students Club',
-          view: 'GDSC'
-        },
-        {
-          active: false,
-          link: 'genesys',
-          title: 'Genesys Campus Club'
-        },
-        {
-          active: false,
-          icon: 'microsoft',
-          link: 'mlsa',
-          title: 'Microsoft Learn Student Ambassador',
-          view: 'MLSA'
-        }
-      ]
-    }
-  ];
-  activeTabMain = this.tabs[0].link;
-  activeTabSub = this.tabs[0].children[0].link;
+  links = links;
+  mainTab = tabs[0].link;
+  subTab = tabs[0].children[0].link;
+  tabs = tabs;
 
   get content(): string {
-    return (content as any)[this.activeTabMain][this.activeTabSub];
+    return (content as any)[this.mainTab][this.subTab];
   }
 
   @HostBinding('class') public cssClass = constants.DEFAULT_THEME;
@@ -106,28 +50,28 @@ export class AppComponent implements OnInit {
           .substring(1) // remove the leading slash
           .split('/');
 
-        if (this.tabs.map((t) => t.link).includes(urlParts[0])) {
-          this.activeTabMain = urlParts[0];
+        if (tabs.map((t) => t.link).includes(urlParts[0])) {
+          this.mainTab = urlParts[0];
           const cc = this.currentChildren();
           if (
             urlParts.length > 1 &&
             cc.map((c) => c.link).includes(urlParts[1])
           ) {
-            this.activeTabSub = urlParts[1];
+            this.subTab = urlParts[1];
           } else {
-            this.activeTabSub = cc.filter((c) => c.active)[0].link;
+            this.subTab = cc.filter((c) => c.active)[0].link;
           }
           let t = '';
           for (let c of cc) {
-            c.active = c.link === this.activeTabSub;
+            c.active = c.link === this.subTab;
             if (c.active) {
               t = 'title' in c ? c.title : c.view ?? this.capitalize(c.link);
             }
           }
-          this.router.navigate([this.activeTabMain, this.activeTabSub]);
+          this.router.navigate([this.mainTab, this.subTab]);
           this.title.setTitle(`${t} | ${constants.TITLE}`);
         } else {
-          this.router.navigateByUrl(this.activeTabMain);
+          this.router.navigateByUrl(this.mainTab);
         }
       });
     this.themingService.theme.subscribe((theme: string) => {
@@ -150,14 +94,13 @@ export class AppComponent implements OnInit {
   }
 
   changeSubTab(e: MouseEvent) {
-    this.activeTabSub = (e.target as HTMLElement).getAttribute('title') ?? '';
-    const parent = this.tabs.filter((t) => t.link === this.activeTabMain)[0];
-    for (let c of parent.children) c.active = c.link === this.activeTabSub;
+    this.subTab = (e.target as HTMLElement).getAttribute('title') ?? '';
+    const parent = tabs.filter((t) => t.link === this.mainTab)[0];
+    for (let c of parent.children) c.active = c.link === this.subTab;
   }
 
   currentChildren() {
-    return this.tabs.filter((t) => t.link === this.activeTabMain)[0]
-      .children as any[];
+    return tabs.filter((t) => t.link === this.mainTab)[0].children as any[];
   }
 
   scrollToTop(): void {
