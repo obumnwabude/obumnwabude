@@ -54,7 +54,9 @@
             class="tab-header-svg svg-icon"
             alt=""
           />
-          <span [title]="child.link">{{ child.view }}</span>
+          <span [title]="child.link">{{
+            child.view ?? capitalize(child.link)
+          }}</span>
         </a>
       </nav>
 

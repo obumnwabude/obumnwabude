@@ -6,6 +6,7 @@ import { ThemingService } from './theming.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { content } from './content';
+import { Title } from '@angular/platform-browser';
 
 declare var document: any;
 
@@ -34,9 +35,9 @@ export class AppComponent implements OnInit {
       link: 'coding',
       icon: 'laptop',
       children: [
-        { active: true, link: 'angular', view: 'Angular' },
-        { active: false, link: 'firebase', view: 'Firebase' },
-        { active: false, link: 'flutter', view: 'Flutter' },
+        { active: true, link: 'angular' },
+        { active: false, link: 'firebase' },
+        { active: false, link: 'flutter' },
         { active: false, link: 'nodejs', view: 'NodeJS' }
       ]
     },
@@ -44,9 +45,9 @@ export class AppComponent implements OnInit {
       link: 'writing',
       icon: 'drive_file_rename_outline',
       children: [
-        { active: true, icon: 'medium', link: 'stories', view: 'Stories' },
+        { active: true, icon: 'medium', link: 'stories' },
         { active: false, icon: 'dev', link: 'how-to', view: 'How To' },
-        { active: false, icon: 'hashnode', link: 'blog', view: 'Blog' },
+        { active: false, icon: 'hashnode', link: 'blog' },
         { active: false, link: 'freecodecamp', view: 'freeCodeCamp' },
         { active: false, link: 'keepdeploying', view: 'Keep Deploying' }
       ]
@@ -55,9 +56,24 @@ export class AppComponent implements OnInit {
       link: 'events',
       icon: 'groups',
       children: [
-        { active: true, link: 'gdsc', view: 'GDSC' },
-        { active: false, link: 'genesys', view: 'Genesys' },
-        { active: false, icon: 'microsoft', link: 'mlsa', view: 'MLSA' }
+        {
+          active: true,
+          link: 'gdsc',
+          title: 'Google Developer Students Club',
+          view: 'GDSC'
+        },
+        {
+          active: false,
+          link: 'genesys',
+          title: 'Genesys Campus Club'
+        },
+        {
+          active: false,
+          icon: 'microsoft',
+          link: 'mlsa',
+          title: 'Microsoft Learn Student Ambassador',
+          view: 'MLSA'
+        }
       ]
     }
   ];
@@ -73,7 +89,8 @@ export class AppComponent implements OnInit {
     private breakpoint: BreakpointObserver,
     private overlayContainer: OverlayContainer,
     private router: Router,
-    public themingService: ThemingService
+    public themingService: ThemingService,
+    private title: Title
   ) {}
 
   ngOnInit(): void {
@@ -96,13 +113,19 @@ export class AppComponent implements OnInit {
             urlParts.length > 1 &&
             cc.map((c) => c.link).includes(urlParts[1])
           ) {
-            this.activeTabSub == urlParts[1];
-            for (let c of cc) c.active = c.link === this.activeTabSub;
-            this.router.navigate([this.activeTabMain, this.activeTabSub]);
+            this.activeTabSub = urlParts[1];
           } else {
-            this.activeTabSub = cc[0].link;
-            this.router.navigate([this.activeTabMain, this.activeTabSub]);
+            this.activeTabSub = cc.filter((c) => c.active)[0].link;
           }
+          let t = '';
+          for (let c of cc) {
+            c.active = c.link === this.activeTabSub;
+            if (c.active) {
+              t = 'title' in c ? c.title : c.view ?? this.capitalize(c.link);
+            }
+          }
+          this.router.navigate([this.activeTabMain, this.activeTabSub]);
+          this.title.setTitle(`${t} | ${constants.TITLE}`);
         } else {
           this.router.navigateByUrl(this.activeTabMain);
         }
@@ -133,7 +156,8 @@ export class AppComponent implements OnInit {
   }
 
   currentChildren() {
-    return this.tabs.filter((t) => t.link === this.activeTabMain)[0].children;
+    return this.tabs.filter((t) => t.link === this.activeTabMain)[0]
+      .children as any[];
   }
 
   scrollToTop(): void {

@@ -1,5 +1,6 @@
 export const constants = {
-  THEMES: ['light_mode', 'dark_mode'],
   DEFAULT_THEME: 'dark_mode',
-  LS_THEME_KEY: 'theme'
+  LS_THEME_KEY: 'theme',
+  THEMES: ['light_mode', 'dark_mode'],
+  TITLE: 'Obumuneme Nwabude | Mobile and Fullstack Web Developer'
 };
