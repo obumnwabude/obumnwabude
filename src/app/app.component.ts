@@ -25,6 +25,7 @@ export class AppComponent implements OnInit {
     { icon: 'linkedin', link: 'https://linkedin.com/in/obumnwabude' },
     { icon: 'github', link: 'https://github.com/obumnwabude' },
     { icon: 'medium', link: 'https://stories.obumnwabude.com' },
+    { icon: 'keepdeploying', link: 'https://keepdeploying.com' },
     { icon: 'dev', link: 'https://dev.to/obumnwabude' },
     { icon: 'hashnode', link: 'https://blog.obumnwabude.com' }
   ];
@@ -33,9 +34,10 @@ export class AppComponent implements OnInit {
       link: 'coding',
       icon: 'laptop',
       children: [
-        { active: true, icon: 'angular', link: 'angular', view: 'Angular' },
-        { active: false, icon: 'nodejs', link: 'nodejs', view: 'NodeJS' },
-        { active: false, icon: 'flutter', link: 'flutter', view: 'Flutter' }
+        { active: true, link: 'angular', view: 'Angular' },
+        { active: false, link: 'firebase', view: 'Firebase' },
+        { active: false, link: 'flutter', view: 'Flutter' },
+        { active: false, link: 'nodejs', view: 'NodeJS' }
       ]
     },
     {
@@ -44,15 +46,17 @@ export class AppComponent implements OnInit {
       children: [
         { active: true, icon: 'medium', link: 'stories', view: 'Stories' },
         { active: false, icon: 'dev', link: 'how-to', view: 'How To' },
-        { active: false, icon: 'hashnode', link: 'blog', view: 'Blog' }
+        { active: false, icon: 'hashnode', link: 'blog', view: 'Blog' },
+        { active: false, link: 'freecodecamp', view: 'freeCodeCamp' },
+        { active: false, link: 'keepdeploying', view: 'Keep Deploying' }
       ]
     },
     {
       link: 'events',
       icon: 'groups',
       children: [
-        { active: true, icon: 'gdsc', link: 'gdsc', view: 'GDSC' },
-        { active: false, icon: 'genesys', link: 'genesys', view: 'Genesys' },
+        { active: true, link: 'gdsc', view: 'GDSC' },
+        { active: false, link: 'genesys', view: 'Genesys' },
         { active: false, icon: 'microsoft', link: 'mlsa', view: 'MLSA' }
       ]
     }

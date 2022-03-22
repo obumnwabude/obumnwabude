@@ -50,7 +50,7 @@
           [title]="child.link"
         >
           <img
-            [src]="'assets/svgs/' + child.icon + '.svg'"
+            [src]="'assets/svgs/' + (child.icon ?? child.link) + '.svg'"
             class="tab-header-svg svg-icon"
             alt=""
           />
