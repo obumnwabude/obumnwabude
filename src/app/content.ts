@@ -16,16 +16,13 @@ export const content = {
   }
 };
 
-export const links = [
-  { icon: 'facebook', link: 'https://facebook.com/obumnwabude' },
-  { icon: 'instagram', link: 'https://instagram.com/obumnwabude' },
-  { icon: 'twitter', link: 'https://twitter.com/obumnwabude' },
+export const profiles = [
   { icon: 'linkedin', link: 'https://linkedin.com/in/obumnwabude' },
-  { icon: 'github', link: 'https://github.com/obumnwabude' },
-  { icon: 'medium', link: 'https://stories.obumnwabude.com' },
-  { icon: 'keepdeploying', link: 'https://keepdeploying.com' },
-  { icon: 'dev', link: 'https://dev.to/obumnwabude' },
-  { icon: 'hashnode', link: 'https://blog.obumnwabude.com' }
+  { icon: 'twitter', link: 'https://twitter.com/obumnwabude' },
+  { icon: 'stackoverflow', link: 'https://stackoverflow.com/users/13644299' },
+  { icon: 'google', link: 'https://g.dev/obumnwabude' },
+  { icon: 'facebook', link: 'https://facebook.com/obumnwabude' },
+  { icon: 'instagram', link: 'https://instagram.com/obumnwabude' }
 ];
 
 export const tabs = [

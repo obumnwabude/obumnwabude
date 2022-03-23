@@ -13,10 +13,9 @@ mat-sidenav {
   max-width: 312px;
 }
 
-mat-sidenav #social-icons {
-  max-width: 200px;
-  line-height: 24px;
-  margin: 0 auto 0.75rem;
+mat-sidenav #profile-icons {
+  max-width: 228px;
+  margin: 0 auto 1rem;
 }
 
 mat-sidenav #profile-showcase {
@@ -64,12 +63,12 @@ mat-sidenav #profile-showcase {
   }
 }
 
-#social-icons {
+#profile-icons {
   text-align: center;
   margin-bottom: 1rem;
 }
 
-.social-icon {
+.profile-icon {
   width: 30px;
   margin-left: 8px;
 }
@@ -128,7 +127,7 @@ button[mat-fab] {
     padding-left: 20px;
   }
 
-  #social-icons {
+  #profile-icons {
     text-align: left;
     padding-left: 16px;
   }

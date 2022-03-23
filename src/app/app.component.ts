@@ -5,7 +5,7 @@ import { constants } from './constants';
 import { ThemingService } from './theming.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { content, links, tabs } from './content';
+import { content, profiles, tabs } from './content';
 import { Title } from '@angular/platform-browser';
 
 declare var document: any;
@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   profileShowcaseInView = false;
   isLargeScreen = false;
   themes = constants.THEMES;
-  links = links;
+  profiles = profiles;
   mainTab = tabs[0].link;
   subTab = tabs[0].children[0].link;
   tabs = tabs;

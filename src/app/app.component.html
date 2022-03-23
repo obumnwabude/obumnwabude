@@ -86,17 +86,17 @@
     <div>
       <h1 id="full-name">Obumuneme Nwabude</h1>
       <p id="obum-container">(call me <span>Obum</span>)</p>
-      <div id="social-icons">
+      <div id="profile-icons">
         <a
           target="_blank"
           rel="noreferrer noopener"
-          *ngFor="let l of links"
-          [href]="l.link"
-          [title]="capitalize(l.icon)"
+          *ngFor="let p of profiles"
+          [href]="p.link"
+          [title]="capitalize(p.icon)"
         >
           <img
-            [src]="'assets/svgs/' + l.icon + '.svg'"
-            class="social-icon svg-icon"
+            [src]="'assets/svgs/' + p.icon + '.svg'"
+            class="profile-icon svg-icon"
             alt=""
           />
         </a>
