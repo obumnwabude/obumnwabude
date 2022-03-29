@@ -1,6 +1,4 @@
-<h2 align="center">Hello there 😎, Cheers 🍻🍻! This is</h2>
-<h1 align="center">Obumuneme Nwabude</h1>
-<h4 align="center">call me <b>Obum</b> 😌.</h4>
+<h1 align="center">Hi 👋, please call me <b>Obum</b>.</h1>
 
 <br />
 
