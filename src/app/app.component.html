@@ -61,8 +61,36 @@
       </nav>
 
       <div class="tab-content">
-        <!-- <mat-icon>{{ content }}</mat-icon> -->
-        
+        <mat-icon *ngIf="mainTab !== 'coding'">{{ content }}</mat-icon>
+
+        <ng-container *ngIf="mainTab === 'coding'">
+          <mat-card coding *ngFor="let c of content" class="mat-elevation-z2">
+            <mat-card-title>{{ c.title }}</mat-card-title>
+            <img
+              mat-card-image
+              [src]="'assets/images/' + c.image.name + '.png'"
+              [alt]="c.image.alt"
+            />
+            <mat-card-content
+              ><p>{{ c.description }}</p></mat-card-content
+            >
+            <mat-card-actions>
+              <a
+                *ngFor="let l of c.links"
+                mat-stroked-button
+                [href]="l.href"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>{{ l.title }}</span
+                ><img
+                  [src]="'assets/svgs/' + l.svg + '.svg'"
+                  class="card-icon svg-icon"
+                />
+              </a>
+            </mat-card-actions>
+          </mat-card>
+        </ng-container>
       </div>
 
       <button
@@ -82,7 +110,7 @@
 <ng-template #profileShowcase>
   <div id="profile-showcase">
     <div id="ps-img-container">
-      <img src="assets/images/obum.jpg" alt="" />
+      <img src="assets/images/obum.png" alt="" />
     </div>
     <div>
       <h1 id="full-name">Obumuneme Nwabude</h1>
@@ -103,6 +131,7 @@
         </a>
       </div>
       <ul>
+        <li>Technical Writer</li>
         <li>Mobile and Fullstack Web Developer</li>
         <li>Beta Microsoft Learn Student Ambassador</li>
         <li>Genesys Campus Club Ambassador</li>

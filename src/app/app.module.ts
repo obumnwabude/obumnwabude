@@ -3,6 +3,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -56,6 +57,7 @@ const routes: Route[] = [
     RouterModule.forRoot(routes),
     LayoutModule,
     MatButtonModule,
+    MatCardModule,
     MatIconModule,
     MatSidenavModule,
     MatTabsModule,

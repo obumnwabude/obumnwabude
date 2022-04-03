@@ -5,7 +5,7 @@ import { constants } from './constants';
 import { ThemingService } from './theming.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { content, profiles, tabs } from './content';
+import { content, profiles, tabs } from './content/index';
 import { Title } from '@angular/platform-browser';
 
 declare var document: any;
@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
   subTab = tabs[0].children[0].link;
   tabs = tabs;
 
-  get content(): string {
+  get content(): any {
     return (content as any)[this.mainTab][this.subTab];
   }
 

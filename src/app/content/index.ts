@@ -1,9 +1,7 @@
+import { coding } from './coding';
+
 export const content = {
-  coding: {
-    angular: 'laptop',
-    nodejs: 'laptop',
-    flutter: 'laptop'
-  },
+  coding,
   writing: {
     stories: 'drive_file_rename_outline',
     'how-to': 'drive_file_rename_outline',

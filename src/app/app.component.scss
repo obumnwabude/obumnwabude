@@ -95,6 +95,46 @@ mat-sidenav #profile-showcase {
 
 .tab-content {
   padding: 32px;
+
+  @media (min-width: 576px) {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 32px;
+  }
+
+  @media (min-width: 1250px) {
+    gap: 48px;
+    grid-template-columns: auto auto auto;
+  }
+}
+
+mat-card[coding] {
+  max-width: 288px;
+  border-radius: 12px;
+  margin: 48px auto;
+
+  @media (min-width: 576px) {
+    margin: 0 auto;
+  }
+
+  mat-card-title {
+    font-size: 18px;
+    margin-bottom: 16px;
+    font-weight: normal;
+    text-decoration: underline double 0.6px;
+  }
+
+  mat-card-actions {
+    text-align: right;
+    margin-bottom: unset;
+    margin-right: unset;
+    padding-bottom: unset;
+  }
+}
+
+.card-icon {
+  width: 16px;
+  margin-left: 8px;
 }
 
 button[mat-fab] {
