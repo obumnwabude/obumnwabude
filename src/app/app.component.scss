@@ -108,7 +108,7 @@ mat-sidenav #profile-showcase {
   }
 }
 
-mat-card[coding] {
+mat-card {
   max-width: 288px;
   border-radius: 12px;
   margin: 48px auto;
@@ -129,6 +129,10 @@ mat-card[coding] {
     margin-bottom: unset;
     margin-right: unset;
     padding-bottom: unset;
+
+    a {
+      margin-bottom: 8px;
+    }
   }
 }
 

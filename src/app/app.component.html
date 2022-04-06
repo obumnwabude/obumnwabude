@@ -61,36 +61,32 @@
       </nav>
 
       <div class="tab-content">
-        <mat-icon *ngIf="mainTab !== 'coding'">{{ content }}</mat-icon>
-
-        <ng-container *ngIf="mainTab === 'coding'">
-          <mat-card coding *ngFor="let c of content" class="mat-elevation-z2">
-            <mat-card-title>{{ c.title }}</mat-card-title>
-            <img
-              mat-card-image
-              [src]="'assets/images/' + c.image.name + '.png'"
-              [alt]="c.image.alt"
-            />
-            <mat-card-content
-              ><p>{{ c.description }}</p></mat-card-content
+        <mat-card *ngFor="let c of content" class="mat-elevation-z2">
+          <img
+            mat-card-image
+            [src]="'assets/images/' + c.image.name + '.png'"
+            [alt]="c.image.alt"
+          />
+          <mat-card-title>{{ c.title }}</mat-card-title>
+          <mat-card-content
+            ><p>{{ c.description }}</p></mat-card-content
+          >
+          <mat-card-actions>
+            <a
+              *ngFor="let l of c.links"
+              mat-stroked-button
+              [href]="l.href"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-            <mat-card-actions>
-              <a
-                *ngFor="let l of c.links"
-                mat-stroked-button
-                [href]="l.href"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span>{{ l.title }}</span
-                ><img
-                  [src]="'assets/svgs/' + l.svg + '.svg'"
-                  class="card-icon svg-icon"
-                />
-              </a>
-            </mat-card-actions>
-          </mat-card>
-        </ng-container>
+              <span>{{ l.title }}</span
+              ><img
+                [src]="'assets/svgs/' + l.svg + '.svg'"
+                class="card-icon svg-icon"
+              />
+            </a>
+          </mat-card-actions>
+        </mat-card>
       </div>
 
       <button

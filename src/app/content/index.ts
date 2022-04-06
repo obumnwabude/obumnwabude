@@ -1,18 +1,8 @@
 import { coding } from './coding';
+import { events } from './events';
+import { writing } from './writing';
 
-export const content = {
-  coding,
-  writing: {
-    stories: 'drive_file_rename_outline',
-    'how-to': 'drive_file_rename_outline',
-    blog: 'drive_file_rename_outline'
-  },
-  events: {
-    gdsc: 'group',
-    genesys: 'group',
-    mlsa: 'group'
-  }
-};
+export const content = { coding, writing, events };
 
 export const profiles = [
   { icon: 'linkedin', link: 'https://linkedin.com/in/obumnwabude' },
@@ -41,7 +31,6 @@ export const tabs = [
       { active: true, icon: 'medium', link: 'stories' },
       { active: false, icon: 'dev', link: 'how-to', view: 'How To' },
       { active: false, icon: 'hashnode', link: 'blog' },
-      { active: false, link: 'freecodecamp', view: 'freeCodeCamp' },
       { active: false, link: 'keepdeploying', view: 'Keep Deploying' }
     ]
   },
