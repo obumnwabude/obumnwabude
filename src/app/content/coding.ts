@@ -62,7 +62,7 @@ export const coding = {
       description:
         'Dashboard where you can create a fire arm, search for fire arm data with bullet serial number, and display a list of stored fire arms.',
       image: {
-        alt: '',
+        alt: 'Screenshot of Fire Arm Tracer Dashboard',
         name: 'firearmtracer'
       },
       links: [
@@ -83,7 +83,7 @@ export const coding = {
       description:
         'Form for managing questions and their options to be used in setting questions that could be used elsewhere like an online quiz.',
       image: {
-        alt: '',
+        alt: 'Screenshot of the form',
         name: 'questions-angular'
       },
       links: [
@@ -99,7 +99,7 @@ export const coding = {
       description:
         'Holmes is an emulation of an example structure of a real world estate.',
       image: {
-        alt: '',
+        alt: 'Screenshot of the landing page',
         name: 'holmes'
       },
       links: [
@@ -122,7 +122,7 @@ export const coding = {
       description:
         'Personal URL Shortener for links to my profiles and achievement. Built entirely on Firebase (Firestore, Functions, Hosting).',
       image: {
-        alt: '',
+        alt: 'Screenshot of the 404 page',
         name: 'obum.me'
       },
       links: [
@@ -143,7 +143,7 @@ export const coding = {
       description:
         'Simple Portfolio used to teach Firebase Hosting during GDSC AE-FUNAI Firebase Series (Workshop).',
       image: {
-        alt: '',
+        alt: 'Screenshot of GDSC AEFUNAI sample deployment',
         name: 'myportfolio'
       },
       links: [
@@ -164,7 +164,7 @@ export const coding = {
       description:
         'Note Taking Website used to teach Firestore during GDSC AE-FUNAI Firebase Series (Workshop).',
       image: {
-        alt: '',
+        alt: 'Screens of using MyNotes',
         name: 'mynotes'
       },
       links: [
@@ -181,21 +181,21 @@ export const coding = {
       ]
     },
     {
-      title: 'MLSA GitHub Event',
+      title: 'GDSC Git and GitHub Event',
       description:
-        'Showcase website of those who sent pull requests during the MLSA GitHub Event. Deployed with Firebase Hosting.',
+        'Showcase website of those who sent pull requests during the GDSC Git and GitHub Event. Deployed with Firebase Hosting.',
       image: {
-        alt: '',
-        name: 'mlsagithub'
+        alt: 'Screenshot of Attendee Website',
+        name: 'gdsc-github-screenshot'
       },
       links: [
         {
-          href: 'https://mlsagithub.web.app',
+          href: 'https://githubevent.web.app',
           title: 'Live',
           svg: 'open-in-new'
         },
         {
-          href: 'https://github.com/obumnwabude/mlsa-github',
+          href: 'https://github.com/gdscaefunai/github-event',
           title: 'Code',
           svg: 'github'
         }
@@ -206,7 +206,7 @@ export const coding = {
       description:
         'Little Fintech app for entry for FSI Hackathon in 2020. Uses Firebase Authentication. Deployed with Firebase Hosting.',
       image: {
-        alt: '',
+        alt: 'Screens of Tusbong',
         name: 'tusbong'
       },
       links: [
@@ -229,7 +229,7 @@ export const coding = {
       description:
         'Public calendar for all requested and approved event schedules in venues managed by an authority. Still in Development.',
       image: {
-        alt: '',
+        alt: 'Mmèmmè Logo',
         name: 'mmemme'
       },
       links: [
@@ -245,7 +245,7 @@ export const coding = {
       description:
         'One-Screen, System-Thememode-Aware, Android App, that shows Infos about your Battery.',
       image: {
-        alt: '',
+        alt: 'Screens of Battery Info',
         name: 'battery-info'
       },
       links: [
@@ -261,7 +261,7 @@ export const coding = {
       description:
         'Supports complex math operations. Built using FilledStacks architecture for state management in Flutter.',
       image: {
-        alt: '',
+        alt: 'Screens of Calculator',
         name: 'calculator'
       },
       links: [
@@ -277,7 +277,7 @@ export const coding = {
       description:
         'Todo App built during "Intro to Flutter" Session by GDSC AE-FUNAI.',
       image: {
-        alt: '',
+        alt: 'Screenshot of Building Todo App',
         name: 'todo'
       },
       links: [
@@ -293,7 +293,7 @@ export const coding = {
       description:
         'Form for managing questions and their options to be used in setting questions that could be used elsewhere like an online quiz.',
       image: {
-        alt: '',
+        alt: 'Screens of Flutter Question Form',
         name: 'questions-flutter'
       },
       links: [
@@ -308,7 +308,7 @@ export const coding = {
       title: 'Headphones',
       description: 'Shopping for Headphones. Still in Development.',
       image: {
-        alt: '',
+        alt: 'Screens of Headphones',
         name: 'headphones'
       },
       links: [
@@ -326,7 +326,7 @@ export const coding = {
       description:
         'Takes GitHub username and sends an invitation to the GitHub user to join a given GitHub organization.',
       image: {
-        alt: '',
+        alt: 'Screenshot of GitHub Invite',
         name: 'github-invite'
       },
       links: [
@@ -347,7 +347,7 @@ export const coding = {
       description:
         'My Participation in the challenge for backend track that took place during the Demo Day of Build Bootcamp 2022.',
       image: {
-        alt: '',
+        alt: 'Obum Coding',
         name: 'obum-coding'
       },
       links: [

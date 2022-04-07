@@ -63,7 +63,7 @@ export const events = {
         'Collaboration of six GDSCs to bring to introduce Version Control to our communities. Auwal MS was speaker.',
       image: {
         alt: 'Section of Event Flyer',
-        name: 'git-and-github'
+        name: 'git-and-github-event'
       },
       links: [
         {
