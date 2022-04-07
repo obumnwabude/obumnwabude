@@ -72,7 +72,12 @@ export const events = {
           svg: 'open-in-new'
         },
         {
-          href: 'https://youtu.be/S8qAld1rg8c',
+          href: 'https://docs.google.com/presentation/d/1__cTDHCp2r6rhQxDGlEWkJSZF0kOQCcDNaNG7qGSca0/edit?usp=sharing',
+          title: 'Slides',
+          svg: 'slides'
+        },
+        {
+          href: 'https://medium.com/dscaefunai/github-event-c98ae719bedb',
           title: 'Story',
           svg: 'medium'
         },
@@ -133,6 +138,11 @@ export const events = {
           href: 'https://dsc.community.dev/e/mm72hn/',
           title: 'Details',
           svg: 'open-in-new'
+        },
+        {
+          href: 'https://docs.google.com/presentation/d/1WvraEIbd4_8b97X2wKAIrzADyxDQSttlinBITdG_3pg/edit?usp=sharing',
+          title: 'Slides',
+          svg: 'slides'
         },
         {
           href: 'https://medium.com/dscaefunai/onboarding-dsc-fd34bbf8520e',
