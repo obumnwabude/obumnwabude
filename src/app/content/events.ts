@@ -131,7 +131,7 @@ export const events = {
         "GDSC AE-FUNAI's first info session. Starting GDSC in our school.",
       image: {
         alt: 'Section of Event Flyer',
-        name: 'onboarding-gdsc'
+        name: 'gdsc-info-session'
       },
       links: [
         {
@@ -244,7 +244,7 @@ export const events = {
       description:
         'Taught the audience on how to use GitHubs features like forks, pull requests and issues, to go about collaboration.',
       image: {
-        alt: '',
+        alt: 'Event Flyer',
         name: 'collaborating-with-github'
       },
       links: [
