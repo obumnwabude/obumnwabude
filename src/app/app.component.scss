@@ -83,7 +83,7 @@ mat-sidenav #profile-showcase {
   }
 }
 
-.tab-header-svg {
+.tab-header-icon {
   width: 24px;
   margin-right: 8px;
 }
@@ -146,6 +146,11 @@ button[mat-fab] {
   bottom: 32px;
   right: 48px;
   z-index: 100;
+
+  img {
+    filter: brightness(0) saturate(100%);
+    opacity: 0.87;
+  }
 }
 
 @media (min-width: 768px) {

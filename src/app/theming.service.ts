@@ -22,13 +22,13 @@ export class ThemingService {
         window.matchMedia('(prefers-color-scheme: dark)').matches &&
         !localStorage.getItem(constants.LS_THEME_KEY)
       ) {
-        this.theme.next('dark_mode');
+        this.theme.next('dark-mode');
       }
 
       window
         .matchMedia('(prefers-color-scheme: dark)')
         .addEventListener('change', (e) =>
-          this.theme.next(e.matches ? 'dark_mode' : 'light_mode')
+          this.theme.next(e.matches ? 'dark-mode' : 'light-mode')
         );
     }
   }

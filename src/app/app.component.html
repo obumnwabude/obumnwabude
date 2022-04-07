@@ -2,15 +2,20 @@
   <mat-toolbar *ngIf="!profileShowcaseInView && !isLargeScreen">
     <mat-toolbar-row>
       <button mat-icon-button (click)="scrollToTop()" title="Home">
-        <mat-icon>home</mat-icon>
+        <img src="assets/svgs/home.svg" alt="" />
       </button>
       <span class="spacer"></span>
       <span>obumnwabude</span>
       <span class="spacer"></span>
       <button mat-icon-button (click)="changeTheme()" title="Switch Theme">
-        <mat-icon outlined>{{
-          themes.indexOf(cssClass) == 0 ? themes[1] : themes[0]
-        }}</mat-icon>
+        <img
+          [src]="
+            'assets/svgs/' +
+            (themes.indexOf(cssClass) == 0 ? themes[1] : themes[0]) +
+            '.svg'
+          "
+          alt=""
+        />
       </button>
     </mat-toolbar-row>
   </mat-toolbar>
@@ -36,7 +41,11 @@
           [active]="mainTab == tab.link"
           [routerLink]="tab.link"
         >
-          <mat-icon>{{ tab.icon }}</mat-icon>
+          <img
+            [src]="'assets/svgs/' + tab.link + '.svg'"
+            class="tab-header-icon"
+            alt=""
+          />
           <span class="tab-label-text">{{ capitalize(tab.link) }}</span>
         </a>
       </nav>
@@ -51,7 +60,7 @@
         >
           <img
             [src]="'assets/svgs/' + (child.icon ?? child.link) + '.svg'"
-            class="tab-header-svg svg-icon"
+            class="tab-header-icon"
             alt=""
           />
           <span [title]="child.link">{{
@@ -95,9 +104,14 @@
         title="Switch Theme"
         *ngIf="isLargeScreen"
       >
-        <mat-icon outlined>{{
-          themes.indexOf(cssClass) == 0 ? themes[1] : themes[0]
-        }}</mat-icon>
+        <img
+          [src]="
+            'assets/svgs/' +
+            (themes.indexOf(cssClass) == 0 ? themes[1] : themes[0]) +
+            '.svg'
+          "
+          alt=""
+        />
       </button>
     </mat-sidenav-content>
   </mat-sidenav-container>
@@ -121,7 +135,7 @@
         >
           <img
             [src]="'assets/svgs/' + p.icon + '.svg'"
-            class="profile-icon svg-icon"
+            class="profile-icon"
             alt=""
           />
         </a>

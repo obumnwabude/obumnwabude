@@ -1,7 +1,7 @@
 export const constants = {
-  DEFAULT_THEME: 'dark_mode',
+  DEFAULT_THEME: 'dark-mode',
   LS_THEME_KEY: 'theme',
-  THEMES: ['light_mode', 'dark_mode'],
+  THEMES: ['light-mode', 'dark-mode'],
   TITLE:
     'Obumuneme Nwabude | Mobile and Fullstack Web Developer, Technical Writer, and Tech Community Lead'
 };

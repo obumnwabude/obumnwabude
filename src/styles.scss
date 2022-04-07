@@ -6,19 +6,19 @@ $primary: mat-palette($mat-light-blue);
 $light-theme: mat-light-theme($primary, $accent);
 $dark-theme: mat-dark-theme($primary, $accent);
 
-.light_mode {
+.light-mode {
   @include angular-material-theme($light-theme);
 
-  .svg-icon {
+  img[src$=".svg"] {
     filter: brightness(0) saturate(100%);
     opacity: 0.87;
   }
 }
 
-.dark_mode {
+.dark-mode {
   @include angular-material-theme($dark-theme);
 
-  .svg-icon {
+  img[src$=".svg"] {
     filter: brightness(0) saturate(100%) invert(1);
   }
 }
@@ -49,12 +49,12 @@ body {
   top: 49px;
 }
 
-.light_mode .mat-tab-header {
+.light-mode .mat-tab-header {
   background-color: #fafafa;
   color: #000000de;
 }
 
-.dark_mode .mat-tab-header {
+.dark-mode .mat-tab-header {
   background-color: #303030;
   color: white;
 }

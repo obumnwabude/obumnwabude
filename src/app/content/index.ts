@@ -16,7 +16,6 @@ export const profiles = [
 export const tabs = [
   {
     link: 'coding',
-    icon: 'laptop',
     children: [
       { active: true, link: 'angular' },
       { active: false, link: 'firebase' },
@@ -26,7 +25,6 @@ export const tabs = [
   },
   {
     link: 'writing',
-    icon: 'drive_file_rename_outline',
     children: [
       { active: true, icon: 'medium', link: 'stories' },
       { active: false, icon: 'dev', link: 'how-to', view: 'How To' },
@@ -36,7 +34,6 @@ export const tabs = [
   },
   {
     link: 'events',
-    icon: 'groups',
     children: [
       {
         active: true,
