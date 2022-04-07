@@ -1,12 +1,14 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit, ViewChild } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { OverlayContainer } from '@angular/cdk/overlay';
-import { constants } from './constants';
-import { ThemingService } from './theming.service';
+import { MatTabNav } from '@angular/material/tabs';
+import { Title } from '@angular/platform-browser';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
+
+import { constants } from './constants';
 import { content, profiles, tabs } from './content/index';
-import { Title } from '@angular/platform-browser';
+import { ThemingService } from './theming.service';
 
 declare var document: any;
 
@@ -23,6 +25,7 @@ export class AppComponent implements OnInit {
   mainTab = tabs[0].link;
   subTab = tabs[0].children[0].link;
   tabs = tabs;
+  @ViewChild('subTab') subTabRef!: MatTabNav;
 
   get content(): any {
     return (content as any)[this.mainTab][this.subTab];
@@ -60,6 +63,8 @@ export class AppComponent implements OnInit {
             this.subTab = urlParts[1];
           } else {
             this.subTab = cc.filter((c) => c.active)[0].link;
+            this.router.navigate([this.mainTab, this.subTab]);
+            return;
           }
           let t = '';
           for (let c of cc) {
@@ -68,8 +73,20 @@ export class AppComponent implements OnInit {
               t = 'title' in c ? c.title : c.view ?? this.capitalize(c.link);
             }
           }
-          this.router.navigate([this.mainTab, this.subTab]);
           this.title.setTitle(`${t} | ${constants.TITLE}`);
+          setTimeout(() => {
+            this.subTabRef._scrollToLabel(this.subTabRef.focusIndex);
+          });
+
+          if (sessionStorage.getItem('isOld')) {
+            if (this.breakpoint.isMatched('(max-width: 767.98px)')) {
+              document.querySelector('.mat-sidenav-content').scrollTop = 645;
+            } else if (this.breakpoint.isMatched('(max-width: 991.98px)')) {
+              document.querySelector('.mat-sidenav-content').scrollTop = 340;
+            }
+          } else {
+            sessionStorage.setItem('isOld', 'true');
+          }
         } else {
           this.router.navigateByUrl(this.mainTab);
         }
