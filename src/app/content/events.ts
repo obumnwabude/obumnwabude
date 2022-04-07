@@ -30,7 +30,7 @@ export const events = {
       },
       links: [
         {
-          href: 'https://medium.com/dscaefunai/about-2021-des-dev-bootcamp-8853deda34ef',
+          href: 'https://medium.com/dscaefunai/8853deda34ef',
           title: 'Story',
           svg: 'medium'
         }
@@ -51,7 +51,7 @@ export const events = {
           svg: 'open-in-new'
         },
         {
-          href: 'https://medium.com/dscaefunai/2021-solution-challenge-9bd29c242ed7',
+          href: 'https://medium.com/dscaefunai/9bd29c242ed7',
           title: 'Story',
           svg: 'medium'
         }
@@ -77,7 +77,7 @@ export const events = {
           svg: 'slides'
         },
         {
-          href: 'https://medium.com/dscaefunai/github-event-c98ae719bedb',
+          href: 'https://medium.com/dscaefunai/c98ae719bedb',
           title: 'Story',
           svg: 'medium'
         },
@@ -103,7 +103,7 @@ export const events = {
           svg: 'open-in-new'
         },
         {
-          href: 'https://medium.com/dscaefunai/learning-opportunities-3430cfff6b2f',
+          href: 'https://medium.com/dscaefunai/3430cfff6b2f',
           title: 'Story',
           svg: 'medium'
         }
@@ -119,7 +119,7 @@ export const events = {
       },
       links: [
         {
-          href: 'https://medium.com/dscaefunai/firebase-series-617772e53a8c',
+          href: 'https://medium.com/dscaefunai/617772e53a8c',
           title: 'Story',
           svg: 'medium'
         }
@@ -145,7 +145,7 @@ export const events = {
           svg: 'slides'
         },
         {
-          href: 'https://medium.com/dscaefunai/onboarding-dsc-fd34bbf8520e',
+          href: 'https://medium.com/dscaefunai/fd34bbf8520e',
           title: 'Story',
           svg: 'medium'
         }
