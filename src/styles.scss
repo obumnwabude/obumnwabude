@@ -8,17 +8,32 @@ $dark-theme: mat-dark-theme($palette, $palette);
 .light-mode {
   @include angular-material-theme($light-theme);
 
-  img[src$=".svg"] {
+  [mobile-header] {
+    box-shadow: 0 2px 1px -1px #0d102517;
+    margin-bottom: 2px;
+  }
+
+  img[src$='.svg'] {
     filter: brightness(0) saturate(100%);
     opacity: 0.87;
+  }
+
+  .mat-tab-header {
+    background-color: #fafafa;
+    color: #000000de;
   }
 }
 
 .dark-mode {
   @include angular-material-theme($dark-theme);
 
-  img[src$=".svg"] {
+  img[src$='.svg'] {
     filter: brightness(0) saturate(100%) invert(1);
+  }
+  
+  .mat-tab-header {
+    background-color: #303030;
+    color: white;
   }
 }
 
@@ -44,18 +59,8 @@ body {
   position: sticky !important;
 }
 
-.mat-tab-header.sub {
+.mat-tab-header[sub] {
   top: 49px;
-}
-
-.light-mode .mat-tab-header {
-  background-color: #fafafa;
-  color: #000000de;
-}
-
-.dark-mode .mat-tab-header {
-  background-color: #303030;
-  color: white;
 }
 
 nav[mat-tab-nav-bar] .mat-tab-label-active {

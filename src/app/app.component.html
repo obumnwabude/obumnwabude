@@ -1,5 +1,5 @@
-<div id="app-container">
-  <mat-toolbar *ngIf="!profileShowcaseInView && !isLargeScreen">
+<div app-container>
+  <mat-toolbar *ngIf="!profileShowcaseInView && !isLargeScreen" mobile-header>
     <mat-toolbar-row>
       <button mat-icon-button (click)="scrollToTop()" title="Home">
         <img src="assets/svgs/home.svg" alt="" />
@@ -49,7 +49,7 @@
           <span class="tab-label-text">{{ capitalize(tab.link) }}</span>
         </a>
       </nav>
-      <nav mat-tab-nav-bar mat-stretch-tabs class="sub">
+      <nav mat-tab-nav-bar mat-stretch-tabs sub>
         <a
           mat-tab-link
           *ngFor="let child of currentChildren()"
@@ -118,14 +118,14 @@
 </div>
 
 <ng-template #profileShowcase>
-  <div id="profile-showcase">
-    <div id="ps-img-container">
-      <img src="assets/images/obum.png" alt="" />
+  <div profile-showcase>
+    <div ps-img-container>
+      <img src="assets/images/obum.png" alt="Obum" />
     </div>
     <div>
-      <h1 id="full-name">Obumuneme Nwabude</h1>
-      <p id="obum-container">(call me <span>Obum</span>)</p>
-      <div id="profile-icons">
+      <h1 full-name>Obumuneme Nwabude</h1>
+      <p obum-text-container>(call me <span>Obum</span>)</p>
+      <div profile-icons>
         <a
           target="_blank"
           rel="noreferrer noopener"

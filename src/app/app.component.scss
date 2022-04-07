@@ -1,4 +1,4 @@
-#app-container {
+[app-container] {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -13,21 +13,21 @@ mat-sidenav {
   max-width: 312px;
 }
 
-mat-sidenav #profile-icons {
+mat-sidenav [profile-icons] {
   max-width: 228px;
   margin: 0 auto 1rem;
 }
 
-mat-sidenav #profile-showcase {
+mat-sidenav [profile-showcase] {
   padding-top: 32px;
 }
 
-#profile-showcase {
+[profile-showcase] {
   padding-top: 96px;
   padding-bottom: 48px;
 }
 
-#ps-img-container {
+[ps-img-container] {
   width: 228px;
   height: 228px;
   border-radius: 50%;
@@ -38,20 +38,20 @@ mat-sidenav #profile-showcase {
   align-items: center;
 }
 
-#ps-img-container img {
+[ps-img-container] img {
   width: 220px;
   border-radius: 50%;
   box-shadow: 0 0 4px 2px gray;
 }
 
-#full-name {
+[full-name] {
   font-size: 1.5rem;
   margin-bottom: 0;
   font-weight: normal;
   text-align: center;
 }
 
-#obum-container {
+[obum-text-container] {
   margin-top: 0;
   margin-bottom: 1rem;
   text-align: center;
@@ -63,7 +63,7 @@ mat-sidenav #profile-showcase {
   }
 }
 
-#profile-icons {
+[profile-icons] {
   text-align: center;
   margin-bottom: 1rem;
 }
@@ -73,7 +73,7 @@ mat-sidenav #profile-showcase {
   margin-left: 8px;
 }
 
-#profile-showcase ul {
+[profile-showcase] ul {
   text-align: left;
   max-width: 420px;
   margin: 0 auto;
@@ -154,29 +154,29 @@ button[mat-fab] {
 }
 
 @media (min-width: 768px) {
-  #profile-showcase {
+  [profile-showcase] {
     padding-top: 32px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 991.99px) {
-  #profile-showcase {
+  [profile-showcase] {
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  #ps-img-container {
+  [ps-img-container] {
     margin: 0;
   }
 
-  #full-name,
-  #obum-container {
+  [full-name],
+  [obum-text-container] {
     width: fit-content;
     padding-left: 20px;
   }
 
-  #profile-icons {
+  [profile-icons] {
     text-align: left;
     padding-left: 16px;
   }
@@ -189,7 +189,7 @@ button[mat-fab] {
 }
 
 @media (min-width: 992px) {
-  mat-sidenav-content #profile-showcase {
+  mat-sidenav-content [profile-showcase] {
     display: none;
   }
 
