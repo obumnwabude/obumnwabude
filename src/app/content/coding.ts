@@ -123,7 +123,7 @@ export const coding = {
         'Personal URL Shortener for links to my profiles and achievement. Built entirely on Firebase (Firestore, Functions, Hosting).',
       image: {
         alt: 'Screenshot of the 404 page',
-        name: 'obum.me'
+        name: 'obum.me-404'
       },
       links: [
         // {
