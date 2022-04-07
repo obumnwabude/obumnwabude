@@ -126,11 +126,11 @@ export const coding = {
         name: 'obum.me'
       },
       links: [
-        {
-          href: 'https://admin.obum.me',
-          title: 'Admin',
-          svg: 'open-in-new'
-        },
+        // {
+        //   href: 'https://admin.obum.me',
+        //   title: 'Admin',
+        //   svg: 'open-in-new'
+        // },
         {
           href: 'https://github.com/obumnwabude/obum.me',
           title: 'Code',
