@@ -1,79 +1,155 @@
-<div id="app-container">
-  <!-- <mat-toolbar *ngIf="!mBSCInView">
+<div app-container>
+  <mat-toolbar *ngIf="!profileShowcaseInView && !isLargeScreen" mobile-header>
     <mat-toolbar-row>
       <button mat-icon-button (click)="scrollToTop()" title="Home">
-        <mat-icon>home</mat-icon>
+        <img src="assets/svgs/home.svg" alt="" />
       </button>
       <span class="spacer"></span>
       <span>obumnwabude</span>
       <span class="spacer"></span>
       <button mat-icon-button (click)="changeTheme()" title="Switch Theme">
-        <mat-icon outlined>{{
-          themes.indexOf(cssClass) == 0 ? themes[1] : themes[0]
-        }}</mat-icon>
+        <img
+          [src]="
+            'assets/svgs/' +
+            (themes.indexOf(cssClass) == 0 ? themes[1] : themes[0]) +
+            '.svg'
+          "
+          alt=""
+        />
       </button>
     </mat-toolbar-row>
-  </mat-toolbar> -->
+  </mat-toolbar>
 
   <mat-sidenav-container>
+    <mat-sidenav mode="side" opened *ngIf="isLargeScreen">
+      <ng-template [ngTemplateOutlet]="profileShowcase"></ng-template>
+    </mat-sidenav>
+
     <mat-sidenav-content>
       <div
-        id="mobile-showcase"
-        (nguiInview)="mBSCInView = true"
-        (nguiOutview)="mBSCInView = false"
+        (nguiInview)="profileShowcaseInView = true"
+        (nguiOutview)="profileShowcaseInView = false"
       >
-        <div id="ms-img-container">
-          <img src="assets/images/obum.jpg" alt="" />
-        </div>
-        <div>
-          <h1 class="mat-display-1">Obumuneme Nwabude</h1>
-          <div id="social-icons">
+        <ng-template [ngTemplateOutlet]="profileShowcase"></ng-template>
+      </div>
+
+      <nav mat-tab-nav-bar mat-stretch-tabs>
+        <a
+          mat-tab-link
+          *ngFor="let tab of tabs"
+          (click)="mainTab = tab.link"
+          [active]="mainTab == tab.link"
+          [routerLink]="tab.link"
+        >
+          <img
+            [src]="'assets/svgs/' + tab.link + '.svg'"
+            class="tab-header-icon"
+            alt=""
+          />
+          <span class="tab-label-text">{{ capitalize(tab.link) }}</span>
+        </a>
+      </nav>
+      <nav mat-tab-nav-bar mat-stretch-tabs sub #subTab>
+        <a
+          mat-tab-link
+          *ngFor="let child of currentChildren()"
+          (click)="changeSubTab($event)"
+          [active]="child.active"
+          [routerLink]="[mainTab, child.link]"
+          [title]="child.link"
+        >
+          <img
+            [src]="'assets/svgs/' + (child.icon ?? child.link) + '.svg'"
+            class="tab-header-icon"
+            alt=""
+            [title]="child.link"
+          />
+          <span [title]="child.link">{{
+            child.view ?? capitalize(child.link)
+          }}</span>
+        </a>
+      </nav>
+
+      <div class="tab-content">
+        <mat-card *ngFor="let c of content" class="mat-elevation-z2">
+          <img
+            mat-card-image
+            [src]="'assets/images/' + c.image.name + '.png'"
+            [alt]="c.image.alt"
+          />
+          <mat-card-title>{{ c.title }}</mat-card-title>
+          <mat-card-content
+            ><p>{{ c.description }}</p></mat-card-content
+          >
+          <mat-card-actions>
             <a
+              *ngFor="let l of c.links"
+              mat-stroked-button
+              [href]="l.href"
               target="_blank"
-              rel="noreferrer noopener"
-              *ngFor="let sL of socialLinks"
-              [href]="sL.link"
-              [title]="capitalize(sL.icon)"
+              rel="noopener noreferrer"
             >
-              <img
-                [src]="'assets/social_icons/' + sL.icon + '.svg'"
-                class="social-icon"
+              <span>{{ l.title }}</span
+              ><img
+                [src]="'assets/svgs/' + l.svg + '.svg'"
+                class="card-icon svg-icon"
                 alt=""
               />
             </a>
-          </div>
-          <ul>
-            <li>Mobile and Web Developer</li>
-            <li>Genesys Campus Club Lead</li>
-            <li>Beta Microsoft Learn Student Ambassador</li>
-            <li>Digital Marketer</li>
-            <li>Former Trainer on Google Digital Skills for Africa</li>
-            <li>Former Google Developer Student Clubs Lead</li>
-          </ul>
-        </div>
+          </mat-card-actions>
+        </mat-card>
       </div>
-
-      <!-- <mat-tab-group mat-stretch-tabs class="body">
-        <mat-tab *ngFor="let tab of tabs">
-          <ng-template matTabLabel>
-            <mat-icon>{{ tab.label.icon }}</mat-icon>
-            <span class="tab-label-text">{{ tab.label.text }}</span>
-          </ng-template>
-          <div class="tab-content">
-            <mat-icon>{{ tab.contents }}</mat-icon>
-          </div>
-        </mat-tab>
-      </mat-tab-group> -->
 
       <button
         mat-fab
         (click)="changeTheme()"
         title="Switch Theme"
+        *ngIf="isLargeScreen"
       >
-        <mat-icon outlined>{{
-          themes.indexOf(cssClass) == 0 ? themes[1] : themes[0]
-        }}</mat-icon>
+        <img
+          [src]="
+            'assets/svgs/' +
+            (themes.indexOf(cssClass) == 0 ? themes[1] : themes[0]) +
+            '.svg'
+          "
+          alt=""
+        />
       </button>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
+
+<ng-template #profileShowcase>
+  <div profile-showcase>
+    <div ps-img-container>
+      <img src="assets/images/obum.png" alt="Obum" />
+    </div>
+    <div>
+      <h1 full-name>Obumuneme Nwabude</h1>
+      <p obum-text-container>(call me <span>Obum</span>)</p>
+      <div profile-icons>
+        <a
+          target="_blank"
+          rel="noreferrer noopener"
+          *ngFor="let p of profiles"
+          [href]="p.link"
+          [title]="capitalize(p.icon)"
+        >
+          <img
+            [src]="'assets/svgs/' + p.icon + '.svg'"
+            class="profile-icon"
+            alt=""
+          />
+        </a>
+      </div>
+      <ul>
+        <li>Technical Writer</li>
+        <li>Mobile and Fullstack Web Developer</li>
+        <li>Beta Microsoft Learn Student Ambassador</li>
+        <li>Genesys Campus Club Ambassador</li>
+        <li>Former Trainer on Google Digital Skills for Africa</li>
+        <li>Former Google Developer Student Clubs Lead</li>
+      </ul>
+    </div>
+  </div>
+</ng-template>

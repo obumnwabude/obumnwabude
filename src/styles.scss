@@ -1,40 +1,68 @@
-@import '~@angular/material/theming';
+@import '@angular/material/theming';
 @include mat-core();
 
-$accent: mat-palette($mat-light-blue, A200, A100, A400);
-$light-primary: mat-palette($mat-light-blue);
-$dark-primary: mat-palette($mat-grey);
-$light-theme: mat-light-theme($light-primary, $accent);
-$dark-theme: mat-dark-theme($dark-primary, $accent);
+$palette: mat-palette($mat-light-blue);
+$light-theme: mat-light-theme($palette, $palette);
+$dark-theme: mat-dark-theme($palette, $palette);
 
-.light_mode {
+.light-mode {
   @include angular-material-theme($light-theme);
+
+  [mobile-header] {
+    box-shadow: 0 2px 1px -1px #0d102517;
+    margin-bottom: 2px;
+  }
+
+  img[src$='.svg'] {
+    filter: brightness(0) saturate(100%);
+    opacity: 0.87;
+  }
+
+  .mat-tab-header {
+    background-color: #fafafa;
+    color: #000000de;
+  }
 }
 
-.dark_mode {
+.dark-mode {
   @include angular-material-theme($dark-theme);
+
+  img[src$='.svg'] {
+    filter: brightness(0) saturate(100%) invert(1);
+  }
+
+  .mat-tab-header {
+    background-color: #303030;
+    color: white;
+  }
 }
 
-html,
-body {
+html {
+  scroll-behavior: smooth;
   height: 100%;
 }
 
 body {
+  height: 100%;
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  font-size: 16px;
 }
 
 .spacer {
   flex: 1 1 auto;
 }
 
-.light_mode .mat-tab-header {
-  background-color: #fafafa;
-  color: #000000de;
+.mat-tab-header {
+  top: 0;
+  z-index: 1000;
+  position: sticky !important;
 }
 
-.dark_mode .mat-tab-header {
-  background-color: #303030;
-  color: white;
+.mat-tab-header[sub] {
+  top: 49px;
+}
+
+nav[mat-tab-nav-bar] .mat-tab-label-active {
+  opacity: 1;
 }
