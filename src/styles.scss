@@ -66,3 +66,33 @@ body {
 nav[mat-tab-nav-bar] .mat-tab-label-active {
   opacity: 1;
 }
+
+@keyframes tab-header-arrow-left {
+  0% {
+    transform: translateX(-4px) rotate(-135deg);
+  }
+
+  100% {
+    transform: translateX(4px) rotate(-135deg);
+  }
+}
+
+.mat-tab-header-pagination-before:not(.mat-tab-header-pagination-disabled)
+  .mat-tab-header-pagination-chevron {
+  animation: tab-header-arrow-left 1s infinite alternate;
+}
+
+@keyframes tab-header-arrow-right {
+  0% {
+    transform: translateX(4px) rotate(45deg);
+  }
+
+  100% {
+    transform: translateX(-4px) rotate(45deg);
+  }
+}
+
+.mat-tab-header-pagination-after:not(.mat-tab-header-pagination-disabled)
+  .mat-tab-header-pagination-chevron {
+  animation: tab-header-arrow-right 1s infinite alternate;
+}
