@@ -1,4 +1,10 @@
-import { Component, HostBinding, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostBinding,
+  OnInit,
+  ViewChild
+} from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { MatTabNav } from '@angular/material/tabs';
@@ -18,13 +24,15 @@ declare var document: any;
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  profileShowcaseInView = false;
+  mobProfShowInView = false;
   isLargeScreen = false;
   themes = constants.THEMES;
   profiles = profiles;
   mainTab = tabs[0].link;
   subTab = tabs[0].children[0].link;
   tabs = tabs;
+  @ViewChild('mobileProfileShowcase')
+  mobProfShowRef!: ElementRef<HTMLDivElement>;
   @ViewChild('subTab') subTabRef!: MatTabNav;
 
   get content(): any {
@@ -79,10 +87,9 @@ export class AppComponent implements OnInit {
           });
 
           if (sessionStorage.getItem('isOld')) {
-            if (this.breakpoint.isMatched('(max-width: 767.98px)')) {
-              document.querySelector('.mat-sidenav-content').scrollTop = 645;
-            } else if (this.breakpoint.isMatched('(max-width: 991.98px)')) {
-              document.querySelector('.mat-sidenav-content').scrollTop = 340;
+            if (this.breakpoint.isMatched('(max-width: 991.98px)')) {
+              document.querySelector('.mat-sidenav-content').scrollTop =
+                this.mobProfShowRef.nativeElement.clientHeight;
             }
           } else {
             sessionStorage.setItem('isOld', 'true');

@@ -1,5 +1,5 @@
 <div app-container>
-  <mat-toolbar *ngIf="!profileShowcaseInView && !isLargeScreen" mobile-header>
+  <mat-toolbar *ngIf="!mobProfShowInView && !isLargeScreen" mobile-header>
     <mat-toolbar-row>
       <button mat-icon-button (click)="scrollToTop()" title="Home">
         <img src="assets/svgs/home.svg" alt="" />
@@ -27,8 +27,9 @@
 
     <mat-sidenav-content>
       <div
-        (nguiInview)="profileShowcaseInView = true"
-        (nguiOutview)="profileShowcaseInView = false"
+        (nguiInview)="mobProfShowInView = true"
+        (nguiOutview)="mobProfShowInView = false"
+        #mobileProfileShowcase
       >
         <ng-template [ngTemplateOutlet]="profileShowcase"></ng-template>
       </div>
