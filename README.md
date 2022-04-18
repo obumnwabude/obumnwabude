@@ -82,7 +82,7 @@
     ><img
       src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"
   /></a>
-  <a href="https://facebook.com/obumnwabude"
+  <a href="https://facebook.com/obumnwabude.profile"
     ><img
       src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white"
   /></a>
@@ -100,7 +100,7 @@
     ><img
       src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white"
   /></a>
-  <a href="https://m.me/obumnwabude"
+  <a href="https://m.me/obumnwabude.profile"
     ><img
       src="https://img.shields.io/badge/Messenger-00B2FF?style=for-the-badge&logo=messenger&logoColor=white"
   /></a>
