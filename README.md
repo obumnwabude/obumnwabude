@@ -4,7 +4,7 @@
 
 <h3>I do Technical Writing.</h3>
 <h3>I'm a Mobile and Fullstack Web Developer.</h3>
-<h3>I'm also a Beta Microsoft Learn Student Ambassador.</h3>
+<h3>I'm also a Microsoft Learn Student Ambassador.</h3>
 <h3>
   I've led tech communities like
   <a href="https://github.com/gdscaefunai">@gdscaefunai</a> and
@@ -12,9 +12,9 @@
 </h3>
 <h3>I was once a trainer on the Google Digital Skills for Africa program.</h3>
 
-<br />
+<h2></h2>
 
-![](obum-speaking.png)
+<br />
 
 <br />
 
@@ -91,51 +91,5 @@
       src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white"
   /></a>
 </p>
-
-<br />
-
-<h2>Contact Me 📩</h2>
-<p>
-  <a href="https://t.me/obumnwabude"
-    ><img
-      src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white"
-  /></a>
-  <a href="https://m.me/obumnwabude.profile"
-    ><img
-      src="https://img.shields.io/badge/Messenger-00B2FF?style=for-the-badge&logo=messenger&logoColor=white"
-  /></a>
-  <a href="mailto:obumnwabude@gmail.com"
-    ><img
-      src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"
-  /></a>
-</p>
-
-<br />
-
-<h2>Statistics 📈</h2>
-
-<br />
-
-![](https://komarev.com/ghpvc/?username=obumnwabude&label=Profile%20Views&style=for-the-badge)
-
-<br />
-
-![](https://github-profile-trophy.vercel.app/?username=obumnwabude&no-bg=true&no-frame=true)
-
-<br />
-
-![](https://github-readme-stats.vercel.app/api?username=obumnwabude&show_icons=true)
-
-<br />
-
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=obumnwabude)
-
-<br />
-
-![](https://github-readme-streak-stats.herokuapp.com/?user=obumnwabude)
-
-<br />
-
-![](https://github-readme-stats.vercel.app/api/wakatime?username=obumnwabude)
 
 <br />
