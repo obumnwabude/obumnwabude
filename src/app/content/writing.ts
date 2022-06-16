@@ -88,7 +88,7 @@ export const writing = {
         'You need a way to get people to know that your event is coming up. You need to promote the event.',
       image: {
         alt: 'Picture of Community Members',
-        name: 'genesys-community'
+        name: 'blog'
       },
       links: [
         {
@@ -104,7 +104,7 @@ export const writing = {
         "Don't just start hosting the event. Please, first plan it. Planning is like being in the event before it happens. ",
       image: {
         alt: 'Picture of Community Members',
-        name: 'genesys-community'
+        name: 'blog'
       },
       links: [
         {
@@ -120,7 +120,7 @@ export const writing = {
         "Grow a tech community because you want to mentor people (where you can). You will impact people's lives and become a leader.",
       image: {
         alt: 'Picture of Community Members',
-        name: 'genesys-community'
+        name: 'blog'
       },
       links: [
         {
@@ -136,7 +136,7 @@ export const writing = {
         "Community works for many people and it will work for you too. We are talking of huge benefits you won't find in other places.",
       image: {
         alt: 'Picture of Community Members',
-        name: 'genesys-community'
+        name: 'blog'
       },
       links: [
         {
@@ -152,7 +152,7 @@ export const writing = {
         'Give back to the community. The active participation of community members is the fuel that fires the life of a given tech community.',
       image: {
         alt: 'Picture of Community Members',
-        name: 'genesys-community'
+        name: 'blog'
       },
       links: [
         {
@@ -168,7 +168,7 @@ export const writing = {
         'Community events are moments of bonding and celebration. They are organised to keep the community alive.',
       image: {
         alt: 'Picture of Community Members',
-        name: 'genesys-community'
+        name: 'blog'
       },
       links: [
         {
@@ -184,7 +184,7 @@ export const writing = {
         'Tech communities are groups of people of who love digital stuff and usually have (or want to learn) some digital skill.',
       image: {
         alt: 'Picture of Community Members',
-        name: 'genesys-community'
+        name: 'blog'
       },
       links: [
         {
