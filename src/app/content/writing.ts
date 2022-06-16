@@ -83,6 +83,86 @@ export const writing = {
   ],
   blog: [
     {
+      title: 'How to promote a tech community event',
+      description:
+        'You need a way to get people to know that your event is coming up. You need to promote the event.',
+      image: {
+        alt: 'Picture of Community Members',
+        name: 'genesys-community'
+      },
+      links: [
+        {
+          href: 'https://blog.obumnwabude.com/how-to-promote-a-tech-community-event',
+          title: 'Read',
+          svg: 'open-in-new'
+        }
+      ]
+    },
+    {
+      title: 'How to plan your community event',
+      description:
+        "Don't just start hosting the event. Please, first plan it. Planning is like being in the event before it happens. ",
+      image: {
+        alt: 'Picture of Community Members',
+        name: 'genesys-community'
+      },
+      links: [
+        {
+          href: 'https://blog.obumnwabude.com/how-to-plan-your-community-event',
+          title: 'Read',
+          svg: 'open-in-new'
+        }
+      ]
+    },
+    {
+      title: 'Grow a Tech Community',
+      description:
+        "Grow a tech community because you want to mentor people (where you can). You will impact people's lives and become a leader.",
+      image: {
+        alt: 'Picture of Community Members',
+        name: 'genesys-community'
+      },
+      links: [
+        {
+          href: 'https://blog.obumnwabude.com/grow-a-tech-community',
+          title: 'Read',
+          svg: 'open-in-new'
+        }
+      ]
+    },
+    {
+      title: '5 things you will gain from Tech Communities',
+      description:
+        "Community works for many people and it will work for you too. We are talking of huge benefits you won't find in other places.",
+      image: {
+        alt: 'Picture of Community Members',
+        name: 'genesys-community'
+      },
+      links: [
+        {
+          href: 'https://blog.obumnwabude.com/5-things-you-will-gain-from-tech-communities',
+          title: 'Read',
+          svg: 'open-in-new'
+        }
+      ]
+    },
+    {
+      title: '10 Ways to Contribute to Tech communities',
+      description:
+        'Give back to the community. The active participation of community members is the fuel that fires the life of a given tech community.',
+      image: {
+        alt: 'Picture of Community Members',
+        name: 'genesys-community'
+      },
+      links: [
+        {
+          href: 'https://blog.obumnwabude.com/10-ways-to-contribute-to-tech-communities',
+          title: 'Read',
+          svg: 'open-in-new'
+        }
+      ]
+    },
+    {
       title: 'On Tech Community Events',
       description:
         'Community events are moments of bonding and celebration. They are organised to keep the community alive.',

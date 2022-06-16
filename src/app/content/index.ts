@@ -26,8 +26,8 @@ export const tabs = [
   {
     link: 'writing',
     children: [
-      { active: true, icon: 'medium', link: 'stories' },
       { active: false, icon: 'hashnode', link: 'blog' },
+      { active: true, icon: 'medium', link: 'stories' }
       // { active: false, icon: 'dev', link: 'how-to', view: 'How To' },
       // { active: false, link: 'keepdeploying', view: 'Keep Deploying' }
     ]
