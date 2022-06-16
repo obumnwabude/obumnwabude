@@ -1,6 +1,27 @@
 export const coding = {
   angular: [
     {
+      title: 'Tutorial Management System',
+      description:
+        'Session management dashboard between students and tutors. Contains scheduler form that opens as Bottom Sheet in mobile and sidenav in wide screens.',
+      image: {
+        alt: 'Screenshot of TMS',
+        name: 'tms'
+      },
+      links: [
+        {
+          href: 'https://tutorialmgt.web.app',
+          title: 'Live',
+          svg: 'open-in-new'
+        },
+        {
+          href: 'https://github.com/obumnwabude/tutorialmgt',
+          title: 'Code',
+          svg: 'github'
+        }
+      ]
+    },
+    {
       title: 'Genesys Community',
       description:
         'Custom Form where members of Genesys Campus Club AE-FUNAI report their progress and share their achievements.',
