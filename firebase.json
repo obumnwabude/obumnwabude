@@ -3,9 +3,7 @@
     {
       "target": "obumnwabude",
       "public": "dist/obumnwabude/browser",
-      "ignore": [
-        "**/.*"
-      ],
+      "ignore": ["**/.*"],
       "headers": [
         {
           "source": "*.[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f].+(css|js)",
@@ -35,8 +33,6 @@
     }
   ],
   "functions": {
-    "predeploy": [
-      "npm run --prefix functions build"
-    ]
+    "predeploy": ["npm run --prefix functions build"]
   }
 }
