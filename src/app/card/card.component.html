@@ -1,0 +1,29 @@
+<ng-container *ngIf="content">
+  <mat-card class="mat-elevation-z2">
+    <img
+      mat-card-image
+      [src]="'assets/images/' + content.image.name + '.png'"
+      [alt]="content.image.alt"
+    />
+    <mat-card-title>{{ content.title }}</mat-card-title>
+    <mat-card-content
+      ><p>{{ content.description }}</p></mat-card-content
+    >
+    <mat-card-actions>
+      <a
+        *ngFor="let link of content.links"
+        mat-stroked-button
+        [href]="link.href"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span>{{ link.title }}</span
+        ><img
+          [src]="'assets/svgs/' + link.svg + '.svg'"
+          class="card-icon svg-icon"
+          alt=""
+        />
+      </a>
+    </mat-card-actions>
+  </mat-card>
+</ng-container>

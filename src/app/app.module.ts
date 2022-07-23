@@ -1,23 +1,24 @@
-import { NgModule } from '@angular/core';
 import { LayoutModule } from '@angular/cdk/layout';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModule } from '@angular/core';
+import {
+  getAnalytics,
+  provideAnalytics,
+  ScreenTrackingService
+} from '@angular/fire/analytics';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Route, RouterModule } from '@angular/router';
 import { NguiInviewModule } from '@ngui/common';
 
-import { AppComponent } from './app.component';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import {
-  provideAnalytics,
-  getAnalytics,
-  ScreenTrackingService
-} from '@angular/fire/analytics';
-import { Route, RouterModule } from '@angular/router';
+import { AppComponent } from './app.component';
+import { CardComponent } from './card/card.component';
 
 const routes: Route[] = [
   {
@@ -49,11 +50,10 @@ const routes: Route[] = [
 ];
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, CardComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes),
     LayoutModule,
     MatButtonModule,
     MatCardModule,
@@ -62,7 +62,8 @@ const routes: Route[] = [
     MatToolbarModule,
     NguiInviewModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    ...(environment.production ? [provideAnalytics(() => getAnalytics())] : [])
+    ...(environment.production ? [provideAnalytics(() => getAnalytics())] : []),
+    RouterModule.forRoot(routes)
   ],
   providers: [ScreenTrackingService],
   bootstrap: [AppComponent]

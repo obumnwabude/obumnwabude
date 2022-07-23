@@ -1,0 +1,32 @@
+mat-card {
+  max-width: 288px;
+  border-radius: 12px;
+  margin: 0 auto 48px auto;
+
+  @media (min-width: 576px) {
+    margin: 0 auto;
+  }
+
+  mat-card-title {
+    font-size: 18px;
+    margin-bottom: 16px;
+    font-weight: normal;
+    text-decoration: underline double 0.6px;
+  }
+
+  mat-card-actions {
+    text-align: right;
+    margin-bottom: unset;
+    margin-right: unset;
+    padding-bottom: unset;
+
+    a {
+      margin-bottom: 8px;
+    }
+  }
+}
+
+.card-icon {
+  width: 16px;
+  margin-left: 8px;
+}
