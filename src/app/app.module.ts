@@ -9,8 +9,8 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,17 +20,26 @@ import { NguiInviewModule } from '@ngui/common';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { CardComponent } from './card/card.component';
+import { ContentComponent } from './content/content.component';
+import { HomeComponent } from './home/home.component';
 import { ShowcaseComponent } from './showcase/showcase.component';
 
 const routes: Route[] = [
-  { path: 'articles', component: AppComponent },
-  { path: 'coding', component: AppComponent },
-  { path: 'community', component: AppComponent },
-  { path: '**', component: AppComponent }
+  { path: 'articles', component: ContentComponent },
+  { path: 'coding', component: ContentComponent },
+  { path: 'community', component: ContentComponent },
+  { path: '', component: HomeComponent },
+  { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];
 
 @NgModule({
-  declarations: [AppComponent, CardComponent, ShowcaseComponent],
+  declarations: [
+    AppComponent,
+    CardComponent,
+    ContentComponent,
+    HomeComponent,
+    ShowcaseComponent
+  ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
@@ -38,8 +47,8 @@ const routes: Route[] = [
     MatButtonModule,
     MatCardModule,
     MatChipsModule,
+    MatListModule,
     MatSidenavModule,
-    MatTabsModule,
     MatToolbarModule,
     NguiInviewModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),

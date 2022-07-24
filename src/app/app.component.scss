@@ -1,77 +1,101 @@
-[app-container] {
-  display: flex;
-  flex-direction: column;
+mat-sidenav-container,
+mat-sidenav-content {
   height: 100%;
 }
 
-mat-sidenav-container {
-  flex: 1 1 auto;
-}
-
-mat-sidenav {
+mat-sidenav[showcase] {
   padding: 8px;
   max-width: 312px;
 }
 
-mat-sidenav [profile-icons] {
-  max-width: 228px;
-  margin: 0 auto 1rem;
-}
+mat-toolbar[navbar] {
+  height: 64px;
+  position: fixed;
+  top: 0;
+  z-index: 10;
 
-mat-sidenav {
-  padding-top: 32px;
-}
+  p {
+    align-items: flex-end;
+    display: flex;
+    font-size: 24px;
+    line-height: 1.2;
 
-.tab-header-icon {
-  width: 24px;
-  margin-right: 8px;
-}
-
-.tab-label-text {
-  display: inline-block;
-  margin-left: 8px;
-}
-
-.tab-content {
-  padding: 32px;
-
-  @media (min-width: 576px) {
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 32px;
+    img {
+      filter: unset;
+      width: 32px;
+    }
   }
 
-  @media (min-width: 1250px) {
-    gap: 48px;
-    grid-template-columns: auto auto auto;
+  [mat-button] {
+    font-size: 18px;
   }
+}
+
+mat-sidenav[drawer] {
+  padding: 16px;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.active-nav-link {
+  // A100 of light-blue palette (with reduced transparency)
+  background-color: rgb(129, 212, 250, 0.2);
+  border-radius: 8px;
+}
+
+main {
+  padding-top: 64px;
 }
 
 button[mat-fab] {
   position: fixed;
   bottom: 32px;
-  right: 48px;
+  right: 32px;
   z-index: 100;
 
   img {
     filter: brightness(0) saturate(100%);
+    margin-top: -8px;
     opacity: 0.87;
+    width: 80%;
+  }
+}
+
+.hide-scroll {
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+}
+
+.show-scroll {
+  opacity: 1;
+  transition: all 0.4s ease-in-out;
+}
+
+@media (min-width: 576px) {
+  mat-sidenav[drawer] {
+    display: none;
+  }
+
+  button[mat-fab] {
+    right: 48px;
   }
 }
 
 @media (max-width: 991.99px) {
-  mat-sidenav {
+  mat-sidenav[showcase] {
     display: none;
   }
 }
 
 @media (min-width: 992px) {
-  mat-sidenav-content obum-showcase {
-    display: none;
+  mat-toolbar[navbar] {
+    position: sticky;
   }
 
-  .mat-tab-group.body {
-    margin-top: 0;
+  main {
+    padding-top: 0;
   }
 }
 
@@ -89,7 +113,7 @@ button[mat-fab] {
     border-left: none;
     max-width: 1224px; // 1536 - 312 (the fixed width mat-sidenav; set above)
     margin-left: calc(((100% - 1536px) / 2) + 312px) !important;
-    height: calc(100% - 68px);
+    height: calc(100% - 64px);
   }
 
   button[mat-fab] {

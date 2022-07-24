@@ -8,7 +8,7 @@ $dark-theme: mat-dark-theme($palette, $palette);
 .light-mode {
   @include angular-material-theme($light-theme);
 
-  [mobile-header] {
+  mat-toolbar[navbar] {
     box-shadow: 0 2px 1px -1px #0d102517;
     margin-bottom: 2px;
   }
@@ -16,11 +16,6 @@ $dark-theme: mat-dark-theme($palette, $palette);
   img[src$='.svg'] {
     filter: brightness(0) saturate(100%);
     opacity: 0.87;
-  }
-
-  .mat-tab-header {
-    background-color: #fafafa;
-    color: #000000de;
   }
 }
 
@@ -30,11 +25,12 @@ $dark-theme: mat-dark-theme($palette, $palette);
   img[src$='.svg'] {
     filter: brightness(0) saturate(100%) invert(1);
   }
+}
 
-  .mat-tab-header {
-    background-color: #303030;
-    color: white;
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -44,55 +40,25 @@ html {
 
 body {
   height: 100%;
-  margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
-  font-size: 16px;
+  font-size: 18px;
 }
 
-.spacer {
+[spacer] {
   flex: 1 1 auto;
 }
 
-.mat-tab-header {
-  top: 0;
-  z-index: 1000;
-  position: sticky !important;
-}
+[cards] {
+  padding: 32px;
 
-.mat-tab-header[sub] {
-  top: 49px;
-}
-
-nav[mat-tab-nav-bar] .mat-tab-label-active {
-  opacity: 1;
-}
-
-@keyframes tab-header-arrow-left {
-  0% {
-    transform: translateX(-4px) rotate(-135deg);
+  @media (min-width: 576px) {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 32px;
   }
 
-  100% {
-    transform: translateX(4px) rotate(-135deg);
+  @media (min-width: 1250px) {
+    gap: 48px;
+    grid-template-columns: auto auto auto;
   }
-}
-
-.mat-tab-header-pagination-before:not(.mat-tab-header-pagination-disabled)
-  .mat-tab-header-pagination-chevron {
-  animation: tab-header-arrow-left 1s infinite alternate;
-}
-
-@keyframes tab-header-arrow-right {
-  0% {
-    transform: translateX(4px) rotate(45deg);
-  }
-
-  100% {
-    transform: translateX(-4px) rotate(45deg);
-  }
-}
-
-.mat-tab-header-pagination-after:not(.mat-tab-header-pagination-disabled)
-  .mat-tab-header-pagination-chevron {
-  animation: tab-header-arrow-right 1s infinite alternate;
 }

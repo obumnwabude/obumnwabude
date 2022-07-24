@@ -6,38 +6,42 @@ mat-card {
   @media (min-width: 576px) {
     margin: 0 auto;
   }
+}
 
-  mat-chip-avatar img {
-    width: 80%;
-  }
+mat-chip-avatar img {
+  width: 80%;
+}
 
-  img[mat-card-image] {
-    margin-top: 16px;
-  }
+img[mat-card-image] {
+  margin-top: 16px;
+}
 
-  [date] {
-    font-size: 12px;
-    font-style: italic;
-    margin: -8px 0 12px 0;
-    opacity: 0.7;
-  }
+[date] {
+  font-size: 12px;
+  font-style: italic;
+  margin: -4px 0 12px 0;
+  opacity: 0.7;
+}
 
-  mat-card-title {
-    font-size: 18px;
-    margin-bottom: 16px;
-    font-weight: normal;
-    text-decoration: underline double 0.6px;
-  }
+mat-card-title {
+  font-size: 20px;
+  margin-bottom: 16px;
+  font-weight: normal;
+  text-decoration: underline double 0.6px;
+}
 
-  mat-card-actions {
-    text-align: right;
-    margin-bottom: unset;
-    margin-right: unset;
-    padding-bottom: unset;
+mat-card-content {
+  font-size: 16px;
+}
 
-    a {
-      margin-bottom: 8px;
-    }
+mat-card-actions {
+  text-align: right;
+  margin-bottom: unset !important;
+  margin-right: unset;
+  padding-bottom: unset;
+
+  a {
+    margin-bottom: 8px;
   }
 }
 

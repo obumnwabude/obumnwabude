@@ -1,75 +1,95 @@
-<div app-container>
-  <mat-toolbar *ngIf="!mobProfShowInView && !isLargeScreen" mobile-header>
-    <mat-toolbar-row>
-      <button mat-icon-button (click)="scrollToTop()" title="Home">
-        <img src="assets/svgs/home.svg" alt="" />
-      </button>
-      <span class="spacer"></span>
-      <span>Obum 😎</span>
-      <span class="spacer"></span>
-      <button mat-icon-button (click)="changeTheme()" title="Switch Theme">
-        <img
-          [src]="
-            'assets/svgs/' +
-            (themes.indexOf(cssClass) == 0 ? themes[1] : themes[0]) +
-            '.svg'
-          "
-          alt=""
-        />
-      </button>
-    </mat-toolbar-row>
-  </mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened *ngIf="isLargeScreen" showcase>
+    <obum-showcase></obum-showcase>
+  </mat-sidenav>
 
-  <mat-sidenav-container>
-    <mat-sidenav mode="side" opened *ngIf="isLargeScreen">
-      <obum-showcase></obum-showcase>
-    </mat-sidenav>
-
-    <mat-sidenav-content>
-      <div
-        (nguiInview)="mobProfShowInView = true"
-        (nguiOutview)="mobProfShowInView = false"
-        #mobileProfileShowcase
+  <mat-sidenav
+    #drawer
+    position="end"
+    fixedInViewport="true"
+    fixedTopGap="64"
+    drawer
+  >
+    <mat-list>
+      <a
+        [routerLink]="link.path"
+        *ngFor="let link of links"
+        [routerLinkActive]="['active-nav-link']"
+        [routerLinkActiveOptions]="{ exact: true }"
+        mat-list-item
+        >{{ link.content }}</a
       >
-        <obum-showcase></obum-showcase>
-      </div>
+      <button mat-list-item (click)="changeTheme()">
+        {{
+          capitalize(
+            (themes.indexOf(cssClass) == 0 ? themes[1] : themes[0]).split(
+              '-'
+            )[0]
+          )
+        }}
+        Theme
+      </button>
+    </mat-list>
+  </mat-sidenav>
 
-      <nav mat-tab-nav-bar mat-stretch-tabs>
-        <a
-          mat-tab-link
-          *ngFor="let tab of uiTabs"
-          [active]="activeTab === tab"
-          [routerLink]="tab"
-          (click)="activeTab = tab"
+  <mat-sidenav-content>
+    <mat-toolbar *ngIf="!showcaseInView.value" navbar>
+      <mat-toolbar-row>
+        <p *ngIf="!isLargeScreen">
+          <img src="assets/svgs/blue-o.svg" alt="O" />
+          <span>bum</span>
+        </p>
+
+        <span spacer></span>
+
+        <ng-container *ngIf="isTabletScreen">
+          <a
+            [routerLink]="link.path"
+            *ngFor="let link of links"
+            [routerLinkActive]="['active-nav-link']"
+            [routerLinkActiveOptions]="{ exact: true }"
+            mat-button
+            >{{ link.content }}</a
+          >
+        </ng-container>
+
+        <button
+          mat-icon-button
+          (click)="changeTheme()"
+          title="Switch Theme"
+          *ngIf="isTabletScreen"
         >
           <img
-            [src]="'assets/svgs/' + tab + '.svg'"
-            class="tab-header-icon"
+            [src]="
+              'assets/svgs/' +
+              (themes.indexOf(cssClass) == 0 ? themes[1] : themes[0]) +
+              '.svg'
+            "
             alt=""
           />
-          <span class="tab-label-text">{{ capitalize(tab) }}</span>
-        </a>
-      </nav>
+        </button>
+        <button
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="!isTabletScreen"
+        >
+          <img src="assets/svgs/menu.svg" alt="" />
+        </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
 
-      <div class="tab-content">
-        <obum-card *ngFor="let c of content" [content]="c"></obum-card>
-      </div>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
 
-      <button
-        mat-fab
-        (click)="changeTheme()"
-        title="Switch Theme"
-        *ngIf="isLargeScreen"
-      >
-        <img
-          [src]="
-            'assets/svgs/' +
-            (themes.indexOf(cssClass) == 0 ? themes[1] : themes[0]) +
-            '.svg'
-          "
-          alt=""
-        />
-      </button>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-</div>
+    <button
+      mat-fab
+      (click)="scrollToTop()"
+      class="hide-scroll"
+      title="Switch Theme"
+      [class.show-scroll]="hasScrolled"
+    >
+      <img src="assets/svgs/up.svg" alt="Up" />
+    </button>
+  </mat-sidenav-content>
+</mat-sidenav-container>
