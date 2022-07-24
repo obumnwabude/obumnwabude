@@ -2,6 +2,26 @@ import { ObumCard } from '../card/card.model';
 
 export const community: ObumCard[] = [
   {
+    title: 'Why you should use Flutter',
+    date: { month: 6, year: 2022 },
+    description:
+      'Explained detailed benefits of why we should use Flutter for our projects.',
+    image: { alt: 'Event Flyer', name: 'gdsc-why-flutter' },
+    links: [
+      {
+        href: 'https://docs.google.com/presentation/d/1EuXoQC0zO_tPq8deT6plxuwbzK988-789FxUsdTfJfM/edit?usp=sharing&resourcekey=0-V0dhDAuwoCJimDdxeyBItA',
+        title: 'Slides',
+        svg: 'slides'
+      },
+      {
+        href: 'https://youtu.be/yiNGvba7bhs',
+        title: 'Recording',
+        svg: 'youtube'
+      }
+    ],
+    tags: [{ svg: 'speaker' }, { svg: 'gdsc', title: 'GDSC' }]
+  },
+  {
     title: 'Understanding Technical Writing',
     date: { month: 4, year: 2022 },
     description:
