@@ -22,9 +22,9 @@ import { AppComponent } from './app.component';
 import { CardComponent } from './card/card.component';
 
 const routes: Route[] = [
+  { path: 'articles', component: AppComponent },
   { path: 'coding', component: AppComponent },
-  { path: 'writing', component: AppComponent },
-  { path: 'events', component: AppComponent },
+  { path: 'community', component: AppComponent },
   { path: '**', component: AppComponent }
 ];
 

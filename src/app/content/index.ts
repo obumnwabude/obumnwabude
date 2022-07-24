@@ -1,6 +1,6 @@
+import { articles } from './articles';
 import { coding } from './coding';
-import { events } from './events';
-import { writing } from './writing';
+import { community } from './community';
 
 export const profiles = [
   { icon: 'linkedin', link: 'https://linkedin.com/in/obumnwabude' },
@@ -11,4 +11,4 @@ export const profiles = [
   { icon: 'instagram', link: 'https://instagram.com/obumnwabude' }
 ];
 
-export const tabs = { coding, writing, events };
+export const tabs = { articles, coding, community };

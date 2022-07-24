@@ -1,6 +1,6 @@
 import { ObumCard } from '../card/card.model';
 
-export const writing: ObumCard[] = [
+export const articles: ObumCard[] = [
   {
     title: 'How to promote a tech community event',
     date: { month: 6, year: 2022 },
