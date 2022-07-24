@@ -88,7 +88,7 @@ export const community: ObumCard[] = [
     title: 'Introduction to Flutter (Todo App)',
     date: { month: 11, year: 2021 },
     description: 'Taught Flutter on screen while building a simple Todo App.',
-    image: { alt: 'Screenshot of Building Todo App', name: 'todo' },
+    image: { alt: 'Screenshot of Building Todo App', name: 'gdsc-todo' },
     links: [
       {
         href: 'https://github.com/gdscaefunai/todo_flutter_intro',

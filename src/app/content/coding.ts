@@ -2,9 +2,42 @@ import { ObumCard } from '../card/card.model';
 
 export const coding: ObumCard[] = [
   {
+    title: 'Todo',
+    description:
+      'Simple one-screen dark-mode Todo App. Built using Stacked architecture and used to illustrate how Stacked works.',
+    image: { alt: 'Screenshots of the Todo App', name: 'stacked-todo' },
+    links: [
+      {
+        href: 'https://github.com/obumnwabude/flutter_stacked_todo',
+        title: 'Code',
+        svg: 'github'
+      }
+    ],
+    tags: [{ svg: 'flutter' }]
+  },
+  {
+    title: 'LinkedIn Class',
+    description:
+      'Platform where participants registered with their LinkedIn accounts before getting access to the class.',
+    image: { alt: 'LinkedIn Class Flyer', name: 'linkedin-class-ad' },
+    links: [
+      {
+        href: 'https://linkedinclass.obumnwabude.com',
+        title: 'Live',
+        svg: 'open-in-new'
+      },
+      {
+        href: 'https://github.com/obumnwabude/linkedin-class',
+        title: 'Code',
+        svg: 'github'
+      }
+    ],
+    tags: [{ svg: 'angular' }, { svg: 'firebase' }]
+  },
+  {
     title: 'Calculator',
     description:
-      'Supports complex math operations. Built using FilledStacks architecture for state management in Flutter.',
+      'Supports complex math operations. Built using Stacked architecture for state management.',
     image: { alt: 'Screens of Calculator', name: 'calculator' },
     links: [
       {
@@ -138,7 +171,7 @@ export const coding: ObumCard[] = [
   },
   {
     title: 'obumnwabude',
-    description: 'This very porfolio website.',
+    description: 'What else than the workings of this very porfolio website.',
     image: {
       alt: 'Obum Speaking',
       name: 'obum-speaking'
