@@ -22,31 +22,9 @@ import { AppComponent } from './app.component';
 import { CardComponent } from './card/card.component';
 
 const routes: Route[] = [
-  {
-    path: 'coding',
-    children: ['', 'angular', 'firebase', 'flutter', 'nodejs'].map((l) => {
-      return { path: l, component: AppComponent };
-    })
-  },
-  {
-    path: 'writing',
-    children: [
-      '',
-      'stories',
-      'how-to',
-      'blog',
-      'freecodecamp',
-      'keepdeploying'
-    ].map((l) => {
-      return { path: l, component: AppComponent };
-    })
-  },
-  {
-    path: 'events',
-    children: ['', 'gdsc', 'genesys', 'mlsa'].map((l) => {
-      return { path: l, component: AppComponent };
-    })
-  },
+  { path: 'coding', component: AppComponent },
+  { path: 'writing', component: AppComponent },
+  { path: 'events', component: AppComponent },
   { path: '**', component: AppComponent }
 ];
 

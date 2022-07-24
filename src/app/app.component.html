@@ -37,37 +37,17 @@
       <nav mat-tab-nav-bar mat-stretch-tabs>
         <a
           mat-tab-link
-          *ngFor="let tab of tabs"
-          (click)="mainTab = tab.link"
-          [active]="mainTab == tab.link"
-          [routerLink]="tab.link"
+          *ngFor="let tab of uiTabs"
+          [active]="activeTab === tab"
+          [routerLink]="tab"
+          (click)="activeTab = tab"
         >
           <img
-            [src]="'assets/svgs/' + tab.link + '.svg'"
+            [src]="'assets/svgs/' + tab + '.svg'"
             class="tab-header-icon"
             alt=""
           />
-          <span class="tab-label-text">{{ capitalize(tab.link) }}</span>
-        </a>
-      </nav>
-      <nav mat-tab-nav-bar mat-stretch-tabs sub #subTab>
-        <a
-          mat-tab-link
-          *ngFor="let child of currentChildren()"
-          (click)="changeSubTab($event)"
-          [active]="child.active"
-          [routerLink]="[mainTab, child.link]"
-          [title]="child.link"
-        >
-          <img
-            [src]="'assets/svgs/' + (child.icon ?? child.link) + '.svg'"
-            class="tab-header-icon"
-            alt=""
-            [title]="child.link"
-          />
-          <span [title]="child.link">{{
-            child.view ?? capitalize(child.link)
-          }}</span>
+          <span class="tab-label-text">{{ capitalize(tab) }}</span>
         </a>
       </nav>
 
