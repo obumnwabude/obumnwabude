@@ -11,9 +11,15 @@ export interface CardLink {
   title: string;
 }
 
+export interface CardTag {
+  svg: string;
+  title?: string;
+}
+
 export interface ObumCard {
   description: string;
   image: CardImage;
   links: CardLink[];
+  tags: CardTag[];
   title: string;
 }

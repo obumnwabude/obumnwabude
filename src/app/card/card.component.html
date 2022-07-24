@@ -1,14 +1,26 @@
 <ng-container *ngIf="content">
   <mat-card class="mat-elevation-z2">
+    <mat-chip-list>
+      <mat-chip *ngFor="let tag of content.tags">
+        <mat-chip-avatar>
+          <img [src]="'assets/svgs/' + tag.svg + '.svg'" alt="" />
+        </mat-chip-avatar>
+        {{ tag.title ?? capitalize(tag.svg) }}
+      </mat-chip>
+    </mat-chip-list>
+
     <img
       mat-card-image
       [src]="'assets/images/' + content.image.name + '.png'"
       [alt]="content.image.alt"
     />
+
     <mat-card-title>{{ content.title }}</mat-card-title>
-    <mat-card-content
-      ><p>{{ content.description }}</p></mat-card-content
-    >
+
+    <mat-card-content>
+      <p>{{ content.description }}</p>
+    </mat-card-content>
+
     <mat-card-actions>
       <a
         *ngFor="let link of content.links"

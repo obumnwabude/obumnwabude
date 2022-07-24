@@ -8,4 +8,6 @@ import { ObumCard } from './card.model';
 })
 export class CardComponent {
   @Input('content') content?: ObumCard;
+
+  capitalize = (str: string) => str[0].toUpperCase() + str.substring(1);
 }

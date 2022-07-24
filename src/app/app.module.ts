@@ -8,6 +8,7 @@ import {
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -57,6 +58,7 @@ const routes: Route[] = [
     LayoutModule,
     MatButtonModule,
     MatCardModule,
+    MatChipsModule,
     MatSidenavModule,
     MatTabsModule,
     MatToolbarModule,

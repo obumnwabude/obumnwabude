@@ -3,10 +3,7 @@ export const events = {
     {
       title: 'Introduction to Flutter (Todo App)',
       description: 'Taught Flutter on screen while building a simple Todo App.',
-      image: {
-        alt: 'Screenshot of Building Todo App',
-        name: 'todo'
-      },
+      image: { alt: 'Screenshot of Building Todo App', name: 'todo' },
       links: [
         {
           href: 'https://github.com/gdscaefunai/todo_flutter_intro',
@@ -18,7 +15,8 @@ export const events = {
           title: 'Recording',
           svg: 'youtube'
         }
-      ]
+      ],
+      tags: [{ svg: 'speaker' }, { svg: 'gdsc', title: 'GDSC' }]
     },
     {
       title: '2021 DES & DEV Bootcamp',
@@ -34,6 +32,10 @@ export const events = {
           title: 'Story',
           svg: 'medium'
         }
+      ],
+      tags: [
+        { svg: 'grass', title: 'Organized' },
+        { svg: 'gdsc', title: 'GDSC' }
       ]
     },
     {
@@ -55,16 +57,17 @@ export const events = {
           title: 'Story',
           svg: 'medium'
         }
+      ],
+      tags: [
+        { svg: 'grass', title: 'Organized' },
+        { svg: 'gdsc', title: 'GDSC' }
       ]
     },
     {
       title: 'Git and GitHub',
       description:
         'Collaboration of six GDSCs to bring to introduce Version Control to our communities. Auwal MS was speaker.',
-      image: {
-        alt: 'Section of Event Flyer',
-        name: 'git-and-github-event'
-      },
+      image: { alt: 'Section of Event Flyer', name: 'git-and-github-event' },
       links: [
         {
           href: 'https://githubevent.web.app',
@@ -86,16 +89,17 @@ export const events = {
           title: 'Recording',
           svg: 'youtube'
         }
+      ],
+      tags: [
+        { svg: 'grass', title: 'Organized' },
+        { svg: 'gdsc', title: 'GDSC' }
       ]
     },
     {
       title: 'Learning Opportunities',
       description:
         'Speaker session by Emeka Odibeli, aimed at inspiring community members to keep learning.',
-      image: {
-        alt: 'Section of Event Flyer',
-        name: 'learning-opportunities'
-      },
+      image: { alt: 'Section of Event Flyer', name: 'learning-opportunities' },
       links: [
         {
           href: 'https://dsc.community.dev/e/mbzuvd/',
@@ -107,32 +111,34 @@ export const events = {
           title: 'Story',
           svg: 'medium'
         }
+      ],
+      tags: [
+        { svg: 'grass', title: 'Organized' },
+        { svg: 'gdsc', title: 'GDSC' }
       ]
     },
     {
       title: 'Firebase Series',
       description:
         '6 weeks virtual workshops and codelabs where we taught Firebase.',
-      image: {
-        alt: 'Section of Event Flyer',
-        name: 'firebase-series'
-      },
+      image: { alt: 'Section of Event Flyer', name: 'firebase-series' },
       links: [
         {
           href: 'https://medium.com/dscaefunai/617772e53a8c',
           title: 'Story',
           svg: 'medium'
         }
+      ],
+      tags: [
+        { svg: 'grass', title: 'Organized' },
+        { svg: 'gdsc', title: 'GDSC' }
       ]
     },
     {
       title: 'Onboarding GDSC',
       description:
         "GDSC AE-FUNAI's first info session. Starting GDSC in our school.",
-      image: {
-        alt: 'Section of Event Flyer',
-        name: 'gdsc-info-session'
-      },
+      image: { alt: 'Section of Event Flyer', name: 'gdsc-info-session' },
       links: [
         {
           href: 'https://dsc.community.dev/e/mm72hn/',
@@ -149,6 +155,10 @@ export const events = {
           title: 'Story',
           svg: 'medium'
         }
+      ],
+      tags: [
+        { svg: 'grass', title: 'Organized' },
+        { svg: 'gdsc', title: 'GDSC' }
       ]
     }
   ],
@@ -172,16 +182,14 @@ export const events = {
           title: 'Recording',
           svg: 'youtube'
         }
-      ]
+      ],
+      tags: [{ svg: 'grass', title: 'Organized' }, { svg: 'genesys' }]
     },
     {
       title: 'Careers In Tech',
       description:
         'Onyebuchi Nwafor at VeendHQ explained to the community why we should consider a career path in the tech space.',
-      image: {
-        alt: 'About the speaker',
-        name: 'careers-in-tech'
-      },
+      image: { alt: 'About the speaker', name: 'careers-in-tech' },
       links: [
         {
           href: 'https://docs.google.com/presentation/d/1K7OY6OmYM_4bO6trZo2o9FhO-wZ2FYME/edit#slide=id.p1',
@@ -193,16 +201,14 @@ export const events = {
           title: 'Recording',
           svg: 'youtube'
         }
-      ]
+      ],
+      tags: [{ svg: 'grass', title: 'Organized' }, { svg: 'genesys' }]
     },
     {
       title: 'Info Session',
       description:
         'Ezra at Genesys explained about community and about Genesys to the attendees.',
-      image: {
-        alt: '',
-        name: 'genesys-info-session'
-      },
+      image: { alt: '', name: 'genesys-info-session' },
       links: [
         {
           href: 'https://docs.google.com/presentation/d/1qkTbbUpkb-9ASFZUqOFI9O7_PKQDOk5OrNhWyNxbphM/edit?usp=sharing',
@@ -214,7 +220,8 @@ export const events = {
           title: 'Recording',
           svg: 'youtube'
         }
-      ]
+      ],
+      tags: [{ svg: 'grass', title: 'Organized' }, { svg: 'genesys' }]
     }
   ],
   mlsa: [
@@ -222,10 +229,7 @@ export const events = {
       title: "Your GitHub Profile's README",
       description:
         'Explained why and how to beautify the README of your GitHub profile and GitHub repositories.',
-      image: {
-        alt: 'Event Flyer',
-        name: 'github-profile-readme'
-      },
+      image: { alt: 'Event Flyer', name: 'github-profile-readme' },
       links: [
         {
           href: 'https://1drv.ms/p/s!AiER2Bfzp1AIgSwDQhEv4QmzEHI6?e=GKxYJZ',
@@ -237,16 +241,14 @@ export const events = {
           title: 'Recording',
           svg: 'youtube'
         }
-      ]
+      ],
+      tags: [{ svg: 'speaker' }, { svg: 'microsoft', title: 'MLSA' }]
     },
     {
       title: 'Collaborating with GitHub',
       description:
         'Taught the audience on how to use GitHubs features like forks, pull requests and issues, to go about collaboration.',
-      image: {
-        alt: 'Event Flyer',
-        name: 'collaborating-with-github'
-      },
+      image: { alt: 'Event Flyer', name: 'collaborating-with-github' },
       links: [
         {
           href: 'https://mlsagithub.web.app',
@@ -263,7 +265,8 @@ export const events = {
           title: 'Recording',
           svg: 'youtube'
         }
-      ]
+      ],
+      tags: [{ svg: 'speaker' }, { svg: 'microsoft', title: 'MLSA' }]
     }
   ]
 };
