@@ -2,6 +2,81 @@ import { ObumCard } from '../card/card.model';
 
 export const articles: ObumCard[] = [
   {
+    title: 'Why I Chose Angular to Build a URL Shortener',
+    date: { month: 7, year: 2022 },
+    description:
+      "Reviews the available tools, decision choices, and factors that influenced choosing Angular for the project's frontend.",
+    image: { alt: '', name: 'angular-url-shortener' },
+    links: [
+      {
+        href: 'https://css-tricks.com/why-i-chose-angular-to-build-a-url-shortener/',
+        title: 'Read',
+        svg: 'open-in-new'
+      }
+    ],
+    tags: [{ svg: 'csstricks', title: 'CSS-Tricks' }]
+  },
+  {
+    title: 'How to Use Stacked Architecture',
+    date: { month: 7, year: 2022 },
+    description:
+      'Explains what Stacked architecture is and guides you through creating a simple Todo App in Flutter with Stacked.',
+    image: { alt: 'Article Cover', name: 'fcc-flutter-stacked-todo' },
+    links: [
+      {
+        href: 'https://www.freecodecamp.org/news/flutter-stacked-architecture-todo-app/',
+        title: 'Read',
+        svg: 'open-in-new'
+      }
+    ],
+    tags: [{ svg: 'freecodecamp', title: 'freeCodeCamp' }]
+  },
+  {
+    title: 'Why You Should Use Flutter',
+    date: { month: 7, year: 2022 },
+    description:
+      'Explains in detail the various benefits of using Flutter so you can decide whether to use it for your next project.',
+    image: { alt: 'Article Cover', name: 'fcc-why-flutter' },
+    links: [
+      {
+        href: 'https://www.freecodecamp.org/news/why-you-should-use-flutter/',
+        title: 'Read',
+        svg: 'open-in-new'
+      }
+    ],
+    tags: [{ svg: 'freecodecamp', title: 'freeCodeCamp' }]
+  },
+  {
+    title: 'How to Build a URL Shortener for FREE with Firebase',
+    date: { month: 6, year: 2022 },
+    description:
+      'Step-by-step guide on getting your personal URL Shortener for FREE.',
+    image: { alt: '', name: 'firebase-url-shortener' },
+    links: [
+      {
+        href: 'https://keepdeploying.com/7754377478e0',
+        title: 'Read',
+        svg: 'open-in-new'
+      }
+    ],
+    tags: [{ svg: 'keepdeploying', title: 'Keep Deploying' }]
+  },
+  {
+    title: 'How to Implement Any UI in Flutter',
+    date: { month: 6, year: 2022 },
+    description:
+      'A guide that will help you convert any user interface image, piece, or screen into Flutter code.',
+    image: { alt: 'Article Cover', name: 'fcc-any-ui-flutter' },
+    links: [
+      {
+        href: 'https://www.freecodecamp.org/news/how-to-implement-any-ui-in-flutter/',
+        title: 'Read',
+        svg: 'open-in-new'
+      }
+    ],
+    tags: [{ svg: 'freecodecamp', title: 'freeCodeCamp' }]
+  },
+  {
     title: 'How to promote a tech community event',
     date: { month: 6, year: 2022 },
     description:
