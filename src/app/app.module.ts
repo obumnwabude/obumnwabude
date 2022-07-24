@@ -20,6 +20,7 @@ import { NguiInviewModule } from '@ngui/common';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { CardComponent } from './card/card.component';
+import { ShowcaseComponent } from './showcase/showcase.component';
 
 const routes: Route[] = [
   { path: 'articles', component: AppComponent },
@@ -29,7 +30,7 @@ const routes: Route[] = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, CardComponent],
+  declarations: [AppComponent, CardComponent, ShowcaseComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,

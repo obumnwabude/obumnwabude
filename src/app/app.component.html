@@ -22,7 +22,7 @@
 
   <mat-sidenav-container>
     <mat-sidenav mode="side" opened *ngIf="isLargeScreen">
-      <ng-template [ngTemplateOutlet]="profileShowcase"></ng-template>
+      <obum-showcase></obum-showcase>
     </mat-sidenav>
 
     <mat-sidenav-content>
@@ -31,7 +31,7 @@
         (nguiOutview)="mobProfShowInView = false"
         #mobileProfileShowcase
       >
-        <ng-template [ngTemplateOutlet]="profileShowcase"></ng-template>
+        <obum-showcase></obum-showcase>
       </div>
 
       <nav mat-tab-nav-bar mat-stretch-tabs>
@@ -73,34 +73,3 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
-
-<ng-template #profileShowcase>
-  <div profile-showcase>
-    <div ps-img-container>
-      <img src="assets/images/obum.png" alt="Obum" />
-    </div>
-    <div>
-      <h1 full-name>Obumuneme Nwabude</h1>
-      <p obum-text-container>(call me <span>Obum</span>)</p>
-      <div profile-icons>
-        <a
-          target="_blank"
-          rel="noreferrer noopener"
-          *ngFor="let p of profiles"
-          [href]="p.link"
-          [title]="capitalize(p.icon)"
-        >
-          <img [src]="'assets/svgs/' + p.icon + '.svg'" class="profile-icon" />
-        </a>
-      </div>
-      <ul>
-        <li>Technical Writer</li>
-        <li>Mobile and Fullstack Web Developer</li>
-        <li>Microsoft Learn Student Ambassador</li>
-        <li>Former Trainer on Google Digital Skills for Africa</li>
-        <li>Former Google Developer Student Clubs Lead</li>
-        <li>Former Genesys Campus Club Ambassador</li>
-      </ul>
-    </div>
-  </div>
-</ng-template>

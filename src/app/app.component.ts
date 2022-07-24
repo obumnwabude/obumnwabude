@@ -13,7 +13,7 @@ import { filter } from 'rxjs/operators';
 
 import { ObumCard } from './card/card.model';
 import { constants } from './constants';
-import { profiles, tabs } from './content/index';
+import { tabs } from './content/index';
 import { ThemingService } from './theming.service';
 
 declare var document: any;
@@ -29,7 +29,6 @@ export class AppComponent implements OnInit {
   mobProfShowInView = false;
   isLargeScreen = false;
   themes = constants.THEMES;
-  profiles = profiles;
   tabs = tabs;
   @ViewChild('mobileProfileShowcase')
   mobProfShowRef!: ElementRef<HTMLDivElement>;
@@ -95,9 +94,7 @@ export class AppComponent implements OnInit {
     localStorage.setItem(constants.LS_THEME_KEY, this.cssClass);
   }
 
-  capitalize(str: string): string {
-    return str[0].toUpperCase() + str.substring(1);
-  }
+  capitalize = (str: string) => str[0].toUpperCase() + str.substring(1);
 
   scrollToTop(): void {
     document.querySelector('.mat-sidenav-content').scrollTop = 0;
