@@ -15,6 +15,10 @@
       [alt]="content.image.alt"
     />
 
+    <p date *ngIf="content.date">
+      {{ months[content.date.month] }} {{ content.date.year }}
+    </p>
+
     <mat-card-title>{{ content.title }}</mat-card-title>
 
     <mat-card-content>

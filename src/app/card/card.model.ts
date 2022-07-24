@@ -1,3 +1,9 @@
+export interface CardDate {
+  // 1 for January, 12 for December
+  month: number;
+  year: number;
+}
+
 export interface CardImage {
   alt: string;
   // file name (without extension)
@@ -17,6 +23,7 @@ export interface CardTag {
 }
 
 export interface ObumCard {
+  date?: CardDate;
   description: string;
   image: CardImage;
   links: CardLink[];

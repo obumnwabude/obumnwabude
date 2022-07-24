@@ -2,6 +2,7 @@ export const writing = {
   stories: [
     {
       title: 'Becoming a Developer',
+      date: { month: 8, year: 2020 },
       description:
         'From secondary school, to scholarships, to building projects, to volunteering, to community programs, to organising events, ...',
       image: { alt: 'Congratulatory Email from GDSC', name: 'developer-story' },
@@ -16,6 +17,7 @@ export const writing = {
     },
     {
       title: 'How I first perceived TEDx',
+      date: { month: 12, year: 2020 },
       description:
         'In the spirit of ideas worth spreading, I remain ever hungry to attend TED/TEDx events whenever/wherever I can because ...',
       image: { alt: 'Obum attending TEDx Ikenegbu', name: 'tedx-perception' },
@@ -30,6 +32,7 @@ export const writing = {
     },
     {
       title: 'Making GitHub-Invite',
+      date: { month: 6, year: 2020 },
       description:
         'To me, it first sounded unreasonable. After all, ... However, two things changed my mind: ...',
       image: {
@@ -47,6 +50,7 @@ export const writing = {
     },
     {
       title: 'Taking Part in ECX #30DaysOfCode',
+      date: { month: 4, year: 2020 },
       description:
         'During COVID, day after day, we submitted tasks given by mentors of our respective tracks. In the leaderboard ...',
       image: {
@@ -64,6 +68,7 @@ export const writing = {
     },
     {
       title: 'My #GADS Story',
+      date: { month: 2, year: 2020 },
       description:
         'Being a beneficiary of the Google Africa Developer Scholarship, I had access to Pluralsight learning resources, I attended meetups in Enugu, and I ...',
       image: { alt: 'Picture of GADS Enugu Community', name: 'gads-story' },
@@ -80,6 +85,7 @@ export const writing = {
   blog: [
     {
       title: 'How to promote a tech community event',
+      date: { month: 6, year: 2022 },
       description:
         'You need a way to get people to know that your event is coming up. You need to promote the event.',
       image: { alt: 'Picture of Community Members', name: 'blog' },
@@ -94,6 +100,7 @@ export const writing = {
     },
     {
       title: 'How to plan your community event',
+      date: { month: 5, year: 2022 },
       description:
         "Don't just start hosting the event. Please, first plan it. Planning is like being in the event before it happens. ",
       image: { alt: 'Picture of Community Members', name: 'blog' },
@@ -108,6 +115,7 @@ export const writing = {
     },
     {
       title: 'Grow a Tech Community',
+      date: { month: 5, year: 2022 },
       description:
         "Grow a tech community because you want to mentor people (where you can). You will impact people's lives and become a leader.",
       image: { alt: 'Picture of Community Members', name: 'blog' },
@@ -122,6 +130,7 @@ export const writing = {
     },
     {
       title: '5 things you will gain from Tech Communities',
+      date: { month: 5, year: 2022 },
       description:
         "Community works for many people and it will work for you too. We are talking of huge benefits you won't find in other places.",
       image: { alt: 'Picture of Community Members', name: 'blog' },
@@ -136,6 +145,7 @@ export const writing = {
     },
     {
       title: '10 Ways to Contribute to Tech communities',
+      date: { month: 5, year: 2022 },
       description:
         'Give back to the community. The active participation of community members is the fuel that fires the life of a given tech community.',
       image: { alt: 'Picture of Community Members', name: 'blog' },
@@ -150,6 +160,7 @@ export const writing = {
     },
     {
       title: 'On Tech Community Events',
+      date: { month: 5, year: 2022 },
       description:
         'Community events are moments of bonding and celebration. They are organised to keep the community alive.',
       image: { alt: 'Picture of Community Members', name: 'blog' },
@@ -164,6 +175,7 @@ export const writing = {
     },
     {
       title: 'Understand Tech Communities',
+      date: { month: 5, year: 2022 },
       description:
         'Tech communities are groups of people of who love digital stuff and usually have (or want to learn) some digital skill.',
       image: { alt: 'Picture of Community Members', name: 'blog' },
@@ -180,6 +192,7 @@ export const writing = {
   'how-to': [
     {
       title: 'How To Build Flutter Form for Managing Questions',
+      date: { month: 2, year: 2022 },
       description:
         'Explains form creation with Flutter. Includes iteration, validation, and user feedback.',
       image: { alt: '', name: 'flutter-form' },
@@ -196,6 +209,7 @@ export const writing = {
   keepdeploying: [
     {
       title: 'Understand Serverless Architecture',
+      date: { month: 2, year: 2022 },
       description:
         "Serverless is a type of Microservices architecture that involves the browser doing the majority of the website's workload.",
       image: { alt: '', name: 'serverless-architecture' },

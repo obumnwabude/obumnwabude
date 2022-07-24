@@ -2,6 +2,7 @@ export const events = {
   gdsc: [
     {
       title: 'Introduction to Flutter (Todo App)',
+      date: { month: 11, year: 2021 },
       description: 'Taught Flutter on screen while building a simple Todo App.',
       image: { alt: 'Screenshot of Building Todo App', name: 'todo' },
       links: [
@@ -20,6 +21,7 @@ export const events = {
     },
     {
       title: '2021 DES & DEV Bootcamp',
+      date: { month: 5, year: 2021 },
       description:
         '4 weeks intensive learning + 2 weeks of community building with UI/UX DESign and Web DEVelopment tracks.',
       image: {
@@ -40,6 +42,7 @@ export const events = {
     },
     {
       title: '2021 Solution Challenge',
+      date: { month: 2, year: 2021 },
       description:
         'Meetup and workshops we held to sensitive for the GDSC Solution Challenge in our community.',
       image: {
@@ -65,6 +68,7 @@ export const events = {
     },
     {
       title: 'Git and GitHub',
+      date: { month: 11, year: 2020 },
       description:
         'Collaboration of six GDSCs to bring to introduce Version Control to our communities. Auwal MS was speaker.',
       image: { alt: 'Section of Event Flyer', name: 'git-and-github-event' },
@@ -97,6 +101,7 @@ export const events = {
     },
     {
       title: 'Learning Opportunities',
+      date: { month: 10, year: 2020 },
       description:
         'Speaker session by Emeka Odibeli, aimed at inspiring community members to keep learning.',
       image: { alt: 'Section of Event Flyer', name: 'learning-opportunities' },
@@ -119,6 +124,7 @@ export const events = {
     },
     {
       title: 'Firebase Series',
+      date: { month: 9, year: 2020 },
       description:
         '6 weeks virtual workshops and codelabs where we taught Firebase.',
       image: { alt: 'Section of Event Flyer', name: 'firebase-series' },
@@ -136,6 +142,8 @@ export const events = {
     },
     {
       title: 'Onboarding GDSC',
+      date: { month: 9, year: 2020 },
+
       description:
         "GDSC AE-FUNAI's first info session. Starting GDSC in our school.",
       image: { alt: 'Section of Event Flyer', name: 'gdsc-info-session' },
@@ -165,6 +173,7 @@ export const events = {
   genesys: [
     {
       title: 'Understanding Technical Writing',
+      date: { month: 4, year: 2022 },
       description:
         'Ihechikara, freeCodeCamp staff, introduced the community to Technical Writing and how to prepare for it.',
       image: {
@@ -187,6 +196,7 @@ export const events = {
     },
     {
       title: 'Careers In Tech',
+      date: { month: 3, year: 2022 },
       description:
         'Onyebuchi Nwafor at VeendHQ explained to the community why we should consider a career path in the tech space.',
       image: { alt: 'About the speaker', name: 'careers-in-tech' },
@@ -206,6 +216,7 @@ export const events = {
     },
     {
       title: 'Info Session',
+      date: { month: 3, year: 2022 },
       description:
         'Ezra at Genesys explained about community and about Genesys to the attendees.',
       image: { alt: '', name: 'genesys-info-session' },
@@ -227,6 +238,7 @@ export const events = {
   mlsa: [
     {
       title: "Your GitHub Profile's README",
+      date: { month: 2, year: 2022 },
       description:
         'Explained why and how to beautify the README of your GitHub profile and GitHub repositories.',
       image: { alt: 'Event Flyer', name: 'github-profile-readme' },
@@ -246,6 +258,7 @@ export const events = {
     },
     {
       title: 'Collaborating with GitHub',
+      date: { month: 8, year: 2022 },
       description:
         'Taught the audience on how to use GitHubs features like forks, pull requests and issues, to go about collaboration.',
       image: { alt: 'Event Flyer', name: 'collaborating-with-github' },
