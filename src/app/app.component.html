@@ -35,10 +35,12 @@
   <mat-sidenav-content>
     <mat-toolbar *ngIf="!showcaseInView.value" navbar>
       <mat-toolbar-row>
-        <p *ngIf="!isLargeScreen">
-          <img src="assets/svgs/blue-o.svg" alt="O" />
-          <span>bum</span>
-        </p>
+        <a routerLink="/" mat-button *ngIf="!isLargeScreen">
+          <p>
+            <img src="assets/svgs/blue-o.svg" alt="O" />
+            <span>bum</span>
+          </p>
+        </a>
 
         <span spacer></span>
 
