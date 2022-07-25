@@ -22,6 +22,18 @@ export interface CardTag {
   title?: string;
 }
 
+export const tagAbouts = {
+  angular: 'https://angular.io',
+  csstricks: 'https://css-tricks.com',
+  firebase: 'https://firebase.google.com',
+  flutter: 'https://flutter.dev',
+  freecodecamp: 'https://freecodecamp.org',
+  gdsc: 'https://g.co/dev/dsc',
+  keepdeploying: 'https://keepdeploying.com',
+  mlsa: 'https://studentambassadors.com',
+  nodejs: 'https://nodejs.org'
+}
+
 export interface ObumCard {
   date?: CardDate;
   description: string;

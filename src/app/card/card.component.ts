@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ObumCard } from './card.model';
+import { ObumCard, tagAbouts } from './card.model';
 
 @Component({
   selector: 'obum-card',
@@ -24,6 +24,9 @@ export class CardComponent {
     'November',
     'December'
   ];
-  
-  capitalize = (str: string) => str[0].toUpperCase() + str.substring(1);
+  tagAbouts = tagAbouts;
+  tagAboutsKeys = Object.keys(tagAbouts);
+
+  capitalize = (str: string): string => str[0].toUpperCase() + str.substring(1);
+  tagLink = (str: string): string => tagAbouts[str as keyof typeof tagAbouts];
 }

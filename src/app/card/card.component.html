@@ -1,12 +1,28 @@
 <ng-container *ngIf="content">
   <mat-card class="mat-elevation-z2">
     <mat-chip-list>
-      <mat-chip *ngFor="let tag of content.tags">
-        <mat-chip-avatar>
-          <img [src]="'assets/svgs/' + tag.svg + '.svg'" alt="" />
-        </mat-chip-avatar>
-        {{ tag.title ?? capitalize(tag.svg) }}
-      </mat-chip>
+      <ng-container *ngFor="let tag of content.tags">
+        <mat-menu #menu="matMenu">
+          <a
+            mat-menu-item
+            [href]="tagLink(tag.svg)"
+            rel="noopener noreferrer"
+            target="_blank"
+            *ngIf="tagAboutsKeys.includes(tag.svg)"
+          >
+            About {{ tag.title ?? capitalize(tag.svg) }}
+            <img src="assets/svgs/open-in-new.svg" alt="" />
+          </a>
+        </mat-menu>
+        <mat-chip
+          [matMenuTriggerFor]="tagAboutsKeys.includes(tag.svg) ? menu : null"
+        >
+          <mat-chip-avatar>
+            <img [src]="'assets/svgs/' + tag.svg + '.svg'" alt="" />
+          </mat-chip-avatar>
+          {{ tag.title ?? capitalize(tag.svg) }}
+        </mat-chip>
+      </ng-container>
     </mat-chip-list>
 
     <img

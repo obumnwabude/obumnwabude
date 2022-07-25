@@ -8,6 +8,16 @@ mat-card {
   }
 }
 
+[mat-menu-item] {
+  align-items: center;
+  display: flex;
+
+  img {
+    height: 24px;
+    margin-left: 8px;
+  }
+}
+
 mat-chip-avatar img {
   width: 80%;
 }
