@@ -7,15 +7,13 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
-import { MatSidenav } from '@angular/material/sidenav';
+import { MatSidenav, MatSidenavContent } from '@angular/material/sidenav';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
 import { constants } from './constants';
 import { ShowcaseInViewService } from './services/showcase-in-view.service';
 import { ThemingService } from './services/theming.service';
-
-declare var document: any;
 
 @Component({
   selector: 'obum-root',
@@ -36,6 +34,7 @@ export class AppComponent implements AfterViewInit, OnInit {
 
   @HostBinding('class') public cssClass = constants.DEFAULT_THEME;
   @ViewChild('drawer') drawer!: MatSidenav;
+  @ViewChild('matSidenavContent') matSidenavContent!: MatSidenavContent;
 
   constructor(
     private breakpoint: BreakpointObserver,
@@ -46,9 +45,9 @@ export class AppComponent implements AfterViewInit, OnInit {
   ) {}
 
   ngAfterViewInit(): void {
-    document
-      .querySelector('.mat-sidenav-content')
-      .addEventListener(
+    this.matSidenavContent
+      .getElementRef()
+      .nativeElement.addEventListener(
         'scroll',
         (event: any) => (this.hasScrolled = event.target.scrollTop > 256)
       );
@@ -89,6 +88,6 @@ export class AppComponent implements AfterViewInit, OnInit {
   }
 
   scrollToTop(): void {
-    document.querySelector('.mat-sidenav-content').scrollTop = 0;
+    this.matSidenavContent.getElementRef().nativeElement.scrollTop = 0;
   }
 }

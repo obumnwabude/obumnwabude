@@ -32,7 +32,7 @@
     </mat-list>
   </mat-sidenav>
 
-  <mat-sidenav-content>
+  <mat-sidenav-content #matSidenavContent>
     <mat-toolbar *ngIf="!showcaseInView.value" navbar>
       <mat-toolbar-row>
         <a routerLink="/" mat-button *ngIf="!isLargeScreen">
