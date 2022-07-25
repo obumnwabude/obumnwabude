@@ -1,22 +1,26 @@
-@media (min-resolution: 1dppx) {
-  ::-webkit-scrollbar {
-    width: 12px;
-    height: 12px;
-  }
+// commented out the whole file because
+// it seemed not to apply only in desktop devices
 
-  ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px gray;
-    border-radius: 16px;
-  }
 
-  ::-webkit-scrollbar-thumb {
-    // primary color for light blue (level 500) with opacity
-    background: #03a9f480;
-    border-radius: 16px;
-  }
+// @media (min-resolution: 1dppx) {
+//   ::-webkit-scrollbar {
+//     width: 12px;
+//     height: 12px;
+//   }
 
-  ::-webkit-scrollbar-thumb:hover {
-    // primary color for light blue (level 500)
-    background: #03a9f4;
-  }
-}
+//   ::-webkit-scrollbar-track {
+//     box-shadow: inset 0 0 6px gray;
+//     border-radius: 16px;
+//   }
+
+//   ::-webkit-scrollbar-thumb {
+//     // primary color for light blue (level 500) with opacity
+//     background: #03a9f480;
+//     border-radius: 16px;
+//   }
+
+//   ::-webkit-scrollbar-thumb:hover {
+//     // primary color for light blue (level 500)
+//     background: #03a9f4;
+//   }
+// }
