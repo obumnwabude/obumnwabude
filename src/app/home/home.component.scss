@@ -1,0 +1,61 @@
+[showcase-container] {
+  margin-top: -64px;
+
+  @media (min-width: 992px) {
+    display: none;
+  }
+}
+
+[parallax] {
+  height: 384px;
+  position: relative;
+}
+
+[parallax-img] {
+  height: 384px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: inset 20000px 20000px #000c;
+}
+
+@media (min-width: 576px) {
+  [parallax],
+  [parallax-img] {
+    height: 256px;
+  }
+}
+
+[parallax-text] {
+  align-items: center;
+  bottom: 0;
+  color: white;
+  display: flex;
+  font-size: 40px;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+  text-shadow: 0 0 8px #fff;
+  top: 0;
+
+  h2 {
+    font-weight: normal;
+  }
+}
+
+[more-container] {
+  margin-bottom: 144px;
+  text-align: center;
+
+  @media (max-width: 575.98px) {
+    margin-top: -48px;
+  }
+
+  [mat-raised-button] {
+    color: black;
+    font-size: 20px;
+    padding: 0 16px;
+  }
+}

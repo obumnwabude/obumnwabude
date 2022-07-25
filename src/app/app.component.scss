@@ -1,200 +1,83 @@
-[app-container] {
-  display: flex;
-  flex-direction: column;
+mat-sidenav-container,
+mat-sidenav-content {
   height: 100%;
 }
 
-mat-sidenav-container {
-  flex: 1 1 auto;
-}
-
-mat-sidenav {
+mat-sidenav[showcase] {
   padding: 8px;
   max-width: 312px;
 }
 
-mat-sidenav [profile-icons] {
-  max-width: 228px;
-  margin: 0 auto 1rem;
-}
+mat-toolbar[navbar] {
+  height: 64px;
+  position: fixed;
+  top: 0;
+  z-index: 10;
 
-mat-sidenav [profile-showcase] {
-  padding-top: 32px;
-}
+  p {
+    align-items: flex-end;
+    display: flex;
+    font-size: 24px;
+    line-height: 1.2;
 
-[profile-showcase] {
-  padding-top: 96px;
-  padding-bottom: 48px;
-}
-
-[ps-img-container] {
-  width: 228px;
-  height: 228px;
-  border-radius: 50%;
-  margin: 0 auto 16px;
-  background-color: currentColor;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-[ps-img-container] img {
-  width: 220px;
-  border-radius: 50%;
-  box-shadow: 0 0 4px 2px gray;
-}
-
-[full-name] {
-  font-size: 1.5rem;
-  margin-bottom: 0;
-  font-weight: normal;
-  text-align: center;
-}
-
-[obum-text-container] {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  text-align: center;
-
-  span {
-    font-weight: bold;
-    font-size: 1.125rem;
-    letter-spacing: 0.8px;
-  }
-}
-
-[profile-icons] {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.profile-icon {
-  width: 30px;
-  margin-left: 8px;
-}
-
-[profile-showcase] ul {
-  text-align: left;
-  max-width: 420px;
-  margin: 0 auto;
-
-  li {
-    margin-bottom: 2px;
-  }
-}
-
-.tab-header-icon {
-  width: 24px;
-  margin-right: 8px;
-}
-
-.tab-label-text {
-  display: inline-block;
-  margin-left: 8px;
-}
-
-.tab-content {
-  padding: 32px;
-
-  @media (min-width: 576px) {
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 32px;
-  }
-
-  @media (min-width: 1250px) {
-    gap: 48px;
-    grid-template-columns: auto auto auto;
-  }
-}
-
-mat-card {
-  max-width: 288px;
-  border-radius: 12px;
-  margin: 0 auto 48px auto;
-
-  @media (min-width: 576px) {
-    margin: 0 auto;
-  }
-
-  mat-card-title {
-    font-size: 18px;
-    margin-bottom: 16px;
-    font-weight: normal;
-    text-decoration: underline double 0.6px;
-  }
-
-  mat-card-actions {
-    text-align: right;
-    margin-bottom: unset;
-    margin-right: unset;
-    padding-bottom: unset;
-
-    a {
-      margin-bottom: 8px;
+    img {
+      filter: unset;
+      width: 32px;
     }
   }
-}
 
-.card-icon {
-  width: 16px;
-  margin-left: 8px;
-}
-
-button[mat-fab] {
-  position: fixed;
-  bottom: 32px;
-  right: 48px;
-  z-index: 100;
-
-  img {
-    filter: brightness(0) saturate(100%);
-    opacity: 0.87;
+  [mat-button] {
+    font-size: 18px;
   }
 }
 
-@media (min-width: 768px) {
-  [profile-showcase] {
-    padding-top: 32px;
+mat-sidenav[drawer] {
+  padding: 16px;
+
+  a {
+    text-decoration: none;
   }
 }
 
-@media (min-width: 768px) and (max-width: 991.99px) {
-  [profile-showcase] {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.active-nav-link {
+  // A100 of light-blue palette (with reduced transparency)
+  background-color: rgb(129, 212, 250, 0.2);
+  border-radius: 8px;
+}
 
-  [ps-img-container] {
-    margin: 0;
-  }
+main {
+  padding-top: 64px;
+}
 
-  [full-name],
-  [obum-text-container] {
-    width: fit-content;
-    padding-left: 20px;
-  }
+.hide-scroll {
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+}
 
-  [profile-icons] {
-    text-align: left;
-    padding-left: 16px;
+.show-scroll {
+  opacity: 1;
+  transition: all 0.4s ease-in-out;
+}
+
+@media (min-width: 576px) {
+  mat-sidenav[drawer] {
+    display: none;
   }
 }
 
 @media (max-width: 991.99px) {
-  mat-sidenav {
+  mat-sidenav[showcase] {
     display: none;
   }
 }
 
 @media (min-width: 992px) {
-  mat-sidenav-content [profile-showcase] {
-    display: none;
+  mat-toolbar[navbar] {
+    position: sticky;
   }
 
-  .mat-tab-group.body {
-    margin-top: 0;
+  main {
+    padding-top: 0;
   }
 }
 
@@ -212,12 +95,7 @@ button[mat-fab] {
     border-left: none;
     max-width: 1224px; // 1536 - 312 (the fixed width mat-sidenav; set above)
     margin-left: calc(((100% - 1536px) / 2) + 312px) !important;
-    height: calc(100% - 68px);
-  }
-
-  button[mat-fab] {
-    right: calc(((100% - 1536px) / 2) + 48px);
-    bottom: 64px;
+    height: calc(100% - 64px);
   }
 }
 
@@ -225,9 +103,5 @@ button[mat-fab] {
   mat-sidenav,
   mat-sidenav-content {
     max-height: 1076px;
-  }
-
-  button[mat-fab] {
-    bottom: calc(100% - 1080px);
   }
 }

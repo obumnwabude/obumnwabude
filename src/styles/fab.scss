@@ -1,0 +1,44 @@
+button[mat-fab] {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 100;
+
+  img {
+    filter: brightness(0) saturate(100%) !important;
+    margin-top: -8px;
+    opacity: 0.87;
+    width: 80%;
+  }
+}
+
+button[mat-fab].second-from-bottom {
+  bottom: 112px;
+}
+
+@media (min-width: 576px) {
+  button[mat-fab] {
+    right: 48px;
+  }
+}
+
+@media (min-width: 1537px) {
+  button[mat-fab] {
+    right: calc(((100% - 1536px) / 2) + 48px);
+    bottom: 64px;
+  }
+
+  button[mat-fab].second-from-bottom {
+    bottom: 144px;
+  }
+}
+
+@media (min-width: 1537px) and (min-height: 1081px) {
+  button[mat-fab] {
+    bottom: calc(100% - 1080px);
+  }
+
+  button[mat-fab].second-from-bottom {
+    bottom: calc(100% - 990px);
+  }
+}

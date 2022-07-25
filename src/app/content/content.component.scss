@@ -1,0 +1,20 @@
+[mat-menu-item] {
+  align-items: center;
+  display: flex;
+}
+
+mat-checkbox {
+  margin-right: 16px;
+}
+
+mat-chip-avatar img {
+  width: 80%;
+}
+
+mat-divider {
+  margin-bottom: 8px;
+}
+
+button[mat-fab] img {
+  margin-top: -4px;
+}

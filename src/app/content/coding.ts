@@ -1,454 +1,277 @@
-export const coding = {
-  angular: [
-    {
-      title: 'Tutorial Management System',
-      description:
-        'Session management dashboard between students and tutors. Contains scheduler form that opens as Bottom Sheet in mobile and sidenav in wide screens.',
-      image: {
-        alt: 'Screenshot of TMS',
-        name: 'tms'
+import { ObumCard } from '../card/card.model';
+
+export const coding: ObumCard[] = [
+  {
+    title: 'Todo',
+    description:
+      'Simple one-screen dark-mode Todo App. Built using Stacked architecture and used to illustrate how Stacked works.',
+    image: { alt: 'Screenshots of the Todo App', name: 'stacked-todo' },
+    links: [
+      {
+        href: 'https://github.com/obumnwabude/flutter_stacked_todo',
+        title: 'Code',
+        svg: 'github'
+      }
+    ],
+    tags: [{ svg: 'flutter' }]
+  },
+  {
+    title: 'LinkedIn Class',
+    description:
+      'Platform where participants registered with their LinkedIn accounts before getting access to the class.',
+    image: { alt: 'LinkedIn Class Flyer', name: 'linkedin-class-ad' },
+    links: [
+      {
+        href: 'https://linkedinclass.obumnwabude.com',
+        title: 'Live',
+        svg: 'open-in-new'
       },
-      links: [
-        {
-          href: 'https://tutorialmgt.web.app',
-          title: 'Live',
-          svg: 'open-in-new'
-        },
-        {
-          href: 'https://github.com/obumnwabude/tutorialmgt',
-          title: 'Code',
-          svg: 'github'
-        }
-      ]
+      {
+        href: 'https://github.com/obumnwabude/linkedin-class',
+        title: 'Code',
+        svg: 'github'
+      }
+    ],
+    tags: [{ svg: 'angular' }, { svg: 'firebase' }]
+  },
+  {
+    title: 'Calculator',
+    description:
+      'Supports complex math operations. Built using Stacked architecture for state management.',
+    image: { alt: 'Screens of Calculator', name: 'calculator' },
+    links: [
+      {
+        href: 'https://github.com/obumnwabude/calculator',
+        title: 'Code',
+        svg: 'github'
+      }
+    ],
+    tags: [{ svg: 'flutter' }]
+  },
+  {
+    title: 'obum.me',
+    description:
+      'Personal URL Shortener for links to my profiles and achievement. Built entirely on Firebase (Firestore, Functions, Hosting).',
+    image: { alt: 'Screenshot of the 404 page', name: 'obum.me-404' },
+    links: [
+      {
+        href: 'https://github.com/obumnwabude/obum.me',
+        title: 'Code',
+        svg: 'github'
+      }
+    ],
+    tags: [{ svg: 'firebase' }, { svg: 'angular' }]
+  },
+  {
+    title: 'Tutorial Management System',
+    description:
+      'Session management dashboard between students and tutors. Contains scheduler form that opens as Bottom Sheet in mobile and sidenav in wide screens.',
+    image: { alt: 'Screenshot of TMS', name: 'tms' },
+    links: [
+      {
+        href: 'https://tutorialmgt.web.app',
+        title: 'Live',
+        svg: 'open-in-new'
+      },
+      {
+        href: 'https://github.com/obumnwabude/tutorialmgt',
+        title: 'Code',
+        svg: 'github'
+      }
+    ],
+    tags: [{ svg: 'angular' }, { svg: 'firebase' }]
+  },
+  {
+    title: 'Genesys Community',
+    description:
+      'Custom Form where members of Genesys Campus Club AE-FUNAI report their progress and share their achievements.',
+    image: { alt: 'Community Picture', name: 'genesys-community' },
+    links: [
+      {
+        href: 'https://genesysaefunai.web.app',
+        title: 'Live',
+        svg: 'open-in-new'
+      },
+      {
+        href: 'https://github.com/obumnwabude/genesys-community',
+        title: 'Code',
+        svg: 'github'
+      }
+    ],
+    tags: [{ svg: 'angular' }, { svg: 'firebase' }]
+  },
+  {
+    title: 'Battery Info',
+    description:
+      'One-Screen, System-Thememode-Aware, Android App, that shows Infos about your Battery.',
+    image: { alt: 'Screens of Battery Info', name: 'battery-info' },
+    links: [
+      {
+        href: 'https://github.com/obumnwabude/battery_info',
+        title: 'Code',
+        svg: 'github'
+      }
+    ],
+    tags: [{ svg: 'flutter' }]
+  },
+  {
+    title: 'Mmèmmè',
+    description:
+      'Public calendar for all requested and approved event schedules in venues managed by an authority. Still in Development.',
+    image: { alt: 'Mmèmmè Logo', name: 'mmemme' },
+    links: [
+      {
+        href: 'https://mmemme.app',
+        title: 'Preview',
+        svg: 'open-in-new'
+      }
+    ],
+    tags: [{ svg: 'flutter' }, { svg: 'firebase' }]
+  },
+  {
+    title: 'Christmas Cantata Quiz',
+    description:
+      'Portal where Quiz participants competed in two online rounds of timed multiple choice questions on select Bible chapters.',
+    image: { alt: 'Christmas Cantata Flyer', name: 'cantata' },
+    links: [
+      {
+        href: 'https://choir.nfcsaefunai.org',
+        title: 'Live',
+        svg: 'open-in-new'
+      },
+      {
+        href: 'https://github.com/obumnwabude/choircarolquiz',
+        title: 'Code',
+        svg: 'github'
+      }
+    ],
+    tags: [{ svg: 'angular' }, { svg: 'firebase' }]
+  },
+  {
+    title: 'Fire Arm Tracer',
+    description:
+      'Dashboard where you can create a fire arm, search for fire arm data with bullet serial number, and display a list of stored fire arms.',
+    image: {
+      alt: 'Screenshot of Fire Arm Tracer Dashboard',
+      name: 'firearmtracer'
     },
-    {
-      title: 'Genesys Community',
-      description:
-        'Custom Form where members of Genesys Campus Club AE-FUNAI report their progress and share their achievements.',
-      image: {
-        alt: 'Community Picture',
-        name: 'genesys-community'
+    links: [
+      {
+        href: 'https://firearmtracer.web.app',
+        title: 'Live',
+        svg: 'open-in-new'
       },
-      links: [
-        {
-          href: 'https://genesysaefunai.web.app',
-          title: 'Live',
-          svg: 'open-in-new'
-        },
-        {
-          href: 'https://github.com/obumnwabude/genesys-community',
-          title: 'Code',
-          svg: 'github'
-        }
-      ]
+      {
+        href: 'https://github.com/obumnwabude/firearmtracer',
+        title: 'Code',
+        svg: 'github'
+      }
+    ],
+    tags: [{ svg: 'angular' }]
+  },
+  {
+    title: 'obumnwabude',
+    description: 'What else than the workings of this very porfolio website.',
+    image: {
+      alt: 'Obum Speaking',
+      name: 'obum-speaking'
     },
-    {
-      title: 'Christmas Cantata Quiz',
-      description:
-        'Portal where Quiz participants competed in two online rounds of timed multiple choice questions on select Bible chapters.',
-      image: {
-        alt: 'Christmas Cantata Flyer',
-        name: 'cantata'
+    links: [
+      {
+        href: 'https://github.com/obumnwabude/obumnwabude',
+        title: 'Code',
+        svg: 'github'
+      }
+    ],
+    tags: [{ svg: 'angular' }, { svg: 'firebase' }]
+  },
+  {
+    title: 'My Notes',
+    description:
+      'Note Taking Website used to teach Firestore during GDSC AE-FUNAI Firebase Series (Workshop).',
+    image: { alt: 'Screens of using MyNotes', name: 'mynotes' },
+    links: [
+      {
+        href: 'https://mynotesobum.web.app',
+        title: 'Sample',
+        svg: 'open-in-new'
       },
-      links: [
-        {
-          href: 'https://choir.nfcsaefunai.org',
-          title: 'Live',
-          svg: 'open-in-new'
-        },
-        {
-          href: 'https://github.com/obumnwabude/choircarolquiz',
-          title: 'Code',
-          svg: 'github'
-        }
-      ]
-    },
-    {
-      title: 'obumnwabude',
-      description: 'This very porfolio website.',
-      image: {
-        alt: 'Obum Speaking',
-        name: 'obum-speaking'
+      {
+        href: 'https://github.com/gdscaefunai/mynotes',
+        title: 'Code',
+        svg: 'github'
+      }
+    ],
+    tags: [{ svg: 'firebase' }]
+  },
+  {
+    title: 'Tusbong',
+    description:
+      'Little Fintech app for entry for FSI Hackathon in 2020. Uses Firebase Authentication. Deployed with Firebase Hosting.',
+    image: { alt: 'Screens of Tusbong', name: 'tusbong' },
+    links: [
+      {
+        href: 'https://tusbongg.web.app',
+        title: 'Live',
+        svg: 'open-in-new'
       },
-      links: [
-        {
-          href: 'https://github.com/obumnwabude/obumnwabude',
-          title: 'Code',
-          svg: 'github'
-        }
-      ]
-    },
-    {
-      title: 'Fire Arm Tracer',
-      description:
-        'Dashboard where you can create a fire arm, search for fire arm data with bullet serial number, and display a list of stored fire arms.',
-      image: {
-        alt: 'Screenshot of Fire Arm Tracer Dashboard',
-        name: 'firearmtracer'
+      {
+        href: 'https://github.com/obumnwabude/tusbong',
+        title: 'Code',
+        svg: 'github'
+      }
+    ],
+    tags: [{ svg: 'firebase' }]
+  },
+  {
+    title: 'GitHub Invite',
+    description:
+      'Takes GitHub username and sends an invitation to the GitHub user to join a given GitHub organization.',
+    image: { alt: 'Screenshot of GitHub Invite', name: 'github-invite' },
+    links: [
+      {
+        href: 'https://githubinvite.web.app',
+        title: 'Sample',
+        svg: 'open-in-new'
       },
-      links: [
-        {
-          href: 'https://firearmtracer.web.app',
-          title: 'Live',
-          svg: 'open-in-new'
-        },
-        {
-          href: 'https://github.com/obumnwabude/firearmtracer',
-          title: 'Code',
-          svg: 'github'
-        }
-      ]
-    },
-    {
-      title: 'Questions',
-      description:
-        'Form for managing questions and their options to be used in setting questions that could be used elsewhere like an online quiz.',
-      image: {
-        alt: 'Screenshot of the form',
-        name: 'questions-angular'
+      {
+        href: 'https://github.com/obumnwabude/github-invite',
+        title: 'Code',
+        svg: 'github'
+      }
+    ],
+    tags: [{ svg: 'nodejs', title: 'NodeJS' }]
+  },
+  {
+    title: 'ECX #30DaysOfCode',
+    description:
+      "My submissions of each day's task, during the 30 Days Of Code program by ECX, in the backend track, in 2020.",
+    image: { alt: '', name: 'backend' },
+    links: [
+      {
+        href: 'https://github.com/obumnwabude/ecx-backend-30daysofcode',
+        title: 'Submissions',
+        svg: 'github'
+      }
+    ],
+    tags: [{ svg: 'nodejs', title: 'NodeJS' }]
+  },
+  {
+    title: 'Wolverstore',
+    description: 'Backend for an e-commerce platform.',
+    image: { alt: '', name: 'backend' },
+    links: [
+      {
+        href: 'https://documenter.getpostman.com/view/11131742/SzfAxRPo',
+        title: 'Documentation',
+        svg: 'open-in-new'
       },
-      links: [
-        {
-          href: 'https://github.com/obumnwabude/questions-angular',
-          title: 'Code',
-          svg: 'github'
-        }
-      ]
-    },
-    {
-      title: 'Holmes',
-      description:
-        'Holmes is an emulation of an example structure of a real world estate.',
-      image: {
-        alt: 'Screenshot of the landing page',
-        name: 'holmes'
-      },
-      links: [
-        {
-          href: 'https://holmes.now.sh',
-          title: 'Live',
-          svg: 'open-in-new'
-        },
-        {
-          href: 'https://github.com/obumnwabude/holmes',
-          title: 'Code',
-          svg: 'github'
-        }
-      ]
-    }
-  ],
-  firebase: [
-    {
-      title: 'obum.me',
-      description:
-        'Personal URL Shortener for links to my profiles and achievement. Built entirely on Firebase (Firestore, Functions, Hosting).',
-      image: {
-        alt: 'Screenshot of the 404 page',
-        name: 'obum.me-404'
-      },
-      links: [
-        // {
-        //   href: 'https://admin.obum.me',
-        //   title: 'Admin',
-        //   svg: 'open-in-new'
-        // },
-        {
-          href: 'https://github.com/obumnwabude/obum.me',
-          title: 'Code',
-          svg: 'github'
-        }
-      ]
-    },
-    {
-      title: 'My Portfolio',
-      description:
-        'Simple Portfolio used to teach Firebase Hosting during GDSC AE-FUNAI Firebase Series (Workshop).',
-      image: {
-        alt: 'Screenshot of GDSC AEFUNAI sample deployment',
-        name: 'myportfolio'
-      },
-      links: [
-        {
-          href: 'https://dsc-aefunai.web.app',
-          title: 'Sample',
-          svg: 'open-in-new'
-        },
-        {
-          href: 'https://github.com/gdscaefunai/myportfolio',
-          title: 'Code',
-          svg: 'github'
-        }
-      ]
-    },
-    {
-      title: 'My Notes',
-      description:
-        'Note Taking Website used to teach Firestore during GDSC AE-FUNAI Firebase Series (Workshop).',
-      image: {
-        alt: 'Screens of using MyNotes',
-        name: 'mynotes'
-      },
-      links: [
-        {
-          href: 'https://mynotesobum.web.app',
-          title: 'Sample',
-          svg: 'open-in-new'
-        },
-        {
-          href: 'https://github.com/gdscaefunai/mynotes',
-          title: 'Code',
-          svg: 'github'
-        }
-      ]
-    },
-    {
-      title: 'GDSC Git and GitHub Event',
-      description:
-        'Showcase website of those who sent pull requests during the GDSC Git and GitHub Event. Deployed with Firebase Hosting.',
-      image: {
-        alt: 'Screenshot of Attendee Website',
-        name: 'gdsc-github-screenshot'
-      },
-      links: [
-        {
-          href: 'https://githubevent.web.app',
-          title: 'Live',
-          svg: 'open-in-new'
-        },
-        {
-          href: 'https://github.com/gdscaefunai/github-event',
-          title: 'Code',
-          svg: 'github'
-        }
-      ]
-    },
-    {
-      title: 'Tusbong',
-      description:
-        'Little Fintech app for entry for FSI Hackathon in 2020. Uses Firebase Authentication. Deployed with Firebase Hosting.',
-      image: {
-        alt: 'Screens of Tusbong',
-        name: 'tusbong'
-      },
-      links: [
-        {
-          href: 'https://tusbongg.web.app',
-          title: 'Live',
-          svg: 'open-in-new'
-        },
-        {
-          href: 'https://github.com/obumnwabude/tusbong',
-          title: 'Code',
-          svg: 'github'
-        }
-      ]
-    }
-  ],
-  flutter: [
-    {
-      title: 'Mmèmmè',
-      description:
-        'Public calendar for all requested and approved event schedules in venues managed by an authority. Still in Development.',
-      image: {
-        alt: 'Mmèmmè Logo',
-        name: 'mmemme'
-      },
-      links: [
-        {
-          href: 'https://mmemme.app',
-          title: 'Preview',
-          svg: 'open-in-new'
-        }
-      ]
-    },
-    {
-      title: 'Battery Info',
-      description:
-        'One-Screen, System-Thememode-Aware, Android App, that shows Infos about your Battery.',
-      image: {
-        alt: 'Screens of Battery Info',
-        name: 'battery-info'
-      },
-      links: [
-        {
-          href: 'https://github.com/obumnwabude/battery_info',
-          title: 'Code',
-          svg: 'github'
-        }
-      ]
-    },
-    {
-      title: 'Calculator',
-      description:
-        'Supports complex math operations. Built using FilledStacks architecture for state management in Flutter.',
-      image: {
-        alt: 'Screens of Calculator',
-        name: 'calculator'
-      },
-      links: [
-        {
-          href: 'https://github.com/obumnwabude/calculator',
-          title: 'Code',
-          svg: 'github'
-        }
-      ]
-    },
-    {
-      title: 'Todo',
-      description:
-        'Todo App built during "Intro to Flutter" Session by GDSC AE-FUNAI.',
-      image: {
-        alt: 'Screenshot of Building Todo App',
-        name: 'todo'
-      },
-      links: [
-        {
-          href: 'https://github.com/gdscaefunai/todo_flutter_intro',
-          title: 'Code',
-          svg: 'github'
-        }
-      ]
-    },
-    {
-      title: 'Questions',
-      description:
-        'Form for managing questions and their options to be used in setting questions that could be used elsewhere like an online quiz.',
-      image: {
-        alt: 'Screens of Flutter Question Form',
-        name: 'questions-flutter'
-      },
-      links: [
-        {
-          href: 'https://github.com/obumnwabude/questions-flutter',
-          title: 'Code',
-          svg: 'github'
-        }
-      ]
-    },
-    {
-      title: 'Headphones',
-      description: 'Shopping for Headphones. Still in Development.',
-      image: {
-        alt: 'Screens of Headphones',
-        name: 'headphones'
-      },
-      links: [
-        {
-          href: 'https://github.com/obumnwabude/headphones',
-          title: 'Code',
-          svg: 'github'
-        }
-      ]
-    }
-  ],
-  nodejs: [
-    {
-      title: 'GitHub Invite',
-      description:
-        'Takes GitHub username and sends an invitation to the GitHub user to join a given GitHub organization.',
-      image: {
-        alt: 'Screenshot of GitHub Invite',
-        name: 'github-invite'
-      },
-      links: [
-        {
-          href: 'https://githubinvite.web.app',
-          title: 'Sample',
-          svg: 'open-in-new'
-        },
-        {
-          href: 'https://github.com/obumnwabude/github-invite',
-          title: 'Code',
-          svg: 'github'
-        }
-      ]
-    },
-    {
-      title: 'Build Bootcamp Challenge',
-      description:
-        'My Participation in the challenge for backend track that took place during the Demo Day of Build Bootcamp 2022.',
-      image: {
-        alt: 'Obum Coding',
-        name: 'obum-coding'
-      },
-      links: [
-        {
-          href: 'https://github.com/obumnwabude/build-bootcamp-backend',
-          title: 'Code',
-          svg: 'github'
-        }
-      ]
-    },
-    {
-      title: 'ECX #30DaysOfCode',
-      description:
-        "My submissions of each day's task, during the 30 Days Of Code program by ECX, in the backend track, in 2020.",
-      image: {
-        alt: '',
-        name: 'backend'
-      },
-      links: [
-        {
-          href: 'https://github.com/obumnwabude/ecx-backend-30daysofcode',
-          title: 'Submissions',
-          svg: 'github'
-        }
-      ]
-    },
-    {
-      title: 'Wolverstore',
-      description: 'Backend for an e-commerce platform.',
-      image: {
-        alt: '',
-        name: 'backend'
-      },
-      links: [
-        {
-          href: 'https://documenter.getpostman.com/view/11131742/SzfAxRPo',
-          title: 'Documentation',
-          svg: 'open-in-new'
-        },
-        {
-          href: 'https://github.com/obumnwabude/wolverstore',
-          title: 'Code',
-          svg: 'github'
-        }
-      ]
-    },
-    {
-      title: 'Nodecoin',
-      description: 'Backend for a simple wallet app.',
-      image: {
-        alt: '',
-        name: 'backend'
-      },
-      links: [
-        {
-          href: 'https://documenter.getpostman.com/view/11131742/Szf6X8b3',
-          title: 'Documentation',
-          svg: 'open-in-new'
-        },
-        {
-          href: 'https://github.com/obumnwabude/nodecoin',
-          title: 'Code',
-          svg: 'github'
-        }
-      ]
-    },
-    {
-      title: 'School Management Portal',
-      description: 'Backend for school portal. I abandoned the project.',
-      image: {
-        alt: '',
-        name: 'backend'
-      },
-      links: [
-        {
-          href: 'https://github.com/obumnwabude/smp-backend',
-          title: 'Code',
-          svg: 'github'
-        }
-      ]
-    }
-  ]
-};
+      {
+        href: 'https://github.com/obumnwabude/wolverstore',
+        title: 'Code',
+        svg: 'github'
+      }
+    ],
+    tags: [{ svg: 'nodejs', title: 'NodeJS' }]
+  }
+];

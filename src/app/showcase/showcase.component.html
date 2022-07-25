@@ -1,0 +1,28 @@
+<div container>
+  <div img-container>
+    <img src="assets/images/obum.png" alt="Obum" />
+  </div>
+  <div>
+    <h1 full-name>Obumuneme Nwabude</h1>
+    <p obum-text-container>(call me <span>Obum</span>)</p>
+    <div profile-icons>
+      <a
+        target="_blank"
+        rel="noreferrer noopener"
+        *ngFor="let p of profiles"
+        [href]="p.link"
+        [title]="capitalize(p.icon)"
+      >
+        <img [src]="'assets/svgs/' + p.icon + '.svg'" class="profile-icon" />
+      </a>
+    </div>
+    <ul>
+      <li>Technical Writer</li>
+      <li>Mobile and Fullstack Web Developer</li>
+      <li>Microsoft Learn Student Ambassador</li>
+      <li>Former Trainer on Google Digital Skills for Africa</li>
+      <li>Former Google Developer Student Clubs Lead</li>
+      <li>Former Genesys Campus Club Ambassador</li>
+    </ul>
+  </div>
+</div>

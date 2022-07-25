@@ -1,156 +1,98 @@
-<div app-container>
-  <mat-toolbar *ngIf="!mobProfShowInView && !isLargeScreen" mobile-header>
-    <mat-toolbar-row>
-      <button mat-icon-button (click)="scrollToTop()" title="Home">
-        <img src="assets/svgs/home.svg" alt="" />
-      </button>
-      <span class="spacer"></span>
-      <span>Obum 😎</span>
-      <span class="spacer"></span>
-      <button mat-icon-button (click)="changeTheme()" title="Switch Theme">
-        <img
-          [src]="
-            'assets/svgs/' +
-            (themes.indexOf(cssClass) == 0 ? themes[1] : themes[0]) +
-            '.svg'
-          "
-          alt=""
-        />
-      </button>
-    </mat-toolbar-row>
-  </mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened *ngIf="isLargeScreen" showcase>
+    <obum-showcase></obum-showcase>
+  </mat-sidenav>
 
-  <mat-sidenav-container>
-    <mat-sidenav mode="side" opened *ngIf="isLargeScreen">
-      <ng-template [ngTemplateOutlet]="profileShowcase"></ng-template>
-    </mat-sidenav>
-
-    <mat-sidenav-content>
-      <div
-        (nguiInview)="mobProfShowInView = true"
-        (nguiOutview)="mobProfShowInView = false"
-        #mobileProfileShowcase
+  <mat-sidenav
+    #drawer
+    position="end"
+    fixedInViewport="true"
+    fixedTopGap="64"
+    drawer
+  >
+    <mat-list>
+      <a
+        [routerLink]="link.path"
+        *ngFor="let link of links"
+        [routerLinkActive]="['active-nav-link']"
+        [routerLinkActiveOptions]="{ exact: true }"
+        mat-list-item
+        >{{ link.content }}</a
       >
-        <ng-template [ngTemplateOutlet]="profileShowcase"></ng-template>
-      </div>
+      <button mat-list-item (click)="changeTheme()">
+        {{
+          capitalize(
+            (themes.indexOf(cssClass) == 0 ? themes[1] : themes[0]).split(
+              '-'
+            )[0]
+          )
+        }}
+        Theme
+      </button>
+    </mat-list>
+  </mat-sidenav>
 
-      <nav mat-tab-nav-bar mat-stretch-tabs>
-        <a
-          mat-tab-link
-          *ngFor="let tab of tabs"
-          (click)="mainTab = tab.link"
-          [active]="mainTab == tab.link"
-          [routerLink]="tab.link"
-        >
-          <img
-            [src]="'assets/svgs/' + tab.link + '.svg'"
-            class="tab-header-icon"
-            alt=""
-          />
-          <span class="tab-label-text">{{ capitalize(tab.link) }}</span>
+  <mat-sidenav-content #matSidenavContent>
+    <mat-toolbar *ngIf="!showcaseInView.value" navbar>
+      <mat-toolbar-row>
+        <a routerLink="/" mat-button *ngIf="!isLargeScreen">
+          <p>
+            <img src="assets/svgs/blue-o.svg" alt="O" />
+            <span>bum</span>
+          </p>
         </a>
-      </nav>
-      <nav mat-tab-nav-bar mat-stretch-tabs sub #subTab>
-        <a
-          mat-tab-link
-          *ngFor="let child of currentChildren()"
-          (click)="changeSubTab($event)"
-          [active]="child.active"
-          [routerLink]="[mainTab, child.link]"
-          [title]="child.link"
-        >
-          <img
-            [src]="'assets/svgs/' + (child.icon ?? child.link) + '.svg'"
-            class="tab-header-icon"
-            alt=""
-            [title]="child.link"
-          />
-          <span [title]="child.link">{{
-            child.view ?? capitalize(child.link)
-          }}</span>
-        </a>
-      </nav>
 
-      <div class="tab-content">
-        <mat-card *ngFor="let c of content" class="mat-elevation-z2">
-          <img
-            mat-card-image
-            [src]="'assets/images/' + c.image.name + '.png'"
-            [alt]="c.image.alt"
-          />
-          <mat-card-title>{{ c.title }}</mat-card-title>
-          <mat-card-content
-            ><p>{{ c.description }}</p></mat-card-content
+        <span spacer></span>
+
+        <ng-container *ngIf="isTabletScreen">
+          <a
+            [routerLink]="link.path"
+            *ngFor="let link of links"
+            [routerLinkActive]="['active-nav-link']"
+            [routerLinkActiveOptions]="{ exact: true }"
+            mat-button
+            >{{ link.content }}</a
           >
-          <mat-card-actions>
-            <a
-              *ngFor="let l of c.links"
-              mat-stroked-button
-              [href]="l.href"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span>{{ l.title }}</span
-              ><img
-                [src]="'assets/svgs/' + l.svg + '.svg'"
-                class="card-icon svg-icon"
-                alt=""
-              />
-            </a>
-          </mat-card-actions>
-        </mat-card>
-      </div>
+        </ng-container>
 
-      <button
-        mat-fab
-        (click)="changeTheme()"
-        title="Switch Theme"
-        *ngIf="isLargeScreen"
-      >
-        <img
-          [src]="
-            'assets/svgs/' +
-            (themes.indexOf(cssClass) == 0 ? themes[1] : themes[0]) +
-            '.svg'
-          "
-          alt=""
-        />
-      </button>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-</div>
-
-<ng-template #profileShowcase>
-  <div profile-showcase>
-    <div ps-img-container>
-      <img src="assets/images/obum.png" alt="Obum" />
-    </div>
-    <div>
-      <h1 full-name>Obumuneme Nwabude</h1>
-      <p obum-text-container>(call me <span>Obum</span>)</p>
-      <div profile-icons>
-        <a
-          target="_blank"
-          rel="noreferrer noopener"
-          *ngFor="let p of profiles"
-          [href]="p.link"
-          [title]="capitalize(p.icon)"
+        <button
+          mat-icon-button
+          (click)="changeTheme()"
+          title="Switch Theme"
+          *ngIf="isTabletScreen"
         >
           <img
-            [src]="'assets/svgs/' + p.icon + '.svg'"
-            class="profile-icon"
+            [src]="
+              'assets/svgs/' +
+              (themes.indexOf(cssClass) == 0 ? themes[1] : themes[0]) +
+              '.svg'
+            "
             alt=""
           />
-        </a>
-      </div>
-      <ul>
-        <li>Technical Writer</li>
-        <li>Mobile and Fullstack Web Developer</li>
-        <li>Beta Microsoft Learn Student Ambassador</li>
-        <li>Genesys Campus Club Ambassador</li>
-        <li>Former Trainer on Google Digital Skills for Africa</li>
-        <li>Former Google Developer Student Clubs Lead</li>
-      </ul>
-    </div>
-  </div>
-</ng-template>
+        </button>
+        <button
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="!isTabletScreen"
+        >
+          <img src="assets/svgs/menu.svg" alt="" />
+        </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+
+    <button
+      mat-fab
+      (click)="scrollToTop()"
+      class="hide-scroll"
+      title="Switch Theme"
+      [class.show-scroll]="hasScrolled"
+      [class.second-from-bottom]="router.url !== '/'"
+    >
+      <img src="assets/svgs/up.svg" alt="Up" />
+    </button>
+  </mat-sidenav-content>
+</mat-sidenav-container>
