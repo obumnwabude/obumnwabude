@@ -30,10 +30,12 @@ export const tagAbouts = {
   freecodecamp: 'https://freecodecamp.org',
   gdsc: 'https://g.co/dev/dsc',
   genesys: 'https://genesystechhub.com',
+  hashnode: 'https://blog.obumnwabude.com',
   keepdeploying: 'https://keepdeploying.com',
   mlsa: 'https://studentambassadors.com',
+  medium: 'https://stories.obumnwabude.com',
   nodejs: 'https://nodejs.org'
-}
+};
 
 export interface ObumCard {
   date?: CardDate;

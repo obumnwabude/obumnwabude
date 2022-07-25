@@ -10,7 +10,10 @@
             target="_blank"
             *ngIf="tagAboutsKeys.includes(tag.svg)"
           >
-            About {{ tag.title ?? capitalize(tag.svg) }}
+            {{
+              tag.title === 'Blog' || tag.title === 'Stories' ? 'My' : 'About'
+            }}
+            {{ tag.title ?? capitalize(tag.svg) }}
             <img src="assets/svgs/open-in-new.svg" alt="" />
           </a>
         </mat-menu>
