@@ -27,7 +27,7 @@
       "rewrites": [
         {
           "source": "**",
-          "destination": "/index.html"
+          "function": "ssr_obumnwabude"
         }
       ]
     }
