@@ -8,8 +8,14 @@ import {
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import {
+  MatCheckboxModule,
+  MAT_CHECKBOX_DEFAULT_OPTIONS
+} from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
@@ -46,8 +52,11 @@ const routes: Route[] = [
     LayoutModule,
     MatButtonModule,
     MatCardModule,
+    MatCheckboxModule,
     MatChipsModule,
+    MatDividerModule,
     MatListModule,
+    MatMenuModule,
     MatSidenavModule,
     MatToolbarModule,
     NguiInviewModule,
@@ -55,7 +64,13 @@ const routes: Route[] = [
     ...(environment.production ? [provideAnalytics(() => getAnalytics())] : []),
     RouterModule.forRoot(routes)
   ],
-  providers: [ScreenTrackingService],
+  providers: [
+    ScreenTrackingService,
+    {
+      provide: MAT_CHECKBOX_DEFAULT_OPTIONS,
+      useValue: { clickAction: 'noop' }
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

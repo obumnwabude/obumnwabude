@@ -49,20 +49,6 @@ main {
   padding-top: 64px;
 }
 
-button[mat-fab] {
-  position: fixed;
-  bottom: 32px;
-  right: 32px;
-  z-index: 100;
-
-  img {
-    filter: brightness(0) saturate(100%);
-    margin-top: -8px;
-    opacity: 0.87;
-    width: 80%;
-  }
-}
-
 .hide-scroll {
   opacity: 0;
   transition: all 0.4s ease-in-out;
@@ -76,10 +62,6 @@ button[mat-fab] {
 @media (min-width: 576px) {
   mat-sidenav[drawer] {
     display: none;
-  }
-
-  button[mat-fab] {
-    right: 48px;
   }
 }
 
@@ -115,20 +97,11 @@ button[mat-fab] {
     margin-left: calc(((100% - 1536px) / 2) + 312px) !important;
     height: calc(100% - 64px);
   }
-
-  button[mat-fab] {
-    right: calc(((100% - 1536px) / 2) + 48px);
-    bottom: 64px;
-  }
 }
 
 @media (min-width: 1537px) and (min-height: 1081px) {
   mat-sidenav,
   mat-sidenav-content {
     max-height: 1076px;
-  }
-
-  button[mat-fab] {
-    bottom: calc(100% - 1080px);
   }
 }

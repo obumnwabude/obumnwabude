@@ -40,7 +40,7 @@ export class AppComponent implements AfterViewInit, OnInit {
   constructor(
     private breakpoint: BreakpointObserver,
     private overlayContainer: OverlayContainer,
-    private router: Router,
+    public router: Router,
     public showcaseInView: ShowcaseInViewService,
     public themingService: ThemingService
   ) {}

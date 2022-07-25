@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import sampleSize from 'lodash-es/sampleSize';
-import { ObumCard } from '../card/card.model';
 
+import { ObumCard } from '../card/card.model';
 import { articles } from '../content/articles';
 import { coding } from '../content/coding';
 import { community } from '../content/community';
