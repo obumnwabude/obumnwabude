@@ -7,14 +7,11 @@
 </div>
 
 <section *ngFor="let key of categoryKeys">
-  <div parallax>
-    <div
-      parallax-img
-      [style.background-image]="'url(assets/images/obum-' + key + '.png)'"
-    ></div>
-    <div parallax-text>
-      <h2>{{ capitalize(key) }}</h2>
-    </div>
+  <div
+    parallax
+    [style.background-image]="'url(assets/images/obum-' + key + '.png)'"
+  >
+    {{ capitalize(key) }}
   </div>
 
   <div cards>
