@@ -25,6 +25,7 @@ export interface CardTag {
 export const tagAbouts = {
   angular: 'https://angular.io',
   csstricks: 'https://css-tricks.com',
+  dev: 'https://dev.to/obumnwabude',
   firebase: 'https://firebase.google.com',
   flutter: 'https://flutter.dev',
   freecodecamp: 'https://freecodecamp.org',

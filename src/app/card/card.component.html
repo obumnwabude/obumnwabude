@@ -11,7 +11,7 @@
             *ngIf="tagAboutsKeys.includes(tag.svg)"
           >
             {{
-              tag.title === 'Blog' || tag.title === 'Stories' ? 'My' : 'About'
+              ['dev', 'hashnode', 'medium'].includes(tag.svg) ? 'My' : 'About'
             }}
             {{ tag.title ?? capitalize(tag.svg) }}
             <img src="assets/svgs/open-in-new.svg" alt="" />

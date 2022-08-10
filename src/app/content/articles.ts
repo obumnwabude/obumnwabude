@@ -209,7 +209,7 @@ export const articles: ObumCard[] = [
         svg: 'open-in-new'
       }
     ],
-    tags: [{ svg: 'dev', title: 'How To' }]
+    tags: [{ svg: 'dev', title: 'dev.to' }]
   },
   {
     title: 'How I first perceived TEDx',
