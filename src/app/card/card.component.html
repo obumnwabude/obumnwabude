@@ -30,7 +30,13 @@
 
     <img
       mat-card-image
-      [src]="'assets/images/' + content.image.name + '.png'"
+      [src]="
+        'assets/images/' +
+        content.image.name +
+        (['blog', 'serverless-architecture'].includes(content.image.name)
+          ? '.png'
+          : '.jpg')
+      "
       [alt]="content.image.alt"
     />
 
