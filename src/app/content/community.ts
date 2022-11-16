@@ -2,6 +2,21 @@ import { ObumCard } from '../card/card.model';
 
 export const community: ObumCard[] = [
   {
+    title: 'DevFest Yaounde 2022',
+    date: { month: 11, year: 2022 },
+    description:
+      'Was the main facilitator for Flutter in DevFest. Assisted participants in completing Flutter Quests on Cloud Skills Boost (formerly Qwiklabs).',
+    image: { alt: 'Speaker Flyer', name: 'obum-devfest-yaounde' },
+    links: [
+      {
+        href: 'https://twitter.com/obumnwabude/status/1588822831223435264',
+        title: 'Thread',
+        svg: 'twitter'
+      }
+    ],
+    tags: [{ svg: 'speaker' }, { svg: 'gdsc', title: 'GDG' }]
+  },
+  {
     title: 'Why you should use Flutter',
     date: { month: 6, year: 2022 },
     description:
@@ -20,6 +35,25 @@ export const community: ObumCard[] = [
       }
     ],
     tags: [{ svg: 'speaker' }, { svg: 'gdsc', title: 'GDSC' }]
+  },
+  {
+    title: 'FlutterFest Enugu 2022',
+    date: { month: 5, year: 2022 },
+    description: 'Spoke on "How to Implement any Screen/UI in Flutter"',
+    image: { alt: 'Speaker Flyer', name: 'obum-flutterfest-enugu' },
+    links: [
+      {
+        href: 'https://docs.google.com/presentation/d/1pfnoHvdG-xyOkekynN5kzCOirF7IFR7qSaOPRxyH31g/edit?usp=sharing&resourcekey=0-t2MlHWtBTgw-q37Sy87nzQ',
+        title: 'Slides',
+        svg: 'slides'
+      },
+      {
+        href: 'https://facebook.com/story.php?story_fbid=pfbid02E9mkdSk9rvEkaeBqWQNysMk3J9eFA5bnWf1HAuLtbaZa8VMpC3fXzkgaZLRksfVxl&id=101671715841906',
+        title: 'Post',
+        svg: 'facebook'
+      }
+    ],
+    tags: [{ svg: 'speaker' }, { svg: 'gdsc', title: 'GDG' }]
   },
   {
     title: 'Understanding Technical Writing',
