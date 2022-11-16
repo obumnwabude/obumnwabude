@@ -2,6 +2,52 @@ import { ObumCard } from '../card/card.model';
 
 export const articles: ObumCard[] = [
   {
+    title:
+      'How to Restore Poison Messages (or Dead Letters) from Memphis broker vs RabbitMQ',
+    date: { month: 9, year: 2022 },
+    description:
+      'Learn causes of poison messages in a message broker. Also learn how to restore them in both Memphis.dev and RabbitMQ.',
+    image: { alt: '', name: 'restore-poison-messages' },
+    links: [
+      {
+        href: 'https://dev.to/obumnwabude/how-to-restore-poison-messages-or-dead-letters-from-memphis-broker-vs-rabbitmq-4d54',
+        title: 'Read',
+        svg: 'open-in-new'
+      }
+    ],
+    tags: [{ svg: 'dev', title: 'dev.to' }]
+  },
+  {
+    title: 'Flutter For Front-End Web Developers',
+    date: { month: 9, year: 2022 },
+    description:
+      'Concepts that transferred over from web to Flutter development and concepts that are new to a web developer starting Flutter.',
+    image: { alt: '', name: 'flutter-clouds' },
+    links: [
+      {
+        href: 'https://css-tricks.com/flutter-for-front-end-web-developers/',
+        title: 'Read',
+        svg: 'open-in-new'
+      }
+    ],
+    tags: [{ svg: 'csstricks', title: 'CSS-Tricks' }]
+  },
+  {
+    title: 'How to build a real-time app with NestJS and Memphis broker',
+    date: { month: 8, year: 2022 },
+    description:
+      'Learn how to setup and use Memphis, NestJS, and gRPC to come up with a simple chatting application',
+    image: { alt: '', name: 'memphis-nestjs-real-time-chat-app' },
+    links: [
+      {
+        href: 'https://dev.to/obumnwabude/how-to-build-a-real-time-app-with-nestjs-and-memphis-broker-27fm',
+        title: 'Read',
+        svg: 'open-in-new'
+      }
+    ],
+    tags: [{ svg: 'dev', title: 'dev.to' }]
+  },
+  {
     title: 'Why I Chose Angular to Build a URL Shortener',
     date: { month: 7, year: 2022 },
     description:
