@@ -35,7 +35,9 @@ export const tagAbouts = {
   keepdeploying: 'https://keepdeploying.com',
   mlsa: 'https://studentambassadors.com',
   medium: 'https://stories.obumnwabude.com',
-  nodejs: 'https://nodejs.org'
+  nodejs: 'https://nodejs.org',
+  reflect: 'https://reflect.run',
+  sweetcode: 'https://sweetcode.io'
 };
 
 export interface ObumCard {

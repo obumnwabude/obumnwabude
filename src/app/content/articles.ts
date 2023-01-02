@@ -2,6 +2,36 @@ import { ObumCard } from '../card/card.model';
 
 export const articles: ObumCard[] = [
   {
+    title: 'Guide to testing Angular apps',
+    date: { month: 12, year: 2022 },
+    description:
+      'Learn the basics of testing Angular apps, including guide for unit testing, component testing, and end-to-end testing.',
+    image: { alt: '', name: 'test-angular' },
+    links: [
+      {
+        href: 'https://reflect.run/articles/guide-to-testing-angular-apps/',
+        title: 'Read',
+        svg: 'open-in-new'
+      }
+    ],
+    tags: [{ svg: 'reflect' }]
+  },
+  {
+    title: 'How to Assist Language Inclusion in Tech',
+    date: { month: 11, year: 2022 },
+    description:
+      'What we can do to minimize the language barrier faced by non-anglophone tech practitioners.',
+    image: { alt: '', name: 'language-inclusion' },
+    links: [
+      {
+        href: 'https://sweetcode.io/how-to-assist-language-inclusion-in-tech/',
+        title: 'Read',
+        svg: 'open-in-new'
+      }
+    ],
+    tags: [{ svg: 'sweetcode' }]
+  },
+  {
     title:
       'How to Restore Poison Messages (or Dead Letters) from Memphis broker vs RabbitMQ',
     date: { month: 9, year: 2022 },
@@ -46,6 +76,21 @@ export const articles: ObumCard[] = [
       }
     ],
     tags: [{ svg: 'dev', title: 'dev.to' }]
+  },
+  {
+    title: 'How to Customize Flutter Packages to Suit Your Needs',
+    date: { month: 7, year: 2022 },
+    description:
+      'Learn how to access the source code of a given package on pub.dev, understand how it works, and customize it.',
+    image: { alt: '', name: 'customize-flutter-packages' },
+    links: [
+      {
+        href: 'https://sweetcode.io/how-to-customize-flutter-packages-to-suit-your-needs/',
+        title: 'Read',
+        svg: 'open-in-new'
+      }
+    ],
+    tags: [{ svg: 'sweetcode' }]
   },
   {
     title: 'Why I Chose Angular to Build a URL Shortener',
