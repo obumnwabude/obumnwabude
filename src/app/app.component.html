@@ -35,7 +35,7 @@
   <mat-sidenav-content #matSidenavContent>
     <mat-toolbar *ngIf="!showcaseInView.value" navbar>
       <mat-toolbar-row>
-        <a routerLink="/" mat-button *ngIf="!isLargeScreen">
+        <a routerLink="/#" mat-button *ngIf="!isLargeScreen">
           <p>
             <img src="assets/svgs/blue-o.svg" alt="O" />
             <span>bum</span>
@@ -82,6 +82,17 @@
 
     <main>
       <router-outlet></router-outlet>
+
+      <footer>
+        <mat-toolbar *ngIf="!showcaseInView.value">
+          <mat-toolbar-row>
+            <a routerLink="/#" mat-button>
+              <img src="assets/svgs/blue-o.svg" alt="O" />bum
+            </a>
+            &copy; {{ year }}, All Rights Reversed.
+          </mat-toolbar-row>
+        </mat-toolbar>
+      </footer>
     </main>
 
     <button

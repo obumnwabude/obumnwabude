@@ -46,6 +46,9 @@ mat-sidenav[drawer] {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   padding-top: 64px;
 }
 
@@ -57,6 +60,30 @@ main {
 .show-scroll {
   opacity: 1;
   transition: all 0.4s ease-in-out;
+}
+
+footer {
+  margin-top: auto;
+
+  mat-toolbar {
+    height: 64px;
+  }
+
+  img {
+    filter: unset;
+    width: 32px;
+    margin-top: -6px;
+  }
+
+  a {
+    font-size: unset;
+  }
+}
+
+@media (max-width: 413.99px) {
+  footer mat-toolbar {
+    font-size: 0.8rem;
+  }
 }
 
 @media (min-width: 576px) {
@@ -78,6 +105,7 @@ main {
 
   main {
     padding-top: 0;
+    height: calc(100% - 64px);
   }
 }
 

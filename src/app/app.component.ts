@@ -31,6 +31,7 @@ export class AppComponent implements AfterViewInit, OnInit {
     { path: '/community', content: 'Community' }
   ];
   themes = constants.THEMES;
+  year = (new Date()).getFullYear();
 
   @HostBinding('class') public cssClass = constants.DEFAULT_THEME;
   @ViewChild('drawer') drawer!: MatSidenav;
