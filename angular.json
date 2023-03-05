@@ -163,5 +163,8 @@
       }
     }
   },
-  "defaultProject": "obumnwabude"
+  "defaultProject": "obumnwabude",
+  "cli": {
+    "analytics": false
+  }
 }
