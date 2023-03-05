@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build && npm run build:ssr && npm run prerender && npm run build:functions",
+    "build": "npm run prerender && npm run build:functions",
     "build:functions": "npm run --prefix functions build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
