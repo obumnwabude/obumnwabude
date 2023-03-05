@@ -1,3 +1,7 @@
+<div empty *ngIf="selectedContent.length === 0">
+  <p>Please select a tag to view content.</p>
+</div>
+
 <div cards *ngIf="selectedContent">
   <obum-card *ngFor="let c of selectedContent" [content]="c"></obum-card>
 </div>
