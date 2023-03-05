@@ -27,6 +27,7 @@ export const tagAbouts = {
   csstricks: 'https://css-tricks.com',
   dev: 'https://dev.to/obumnwabude',
   firebase: 'https://firebase.google.com',
+  'firebase-blog': 'https://medium.com/firebase-developers',
   flutter: 'https://flutter.dev',
   freecodecamp: 'https://freecodecamp.org',
   gdsc: 'https://g.co/dev/dsc',

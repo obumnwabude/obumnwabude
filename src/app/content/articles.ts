@@ -2,6 +2,21 @@ import { ObumCard } from '../card/card.model';
 
 export const articles: ObumCard[] = [
   {
+    title: 'Firebase CORS Proxy Server',
+    date: { month: 1, year: 2023 },
+    description:
+      'Learn how to bypass CORS issues making API calls through a CORS server that you setup for free yourself with Firebase.',
+    image: { alt: '', name: 'firebase-cors-proxy' },
+    links: [
+      {
+        href: 'https://stories.obumnwabude.com/how-to-create-a-cors-proxy-server-with-firebase-functions-f4be840026b5',
+        title: 'Read',
+        svg: 'open-in-new'
+      }
+    ],
+    tags: [{ svg: 'medium', title: 'Stories' }]
+  },
+  {
     title: 'Guide to testing Angular apps',
     date: { month: 12, year: 2022 },
     description:
@@ -145,12 +160,12 @@ export const articles: ObumCard[] = [
     image: { alt: '', name: 'firebase-url-shortener' },
     links: [
       {
-        href: 'https://keepdeploying.com/7754377478e0',
+        href: 'https://medium.com/firebase-developers/firebase-url-shortener-7754377478e0',
         title: 'Read',
         svg: 'open-in-new'
       }
     ],
-    tags: [{ svg: 'keepdeploying', title: 'Keep Deploying' }]
+    tags: [{ svg: 'firebase-blog', title: 'Firebase Blog' }]
   },
   {
     title: 'How to Implement Any UI in Flutter',

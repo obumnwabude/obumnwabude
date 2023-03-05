@@ -33,7 +33,9 @@
       [src]="
         'assets/images/' +
         content.image.name +
-        (['blog', 'serverless-architecture'].includes(content.image.name)
+        (['blog', 'ctlearn', 'serverless-architecture'].includes(
+          content.image.name
+        )
           ? '.png'
           : '.jpg')
       "

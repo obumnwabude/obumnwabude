@@ -2,6 +2,21 @@ import { ObumCard } from '../card/card.model';
 
 export const community: ObumCard[] = [
   {
+    title: 'Flutter Forward Abakaliki 2023',
+    date: { month: 3, year: 2023 },
+    description:
+      'Spoke on "Securing Flutter Apps" during Flutter Forward Extended.',
+    image: { alt: 'Speaker Flyer', name: 'obum-flutter-forward-abakaliki' },
+    links: [
+      {
+        href: 'https://twitter.com/obumnwabude/status/1632365534191710208',
+        title: 'Thread',
+        svg: 'twitter'
+      }
+    ],
+    tags: [{ svg: 'speaker' }, { svg: 'gdsc', title: 'GDG' }]
+  },
+  {
     title: 'DevFest Yaounde 2022',
     date: { month: 11, year: 2022 },
     description:

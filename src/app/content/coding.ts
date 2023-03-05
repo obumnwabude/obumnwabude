@@ -2,6 +2,20 @@ import { ObumCard } from '../card/card.model';
 
 export const coding: ObumCard[] = [
   {
+    title: 'CTLearn',
+    description:
+      'Your one-stop destination for simplified and engaging learning experience.',
+    image: { alt: 'CTLearn Logo', name: 'ctlearn' },
+    links: [
+      {
+        href: 'https://play.google.com/store/apps/details?id=net.ctlearn.app',
+        title: 'Google Play',
+        svg: 'google-play'
+      }
+    ],
+    tags: [{ svg: 'flutter' }]
+  },
+  {
     title: 'Todo',
     description:
       'Simple one-screen dark-mode Todo App. Built using Stacked architecture and used to illustrate how Stacked works.',
