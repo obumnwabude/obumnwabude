@@ -2,6 +2,21 @@ import { ObumCard } from '../card/card.model';
 
 export const articles: ObumCard[] = [
   {
+    title: 'How to brand your Flutter app',
+    date: { month: 2, year: 2023 },
+    description:
+      'Learn how to setup project name, app colors, fonts and themes in Flutter.',
+    image: { alt: '', name: 'branding-flutter' },
+    links: [
+      {
+        href: 'https://sweetcode.io/what-does-branding-a-flutter-app-entail/',
+        title: 'Read',
+        svg: 'open-in-new'
+      }
+    ],
+    tags: [{ svg: 'sweetcode' }]
+  },
+  {
     title: 'Firebase CORS Proxy Server',
     date: { month: 1, year: 2023 },
     description:
