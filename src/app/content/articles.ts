@@ -2,6 +2,21 @@ import { ObumCard } from '../card/card.model';
 
 export const articles: ObumCard[] = [
   {
+    title: 'How to Prevent Account Loss When using Two-Factor Authentication',
+    date: { month: 2, year: 2023 },
+    description:
+      "You want to lock out malicious access to your account. But you don't want out yourself.",
+    image: { alt: '', name: '2fa-security' },
+    links: [
+      {
+        href: 'https://www.freecodecamp.org/news/how-to-prevent-account-loss-when-using-two-factor-authentication/',
+        title: 'Read',
+        svg: 'open-in-new'
+      }
+    ],
+    tags: [{ svg: 'freecodecamp', title: 'freeCodeCamp' }]
+  },
+  {
     title: 'How to brand your Flutter app',
     date: { month: 2, year: 2023 },
     description:
