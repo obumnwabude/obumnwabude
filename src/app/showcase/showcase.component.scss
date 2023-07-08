@@ -27,22 +27,20 @@
   box-shadow: 0 0 4px 2px gray;
 }
 
-[full-name] {
-  font-size: 24px;
+[obum-text] {
+  font-size: 28px;
   margin-bottom: 0;
   font-weight: normal;
   text-align: center;
 }
 
-[obum-text-container] {
+[full-name] {
+  font-size: 14px;
+  font-weight: normal;
   margin-top: 0;
   margin-bottom: 1rem;
+  opacity: 0.8;
   text-align: center;
-
-  span {
-    font-weight: bold;
-    letter-spacing: 0.8px;
-  }
 }
 
 [profile-icons] {
@@ -91,10 +89,14 @@
     margin: 0;
   }
 
-  [full-name],
-  [obum-text-container] {
-    width: fit-content;
-    padding-left: 20px;
+  [obum-text] {
+    padding-top: 8px;
+  }
+
+  [obum-text],
+  [full-name] {
+    padding-left: 24px;
+    text-align: left;
   }
 
   [profile-icons] {
