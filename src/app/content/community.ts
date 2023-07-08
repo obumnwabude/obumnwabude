@@ -2,12 +2,62 @@ import { ObumCard } from '../card/card.model';
 
 export const community: ObumCard[] = [
   {
+    title: 'Google I/O Extended Abakaliki 2023',
+    date: { month: 7, year: 2023 },
+    description:
+      'Spoke on "Admob in Flutter" and carried out the Flutter Admob Codelab infront of the audience.',
+    image: { alt: 'Speaker Flyer', name: 'obum-io-extended-abakaliki' },
+    links: [
+      {
+        href: 'https://docs.google.com/presentation/d/1gaphjTrv27Sm6YeUvS5uu8tS6NNmYn6Tayn-xgg22QI/edit?usp=sharing',
+        title: 'Slides',
+        svg: 'slides'
+      },
+      {
+        href: 'https://twitter.com/GDGAbakaliki/status/1675195522703826944',
+        title: 'Pictures',
+        svg: 'twitter'
+      }
+    ],
+    tags: [{ svg: 'speaker' }, { svg: 'gdsc', title: 'GDG' }]
+  },
+  {
+    title: 'Google I/O Extended AE-FUNAI 2023',
+    date: { month: 6, year: 2023 },
+    description:
+      'Introduced "Cloud" and got the audience started with "Google Cloud Essentials" on Cloud Skills Boost.',
+    image: { alt: 'Speaker Flyer', name: 'obum-io-extended-aefunai' },
+    links: [
+      {
+        href: 'https://docs.google.com/presentation/d/1ZOYuSDHmiFnGK7BZlYtAvUzb_fiD6JAiYI9_V24z0Y4/edit?usp=sharing',
+        title: 'Slides',
+        svg: 'slides'
+      },
+      {
+        href: 'https://twitter.com/amdanielbryte/status/1672960754406903809',
+        title: 'Thread',
+        svg: 'twitter'
+      }
+    ],
+    tags: [{ svg: 'speaker' }, { svg: 'gdsc', title: 'GDSC' }]
+  },
+  {
     title: 'Flutter Forward Enugu 2023',
     date: { month: 4, year: 2023 },
     description:
       'Spoke on "How to animate in Flutter" and assisted in checking in participants during the event.',
     image: { alt: 'Speaker Flyer', name: 'obum-flutter-forward-enugu' },
     links: [
+      {
+        href: 'https://www.youtube.com/watch?v=vW4bjrtZbS8&list=PL6XlbQ29dTFNKszXJ6-afaQEpl7iULE8E&t=2049s',
+        title: 'Recording',
+        svg: 'youtube'
+      },
+      {
+        href: 'https://docs.google.com/presentation/d/1ll_5dccf5YbqwH9M20yWa4ItBS97OFtxD_hZnbhk9No/edit?usp=sharing',
+        title: 'Slides',
+        svg: 'slides'
+      },
       {
         href: 'https://twitter.com/obumnwabude/status/1644696099435708417',
         title: 'Thread',
