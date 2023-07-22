@@ -2,6 +2,26 @@ import { ObumCard } from '../card/card.model';
 
 export const community: ObumCard[] = [
   {
+    title: 'Google I/O Extended Onitsha 2023',
+    date: { month: 7, year: 2023 },
+    description:
+      'Spoke on "Flutter for Web Developers", comparing developer concepts across both categories.',
+    image: { alt: 'Speaker Flyer', name: 'obum-io-extended-onitsha' },
+    links: [
+      {
+        href: 'https://docs.google.com/presentation/d/10yZRHJjEbtIq83oY5HrO7wC3xTSckz2CY1AK_tPgObY/edit?usp=sharing',
+        title: 'Slides',
+        svg: 'slides'
+      },
+      {
+        href: 'https://twitter.com/obumnwabude/status/1682696894093443077',
+        title: 'Thread',
+        svg: 'twitter'
+      }
+    ],
+    tags: [{ svg: 'speaker' }, { svg: 'gdsc', title: 'GDG' }]
+  },
+  {
     title: 'Google I/O Extended Abakaliki 2023',
     date: { month: 7, year: 2023 },
     description:
