@@ -31,6 +31,7 @@ export const tagAbouts = {
   flutter: 'https://flutter.dev',
   freecodecamp: 'https://freecodecamp.org',
   gdsc: 'https://g.co/dev/dsc',
+  gdg: 'https://g.co/dev/gdg',
   genesys: 'https://genesystechhub.com',
   hashnode: 'https://blog.obumnwabude.com',
   keepdeploying: 'https://keepdeploying.com',

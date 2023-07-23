@@ -19,7 +19,7 @@ export const community: ObumCard[] = [
         svg: 'twitter'
       }
     ],
-    tags: [{ svg: 'speaker' }, { svg: 'gdsc', title: 'GDG' }]
+    tags: [{ svg: 'speaker' }, { svg: 'gdg', title: 'GDG' }]
   },
   {
     title: 'Google I/O Extended Abakaliki 2023',
@@ -39,7 +39,7 @@ export const community: ObumCard[] = [
         svg: 'twitter'
       }
     ],
-    tags: [{ svg: 'speaker' }, { svg: 'gdsc', title: 'GDG' }]
+    tags: [{ svg: 'speaker' }, { svg: 'gdg', title: 'GDG' }]
   },
   {
     title: 'Google I/O Extended AE-FUNAI 2023',
@@ -84,7 +84,7 @@ export const community: ObumCard[] = [
         svg: 'twitter'
       }
     ],
-    tags: [{ svg: 'speaker' }, { svg: 'gdsc', title: 'GDG' }]
+    tags: [{ svg: 'speaker' }, { svg: 'gdg', title: 'GDG' }]
   },
   {
     title: 'Flutter Forward Abakaliki 2023',
@@ -99,7 +99,7 @@ export const community: ObumCard[] = [
         svg: 'twitter'
       }
     ],
-    tags: [{ svg: 'speaker' }, { svg: 'gdsc', title: 'GDG' }]
+    tags: [{ svg: 'speaker' }, { svg: 'gdg', title: 'GDG' }]
   },
   {
     title: 'DevFest Yaounde 2022',
@@ -114,7 +114,7 @@ export const community: ObumCard[] = [
         svg: 'twitter'
       }
     ],
-    tags: [{ svg: 'speaker' }, { svg: 'gdsc', title: 'GDG' }]
+    tags: [{ svg: 'speaker' }, { svg: 'gdg', title: 'GDG' }]
   },
   {
     title: 'Why you should use Flutter',
@@ -153,7 +153,7 @@ export const community: ObumCard[] = [
         svg: 'facebook'
       }
     ],
-    tags: [{ svg: 'speaker' }, { svg: 'gdsc', title: 'GDG' }]
+    tags: [{ svg: 'speaker' }, { svg: 'gdg', title: 'GDG' }]
   },
   {
     title: 'Understanding Technical Writing',
