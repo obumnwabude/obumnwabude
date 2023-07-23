@@ -3,5 +3,6 @@ export const constants = {
   LS_THEME_KEY: 'theme',
   THEMES: ['light-mode', 'dark-mode'],
   TITLE:
-    'Obum (Obumuneme Nwabude) | Technical Writer, Mobile and Fullstack Web Developer, and Tech Community Lead'
+    'Obum (Obumuneme Nwabude) | Mobile and Fullstack Web Developer, Technical Writer, and Active in Tech Communities.',
+  OG_TITLE: 'Obum (Obumuneme Nwabude)'
 };

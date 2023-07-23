@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import intersectionBy from 'lodash-es/intersectionBy';
 import uniqBy from 'lodash-es/uniqBy';
@@ -48,7 +48,7 @@ export class ContentComponent implements OnDestroy {
     }
   }
 
-  constructor(router: Router, private title: Title) {
+  constructor(private meta: Meta, router: Router, private title: Title) {
     const category = router.url
       .split('?')[0]
       .split('#')[0]
@@ -59,15 +59,38 @@ export class ContentComponent implements OnDestroy {
       this._category = category as keyof typeof this._categories;
       this.content = this._categories[this._category];
       this.selectedTags = this.tags;
+      this.meta.updateTag(
+        {
+          name: 'og:title',
+          content: `${this.capitalize(category)} || ${constants.OG_TITLE}`
+        },
+        'name="og:title"'
+      );
+      this.meta.updateTag(
+        {
+          name: 'twitter:title',
+          content: `${this.capitalize(category)} || ${constants.OG_TITLE}`
+        },
+        'name="twitter:title"'
+      );
       this.title.setTitle(`${this.capitalize(category)} | ${constants.TITLE}`);
     } else {
       router.navigateByUrl('/');
     }
   }
-
   capitalize = (str: string): string => str[0].toUpperCase() + str.substring(1);
 
-  ngOnDestroy = () => this.title.setTitle(constants.TITLE);
+  ngOnDestroy() {
+    this.meta.updateTag(
+      { name: 'og:title', content: constants.OG_TITLE },
+      'name="og:title"'
+    );
+    this.meta.updateTag(
+      { name: 'twitter:title', content: constants.OG_TITLE },
+      'name="twitter:title"'
+    );
+    this.title.setTitle(constants.TITLE);
+  }
 
   toggleAll(event: any): void {
     event.stopPropagation();
