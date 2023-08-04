@@ -2,6 +2,20 @@ import { ObumCard } from '../card/card.model';
 
 export const coding: ObumCard[] = [
   {
+    title: 'WalletSMSLockr',
+    description:
+      'An App that encrypts and decrypts your SMS for only you and intended recipients.',
+    image: { alt: 'WalletSMSLockr Logo', name: 'walletsmslockr' },
+    links: [
+      {
+        href: 'https://play.google.com/store/apps/details?id=com.lokdon.walletsmslockr',
+        title: 'Google Play',
+        svg: 'google-play'
+      }
+    ],
+    tags: [{ svg: 'flutter' }]
+  },
+  {
     title: 'CTLearn',
     description:
       'Your one-stop destination for simplified and engaging learning experience.',
