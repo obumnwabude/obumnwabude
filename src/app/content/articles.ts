@@ -2,6 +2,21 @@ import { ObumCard } from '../card/card.model';
 
 export const articles: ObumCard[] = [
   {
+    title: 'How To Improve Flutter Forms',
+    date: { month: 8, year: 2023 },
+    description:
+      'Tips on improving user experience on forms created in flutter.',
+    image: { alt: '', name: 'improve-flutter-forms' },
+    links: [
+      {
+        href: 'https://dev.to/obumnwabude/how-to-improve-flutter-forms-ni3',
+        title: 'Read',
+        svg: 'open-in-new'
+      }
+    ],
+    tags: [{ svg: 'dev', title: 'dev.to' }]
+  },
+  {
     title: 'How to Prevent Account Loss When using Two-Factor Authentication',
     date: { month: 2, year: 2023 },
     description:
