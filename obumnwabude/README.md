@@ -1,46 +1,75 @@
-# obumnwabude
+<h1 align="center">Hi 👋, It's <b>Obum</b>.</h1>
 
-This template should help get you started developing with Vue 3 in Vite.
+<br />
 
-## Recommended IDE Setup
+<h3>I'm a Mobile and Fullstack Web Developer. 😎</h3>
+<h3>I've fallen in love with the <a href="https://flutter.dev">Flutter Framework</a>. 😇</h3>
+<h3>I'm active in tech communities around me. 🙈</h3>
+<h3>I'm a Microsoft Learn Student Ambassador. 🤩</h3>
+<h3>
+  I've led tech communities like
+  <a href="https://github.com/gdscaefunai">@gdscaefunai</a> and
+  <a href="https://twitter.com/GenesysAEFUNAI">@GenesysAEFUNAI</a>. 🙇
+</h3>
+<h3>I was once a trainer on the Google Digital Skills for Africa program. 💪</h3>
+<h3>I write articles and sometimes tell stories. ✍️</h3>
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+<h2></h2>
 
-## Type Support for `.vue` Imports in TS
+<br />
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+<br />
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+<h2>Where I've written stuff ✍</h2>
+<p>
+  <a href="https://obumnwabude.medium.com"
+    ><img
+      src="https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white"
+  /></a>
+  <a href="https://obumnwabude.hashnode.dev"
+    ><img
+      src="https://img.shields.io/badge/Hashnode-2962FF?style=for-the-badge&logo=hashnode&logoColor=white"
+  /></a>
+  <a href="https://dev.to/obumnwabude"
+    ><img
+      src="https://img.shields.io/badge/dev.to-0A0A0A?style=for-the-badge&logo=dev.to&logoColor=white"
+  /></a>
+</p>
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+<br />
 
-## Customize configuration
+<h2>My Dev Profiles 💻</h2>
+<p>
+  <a href="https://stackoverflow.com/users/13644299/obumuneme-nwabude"
+    ><img
+      src="https://img.shields.io/badge/Stack_Overflow-FE7A16?style=for-the-badge&logo=stack-overflow&logoColor=white"
+  /></a>
+  <a href="https://g.dev/obumnwabude"
+    ><img
+      src="https://img.shields.io/badge/google-4285F4?style=for-the-badge&logo=google&logoColor=white"
+  /></a>
+  <a href="https://linkedin.com/in/obumnwabude"
+    ><img
+      src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"
+  /></a>
+</p>
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+<br />
 
-## Project Setup
+<h2>My Social Profiles 📸</h2>
+<p>
+  <a href="https://twitter.com/obumnwabude"
+    ><img
+      src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"
+  /></a>
+  <a href="https://facebook.com/obumnwabude"
+    ><img
+      src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white"
+  /></a>
+  <a href="https://instagram.com/obumnwabude"
+    ><img
+      src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white"
+  /></a>
+</p>
 
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+<br />
