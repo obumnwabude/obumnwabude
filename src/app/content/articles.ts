@@ -2,6 +2,21 @@ import { ObumCard } from '../card/card.model';
 
 export const articles: ObumCard[] = [
   {
+    title: 'Hosting a tech community event',
+    date: { month: 8, year: 2023 },
+    description:
+      'How to handle your event in real time and things you should do when the event is taking place.',
+    image: { alt: '', name: 'blog' },
+    links: [
+      {
+        href: 'https://blog.obumnwabude.com/hosting-a-tech-community-event',
+        title: 'Read',
+        svg: 'open-in-new'
+      }
+    ],
+    tags: [{ svg: 'hashnode', title: 'Blog' }]
+  },
+  {
     title: 'How To Improve Flutter Forms',
     date: { month: 8, year: 2023 },
     description:
@@ -232,7 +247,7 @@ export const articles: ObumCard[] = [
     date: { month: 6, year: 2022 },
     description:
       'You need a way to get people to know that your event is coming up. You need to promote the event.',
-    image: { alt: 'Picture of Community Members', name: 'blog' },
+    image: { alt: '', name: 'blog' },
     links: [
       {
         href: 'https://blog.obumnwabude.com/how-to-promote-a-tech-community-event',
@@ -247,7 +262,7 @@ export const articles: ObumCard[] = [
     date: { month: 5, year: 2022 },
     description:
       "Don't just start hosting the event. Please, first plan it. Planning is like being in the event before it happens. ",
-    image: { alt: 'Picture of Community Members', name: 'blog' },
+    image: { alt: '', name: 'blog' },
     links: [
       {
         href: 'https://blog.obumnwabude.com/how-to-plan-your-community-event',
@@ -262,7 +277,7 @@ export const articles: ObumCard[] = [
     date: { month: 5, year: 2022 },
     description:
       "Grow a tech community because you want to mentor people (where you can). You will impact people's lives and become a leader.",
-    image: { alt: 'Picture of Community Members', name: 'blog' },
+    image: { alt: '', name: 'blog' },
     links: [
       {
         href: 'https://blog.obumnwabude.com/grow-a-tech-community',
@@ -277,7 +292,7 @@ export const articles: ObumCard[] = [
     date: { month: 5, year: 2022 },
     description:
       "Community works for many people and it will work for you too. We are talking of huge benefits you won't find in other places.",
-    image: { alt: 'Picture of Community Members', name: 'blog' },
+    image: { alt: '', name: 'blog' },
     links: [
       {
         href: 'https://blog.obumnwabude.com/5-things-you-will-gain-from-tech-communities',
@@ -292,7 +307,7 @@ export const articles: ObumCard[] = [
     date: { month: 5, year: 2022 },
     description:
       'Give back to the community. The active participation of community members is the fuel that fires the life of a given tech community.',
-    image: { alt: 'Picture of Community Members', name: 'blog' },
+    image: { alt: '', name: 'blog' },
     links: [
       {
         href: 'https://blog.obumnwabude.com/10-ways-to-contribute-to-tech-communities',
@@ -307,7 +322,7 @@ export const articles: ObumCard[] = [
     date: { month: 5, year: 2022 },
     description:
       'Community events are moments of bonding and celebration. They are organised to keep the community alive.',
-    image: { alt: 'Picture of Community Members', name: 'blog' },
+    image: { alt: '', name: 'blog' },
     links: [
       {
         href: 'https://blog.obumnwabude.com/on-tech-community-events',
@@ -322,7 +337,7 @@ export const articles: ObumCard[] = [
     date: { month: 5, year: 2022 },
     description:
       'Tech communities are groups of people of who love digital stuff and usually have (or want to learn) some digital skill.',
-    image: { alt: 'Picture of Community Members', name: 'blog' },
+    image: { alt: '', name: 'blog' },
     links: [
       {
         href: 'https://blog.obumnwabude.com/understanding-tech-communities',
