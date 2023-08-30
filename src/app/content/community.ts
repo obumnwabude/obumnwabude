@@ -2,6 +2,46 @@ import { ObumCard } from '../card/card.model';
 
 export const community: ObumCard[] = [
   {
+    title: 'Google I/O Extended Owerri 2023',
+    date: { month: 8, year: 2023 },
+    description:
+      'Spoke on "Understanding UI Rendering: How Flutter is platform-agnostic".',
+    image: { alt: 'Speaker Flyer', name: 'obum-io-extended-owerri' },
+    links: [
+      {
+        href: 'https://docs.google.com/presentation/d/1pePuymAJwcieTWk-IGaUN715NC8CPkUNoWkCWlkCo8U/edit?usp=sharing',
+        title: 'Slides',
+        svg: 'slides'
+      },
+      {
+        href: 'https://twitter.com/obumnwabude/status/1692863659666513924',
+        title: 'Thread',
+        svg: 'twitter'
+      }
+    ],
+    tags: [{ svg: 'speaker' }, { svg: 'gdg', title: 'GDG' }]
+  },
+  {
+    title: 'Google I/O Extended Enugu 2023',
+    date: { month: 8, year: 2023 },
+    description:
+      'Spoke on "How to improve Flutter forms", focusing on user experience in mobile apps.',
+    image: { alt: 'Speaker Flyer', name: 'obum-io-extended-enugu' },
+    links: [
+      {
+        href: 'https://docs.google.com/presentation/d/1VWe-7KNKbnWiGL8cyk_DTYCfIbAJUIr3Qt6bUXEnDiM/edit?usp=drivesdk',
+        title: 'Slides',
+        svg: 'slides'
+      },
+      {
+        href: 'https://twitter.com/GdgEnugu/status/1690326639924613120',
+        title: 'Tweet',
+        svg: 'twitter'
+      }
+    ],
+    tags: [{ svg: 'speaker' }, { svg: 'gdg', title: 'GDG' }]
+  },
+  {
     title: 'Google I/O Extended Onitsha 2023',
     date: { month: 7, year: 2023 },
     description:
