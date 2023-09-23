@@ -2,6 +2,21 @@ import { ObumCard } from '../card/card.model';
 
 export const articles: ObumCard[] = [
   {
+    title: 'How to structure any booking/reservation system with Firebase',
+    date: { month: 9, year: 2023 },
+    description:
+      'Check out this one other thing that you can do with Firebase.',
+    image: { alt: '', name: 'firebase-booking' },
+    links: [
+      {
+        href: 'https://stories.obumnwabude.com/how-to-structure-any-booking-reservation-system-with-firebase-e7f1774e848e',
+        title: 'Read',
+        svg: 'open-in-new'
+      }
+    ],
+    tags: [{ svg: 'medium', title: 'Stories' }]
+  },
+  {
     title: 'Hosting a tech community event',
     date: { month: 8, year: 2023 },
     description:

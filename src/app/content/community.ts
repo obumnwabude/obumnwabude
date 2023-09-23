@@ -2,12 +2,55 @@ import { ObumCard } from '../card/card.model';
 
 export const community: ObumCard[] = [
   {
+    title: 'GSDC AE-FUNAI Info Session 2023',
+    date: { month: 9, year: 2023 },
+    description: 'Introduced Technical Writing.',
+    image: { alt: 'Event Flyer', name: 'gdsc-aefunai-info-session-2023' },
+    links: [
+      {
+        href: 'https://gdsc.community.dev/e/m64rvc/',
+        title: 'Details',
+        svg: 'open-in-new'
+      },
+      {
+        href: 'https://x.com/gdscaefunai/status/1704569899404902860?s=20',
+        title: 'Recording',
+        svg: 'twitter'
+      }
+    ],
+    tags: [{ svg: 'speaker' }, { svg: 'gdg', title: 'GDSC' }]
+  },
+  {
+    title: 'GDSC NAU Info Session 2023',
+    date: { month: 9, year: 2023 },
+    description: 'Introduced Flutter, Firebase, and Google Cloud.',
+    image: { alt: 'Event Flyer', name: 'gdsc-nau-info-session-2023' },
+    links: [
+      {
+        href: 'https://gdsc.community.dev/e/mndxka/',
+        title: 'Details',
+        svg: 'open-in-new'
+      },
+      {
+        href: 'https://docs.google.com/presentation/d/1zAVkk8pTVqfWo9D1m01qLWh2WEG-u10_P_sCPcOk4IA/edit?usp=sharing',
+        title: 'Slides',
+        svg: 'slides'
+      }
+    ],
+    tags: [{ svg: 'speaker' }, { svg: 'gdg', title: 'GDSC' }]
+  },
+  {
     title: 'Google I/O Extended Owerri 2023',
     date: { month: 8, year: 2023 },
     description:
       'Spoke on "Understanding UI Rendering: How Flutter is platform-agnostic".',
     image: { alt: 'Speaker Flyer', name: 'obum-io-extended-owerri' },
     links: [
+      {
+        href: 'https://gdg.community.dev/e/mguey6/',
+        title: 'Details',
+        svg: 'open-in-new'
+      },
       {
         href: 'https://docs.google.com/presentation/d/1pePuymAJwcieTWk-IGaUN715NC8CPkUNoWkCWlkCo8U/edit?usp=sharing',
         title: 'Slides',
@@ -29,6 +72,11 @@ export const community: ObumCard[] = [
     image: { alt: 'Speaker Flyer', name: 'obum-io-extended-enugu' },
     links: [
       {
+        href: 'https://gdg.community.dev/e/m76sm3/',
+        title: 'Details',
+        svg: 'open-in-new'
+      },
+      {
         href: 'https://docs.google.com/presentation/d/1VWe-7KNKbnWiGL8cyk_DTYCfIbAJUIr3Qt6bUXEnDiM/edit?usp=drivesdk',
         title: 'Slides',
         svg: 'slides'
@@ -48,6 +96,11 @@ export const community: ObumCard[] = [
       'Spoke on "Flutter for Web Developers", comparing developer concepts across both categories.',
     image: { alt: 'Speaker Flyer', name: 'obum-io-extended-onitsha' },
     links: [
+      {
+        href: 'https://gdg.community.dev/e/mpae52/',
+        title: 'Details',
+        svg: 'open-in-new'
+      },
       {
         href: 'https://docs.google.com/presentation/d/10yZRHJjEbtIq83oY5HrO7wC3xTSckz2CY1AK_tPgObY/edit?usp=sharing',
         title: 'Slides',
@@ -69,6 +122,11 @@ export const community: ObumCard[] = [
     image: { alt: 'Speaker Flyer', name: 'obum-io-extended-abakaliki' },
     links: [
       {
+        href: 'https://gdg.community.dev/e/myc9en/',
+        title: 'Details',
+        svg: 'open-in-new'
+      },
+      {
         href: 'https://docs.google.com/presentation/d/1gaphjTrv27Sm6YeUvS5uu8tS6NNmYn6Tayn-xgg22QI/edit?usp=sharing',
         title: 'Slides',
         svg: 'slides'
@@ -89,6 +147,11 @@ export const community: ObumCard[] = [
     image: { alt: 'Speaker Flyer', name: 'obum-io-extended-aefunai' },
     links: [
       {
+        href: 'https://gdsc.community.dev/e/mmy9qk/',
+        title: 'Details',
+        svg: 'open-in-new'
+      },
+      {
         href: 'https://docs.google.com/presentation/d/1ZOYuSDHmiFnGK7BZlYtAvUzb_fiD6JAiYI9_V24z0Y4/edit?usp=sharing',
         title: 'Slides',
         svg: 'slides'
@@ -108,6 +171,11 @@ export const community: ObumCard[] = [
       'Spoke on "How to animate in Flutter" and assisted in checking in participants during the event.',
     image: { alt: 'Speaker Flyer', name: 'obum-flutter-forward-enugu' },
     links: [
+      {
+        href: 'https://gdg.community.dev/e/mmdbgt/',
+        title: 'Details',
+        svg: 'open-in-new'
+      },
       {
         href: 'https://www.youtube.com/watch?v=vW4bjrtZbS8&list=PL6XlbQ29dTFNKszXJ6-afaQEpl7iULE8E&t=2049s',
         title: 'Recording',
@@ -134,6 +202,11 @@ export const community: ObumCard[] = [
     image: { alt: 'Speaker Flyer', name: 'obum-flutter-forward-abakaliki' },
     links: [
       {
+        href: 'https://gdg.community.dev/e/mz2m5j/',
+        title: 'Details',
+        svg: 'open-in-new'
+      },
+      {
         href: 'https://twitter.com/obumnwabude/status/1632365534191710208',
         title: 'Thread',
         svg: 'twitter'
@@ -149,6 +222,11 @@ export const community: ObumCard[] = [
     image: { alt: 'Speaker Flyer', name: 'obum-devfest-yaounde' },
     links: [
       {
+        href: 'https://gdg.community.dev/e/mz4ac2/',
+        title: 'Details',
+        svg: 'open-in-new'
+      },
+      {
         href: 'https://twitter.com/obumnwabude/status/1588822831223435264',
         title: 'Thread',
         svg: 'twitter'
@@ -163,6 +241,11 @@ export const community: ObumCard[] = [
       'Explained detailed benefits of why we should use Flutter for our projects.',
     image: { alt: 'Event Flyer', name: 'gdsc-why-flutter' },
     links: [
+      {
+        href: 'https://gdsc.community.dev/e/mz64z3/',
+        title: 'Details',
+        svg: 'open-in-new'
+      },
       {
         href: 'https://docs.google.com/presentation/d/1EuXoQC0zO_tPq8deT6plxuwbzK988-789FxUsdTfJfM/edit?usp=sharing&resourcekey=0-V0dhDAuwoCJimDdxeyBItA',
         title: 'Slides',
@@ -182,6 +265,11 @@ export const community: ObumCard[] = [
     description: 'Spoke on "How to Implement any Screen/UI in Flutter"',
     image: { alt: 'Speaker Flyer', name: 'obum-flutterfest-enugu' },
     links: [
+      {
+        href: 'https://gdg.community.dev/e/mbyat2/',
+        title: 'Details',
+        svg: 'open-in-new'
+      },
       {
         href: 'https://docs.google.com/presentation/d/1pfnoHvdG-xyOkekynN5kzCOirF7IFR7qSaOPRxyH31g/edit?usp=sharing&resourcekey=0-t2MlHWtBTgw-q37Sy87nzQ',
         title: 'Slides',
