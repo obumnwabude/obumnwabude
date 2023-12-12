@@ -149,7 +149,7 @@ export const coding: ObumCard[] = [
     image: { alt: 'Mmèmmè Logo', name: 'mmemme' },
     links: [
       {
-        href: 'https://mmemme.app',
+        href: 'https://mmemme1.web.app',
         title: 'Preview',
         svg: 'open-in-new'
       }
