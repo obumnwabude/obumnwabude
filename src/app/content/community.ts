@@ -2,6 +2,78 @@ import { ObumCard } from '../card/card.model';
 
 export const community: ObumCard[] = [
   {
+    title: 'DevFest Asaba 2023',
+    date: { month: 12, year: 2023 },
+    description: 'Spoke on "Using Streams and Services for Flutter State".',
+    image: { alt: 'Speaker Flyer', name: 'obum-df23-asaba' },
+    links: [
+      {
+        href: 'https://gdg.community.dev/e/mbcaf6/',
+        title: 'Details',
+        svg: 'open-in-new',
+      },
+      {
+        href: 'https://docs.google.com/presentation/d/1eJLrRIpQxSuvq-JGucqwbUyLm6z3TcKq4l5bPADuXqY',
+        title: 'Slides',
+        svg: 'slides',
+      },
+      {
+        href: 'https://twitter.com/obumnwabude/status/1733410762603876691',
+        title: 'Thread',
+        svg: 'twitter',
+      },
+    ],
+    tags: [{ svg: 'speaker' }, { svg: 'gdg', title: 'GDG' }],
+  },
+  {
+    title: 'DevFest Enugu 2023',
+    date: { month: 11, year: 2023 },
+    description: 'Spoke on "Flutter CustomPaint vs SVG Image Spec"',
+    image: { alt: 'Speaker Flyer', name: 'obum-df23-enugu' },
+    links: [
+      {
+        href: 'https://gdg.community.dev/e/m24sqy/',
+        title: 'Details',
+        svg: 'open-in-new',
+      },
+      {
+        href: 'https://docs.google.com/presentation/d/1kNaTl3GN8hEslbYNC39hwlKoSpb19AkCGF_Krf6TRwg',
+        title: 'Slides',
+        svg: 'slides',
+      },
+      {
+        href: 'https://twitter.com/GdgEnugu/status/1728772790776398079',
+        title: 'Tweet',
+        svg: 'twitter',
+      },
+    ],
+    tags: [{ svg: 'speaker' }, { svg: 'gdg', title: 'GDG' }],
+  },
+  {
+    title: 'DevFest Luwero 2023',
+    date: { month: 11, year: 2023 },
+    description: 'Spoke on "How to Customize Flutter Packages"',
+    image: { alt: 'Speaker Flyer', name: 'obum-df23-luwero' },
+    links: [
+      {
+        href: 'https://gdg.community.dev/e/m5qj29/',
+        title: 'Details',
+        svg: 'open-in-new',
+      },
+      {
+        href: 'https://docs.google.com/presentation/d/14j2HTcIdLvTdD8eyc6fKD9zpzloOzcQoPo2Ar5Ybxo0',
+        title: 'Slides',
+        svg: 'slides',
+      },
+      {
+        href: 'https://youtu.be/UkWkXmFQAb8',
+        title: 'Recording',
+        svg: 'youtube',
+      },
+    ],
+    tags: [{ svg: 'speaker' }, { svg: 'gdg', title: 'GDG' }],
+  },
+  {
     title: 'GSDC AE-FUNAI Info Session 2023',
     date: { month: 9, year: 2023 },
     description: 'Introduced Technical Writing.',
