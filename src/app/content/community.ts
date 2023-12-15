@@ -445,6 +445,11 @@ export const community: ObumCard[] = [
     image: { alt: 'Screenshot of Building Todo App', name: 'gdsc-todo' },
     links: [
       {
+        href: 'https://gdsc.community.dev/e/m4tt5b/',
+        title: 'Details',
+        svg: 'open-in-new'
+      },
+      {
         href: 'https://github.com/gdscaefunai/todo_flutter_intro',
         title: 'Code',
         svg: 'github'
@@ -481,6 +486,44 @@ export const community: ObumCard[] = [
       }
     ],
     tags: [{ svg: 'speaker' }, { svg: 'microsoft', title: 'MLSA' }]
+  },
+  {
+    title: 'Flutter Study Jam',
+    date: { month: 8, year: 2021 },
+    description: 'Taught Flutter through the "Names Generator" codelab to GDSC Kabale Students.',
+    image: { alt: 'Event Flyer', name: 'obum-kabale21' },
+    links: [
+      {
+        href: 'https://gdsc.community.dev/e/mcjh5k/',
+        title: 'Details',
+        svg: 'open-in-new'
+      },
+      {
+        href: 'https://twitter.com/obumnwabude/status/1426742707272228864',
+        title: 'Tweet',
+        svg: 'twitter'
+      }
+    ],
+    tags: [{ svg: 'speaker' }, { svg: 'gdsc', title: 'GDSC' }]
+  },
+  {
+    title: 'Google I/O 2021',
+    date: { month: 5, year: 2021 },
+    description: 'Spoke on "You should be in a community" during the GDSC Meetups for Google I/O.',
+    image: { alt: 'Event Flyer', name: 'obum-io21' },
+    links: [
+      {
+        href: 'https://io.google/2021',
+        title: 'Details',
+        svg: 'open-in-new'
+      },
+      {
+        href: 'https://twitter.com/obumnwabude/status/1394577906932793345',
+        title: 'Tweet',
+        svg: 'twitter'
+      }
+    ],
+    tags: [{ svg: 'speaker' }, { svg: 'gdsc', title: 'GDSC' }]
   },
   {
     title: '2021 DES & DEV Bootcamp',
