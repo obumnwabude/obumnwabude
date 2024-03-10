@@ -37,4 +37,11 @@ h1 {
     right: calc((100vw - 1440px) / 2);
   }
 }
+
+@media (min-width: 1024px) {
+  header {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
 </style>

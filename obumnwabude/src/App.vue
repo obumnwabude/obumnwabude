@@ -13,3 +13,15 @@ import { RouterView } from 'vue-router';
 
   <Footer />
 </template>
+
+<style scoped>
+main {
+  padding: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  main {
+    padding: 2rem 5rem;
+  }
+}
+</style>
