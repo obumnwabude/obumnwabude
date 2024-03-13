@@ -38,6 +38,33 @@ footer {
   margin-top: auto;
 }
 
+ul li {
+  list-style: none;
+}
+
+.p-sidebar {
+  background-color: var(--primary);
+  border: none;
+  color: white;
+  padding: 1.5rem;
+}
+
+.p-sidebar-close {
+  color: white;
+  height: 3rem;
+  width: 3rem;
+}
+
+.p-sidebar-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.p-sidebar-content [icons] {
+  margin-bottom: 1rem;
+  margin-top: auto;
+}
+
 @media (min-width: 1440px) {
   #app {
     border: 2px dashed;

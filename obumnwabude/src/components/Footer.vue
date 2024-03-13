@@ -1,11 +1,6 @@
 <script setup lang="ts">
 import ContactMe from '@/components/ContactMe.vue';
-import IconFacebook from '@/icons/IconFacebook.vue';
-import IconGithub from '@/icons/IconGithub.vue';
-import IconInstagram from '@/icons/IconInstagram.vue';
-import IconLinkedin from '@/icons/IconLinkedin.vue';
-import IconStackoverflow from '@/icons/IconStackoverflow.vue';
-import IconX from '@/icons/IconX.vue';
+import SocialIcons from '@/components/SocialIcons.vue';
 
 const capitalize = (s: string) => s[0].toUpperCase() + s.substring(1);
 const year = new Date().getFullYear();
@@ -22,59 +17,10 @@ const year = new Date().getFullYear();
           </li>
         </ul>
       </nav>
-      <ContactMe />
+      <ContactMe color="var(--primary)" />
     </div>
     <div bottom>
-      <div icons>
-        <a
-          href="https://linkedin.com/in/obumnwabude"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="LinkedIn"
-        >
-          <IconLinkedin />
-        </a>
-        <a
-          href="https://github.com/obumnwabude"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Github"
-        >
-          <IconGithub />
-        </a>
-        <a
-          href="https://stackoverflow.com/users/13644299"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Stackoverflow"
-        >
-          <IconStackoverflow />
-        </a>
-        <a
-          href="https://x.com/obumnwabude"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="X (Twitter)"
-        >
-          <IconX />
-        </a>
-        <a
-          href="https://facebook.com/obumnwabude"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Facebook"
-        >
-          <IconFacebook />
-        </a>
-        <a
-          href="https://instagram.com/obumnwabude"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Instagram"
-        >
-          <IconInstagram />
-        </a>
-      </div>
+      <SocialIcons color="var(--primary)" />
       <p>All Rights Reserved &copy; {{ year }} Obumuneme Nwabude</p>
     </div>
   </footer>
@@ -92,18 +38,6 @@ footer {
 
 [obum] {
   font-size: 2rem;
-}
-
-ul li {
-  list-style: none;
-}
-
-[icons] {
-  color: var(--primary);
-}
-
-[icons] > *:not(:last-of-type) {
-  margin-right: 1rem;
 }
 
 @media (max-width: 767.98px) {

@@ -12,7 +12,10 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "pinia": "^2.1.7",
+    "primevue": "^3.49.1",
     "vue": "^3.2.47",
+    "vue-gtag": "^2.0.1",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {

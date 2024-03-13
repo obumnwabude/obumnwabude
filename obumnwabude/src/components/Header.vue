@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import IconMenu from '@/icons/IconMenu.vue';
+import { useSidebarStore } from '@/stores/sidebar';
+import Button from 'primevue/button';
+const sidebar = useSidebarStore();
 </script>
 
 <template>
   <header>
     <h1><router-link to="/">Obum</router-link></h1>
-    <IconMenu />
+    <button @click="sidebar.open"><IconMenu /></button>
   </header>
 </template>
 
@@ -27,6 +30,15 @@ h1 {
   font-weight: bold;
   height: 1.5rem;
   line-height: 1;
+}
+
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0.5rem;
 }
 
 @media (min-width: 1440px) {
