@@ -9,7 +9,7 @@ const year = new Date().getFullYear();
 <template>
   <footer>
     <div top>
-      <p obum><router-link to="/">Obum</router-link></p>
+      <p><router-link to="/" obum>Obum</router-link></p>
       <nav>
         <ul>
           <li v-for="link of ['about', 'projects', 'articles', 'community']">
@@ -38,11 +38,13 @@ footer {
 
 [obum] {
   font-size: 2rem;
+  font-weight: bold;
 }
 
 @media (max-width: 767.98px) {
   [obum] {
-    margin-bottom: 2rem;
+    display: inline-block;
+    margin-bottom: 1rem;
   }
 
   ul {
@@ -82,10 +84,16 @@ footer {
     padding-left: 5rem;
     padding-right: 5rem;
   }
+}
 
+@media (min-width: 1200px) {
   ul li:not(:last-of-type) {
     margin-right: 2rem;
     padding-right: 2rem;
+  }
+
+  li a {
+    font-size: 1.25rem;
   }
 }
 </style>
