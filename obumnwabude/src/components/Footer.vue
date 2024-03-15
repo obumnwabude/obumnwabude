@@ -20,7 +20,7 @@ const year = new Date().getFullYear();
       <ContactMe color="var(--primary)" />
     </div>
     <div bottom>
-      <SocialIcons color="var(--primary)" />
+      <SocialIcons />
       <p>All Rights Reserved &copy; {{ year }} Obumuneme Nwabude</p>
     </div>
   </footer>

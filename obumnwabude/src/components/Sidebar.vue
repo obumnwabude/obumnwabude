@@ -10,7 +10,12 @@ const sidebar = useSidebarStore();
 </script>
 
 <template>
-  <Sidebar v-model:visible="sidebar.status" position="right" header=" ">
+  <Sidebar
+    v-model:visible="sidebar.status"
+    position="right"
+    header=" "
+    blockScroll
+  >
     <nav>
       <ul>
         <li><router-link to="/" @click="sidebar.close">Home</router-link></li>
@@ -20,13 +25,13 @@ const sidebar = useSidebarStore();
           }}</router-link>
         </li>
         <li contact>
-          <ContactMe color="white" :icon="true" @click="sidebar.close" />
+          <ContactMe color="var(--text)" :icon="true" @click="sidebar.close" />
         </li>
-        <li theme><ThemeMenu color="white" /></li>
+        <li theme><ThemeMenu /></li>
       </ul>
     </nav>
 
-    <SocialIcons color="white" />
+    <SocialIcons />
   </Sidebar>
 </template>
 

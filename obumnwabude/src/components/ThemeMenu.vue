@@ -1,5 +1,4 @@
 <script setup lang="ts">
-const { color } = defineProps(['color']);
 import IconMoon from '@/icons/IconMoon.vue';
 import IconSun from '@/icons/IconSun.vue';
 import IconSync from '@/icons/IconSync.vue';
@@ -33,7 +32,6 @@ const theme = useThemeStore();
     @click="menu.toggle"
     aria-haspopup="true"
     aria-controls="theme-menu"
-    :style="{ color }"
   >
     <component :is="icons[theme.mode]" />
     <span>{{ theme.mode }}</span>
@@ -60,6 +58,7 @@ button {
 [main] {
   border: 0.5px solid;
   border-radius: 32px;
+  color: var(--text);
   font-weight: 500;
   padding: 0.5rem 1.5rem;
 }

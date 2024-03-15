@@ -1,5 +1,4 @@
 <script setup lang="ts">
-const { color } = defineProps(['color']);
 import IconFacebook from '@/icons/IconFacebook.vue';
 import IconGithub from '@/icons/IconGithub.vue';
 import IconInstagram from '@/icons/IconInstagram.vue';
@@ -9,7 +8,7 @@ import IconX from '@/icons/IconX.vue';
 </script>
 
 <template>
-  <div icons :style="{ color }">
+  <div icons>
     <a
       href="https://linkedin.com/in/obumnwabude"
       target="_blank"
