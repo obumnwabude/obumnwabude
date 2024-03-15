@@ -10,16 +10,30 @@
 
 :root {
   --app-bg: #fff;
-  --primary: #101e9f;
+  --blue-core: #101e9f;
+  --blue-light: #03a9f4;
+  --primary: var(--blue-core);
+  --text: #1a1a1a;
 }
 
 body {
   background-color: var(--app-bg);
+  color: var(--text);
   font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   font-size: 16px;
   line-height: 1.4;
+}
+
+body.dark {
+  --app-bg: #000;
+  --primary: var(--blue-light);
+  --text: #fff;
+}
+
+body.dark #theme-menu .p-menuitem-content:hover {
+  background-color: #222;
 }
 
 #app {
@@ -30,7 +44,15 @@ body {
 
 a {
   color: unset;
+  cursor: pointer;
   text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
 }
 
 footer {
@@ -42,7 +64,7 @@ ul li {
 }
 
 .p-sidebar {
-  background-color: var(--primary);
+  background-color: var(--blue-core);
   border: none;
   color: white;
   padding: 1.5rem;
@@ -62,6 +84,14 @@ ul li {
 .p-sidebar-content [icons] {
   margin-bottom: 1rem;
   margin-top: auto;
+}
+
+#theme-menu {
+  background-color: var(--app-bg);
+}
+
+#theme-menu [menu-item] {
+  color: var(--text);
 }
 
 @media (max-width: 767.98px) {

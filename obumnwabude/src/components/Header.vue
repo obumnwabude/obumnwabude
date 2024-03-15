@@ -73,7 +73,7 @@ ul li:not(:last-of-type) {
 button {
   background: none;
   border: none;
-  cursor: pointer;
+  color: var(--text);
   outline: none;
   padding: 0.5rem;
 }

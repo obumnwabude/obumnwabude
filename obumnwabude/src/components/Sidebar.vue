@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import ContactMe from '@/components/ContactMe.vue';
 import SocialIcons from '@/components/SocialIcons.vue';
+import ThemeMenu from '@/components/ThemeMenu.vue';
 import { useSidebarStore } from '@/stores/sidebar';
 import Sidebar from 'primevue/sidebar';
 
@@ -18,7 +19,10 @@ const sidebar = useSidebarStore();
             capitalize(link)
           }}</router-link>
         </li>
-        <li contact><ContactMe color="white" @click="sidebar.close" /></li>
+        <li contact>
+          <ContactMe color="white" :icon="true" @click="sidebar.close" />
+        </li>
+        <li theme><ThemeMenu color="white" /></li>
       </ul>
     </nav>
 
@@ -33,10 +37,14 @@ li:not([contact]) {
 }
 
 [contact] {
-  padding-top: 1rem;
+  padding-top: 0.5rem;
 }
 
 .router-link-active {
   font-weight: bold;
+}
+
+[theme] {
+  padding-top: 1.5rem;
 }
 </style>
