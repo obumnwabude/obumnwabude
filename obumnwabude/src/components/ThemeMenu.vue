@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { full } = defineProps(['full']);
 import IconMoon from '@/icons/IconMoon.vue';
 import IconSun from '@/icons/IconSun.vue';
 import IconSync from '@/icons/IconSync.vue';
@@ -32,8 +33,9 @@ const theme = useThemeStore();
     @click="menu.toggle"
     aria-haspopup="true"
     aria-controls="theme-menu"
+    :class="{ full }"
   >
-    <component :is="icons[theme.mode]" />
+    <component :is="icons[full ? theme.mode : theme.icon]" />
     <span>{{ theme.mode }}</span>
   </button>
   <Menu ref="menu" id="theme-menu" :model="items" :popup="true">
@@ -50,26 +52,30 @@ const theme = useThemeStore();
 button {
   align-items: center;
   background: none;
+  border: none;
+  color: var(--text);
   display: flex;
   font-size: 1rem;
   outline: none;
 }
 
-[main] {
+[main].full {
   border: 0.5px solid;
   border-radius: 32px;
-  color: var(--text);
   font-weight: 500;
   padding: 0.5rem 1.5rem;
 }
 
-[main] svg {
+[main].full svg {
   margin-right: 0.5rem;
+}
+
+[main]:not(.full) span {
+  display: none;
 }
 
 [menu-item] {
   align-items: center;
-  border: none;
   display: flex;
   padding: 0.5rem;
 }

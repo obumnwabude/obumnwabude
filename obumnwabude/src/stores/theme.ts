@@ -8,6 +8,9 @@ export const themes: ThemeMode[] = ['Dark Theme', 'Light Theme', 'System Mode'];
 const isThemeMode = (value: any): value is ThemeMode => themes.includes(value);
 
 export const useThemeStore = defineStore('theme', () => {
+  // used in desktop header to show the reverse of the current theme
+  const icon = ref<ThemeMode>('Dark Theme');
+
   const mode = ref<ThemeMode>('System Mode');
 
   const css = () => {
@@ -23,6 +26,10 @@ export const useThemeStore = defineStore('theme', () => {
     } else {
       document.body.classList.remove('dark');
     }
+
+    icon.value = document.body.classList.contains('dark')
+      ? 'Light Theme'
+      : 'Dark Theme';
   };
 
   const set = (value: ThemeMode) => {
@@ -39,16 +46,10 @@ export const useThemeStore = defineStore('theme', () => {
 
     window
       .matchMedia('(prefers-color-scheme: dark)')
-      .addEventListener('change', (event) => {
-        if (mode.value == 'System Mode') {
-          if (event.matches) {
-            document.body.classList.add('dark');
-          } else {
-            document.body.classList.remove('dark');
-          }
-        }
+      .addEventListener('change', () => {
+        if (mode.value == 'System Mode') css();
       });
   });
 
-  return { mode, set };
+  return { icon, mode, set };
 });

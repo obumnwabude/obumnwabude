@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ContactMe from '@/components/ContactMe.vue';
+import ThemeMenu from '@/components/ThemeMenu.vue';
 import IconMenu from '@/icons/IconMenu.vue';
 import { useSidebarStore } from '@/stores/sidebar';
 import Button from 'primevue/button';
@@ -21,6 +22,7 @@ const sidebar = useSidebarStore();
     </nav>
     <div>
       <ContactMe color="var(--primary)" contact-me />
+      <div theme><ThemeMenu :full="false" /></div>
       <button @click="sidebar.open" menu><IconMenu /></button>
     </div>
   </header>
@@ -70,7 +72,12 @@ ul li:not(:last-of-type) {
   margin-top: 1px;
 }
 
-button {
+[contact-me] {
+  margin-right: 1rem;
+  padding: 0.5rem 2.5rem;
+}
+
+[menu] {
   background: none;
   border: none;
   color: var(--text);
@@ -78,10 +85,25 @@ button {
   padding: 0.5rem;
 }
 
-@media (max-width: 767.98px) {
-  nav,
-  [contact-me] {
+header > div {
+  align-items: center;
+  display: flex;
+}
+
+@media (max-width: 511.98px) {
+  [contact-me],
+  [theme] {
     display: none;
+  }
+}
+
+@media (max-width: 767.98px) {
+  nav {
+    display: none;
+  }
+
+  [theme] {
+    margin-right: 0.5rem;
   }
 }
 
@@ -89,10 +111,6 @@ button {
   header {
     padding-bottom: 1.5rem;
     padding-top: 1.5rem;
-  }
-
-  [contact-me] {
-    padding: 0.5rem 2.5rem;
   }
 
   [menu] {

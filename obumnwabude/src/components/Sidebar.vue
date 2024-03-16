@@ -27,7 +27,7 @@ const sidebar = useSidebarStore();
         <li contact>
           <ContactMe color="var(--text)" :icon="true" @click="sidebar.close" />
         </li>
-        <li theme><ThemeMenu /></li>
+        <li theme><ThemeMenu :full="true" /></li>
       </ul>
     </nav>
 
