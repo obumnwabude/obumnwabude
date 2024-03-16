@@ -60,7 +60,7 @@ button {
 }
 
 [main].full {
-  border: 0.5px solid;
+  border: 1px solid;
   border-radius: 32px;
   font-weight: 500;
   padding: 0.5rem 1.5rem;

@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "source": ".",
+    "target": "obumnwabude",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "frameworksBackend": {
+      "region": "us-central1"
+    }
+  }
+}

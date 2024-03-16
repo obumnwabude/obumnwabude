@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "obumnwabudee": {
+      "hosting": {
+        "obumnwabude": [
+          "obumnwabude"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "obumnwabudee"
+  }
+}
