@@ -12,6 +12,7 @@
   --app-bg: #fff;
   --blue-core: #101e9f;
   --blue-light: #03a9f4;
+  --gray: #808080;
   --primary: var(--blue-core);
   --text: #1a1a1a;
 }
