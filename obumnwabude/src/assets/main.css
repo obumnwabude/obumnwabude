@@ -37,7 +37,7 @@ body.dark .p-component-overlay.p-sidebar-mask {
   background-color: #fff6 !important;
 }
 
-body.dark #theme-menu .p-menuitem-content:hover {
+body.dark .p-menu .p-menuitem-content:hover {
   background-color: #222;
 }
 
@@ -95,12 +95,20 @@ ul li {
   margin-top: auto;
 }
 
-#theme-menu {
+.p-menu {
   background-color: var(--app-bg);
 }
 
-#theme-menu [menu-item] {
+.p-menu [menu-item] {
+  align-items: center;
   color: var(--text);
+  display: flex;
+  padding: 0.5rem;
+}
+
+.p-menu [menu-item] svg {
+  line-height: 0;
+  margin-right: 1rem;
 }
 
 @media (max-width: 767.98px) {

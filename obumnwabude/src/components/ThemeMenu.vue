@@ -37,7 +37,7 @@ const theme = useThemeStore();
     <component :is="icons()[full ? theme.currentIcon : theme.reverseIcon]" />
     <span>{{ theme.mode }}</span>
   </button>
-  <Menu ref="menu" id="theme-menu" :model="items" :popup="true">
+  <Menu ref="menu" id="theme-menu" class="p-menu" :model="items" :popup="true">
     <template #item="{ item, props }">
       <button menu-item v-bind="props.action">
         <component :is="icons()[item.label as ThemeMode]" />
@@ -71,16 +71,5 @@ button {
 
 [main]:not(.full) span {
   display: none;
-}
-
-[menu-item] {
-  align-items: center;
-  display: flex;
-  padding: 0.5rem;
-}
-
-[menu-item] svg {
-  line-height: 0;
-  margin-right: 1rem;
 }
 </style>
