@@ -1,17 +1,22 @@
 import { defineStore } from 'pinia';
 import { onMounted, ref } from 'vue';
 
-export type ThemeMode = 'Dark Theme' | 'Light Theme' | 'System Mode';
+export type ThemeMode = 'Dark Theme' | 'Light Theme' | 'Device Default';
 
-export const themes: ThemeMode[] = ['Dark Theme', 'Light Theme', 'System Mode'];
+export const themes: ThemeMode[] = [
+  'Dark Theme',
+  'Light Theme',
+  'Device Default',
+];
 
 const isThemeMode = (value: any): value is ThemeMode => themes.includes(value);
 
 export const useThemeStore = defineStore('theme', () => {
-  // used in desktop header to show the reverse of the current theme
-  const icon = ref<ThemeMode>('Dark Theme');
+  const currentIcon = ref<ThemeMode>('Light Theme');
+  const reverseIcon = ref<ThemeMode>('Dark Theme');
+  const systemIcon = ref<ThemeMode>('Light Theme');
 
-  const mode = ref<ThemeMode>('System Mode');
+  const mode = ref<ThemeMode>('Device Default');
 
   const css = () => {
     if (mode.value == 'Dark Theme') {
@@ -27,9 +32,17 @@ export const useThemeStore = defineStore('theme', () => {
       document.body.classList.remove('dark');
     }
 
-    icon.value = document.body.classList.contains('dark')
+    currentIcon.value = document.body.classList.contains('dark')
+      ? 'Dark Theme'
+      : 'Light Theme';
+    reverseIcon.value = document.body.classList.contains('dark')
       ? 'Light Theme'
       : 'Dark Theme';
+    systemIcon.value =
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'Dark Theme'
+        : 'Light Theme';
   };
 
   const set = (value: ThemeMode) => {
@@ -46,10 +59,8 @@ export const useThemeStore = defineStore('theme', () => {
 
     window
       .matchMedia('(prefers-color-scheme: dark)')
-      .addEventListener('change', () => {
-        if (mode.value == 'System Mode') css();
-      });
+      .addEventListener('change', css);
   });
 
-  return { icon, mode, set };
+  return { currentIcon, mode, reverseIcon, set, systemIcon };
 });

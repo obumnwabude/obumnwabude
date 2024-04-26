@@ -2,17 +2,16 @@
 const { full } = defineProps(['full']);
 import IconMoon from '@/icons/IconMoon.vue';
 import IconSun from '@/icons/IconSun.vue';
-import IconSync from '@/icons/IconSync.vue';
 import { useSidebarStore } from '@/stores/sidebar';
 import { themes, useThemeStore, type ThemeMode } from '@/stores/theme';
 import Menu from 'primevue/menu';
 import { ref } from 'vue';
 
-const icons = {
+const icons = () => ({
   'Dark Theme': IconMoon,
   'Light Theme': IconSun,
-  'System Mode': IconSync,
-};
+  'Device Default': theme.systemIcon == 'Dark Theme' ? IconMoon : IconSun,
+});
 const items = ref(
   themes.map((mode) => ({
     label: mode,
@@ -35,13 +34,13 @@ const theme = useThemeStore();
     aria-controls="theme-menu"
     :class="{ full }"
   >
-    <component :is="icons[full ? theme.mode : theme.icon]" />
+    <component :is="icons()[full ? theme.currentIcon : theme.reverseIcon]" />
     <span>{{ theme.mode }}</span>
   </button>
   <Menu ref="menu" id="theme-menu" :model="items" :popup="true">
     <template #item="{ item, props }">
       <button menu-item v-bind="props.action">
-        <component :is="icons[item.label as ThemeMode]" />
+        <component :is="icons()[item.label as ThemeMode]" />
         {{ item.label }}
       </button>
     </template>
