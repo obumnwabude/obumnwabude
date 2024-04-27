@@ -36,9 +36,9 @@ const menu = ref();
     <Menu
       ref="menu"
       id="contact-menu"
-      class="p-menu"
       :model="items"
       :popup="true"
+      :style="{ color }"
     >
       <template #item="{ item, props }">
         <a
@@ -47,6 +47,7 @@ const menu = ref();
           :href="hrefs[item.label as any]"
           v-bind="props.action"
           menu-item
+          :style="{ color }"
         >
           <component :is="icons[item.label as any]" />
           {{ item.label }}

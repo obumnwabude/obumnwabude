@@ -111,6 +111,10 @@ ul li {
   margin-right: 1rem;
 }
 
+#contact-menu {
+  border-color: currentColor;
+}
+
 @media (max-width: 767.98px) {
   #app {
     padding-top: 4rem;
