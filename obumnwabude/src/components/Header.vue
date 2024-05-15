@@ -3,7 +3,6 @@ import ContactMe from '@/components/ContactMe.vue';
 import ThemeMenu from '@/components/ThemeMenu.vue';
 import IconMenu from '@/icons/IconMenu.vue';
 import { useSidebarStore } from '@/stores/sidebar';
-import Button from 'primevue/button';
 
 const capitalize = (s: string) => s[0].toUpperCase() + s.substring(1);
 const sidebar = useSidebarStore();
