@@ -26,8 +26,7 @@ const months = [
     with Flutter, about Tech Communities, web development, my stories, and
     anything worth sharing.
     <br /><br />
-    Here are articles I've written over the years. I published them on my blogs.
-    I have also been a guest author for blogs like
+    Here are articles I've written over the years. For some, I published them on my blogs. For others, they were guest authorship for blogs like
     <a
       href="https://www.css-tricks.com/author/obumnwabude"
       rel="noopener noreferrer"
@@ -49,7 +48,10 @@ const months = [
       article
       v-for="{ image, date, title, description, link, publishedOn } of articles"
     >
-      <img :src="`/assets/images/${image.name}.jpg`" :alt="image.alt" />
+      <img
+        :src="`/assets/images/${image.name}.${image.png ? 'png' : 'jpg'}`"
+        :alt="image.alt"
+      />
       <div text>
         <p date>{{ months[date.month] }} {{ date.year }}</p>
         <h3>{{ title }}</h3>
@@ -58,7 +60,12 @@ const months = [
           <p published-on>
             Published On: <span primary>{{ publishedOn }}</span>
           </p>
-          <a :href="link" target="_blank" rel="noopener noreferer">
+          <a
+            :href="link"
+            target="_blank"
+            rel="noopener noreferer"
+            aria-label="Read"
+          >
             <button icon><IconRight /></button>
           </a>
         </div>
@@ -89,6 +96,7 @@ h2 {
 
 [article] [text] {
   padding: 1rem;
+  flex-grow: 1;
 }
 
 [date],

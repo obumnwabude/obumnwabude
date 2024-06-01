@@ -1,12 +1,29 @@
 export const articles = [
   {
+    title: 'How is Flutter Platform-Agnostic?',
+    date: { month: 5, year: 2024 },
+    description:
+      'Explore how Flutter is platform-agnostic through how it renders user interfaces and through platform channels.',
+    image: { alt: '', name: 'flutter-platform-agnostic' },
+    link: 'https://www.freecodecamp.org/news/how-is-flutter-platform-agnostic/',
+    publishedOn: 'freeCodeCamp',
+  },
+  {
+    title: 'How to Always Have A BuildContext in Flutter Outside of UI Code',
+    date: { month: 4, year: 2024 },
+    description:
+      'Explore how you can obtain a valid BuildContext outside the scope of its natural availability',
+    image: { alt: '', name: 'flutter-always-build-context' },
+    link: 'https://www.freecodecamp.org/news/how-to-always-have-a-buildcontext-in-flutter-outside-ui-code/',
+    publishedOn: 'freeCodeCamp',
+  },
+  {
     title: 'How to structure any booking/reservation system with Firebase',
     date: { month: 9, year: 2023 },
     description:
       'Check out this one other thing that you can do with Firebase.',
     image: { alt: '', name: 'firebase-booking' },
-    link:
-      'https://stories.obumnwabude.com/how-to-structure-any-booking-reservation-system-with-firebase-e7f1774e848e',
+    link: 'https://stories.obumnwabude.com/how-to-structure-any-booking-reservation-system-with-firebase-e7f1774e848e',
     publishedOn: 'Medium',
   },
   {
@@ -33,8 +50,7 @@ export const articles = [
     description:
       "You want to lock out malicious access to your account. But you don't want out yourself.",
     image: { alt: '', name: '2fa-security' },
-    link:
-      'https://www.freecodecamp.org/news/how-to-prevent-account-loss-when-using-two-factor-authentication/',
+    link: 'https://www.freecodecamp.org/news/how-to-prevent-account-loss-when-using-two-factor-authentication/',
     publishedOn: 'freeCodeCamp',
   },
   {
@@ -52,8 +68,7 @@ export const articles = [
     description:
       'Learn how to bypass CORS issues making API calls through a CORS server that you setup for free yourself with Firebase.',
     image: { alt: '', name: 'firebase-cors-proxy' },
-    link:
-      'https://stories.obumnwabude.com/how-to-create-a-cors-proxy-server-with-firebase-functions-f4be840026b5',
+    link: 'https://stories.obumnwabude.com/how-to-create-a-cors-proxy-server-with-firebase-functions-f4be840026b5',
     publishedOn: 'Medium',
   },
   {
@@ -81,8 +96,7 @@ export const articles = [
     description:
       'Learn causes of poison messages in a message broker. Also learn how to restore them in both Memphis.dev and RabbitMQ.',
     image: { alt: '', name: 'restore-poison-messages' },
-    link:
-      'https://dev.to/obumnwabude/how-to-restore-poison-messages-or-dead-letters-from-memphis-broker-vs-rabbitmq-4d54',
+    link: 'https://dev.to/obumnwabude/how-to-restore-poison-messages-or-dead-letters-from-memphis-broker-vs-rabbitmq-4d54',
     publishedOn: 'Dev.to',
   },
   {
@@ -100,8 +114,7 @@ export const articles = [
     description:
       'Learn how to setup and use Memphis, NestJS, and gRPC to come up with a simple chatting application',
     image: { alt: '', name: 'memphis-nestjs-real-time-chat-app' },
-    link:
-      'https://dev.to/obumnwabude/how-to-build-a-real-time-app-with-nestjs-and-memphis-broker-27fm',
+    link: 'https://dev.to/obumnwabude/how-to-build-a-real-time-app-with-nestjs-and-memphis-broker-27fm',
     publishedOn: 'Dev.to',
   },
   {
@@ -110,8 +123,7 @@ export const articles = [
     description:
       'Learn how to access the source code of a given package on pub.dev, understand how it works, and customize it.',
     image: { alt: '', name: 'customize-flutter-packages' },
-    link:
-      'https://sweetcode.io/how-to-customize-flutter-packages-to-suit-your-needs/',
+    link: 'https://sweetcode.io/how-to-customize-flutter-packages-to-suit-your-needs/',
     publishedOn: 'SweetCode',
   },
   {
@@ -120,8 +132,7 @@ export const articles = [
     description:
       "Reviews the available tools, decision choices, and factors that influenced choosing Angular for the project's frontend.",
     image: { alt: '', name: 'angular-url-shortener' },
-    link:
-      'https://css-tricks.com/why-i-chose-angular-to-build-a-url-shortener/',
+    link: 'https://css-tricks.com/why-i-chose-angular-to-build-a-url-shortener/',
     publishedOn: 'CSS-Tricks',
   },
   {
@@ -130,8 +141,7 @@ export const articles = [
     description:
       'Explains what Stacked architecture is and guides you through creating a simple Todo App in Flutter with Stacked.',
     image: { alt: 'Article Cover', name: 'fcc-flutter-stacked-todo' },
-    link:
-      'https://www.freecodecamp.org/news/flutter-stacked-architecture-todo-app/',
+    link: 'https://www.freecodecamp.org/news/flutter-stacked-architecture-todo-app/',
     publishedOn: 'freeCodeCamp',
   },
   {
@@ -149,8 +159,7 @@ export const articles = [
     description:
       'Step-by-step guide on getting your personal URL Shortener for FREE.',
     image: { alt: '', name: 'firebase-url-shortener' },
-    link:
-      'https://medium.com/firebase-developers/firebase-url-shortener-7754377478e0',
+    link: 'https://medium.com/firebase-developers/firebase-url-shortener-7754377478e0',
     publishedOn: 'Firebase Blog',
   },
   {
@@ -159,8 +168,7 @@ export const articles = [
     description:
       'A guide that will help you convert any user interface image, piece, or screen into Flutter code.',
     image: { alt: 'Article Cover', name: 'fcc-any-ui-flutter' },
-    link:
-      'https://www.freecodecamp.org/news/how-to-implement-any-ui-in-flutter/',
+    link: 'https://www.freecodecamp.org/news/how-to-implement-any-ui-in-flutter/',
     publishedOn: 'freeCodeCamp',
   },
   {
@@ -196,8 +204,7 @@ export const articles = [
     description:
       "Community works for many people and it will work for you too. We are talking of huge benefits you won't find in other places.",
     image: { alt: '', name: 'gains-from-communities' },
-    link:
-      'https://blog.obumnwabude.com/5-things-you-will-gain-from-tech-communities',
+    link: 'https://blog.obumnwabude.com/5-things-you-will-gain-from-tech-communities',
     publishedOn: 'Hashnode',
   },
   {
@@ -206,8 +213,7 @@ export const articles = [
     description:
       'Give back to the community. The active participation of community members is the fuel that fires the life of a given tech community.',
     image: { alt: '', name: 'contribute-tech-communities' },
-    link:
-      'https://blog.obumnwabude.com/10-ways-to-contribute-to-tech-communities',
+    link: 'https://blog.obumnwabude.com/10-ways-to-contribute-to-tech-communities',
     publishedOn: 'Hashnode',
   },
   {
@@ -233,7 +239,7 @@ export const articles = [
     date: { month: 2, year: 2022 },
     description:
       "Serverless is a type of Microservices architecture that involves the browser doing the majority of the website's workload.",
-    image: { alt: '', name: 'serverless-architecture' },
+    image: { alt: '', name: 'serverless-architecture', png: true },
     link: 'https://keepdeploying.com/67bbbcd7ddd6',
     publishedOn: 'Keep Deploying',
   },
@@ -243,8 +249,7 @@ export const articles = [
     description:
       'Explains form creation with Flutter. Includes iteration, validation, and user feedback.',
     image: { alt: '', name: 'flutter-form' },
-    link:
-      'https://dev.to/obumnwabude/how-to-build-a-flutter-form-for-managing-questions-and-their-answers-4h4l',
+    link: 'https://dev.to/obumnwabude/how-to-build-a-flutter-form-for-managing-questions-and-their-answers-4h4l',
     publishedOn: 'DEV',
   },
   {
