@@ -138,3 +138,11 @@ ul li {
     max-width: 1440px;
   }
 }
+
+[underline] {
+  text-decoration: underline;
+}
+
+[primary] {
+  color: var(--primary);
+}

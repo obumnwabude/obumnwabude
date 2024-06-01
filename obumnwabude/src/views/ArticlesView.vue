@@ -29,25 +29,26 @@ const months = [
   <h2>ARTICLES</h2>
   <p intro>
     I write articles on various topics. I write about mobile app development
-    with Flutter, about Tech Communities, and other tech-related topics.
+    with Flutter, about Tech Communities, web development, my stories, and
+    anything worth sharing.
     <br /><br />
-    Here are articles I've written over the years. They got published in great
-    blogs like
+    Here are articles I've written over the years. I published them on my blogs.
+    I have also been a guest author for blogs like
     <a
-      href="https://www.css-tricks.com"
+      href="https://www.css-tricks.com/author/obumnwabude"
       rel="noopener noreferrer"
       target="_blank"
+      underline
       >CSS-Tricks</a
-    >,
+    >
+    and
     <a
-      href="https://www.freeCodeCamp.org"
+      href="https://www.freeCodeCamp.org/news/author/obumnwabude"
       rel="noopener noreferrer"
       target="_blank"
+      underline
       >freeCodeCamp</a
-    >,
-    <a href="https://www.sweetcode.io" rel="noopener noreferrer" target="_blank"
-      >Sweetcode</a
-    >, among others.
+    >.
   </p>
   <div articles>
     <div article>
@@ -55,15 +56,17 @@ const months = [
         :src="`/assets/images/${article.image.name}.jpg`"
         :alt="article.image.alt"
       />
-      <div content>
+      <div text>
         <p date>{{ months[article.date.month] }} {{ article.date.year }}</p>
         <h3>{{ article.title }}</h3>
-        <p>{{ article.description }}</p>
+        <p description>{{ article.description }}</p>
         <div bottom>
-          <p>
-            Published On: <span published-on>{{ article.publishedOn }}</span>
+          <p published-on>
+            Published On: <span primary>{{ article.publishedOn }}</span>
           </p>
-          <button icon><IconRight /></button>
+          <a :href="article.link" target="_blank" rel="noopener noreferer">
+            <button icon><IconRight /></button>
+          </a>
         </div>
       </div>
     </div>
@@ -74,41 +77,41 @@ const months = [
 h2 {
   font-weight: 500;
   font-size: 2rem;
-  margin-bottom: 1rem;
+  margin: 0 auto 1rem;
+  max-width: 1024px;
 }
 
-[intro] {
-  margin-bottom: 2rem;
-  max-width: 768px;
+[intro],
+[articles] {
+  margin: 0 auto 5rem;
+  max-width: 1024px;
 }
 
 [article] {
-  border: 10px solid rgba(var(--text), 0.3);
+  border: 1px solid rgb(from var(--text) r g b / 25%);
   border-radius: 8px;
+  margin: 0 auto 2rem;
 }
 
-[article] img {
-  width: 100%;
+[article] [text] {
+  padding: 1rem;
 }
 
-[date] {
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
+[date],
+[published-on] {
+  font-size: 0.75rem;
 }
 
 [article] h3 {
   font-size: 1.5rem;
   font-weight: 500;
-  margin-bottom: 1rem;
+  line-height: 1.2;
 }
 
 [article] [bottom] {
+  align-items: center;
   display: flex;
   justify-content: space-between;
-}
-
-[published-on] {
-  color: var(--primary);
 }
 
 [icon] {
@@ -118,8 +121,40 @@ h2 {
   padding: 0.25rem;
 }
 
-@media (max-width: 511.98px) {
+@media (max-width: 767.98px) {
   [article] {
+    max-width: 384px;
+  }
+
+  [article] img {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    width: 100%;
+  }
+
+  [article] [date],
+  [article] h3,
+  [article] [description] {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  [article] {
+    display: flex;
+  }
+
+  [article] img {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    object-fit: cover;
+    width: 30%;
+  }
+
+  [article] [date],
+  [article] h3,
+  [article] [description] {
+    margin-bottom: 0.5rem;
   }
 }
 </style>
