@@ -1,13 +1,7 @@
 <script setup lang="ts">
+import { articles } from '@/content/articles';
 import IconRight from '@/icons/IconRight.vue';
-const article = {
-  title: 'How to structure any booking/reservation system with Firebase',
-  date: { month: 9, year: 2023 },
-  description: 'Check out this one other thing that you can do with Firebase.',
-  image: { alt: '', name: 'firebase-booking' },
-  link: 'https://stories.obumnwabude.com/how-to-structure-any-booking-reservation-system-with-firebase-e7f1774e848e',
-  publishedOn: 'Medium',
-};
+
 const months = [
   '',
   'January',
@@ -51,20 +45,20 @@ const months = [
     >.
   </p>
   <div articles>
-    <div article>
-      <img
-        :src="`/assets/images/${article.image.name}.jpg`"
-        :alt="article.image.alt"
-      />
+    <div
+      article
+      v-for="{ image, date, title, description, link, publishedOn } of articles"
+    >
+      <img :src="`/assets/images/${image.name}.jpg`" :alt="image.alt" />
       <div text>
-        <p date>{{ months[article.date.month] }} {{ article.date.year }}</p>
-        <h3>{{ article.title }}</h3>
-        <p description>{{ article.description }}</p>
+        <p date>{{ months[date.month] }} {{ date.year }}</p>
+        <h3>{{ title }}</h3>
+        <p description>{{ description }}</p>
         <div bottom>
           <p published-on>
-            Published On: <span primary>{{ article.publishedOn }}</span>
+            Published On: <span primary>{{ publishedOn }}</span>
           </p>
-          <a :href="article.link" target="_blank" rel="noopener noreferer">
+          <a :href="link" target="_blank" rel="noopener noreferer">
             <button icon><IconRight /></button>
           </a>
         </div>
@@ -90,7 +84,7 @@ h2 {
 [article] {
   border: 1px solid rgb(from var(--text) r g b / 25%);
   border-radius: 8px;
-  margin: 0 auto 2rem;
+  margin: 0 auto 3rem;
 }
 
 [article] [text] {
