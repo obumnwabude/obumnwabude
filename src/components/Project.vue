@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { displayDate, type Project } from '@/types';
-import { defineProps } from 'vue';
 
 const { project } = defineProps<{ project: Project }>();
 const { date, image, title, description, actions, tags } = project;

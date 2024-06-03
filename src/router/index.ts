@@ -36,6 +36,9 @@ const router = createRouter({
       redirect: '/',
     },
   ],
+  scrollBehavior(_, __, saved) {
+    return saved ? saved : { top: 0 };
+  },
 });
 
 router.beforeEach((to, _, next) => {
