@@ -26,6 +26,7 @@ const { date, image, title, description, actions, tags } = project;
           rel="noopener noreferer"
           v-for="{ link, title } of actions"
           action
+          filled
         >
           {{ title }}
         </a>
@@ -82,9 +83,6 @@ const { date, image, title, description, actions, tags } = project;
 }
 
 [action] {
-  background-color: var(--primary);
-  border-radius: 32px;
-  color: var(--app-bg);
   flex-grow: 1;
   font-weight: 500;
   padding: 0.5rem 2rem;

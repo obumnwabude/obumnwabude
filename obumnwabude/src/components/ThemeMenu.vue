@@ -33,6 +33,7 @@ const theme = useThemeStore();
     aria-haspopup="true"
     aria-controls="theme-menu"
     :class="{ full }"
+    outlined
   >
     <component :is="icons()[full ? theme.currentIcon : theme.reverseIcon]" />
     <span>{{ theme.mode }}</span>

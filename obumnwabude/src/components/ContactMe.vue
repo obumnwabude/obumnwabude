@@ -30,6 +30,7 @@ const menu = ref();
     aria-controls="contact-menu"
     :style="{ color }"
     :class="{ icon }"
+    outlined
   >
     <IconDown v-if="icon" />
     Contact Me
@@ -78,5 +79,9 @@ button.icon {
 
 button.icon svg {
   margin-right: 0.5rem;
+}
+
+button[outlined]:hover {
+  color: var(--app-bg) !important;
 }
 </style>

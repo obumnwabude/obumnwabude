@@ -47,7 +47,7 @@ const years = new Date().getFullYear() - 2018;
     <div more>
       <span flower><IconFlower6P color="var(--primary)" /></span>
       <p>Of Course, There Are More.</p>
-      <router-link to="/projects">... All Projects</router-link>
+      <router-link to="/projects" outlined>... All Projects</router-link>
     </div>
   </section>
 
@@ -57,7 +57,7 @@ const years = new Date().getFullYear() - 2018;
     <div more>
       <span flower><IconFlower6P color="var(--primary)" /></span>
       <p>Of Course, There Are More.</p>
-      <router-link to="/articles">... All Articles</router-link>
+      <router-link to="/articles" outlined>... All Articles</router-link>
     </div>
   </section>
 
@@ -70,7 +70,7 @@ const years = new Date().getFullYear() - 2018;
     <div more>
       <span leading-flower><IconFlower6P color="var(--primary)" /></span>
       <p>Of Course, There Are More.</p>
-      <router-link to="/community">... All Events</router-link>
+      <router-link to="/community" outlined>... All Events</router-link>
     </div>
   </section>
 
@@ -198,9 +198,6 @@ section [more] p {
 }
 
 section [more] a {
-  border: 1px solid var(--primary);
-  border-radius: 32px;
-  color: var(--primary);
   font-weight: 500;
   padding: 0.5rem 3rem;
 }
