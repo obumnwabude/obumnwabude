@@ -115,6 +115,27 @@ ul li {
   border-color: currentColor;
 }
 
+[page-heading] {
+  font-weight: 500;
+  font-size: 2rem;
+  margin: 0 auto 1rem;
+  max-width: 1024px;
+}
+
+[page-intro],
+[page-content] {
+  margin: 0 auto 5rem;
+  max-width: 1024px;
+}
+
+[underline] {
+  text-decoration: underline;
+}
+
+[primary] {
+  color: var(--primary);
+}
+
 @media (max-width: 767.98px) {
   #app {
     padding-top: 4rem;
@@ -137,12 +158,4 @@ ul li {
     margin: 0 auto;
     max-width: 1440px;
   }
-}
-
-[underline] {
-  text-decoration: underline;
-}
-
-[primary] {
-  color: var(--primary);
 }

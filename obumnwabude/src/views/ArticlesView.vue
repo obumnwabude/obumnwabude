@@ -20,8 +20,8 @@ const months = [
 </script>
 
 <template>
-  <h2>ARTICLES</h2>
-  <p intro>
+  <h2 page-heading>ARTICLES</h2>
+  <p page-intro>
     I write articles on various topics. I write about mobile app development
     with Flutter, about Tech Communities, web development, my stories, and
     anything worth sharing.
@@ -43,7 +43,7 @@ const months = [
       >freeCodeCamp</a
     >.
   </p>
-  <div articles>
+  <div page-content>
     <div
       article
       v-for="{ image, date, title, description, link, publishedOn } of articles"
@@ -75,19 +75,6 @@ const months = [
 </template>
 
 <style scoped>
-h2 {
-  font-weight: 500;
-  font-size: 2rem;
-  margin: 0 auto 1rem;
-  max-width: 1024px;
-}
-
-[intro],
-[articles] {
-  margin: 0 auto 5rem;
-  max-width: 1024px;
-}
-
 [article] {
   border: 1px solid rgb(from var(--text) r g b / 25%);
   border-radius: 8px;
