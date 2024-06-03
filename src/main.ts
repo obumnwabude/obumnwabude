@@ -1,21 +1,26 @@
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { createPinia } from 'pinia';
+import PrimeVue from 'primevue/config';
+import { createApp } from 'vue';
+import VueGtag from 'vue-gtag';
 
-import { AppModule } from './app/app.module';
-import { environment } from './environments/environment';
+import App from './App.vue';
+import router from './router';
 
-if (environment.production) {
-  enableProdMode();
+import 'primevue/resources/themes/aura-light-green/theme.css';
+import './assets/main.css';
+
+const app = createApp(App);
+
+app.use(createPinia());
+app.use(PrimeVue, { ripple: true });
+app.use(router);
+
+if (!import.meta.env.DEV) {
+  app.use(
+    VueGtag,
+    { config: { id: import.meta.env.VITE_GA_MEASUREMENT_ID } },
+    router
+  );
 }
 
-function bootstrap() {
-  platformBrowserDynamic()
-    .bootstrapModule(AppModule)
-    .catch((err) => console.error(err));
-}
-
-if (document.readyState === 'complete') {
-  bootstrap();
-} else {
-  document.addEventListener('DOMContentLoaded', bootstrap);
-}
+app.mount('#app');
