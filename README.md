@@ -1,18 +1,16 @@
-<h1 align="center">Hi 👋, It's <b>Obum</b>.</h1>
+<h1 align="center">Hi, It's <b>Obum</b>.</h1>
 
 <br />
 
-<h3>I'm a Mobile and Fullstack Web Developer. 😎</h3>
-<h3>I've fallen in love with the <a href="https://flutter.dev">Flutter Framework</a>. 😇</h3>
-<h3>I'm active in tech communities around me. 🙈</h3>
-<h3>I'm a Microsoft Learn Student Ambassador. 🤩</h3>
+<h3>I'm a Full-Stack BlockChain, Mobile (Flutter), and Web Developer.</h3>
+<h3>I'm a Microsoft Learn Student Ambassador.</h3>
 <h3>
   I've led tech communities like
   <a href="https://github.com/gdscaefunai">@gdscaefunai</a> and
-  <a href="https://twitter.com/GenesysAEFUNAI">@GenesysAEFUNAI</a>. 🙇
+  <a href="https://twitter.com/GenesysAEFUNAI">@GenesysAEFUNAI</a>.
 </h3>
-<h3>I was once a trainer on the Google Digital Skills for Africa program. 💪</h3>
-<h3>I write articles and sometimes tell stories. ✍️</h3>
+<h3>I was once a trainer on the Google Digital Skills for Africa program.</h3>
+<h3>I write articles and sometimes tell stories.</h3>
 
 <h2></h2>
 
