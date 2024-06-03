@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import IconRight from '@/icons/IconRight.vue';
 import { displayDate, type Article } from '@/types';
-import { defineProps } from 'vue';
 
 const { article } = defineProps<{ article: Article }>();
 const { image, date, title, description, link, publishedOn } = article;
