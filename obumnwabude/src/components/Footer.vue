@@ -12,7 +12,8 @@ const year = new Date().getFullYear();
       <p><router-link to="/" obum>Obum</router-link></p>
       <nav>
         <ul>
-          <li v-for="link of ['about', 'projects', 'articles', 'community']">
+          <li><router-link to="/">About Me</router-link></li>
+          <li v-for="link of ['projects', 'articles', 'community']">
             <router-link :to="`/${link}`">{{ capitalize(link) }}</router-link>
           </li>
         </ul>

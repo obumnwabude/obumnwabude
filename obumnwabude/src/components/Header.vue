@@ -13,8 +13,8 @@ const sidebar = useSidebarStore();
     <h1><router-link to="/" obum>Obum</router-link></h1>
     <nav>
       <ul>
-        <li><router-link to="/">Home</router-link></li>
-        <li v-for="link of ['about', 'projects', 'articles', 'community']">
+        <li><router-link to="/">About Me</router-link></li>
+        <li v-for="link of ['projects', 'articles', 'community']">
           <router-link :to="`/${link}`">{{ capitalize(link) }}</router-link>
         </li>
       </ul>
@@ -125,6 +125,10 @@ header > div {
 }
 
 @media (min-width: 1200px) {
+  ul li:not(:last-of-type) {
+    margin-right: 2rem;
+  }
+
   li a {
     font-size: 1.25rem;
   }

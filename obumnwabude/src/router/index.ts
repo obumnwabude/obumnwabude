@@ -1,5 +1,5 @@
+import HomePage from '@/pages/HomePage.vue';
 import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '../views/HomeView.vue';
 
 const baseTitle = 'Obum (Obumuneme Nwabude)';
 
@@ -9,31 +9,25 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView,
+      component: HomePage,
       meta: { title: baseTitle },
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: () => import('../views/AboutView.vue'),
-      meta: { title: `About | ${baseTitle}` },
     },
     {
       path: '/projects',
       name: 'projects',
-      component: () => import('../views/ProjectsView.vue'),
+      component: () => import('@/pages/ProjectsPage.vue'),
       meta: { title: `Projects | ${baseTitle}` },
     },
     {
       path: '/articles',
       name: 'articles',
-      component: () => import('../views/ArticlesView.vue'),
+      component: () => import('@/pages/ArticlesPage.vue'),
       meta: { title: `Articles | ${baseTitle}` },
     },
     {
       path: '/community',
       name: 'community',
-      component: () => import('../views/CommunityView.vue'),
+      component: () => import('@/pages/CommunityPage.vue'),
       meta: { title: `Community | ${baseTitle}` },
     },
     {
