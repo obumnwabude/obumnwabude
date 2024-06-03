@@ -2,6 +2,24 @@ import type { Project } from '@/types';
 
 export const community: Project[] = [
   {
+    title: '"Build With AI" Abakaliki',
+    date: { month: 4, year: 2024 },
+    description:
+      'Carried out a workshop on "Adding AI to your Flutter Apps using Google AI Dart SDK".',
+    image: { alt: 'Speaker Flyer', name: 'obum-build-with-ai' },
+    actions: [
+      {
+        link: 'https://gdg.community.dev/e/mm2fcy/',
+        title: 'About',
+      },
+      {
+        link: 'https://twitter.com/GDGAbakaliki/status/1782719581015961831',
+        title: 'Tweet',
+      },
+    ],
+    tags: ['Speaker', 'GDG'],
+  },
+  {
     title: 'DevFest Asaba 2023',
     date: { month: 12, year: 2023 },
     description: 'Spoke on "Using Streams and Services for Flutter State".',
