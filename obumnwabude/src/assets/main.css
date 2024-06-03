@@ -10,10 +10,10 @@
 
 :root {
   --app-bg: #fff;
-  --blue-core: #101e9f;
-  --blue-light: #03a9f4;
+  --blue-royal: #101e9f;
+  --blue-turquoise: #03a9f4;
   --gray: #808080;
-  --primary: var(--blue-core);
+  --primary: var(--blue-royal);
   --text: #1a1a1a;
 }
 
@@ -29,7 +29,7 @@ body {
 
 body.dark {
   --app-bg: #000;
-  --primary: var(--blue-light);
+  --primary: var(--blue-turquoise);
   --text: #fff;
 }
 
