@@ -8,33 +8,38 @@ const { image, date, title, description, link, publishedOn } = article;
 </script>
 
 <template>
-  <div article>
-    <img
-      :src="`/assets/${image.name}.${image.png ? 'png' : 'jpg'}`"
-      :alt="image.alt"
-    />
-    <div text>
-      <p date>{{ displayDate(date) }}</p>
-      <h3>{{ title }}</h3>
-      <p description>{{ description }}</p>
-      <div bottom>
-        <p published-on>
-          Published On: <span primary>{{ publishedOn }}</span>
-        </p>
-        <a
-          :href="link"
-          target="_blank"
-          rel="noopener noreferer"
-          aria-label="Read"
-        >
+  <a
+    :href="link"
+    target="_blank"
+    rel="noopener noreferer"
+    :title="title"
+    :aria-label="title"
+  >
+    <div article>
+      <img
+        :src="`/assets/${image.name}.${image.png ? 'png' : 'jpg'}`"
+        :alt="image.alt"
+      />
+      <div text>
+        <p date>{{ displayDate(date) }}</p>
+        <h3>{{ title }}</h3>
+        <p description>{{ description }}</p>
+        <div bottom>
+          <p published-on>
+            Published On: <span primary>{{ publishedOn }}</span>
+          </p>
           <button icon><IconRight /></button>
-        </a>
+        </div>
       </div>
     </div>
-  </div>
+  </a>
 </template>
 
 <style scoped>
+a:hover [article] {
+  background-color: rgb(from var(--primary) r g b / 15%);
+}
+
 [article] {
   border: 1px solid rgb(from var(--text) r g b / 25%);
   border-radius: 8px;
