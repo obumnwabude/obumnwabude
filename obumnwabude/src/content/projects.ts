@@ -10,7 +10,7 @@ export const projects = [
         title: 'Download on Google Play',
       },
     ],
-    technologies: ['Flutter'],
+    tags: ['Flutter'],
   },
   {
     title: 'obumnwabude',
@@ -26,7 +26,7 @@ export const projects = [
         title: 'Source Code on GitHub',
       },
     ],
-    technologies: ['Vue', 'Firebase'],
+    tags: ['Vue', 'Firebase'],
   },
   {
     title: 'CTLearn',
@@ -39,7 +39,7 @@ export const projects = [
         title: 'Download on Google Play',
       },
     ],
-    technologies: ['Flutter'],
+    tags: ['Flutter'],
   },
   {
     title: 'Todo',
@@ -52,7 +52,7 @@ export const projects = [
         title: 'Source Code on GitHub',
       },
     ],
-    technologies: ['Flutter'],
+    tags: ['Flutter'],
   },
   {
     title: 'LinkedIn Class',
@@ -69,7 +69,7 @@ export const projects = [
         title: 'Source Code',
       },
     ],
-    technologies: ['Angular', 'Firebase'],
+    tags: ['Angular', 'Firebase'],
   },
   {
     title: 'Calculator',
@@ -82,7 +82,7 @@ export const projects = [
         title: 'Source Code on GitHub',
       },
     ],
-    technologies: ['Flutter'],
+    tags: ['Flutter'],
   },
   {
     title: 'obum.me',
@@ -95,7 +95,7 @@ export const projects = [
         title: 'Source Code on GitHub',
       },
     ],
-    technologies: ['Firebase', 'Angular'],
+    tags: ['Firebase', 'Angular'],
   },
   {
     title: 'Tutorial Management System',
@@ -112,7 +112,7 @@ export const projects = [
         title: 'Source Code',
       },
     ],
-    technologies: ['Angular', 'Firebase'],
+    tags: ['Angular', 'Firebase'],
   },
   {
     title: 'Genesys Community',
@@ -129,7 +129,7 @@ export const projects = [
         title: 'Source Code',
       },
     ],
-    technologies: ['Angular', 'Firebase'],
+    tags: ['Angular', 'Firebase'],
   },
   {
     title: 'Battery Info',
@@ -142,7 +142,7 @@ export const projects = [
         title: 'Source Code on GitHub',
       },
     ],
-    technologies: ['Flutter'],
+    tags: ['Flutter'],
   },
   {
     title: 'Mmèmmè',
@@ -155,7 +155,7 @@ export const projects = [
         title: 'Visit Preview',
       },
     ],
-    technologies: ['Flutter', 'Firebase'],
+    tags: ['Flutter', 'Firebase'],
   },
   {
     title: 'Christmas Cantata Quiz',
@@ -168,7 +168,7 @@ export const projects = [
         title: 'Source Code on GitHub',
       },
     ],
-    technologies: ['Angular', 'Firebase'],
+    tags: ['Angular', 'Firebase'],
   },
   {
     title: 'My Notes',
@@ -185,7 +185,7 @@ export const projects = [
         title: 'Source Code',
       },
     ],
-    technologies: ['Firebase'],
+    tags: ['Firebase'],
   },
   {
     title: 'GitHub Invite',
@@ -202,7 +202,7 @@ export const projects = [
         title: 'Source Code',
       },
     ],
-    technologies: ['NodeJS'],
+    tags: ['NodeJS'],
   },
   {
     title: 'ECX #30DaysOfCode',
@@ -215,7 +215,7 @@ export const projects = [
         title: 'Submissions',
       },
     ],
-    technologies: ['NodeJS'],
+    tags: ['NodeJS'],
   },
   {
     title: 'Wolverstore',
@@ -231,6 +231,6 @@ export const projects = [
         title: 'Source Code',
       },
     ],
-    technologies: ['NodeJS'],
+    tags: ['NodeJS'],
   },
 ];

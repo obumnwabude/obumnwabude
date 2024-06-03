@@ -12,15 +12,15 @@ import { projects } from '@/content/projects';
   <div page-content>
     <div
       project
-      v-for="{ image, title, description, actions, technologies } of projects"
+      v-for="{ image, title, description, actions, tags } of projects"
     >
       <img
         :src="`/assets/${image.name}.${image.png ? 'png' : 'jpg'}`"
         :alt="image.alt"
       />
       <div text>
-        <p technologies>
-          <span primary tech v-for="tech of technologies">{{ tech }}</span>
+        <p tags>
+          <span primary tag v-for="tag of tags">{{ tag }}</span>
         </p>
         <h3>{{ title }}</h3>
         <p description>{{ description }}</p>
@@ -50,14 +50,14 @@ import { projects } from '@/content/projects';
   padding: 1rem 0;
 }
 
-[technologies] {
+[tags] {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 1rem;
 }
 
-[tech] {
+[tag] {
   background-color: rgb(from var(--primary) r g b / 12%);
   border-radius: 32px;
   font-size: 0.75rem;
@@ -106,7 +106,7 @@ import { projects } from '@/content/projects';
     width: 100%;
   }
 
-  [project] [technologies],
+  [project] [tags],
   [project] h3,
   [project] [description] {
     margin-bottom: 1rem;
