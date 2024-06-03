@@ -32,6 +32,19 @@ export interface Article extends Card {
   publishedOn: string;
 }
 
+export const banners = [
+  'Web3 Dev',
+  'Solana (Rust)',
+  'EVM (Solidity)',
+  'Mobile Dev',
+  'Flutter (Dart)',
+  'Frontend',
+  'Backend (NodeJS)',
+  'Technical Writing',
+  'Community',
+  'Vibes',
+];
+
 export const months = [
   '',
   'January',
