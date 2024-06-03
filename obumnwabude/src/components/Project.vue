@@ -1,12 +1,9 @@
 <script setup lang="ts">
 import { displayDate, type Project } from '@/types';
-import { defineProps, onMounted } from 'vue';
+import { defineProps } from 'vue';
 
 const { project } = defineProps<{ project: Project }>();
 const { date, image, title, description, actions, tags } = project;
-onMounted(() => {
-  if (date) tags.unshift(displayDate(date));
-});
 </script>
 
 <template>
@@ -19,6 +16,7 @@ onMounted(() => {
       <p tags>
         <span primary tag v-for="tag of tags">{{ tag }}</span>
       </p>
+      <p date v-if="date">{{ displayDate(date) }}</p>
       <h3>{{ title }}</h3>
       <p description>{{ description }}</p>
       <div actions>
@@ -58,6 +56,11 @@ onMounted(() => {
   border-radius: 32px;
   font-size: 0.75rem;
   padding: 0.3rem 0.8rem;
+}
+
+[date] {
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
 }
 
 [project] h3 {
