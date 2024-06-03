@@ -1,4 +1,6 @@
-export const articles = [
+import type { Article } from '@/types';
+
+export const articles: Article[] = [
   {
     title: 'How is Flutter Platform-Agnostic?',
     date: { month: 5, year: 2024 },
