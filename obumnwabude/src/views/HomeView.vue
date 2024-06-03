@@ -33,7 +33,7 @@ const years = new Date().getFullYear() - 2018;
     </div>
     <div>
       <div gray></div>
-      <img src="/assets/images/obum.jpg" />
+      <img src="/assets/obum.jpg" />
     </div>
   </div>
 

@@ -49,7 +49,7 @@ const months = [
       v-for="{ image, date, title, description, link, publishedOn } of articles"
     >
       <img
-        :src="`/assets/images/${image.name}.${image.png ? 'png' : 'jpg'}`"
+        :src="`/assets/${image.name}.${image.png ? 'png' : 'jpg'}`"
         :alt="image.alt"
       />
       <div text>

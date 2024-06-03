@@ -15,7 +15,7 @@ import { projects } from '@/content/projects';
       v-for="{ image, title, description, actions, technologies } of projects"
     >
       <img
-        :src="`/assets/images/${image.name}.${image.png ? 'png' : 'jpg'}`"
+        :src="`/assets/${image.name}.${image.png ? 'png' : 'jpg'}`"
         :alt="image.alt"
       />
       <div text>
