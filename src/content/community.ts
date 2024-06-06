@@ -55,8 +55,8 @@ export const community: Project[] = [
         title: 'Slides',
       },
       {
-        link: 'https://twitter.com/GdgEnugu/status/1728772790776398079',
-        title: 'Tweet',
+        link: 'https://youtu.be/w9lD35D78N8',
+        title: 'Recording',
       },
     ],
     tags: ['Speaker', 'GDG'],

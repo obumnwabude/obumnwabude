@@ -2,6 +2,23 @@ import type { Project } from '@/types';
 
 export const projects: Project[] = [
   {
+    title: 'Chainbills',
+    description:
+      'First Cross-Chain Crypto payment gateway. Built with Wormhole. Receive any crypto on any chain from any one.',
+    image: { alt: 'Display of Chainbills', name: 'chainbills', png: true },
+    actions: [
+      {
+        link: 'https://chainbills.xyz',
+        title: 'Get Started',
+      },
+      {
+        link: 'https://github.com/chainbills/chainbills',
+        title: 'Source Code',
+      },
+    ],
+    tags: ['Web3', 'Solidity', 'Solana'],
+  },
+  {
     title: 'WalletSMSLockr',
     description:
       'An App that with SMS end-to-end encryption for only you and intended recipients. We also use your device identifiers to securely encrypt your data in the vault.',
