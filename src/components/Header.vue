@@ -34,6 +34,8 @@ header {
   display: flex;
   left: 0;
   justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1440px;
   padding: 1rem 1.5rem;
   position: fixed;
   right: 0;
@@ -136,10 +138,20 @@ header > div {
 
 @media (min-width: 1440px) {
   header {
-    border-left: 2px dashed;
-    border-right: 2px dashed;
-    left: calc((100vw - 1440px) / 2);
-    right: calc((100vw - 1440px) / 2);
+    padding-top: 4.5rem;
+  }
+
+  header::before {
+    border-style: dashed;
+    border-width: 2px 2px 0 2px;
+    content: ' ';
+    display: block;
+    height: calc(100% - 3rem);
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    top: 3rem;
   }
 }
 </style>
