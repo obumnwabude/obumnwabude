@@ -18,8 +18,10 @@ const sidebar = useSidebarStore();
   >
     <nav>
       <ul>
-        <li><router-link to="/" @click="sidebar.close">Home</router-link></li>
-        <li v-for="link of ['about', 'projects', 'articles', 'community']">
+        <li>
+          <router-link to="/" @click="sidebar.close">About Me</router-link>
+        </li>
+        <li v-for="link of ['projects', 'articles', 'community']">
           <router-link :to="`/${link}`" @click="sidebar.close">{{
             capitalize(link)
           }}</router-link>
