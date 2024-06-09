@@ -6,7 +6,7 @@ import { community } from '@/content/community';
 <template>
   <h2 page-heading>CONTRIBUTING TO <span primary>COMMUNITY</span></h2>
   <p page-intro>
-    I actively volunteer in tech communities in my locality. I am a volunteer at
+    I actively volunteer in tech communities in my locality. At
     <a
       href="https://developers.google.com/community/gdg"
       rel="noopener noreferrer"
@@ -14,46 +14,11 @@ import { community } from '@/content/community';
       underline
       >Google Developer Groups</a
     >
-    (GDG) Abakaliki. I am also a
-    <a
-      href="https://mvp.microsoft.com/studentambassadors"
-      rel="noopener noreferrer"
-      target="_blank"
-      underline
-      >Microsoft Learn Student Ambassador</a
-    >
-    (MLSA) in
-    <a
-      href="https://funai.edu.ng/"
-      rel="noopener noreferrer"
-      target="_blank"
-      underline
-      >Alex Ekwueme Federal University</a
-    >. In addition, I was the first
-    <a
-      href="https://developers.google.com/community/gdsc"
-      rel="noopener noreferrer"
-      target="_blank"
-      underline
-      >Google Developer Students Club</a
-    >
-    (GDSC) lead and also the first
-    <a
-      href="https://www.genesystechhub.com"
-      rel="noopener noreferrer"
-      target="_blank"
-      underline
-      >Genesys</a
-    >
-    Ambassador there too.
+    (GDG) Abakaliki, I assist in event organization, mentor beginner members and
+    help them in their tech journey.
     <br />
     <br />
-    In these roles, I organize events. In some, I just assist in event
-    organization. In the communities, I mentor beginner members and help them in
-    their tech journey.
-    <br />
-    <br />
-    Furthermore, I speak at tech events. I've spoken on
+    I also speak at tech events. I've spoken on
     <a
       href="https://flutter.dev"
       rel="noopener noreferrer"
