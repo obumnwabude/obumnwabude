@@ -61,7 +61,7 @@ export const articles: Article[] = [
     description:
       'Learn how to setup project name, app colors, fonts and themes in Flutter.',
     image: { alt: '', name: 'branding-flutter' },
-    link: 'https://sweetcode.io/what-does-branding-a-flutter-app-entail/',
+    link: 'https://web.archive.org/web/20230308132853/https://sweetcode.io/what-does-branding-a-flutter-app-entail/',
     publishedOn: 'SweetCode',
   },
   {
@@ -88,7 +88,7 @@ export const articles: Article[] = [
     description:
       'What we can do to minimize the language barrier faced by non-anglophone tech practitioners.',
     image: { alt: '', name: 'language-inclusion' },
-    link: 'https://sweetcode.io/how-to-assist-language-inclusion-in-tech/',
+    link: 'https://web.archive.org/web/20221205055458/https://sweetcode.io/how-to-assist-language-inclusion-in-tech/',
     publishedOn: 'SweetCode',
   },
   {
@@ -125,7 +125,7 @@ export const articles: Article[] = [
     description:
       'Learn how to access the source code of a given package on pub.dev, understand how it works, and customize it.',
     image: { alt: '', name: 'customize-flutter-packages' },
-    link: 'https://sweetcode.io/how-to-customize-flutter-packages-to-suit-your-needs/',
+    link: 'https://web.archive.org/web/20220803203854/https://sweetcode.io/how-to-customize-flutter-packages-to-suit-your-needs/',
     publishedOn: 'SweetCode',
   },
   {

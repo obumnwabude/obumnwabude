@@ -6,16 +6,67 @@ import { community } from '@/content/community';
 <template>
   <h2 page-heading>CONTRIBUTING TO <span primary>COMMUNITY</span></h2>
   <p page-intro>
-    I actively volunteer in tech communities in my locality. At
+    I actively volunteer in tech communities in my locality. I am
+    <a
+      href="https://developers.google.com/community/experts"
+      rel="noopener noreferrer"
+      target="_blank"
+      underline
+      >Google Developer Expert (GDE)</a
+    >
+    in the
+    <a
+      href="https://g.dev/obumnwabude"
+      rel="noopener noreferrer"
+      target="_blank"
+      underline
+      >Dart & Flutter</a
+    >
+    categories. At
     <a
       href="https://developers.google.com/community/gdg"
       rel="noopener noreferrer"
       target="_blank"
       underline
-      >Google Developer Groups</a
+      >Google Developer Groups (GDG)</a
     >
-    (GDG) Abakaliki, I assist in event organization, mentor beginner members and
-    help them in their tech journey.
+    Abakaliki, I assist in event organization, mentor beginner members and help
+    them in their tech journey.
+    <br />
+    <br />
+    I am a
+    <a
+      href="https://mvp.microsoft.com/studentambassadors"
+      rel="noopener noreferrer"
+      target="_blank"
+      underline
+      >Microsoft Learn Student Ambassador (MLSA)</a
+    >
+    in my school:
+    <a
+      href="https://funai.edu.ng"
+      rel="noopener noreferrer"
+      target="_blank"
+      underline
+      >Alex Ekwueme Federal University (AE-FUNAI)</a
+    >. Also, I was once the
+    <a
+      href="https://genesystechhub.com"
+      rel="noopener noreferrer"
+      target="_blank"
+      underline
+      >Genesys</a
+    >
+    Campus Club Ambassador for my school. In addition, in 2020/21, I was the
+    <a
+      href="https://developers.google.com/community/gdsc"
+      rel="noopener noreferrer"
+      target="_blank"
+      underline
+      >Google Developer Student Clubs (GDSC)</a
+    >
+    lead in my school. While holding these positions, I organized events for my
+    local student community.
     <br />
     <br />
     I also speak at tech events. I've spoken on

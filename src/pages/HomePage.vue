@@ -21,7 +21,7 @@ const years = new Date().getFullYear() - 2018;
       <p>
         I have been programming for {{ years }} years and counting. I've worked
         with great teams and have built one-of-a-kind solutions. I'm a pro in
-        Flutter, everything web dev, and also in web3 (Solana & Solidity).
+        Flutter, everything web dev, and also in web3 (Solana & Solidity). I am also a Google Developer Expert (GDE) in the Dart & Flutter categories.
       </p>
       <p contact><ContactMe color="var(--primary)" /></p>
     </div>

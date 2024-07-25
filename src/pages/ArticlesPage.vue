@@ -4,7 +4,7 @@ import { articles } from '@/content/articles';
 </script>
 
 <template>
-  <h2 page-heading>ARTICLES</h2>
+  <h2 page-heading>WRITING ARTICLES</h2>
   <p page-intro>
     I write articles on various topics. I write about mobile app development
     with Flutter, about Tech Communities, web development, my stories, and

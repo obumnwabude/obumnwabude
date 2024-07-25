@@ -2,7 +2,8 @@
 
 <br />
 
-<h3>I'm a Full-Stack BlockChain, Mobile (Flutter), and Web Developer.</h3>
+<h3>I'm a Full-Stack BlockChain, Mobile, and Web Developer.</h3>
+<h3>I'm a Google Developer Expert in the Dart & Flutter categories.</h3>
 <h3>I'm a Microsoft Learn Student Ambassador.</h3>
 <h3>
   I've led tech communities like

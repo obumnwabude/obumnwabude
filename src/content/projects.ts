@@ -19,6 +19,19 @@ export const projects: Project[] = [
     tags: ['Web3', 'Solidity', 'Solana'],
   },
   {
+    title: 'Confide',
+    description:
+      'Confide Community is a social network supporting your need to share confidences, hopes, dreams, problems, learn, inspire, and laughter.',
+    image: { alt: 'Confide Logo', name: 'confide', png: true },
+    actions: [
+      {
+        link: 'https://play.google.com/store/apps/details?id=com.confidecommunity.app',
+        title: 'Download on Google Play',
+      },
+    ],
+    tags: ['Flutter'],
+  },
+  {
     title: 'WalletSMSLockr',
     description:
       'An App that with SMS end-to-end encryption for only you and intended recipients. We also use your device identifiers to securely encrypt your data in the vault.',
@@ -97,8 +110,12 @@ export const projects: Project[] = [
     image: { alt: 'Screens of Calculator', name: 'calculator' },
     actions: [
       {
-        link: 'https://github.com/obumnwabude/calculator',
-        title: 'Source Code on GitHub',
+        link: 'https://play.google.com/store/apps/details?id=com.keepdeploying.calculator',
+        title: 'Google Play',
+      },
+      {
+        link: 'https://github.com/keepdeploying/calculator',
+        title: 'Source Code',
       },
     ],
     tags: ['Flutter'],

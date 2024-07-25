@@ -2,6 +2,56 @@ import type { Project } from '@/types';
 
 export const community: Project[] = [
   {
+    title: 'Google I/O Extended Asaba 2024',
+    date: { month: 7, year: 2024 },
+    description:
+      'Spoke on the updates in Dart & Flutter announced during 2024\'s Google I/O under the heading "Dart Macros & A Better Flutter".',
+    image: { alt: 'Obum speaking on stage', name: 'obum-io-asaba-24' },
+    actions: [
+      {
+        link: 'https://gdg.community.dev/e/mgcbfp/',
+        title: 'About',
+      },
+      {
+        link: 'https://x.com/GdgAsaba/status/1813937612245405801',
+        title: 'Tweet',
+      },
+    ],
+    tags: ['Speaker', 'GDG'],
+  },
+  {
+    title: 'Google I/O Extended Enugu 2024',
+    date: { month: 7, year: 2024 },
+    description:
+      'Spoke on the panel of "The Future of Mobile Development with AI-Embedded Chipsets" with other seasoned software engineers.',
+    image: { alt: 'Panelists for "Mobile & AI"', name: 'mobile-ai-panel' },
+    actions: [
+      {
+        link: 'https://youtu.be/hqz-8LjA4-E',
+        title: 'Recording',
+      },
+      {
+        link: 'https://gdg.community.dev/e/m2ru49/',
+        title: 'About',
+      },
+    ],
+    tags: ['Panelist', 'GDG'],
+  },
+  {
+    title: 'Build your Portfolio with GitHub Codespaces',
+    date: { month: 6, year: 2024 },
+    description:
+      'Demonstrated how GitHub Codespaces enables coding in the cloud while building and deploying a template portfolio website.',
+    image: { alt: 'Event Flyer', name: 'github-codespaces-portfolio' },
+    actions: [
+      {
+        link: 'https://youtu.be/nrL9IAS3Uy8',
+        title: 'Recording',
+      },
+    ],
+    tags: ['Speaker', 'MLSA'],
+  },
+  {
     title: '"Build With AI" Abakaliki',
     date: { month: 4, year: 2024 },
     description:
