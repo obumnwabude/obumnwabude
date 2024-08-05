@@ -25,8 +25,12 @@ export const projects: Project[] = [
     image: { alt: 'Confide Logo', name: 'confide', png: true },
     actions: [
       {
+        link: 'https://apps.apple.com/us/app/confide-join-our-community/id6503924952',
+        title: 'App Store',
+      },
+      {
         link: 'https://play.google.com/store/apps/details?id=com.confidecommunity.app',
-        title: 'Download on Google Play',
+        title: 'Google Play',
       },
     ],
     tags: ['Flutter'],
