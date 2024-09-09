@@ -36,6 +36,23 @@ export const projects: Project[] = [
     tags: ['Flutter'],
   },
   {
+    title: 'DevFest Abakaliki 2024',
+    description:
+      "DevFest is a global, decentralized tech conference hosted by GDG. Led the development for the GDG Abakaliki's DevFest website in 2024.",
+    image: { alt: 'DevFest Abakaliki 2024 Flyer', name: 'dfai24' },
+    actions: [
+      {
+        link: 'https://devfestabakaliki.com',
+        title: 'Get Ticket',
+      },
+      {
+        link: 'https://github.com/obumnwabude/devfestabakaliki2024',
+        title: 'Source Code',
+      },
+    ],
+    tags: ['React', 'Firebase'],
+  },
+  {
     title: 'WalletSMSLockr',
     description:
       'An App that with SMS end-to-end encryption for only you and intended recipients. We also use your device identifiers to securely encrypt your data in the vault.',
