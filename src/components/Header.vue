@@ -30,7 +30,7 @@ const sidebar = useSidebarStore();
 <style scoped>
 header {
   align-items: center;
-  background-color: var(--app-bg);
+  backdrop-filter: blur(10px);
   display: flex;
   left: 0;
   justify-content: space-between;
