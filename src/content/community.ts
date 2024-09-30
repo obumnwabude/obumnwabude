@@ -2,6 +2,24 @@ import type { Project } from '@/types';
 
 export const community: Project[] = [
   {
+    title: 'DevFest Afrique Francophone 2024',
+    date: { month: 9, year: 2024 },
+    description:
+      'Spoke in French about the various ways by which AI improves user experience in mobile applications.',
+    image: { alt: 'First Slide', name: 'obum-df24-af-fr' },
+    actions: [
+      {
+        link: 'https://youtu.be/rAt9UMLk0bs',
+        title: 'Recording',
+      },
+      {
+        link: 'https://docs.google.com/presentation/d/1ENiFeO5jBQ12it8-LZXgD1bwchKnJf6HnpIrq2pRwyc',
+        title: 'Slides',
+      },
+    ],
+    tags: ['Speaker', 'GDG'],
+  },
+  {
     title: 'Google I/O Extended Asaba 2024',
     date: { month: 7, year: 2024 },
     description:
