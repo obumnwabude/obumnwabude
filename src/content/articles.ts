@@ -2,6 +2,15 @@ import type { Article } from '@/types';
 
 export const articles: Article[] = [
   {
+    title: 'How to Use Streams and Services for Flutter State',
+    date: { month: 9, year: 2024 },
+    description:
+      "Explore an Easy and Flexible State Management Architecture in Flutter with rxdart's Stream manipulations and singleton classes.",
+    image: { alt: '', name: 'flutter-streams-and-services' },
+    link: 'https://www.freecodecamp.org/news/flutter-streams-and-services/',
+    publishedOn: 'freeCodeCamp',
+  },
+  {
     title: 'How is Flutter Platform-Agnostic?',
     date: { month: 5, year: 2024 },
     description:
