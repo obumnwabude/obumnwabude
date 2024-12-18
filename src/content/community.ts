@@ -2,6 +2,24 @@ import type { Project } from '@/types';
 
 export const community: Project[] = [
   {
+    title: 'DevFest Guinee 2024',
+    date: { month: 12, year: 2024 },
+    description:
+      'Spoke in French about the various ways by which AI improves user experience in mobile applications.',
+    image: { alt: 'First Slide', name: 'obum-df24-guinee' },
+    actions: [
+      {
+        link: 'https://gdg.community.dev/e/mr5n7u/',
+        title: 'About',
+      },
+      {
+        link: 'https://youtu.be/rAt9UMLk0bs',
+        title: 'Recording',
+      },
+    ],
+    tags: ['Speaker', 'GDG'],
+  },
+  {
     title: 'Learn About Azure Serverless Functions',
     date: { month: 12, year: 2024 },
     description:
