@@ -77,7 +77,7 @@ import { community } from '@/content/community';
       underline
       >Flutter</a
     >
-    on several occasions. I also was once a Trainer on the
+    on several occasions. Sometimes, I'm a panelist. I also was once a Trainer on the
     <a
       href="https://blog.google/around-the-globe/google-africa/digitalskillsforafrica-over-500000-people-africa-trained/"
       rel="noopener noreferrer"

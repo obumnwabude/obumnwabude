@@ -2,6 +2,165 @@ import type { Project } from '@/types';
 
 export const community: Project[] = [
   {
+    title: 'Learn About Azure Serverless Functions',
+    date: { month: 12, year: 2024 },
+    description:
+      'Explained when and how you can setup serverless compute with Azure.',
+    image: { alt: 'Recording Screenshot', name: 'learn-azure-functions' },
+    actions: [
+      {
+        link: 'https://youtu.be/qYfQhgpWuKA',
+        title: 'Recording',
+      },
+    ],
+    tags: ['Organizer', 'MLSA'],
+  },
+  {
+    title: 'DevFest Enugu 2024',
+    date: { month: 12, year: 2024 },
+    description:
+      'Handled the Community Event Opening Note on Culture and Technology',
+    image: { alt: 'Obum and SauceCode on Stage', name: 'obum-df24-enugu' },
+    actions: [
+      {
+        link: 'https://youtu.be/3HG1kEwbn9Y',
+        title: 'Recording',
+      },
+    ],
+    tags: ['Speaker', 'GDG'],
+  },
+  {
+    title: 'DevFest Calabar 2024',
+    date: { month: 12, year: 2024 },
+    description: 'Spoke on "Expert Tips for Flutter UI Performance".',
+    image: { alt: 'First Slide', name: 'obum-df24-calabar' },
+    actions: [
+      {
+        link: 'https://gdg.community.dev/e/m88tfc/',
+        title: 'About',
+      },
+      {
+        link: 'https://youtu.be/TYoEo6ghwJ0',
+        title: 'Recording',
+      },
+    ],
+    tags: ['Speaker', 'GDG'],
+  },
+  {
+    title: 'DevFest Ogbomoso 2024',
+    date: { month: 11, year: 2024 },
+    description: 'Spoke on "How to use Google AI for A/B Testing".',
+    image: { alt: 'Obum on Stage', name: 'obum-df24-ogbomoso' },
+    actions: [
+      {
+        link: 'https://gdg.community.dev/e/mjteas/',
+        title: 'About',
+      },
+      {
+        link: 'https://docs.google.com/presentation/d/19bcCL6lZo3GoAAcncShg9RGb_AKzJFMIhxXHTaWtcho/edit',
+        title: 'Slides',
+      },
+    ],
+    tags: ['Speaker', 'GDG'],
+  },
+  {
+    title: 'DevFest Kaduna 2024',
+    date: { month: 11, year: 2024 },
+    description: 'Spoke on "How AI Improves User Experience on Mobile".',
+    image: { alt: 'Obum on Stage', name: 'obum-df24-kaduna' },
+    actions: [
+      {
+        link: 'https://gdg.community.dev/e/m4k5p5/',
+        title: 'About',
+      },
+      {
+        link: 'https://docs.google.com/presentation/d/1CVaMWBfs6ZLJgQ4v5QIeSu5Rtj9zSPknyxX3WmxrOsM/edit',
+        title: 'Slides',
+      },
+    ],
+    tags: ['Speaker', 'GDG'],
+  },
+  {
+    title: 'DevFest Lagos 2024',
+    date: { month: 11, year: 2024 },
+    description:
+      'Carried out a workshop on "How to Build Android Bubbles in Flutter".',
+    image: { alt: 'Obum on Stage', name: 'obum-df24-lagos' },
+    actions: [
+      {
+        link: 'https://github.com/keepdeploying/bubbles_in_flutter_workshop',
+        title: 'Workshop Repo',
+      },
+      {
+        link: 'https://docs.google.com/presentation/d/1LcDe0-qkqzjDZKXbJLNMR2ca_LNRzY5M3EXPyhYpUHs/edit',
+        title: 'Slides',
+      },
+    ],
+    tags: ['Speaker', 'GDG'],
+  },
+  {
+    title: 'GDEs Panel - DevFest Lagos',
+    date: { month: 11, year: 2024 },
+    description:
+      'Was in the Panel of Dart & Flutter GDEs in Day 1 of DevFest Lagos 2024 where we discussed about Flutter.',
+    image: { alt: 'Photo of Panelists', name: 'df24-lagos-gdes-panel' },
+    actions: [
+      {
+        link: 'https://devfestlagos.com/',
+        title: 'About',
+      },
+    ],
+    tags: ['Panelist', 'GDG'],
+  },
+  {
+    title: 'DevFest Abakaliki 2024',
+    date: { month: 9, year: 2024 },
+    description: 'Spoke on "Expert Tips for Flutter UI Performance".',
+    image: { alt: 'First Slide', name: 'obum-df24-ai' },
+    actions: [
+      {
+        link: 'https://youtu.be/TYoEo6ghwJ0',
+        title: 'Recording',
+      },
+      {
+        link: 'https://docs.google.com/presentation/d/1d2H8eIFWhJypVSyvuVoExhcssxe97qj0E3qPA2-AE1w/edit',
+        title: 'Slides',
+      },
+    ],
+    tags: ['Speaker', 'GDG'],
+  },
+  {
+    title: 'FlutterBytes Conference 2024',
+    date: { month: 11, year: 2024 },
+    description: 'Spoke on "Bringing Blockchain & Web3 into Flutter".',
+    image: { alt: 'Attending Community', name: 'obum-fbc24-community' },
+    actions: [
+      {
+        link: 'https://www.youtube.com/live/dXrvd3nKKFE?t=2955s',
+        title: 'Recording',
+      },
+      {
+        link: 'https://docs.google.com/presentation/d/1SPV4RsfCZWjg_uE22DZhl14U_ER_hh4_MWnjRKG2eVs/edit',
+        title: 'Slides',
+      },
+    ],
+    tags: ['Speaker', 'FlutterBytesConf'],
+  },
+  {
+    title: 'GDEs Panel - FlutterBytesConf',
+    date: { month: 11, year: 2024 },
+    description:
+      'Was in the Panel of Dart & Flutter GDEs in Day 1 of FlutterBytesConf where we answered Flutter questions and had cool conversations.',
+    image: { alt: 'Photo of Stage', name: 'fbc24-gdes-panel' },
+    actions: [
+      {
+        link: 'https://www.flutterbytesconf.com/',
+        title: 'About',
+      },
+    ],
+    tags: ['Panelist', 'FlutterBytesConf'],
+  },
+  {
     title: 'DevFest Afrique Francophone 2024',
     date: { month: 9, year: 2024 },
     description:
@@ -67,7 +226,7 @@ export const community: Project[] = [
         title: 'Recording',
       },
     ],
-    tags: ['Speaker', 'MLSA'],
+    tags: ['Organizer', 'MLSA'],
   },
   {
     title: '"Build With AI" Abakaliki',
@@ -468,7 +627,7 @@ export const community: Project[] = [
         title: 'Recording',
       },
     ],
-    tags: ['Speaker', 'MLSA'],
+    tags: ['Organizer', 'MLSA'],
   },
   {
     title: 'Introduction to Flutter (Todo App)',
@@ -503,7 +662,7 @@ export const community: Project[] = [
         title: 'Recording',
       },
     ],
-    tags: ['Speaker', 'MLSA'],
+    tags: ['Organizer', 'MLSA'],
   },
   {
     title: 'Flutter Study Jam',

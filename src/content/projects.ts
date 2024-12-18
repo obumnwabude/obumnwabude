@@ -19,6 +19,27 @@ export const projects: Project[] = [
     tags: ['Web3', 'Solidity', 'Solana'],
   },
   {
+    title: 'Dado Food',
+    description:
+      'On-Demand Food Delivery Ecosystem with Customer, Rider, and Vendor Mobile Apps serving happy users with local food.',
+    image: { alt: 'Dado', name: 'dado', png: true },
+    actions: [{ link: 'https://dado.ng', title: 'All Apps' }],
+    tags: ['Flutter'],
+  },
+  {
+    title: 'Android Bubbles in Flutter',
+    description:
+      "Flutter Package that enables you to build Android's Conversation Bubbles in your Flutter App.",
+    image: { alt: '', name: 'android-bubbles-flutter' },
+    actions: [
+      {
+        link: 'https://github.com/keepdeploying/conversation_bubbles',
+        title: 'Package',
+      },
+    ],
+    tags: ['Flutter'],
+  },
+  {
     title: 'Confide',
     description:
       'Confide Community is a social network supporting your need to share confidences, hopes, dreams, problems, learn, inspire, and laughter.',

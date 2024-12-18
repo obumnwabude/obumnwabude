@@ -2,6 +2,15 @@ import type { Article } from '@/types';
 
 export const articles: Article[] = [
   {
+    title: 'How to Implement RBAC in a Community Dashboard with Nuxt',
+    date: { month: 11, year: 2024 },
+    description:
+      'Learn how to integrate Role Based Access Control (RBAC) with Permit.io in Nuxt to create different access levels in an example app.',
+    image: { alt: '', name: 'rbac-community-dashboard' },
+    link: 'https://www.freecodecamp.org/news/rbac-community-dashboard-with-nuxt/',
+    publishedOn: 'freeCodeCamp',
+  },
+  {
     title: 'How to Use Streams and Services for Flutter State',
     date: { month: 9, year: 2024 },
     description:
