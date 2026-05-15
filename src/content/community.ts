@@ -2,6 +2,230 @@ import type { Project } from '@/types';
 
 export const community: Project[] = [
   {
+    title: 'Create your AI with RAG in Google Cloud',
+    date: { month: 4, year: 2026 },
+    description:
+      '@ #BuildwithAI Abakaliki. We explored grounding techniques in AI applications.',
+    image: { alt: 'Workshop Session', name: 'obum-bwai-abk-26' },
+    actions: [
+      {
+        link: 'https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/grounding/intro-grounding-gemini.ipynb',
+        title: 'Google Colab',
+      },
+    ],
+    tags: ['Workshop', 'AI', 'Google Cloud'],
+  },
+  {
+    title: 'Deploy AIs from Vertex AI Studio',
+    date: { month: 4, year: 2026 },
+    description:
+      '@ #BuildwithAI Ibadan. Explored prompt engineering, system instructions, and deployed AI apps using Vertex AI and Cloud Run.',
+    image: { alt: 'Workshop Session', name: 'obum-bwai-ib-26' },
+    actions: [
+      {
+        link: 'https://www.skills.google/course_templates/552',
+        title: 'Course Lab',
+      },
+    ],
+    tags: ['Workshop', 'AI', 'Google Cloud'],
+  },
+  {
+    title: 'Soft Skills for Career Development',
+    date: { month: 3, year: 2026 },
+    description:
+      "Spoke at an International Women's Day Abakaliki event on communication, leadership, teamwork, emotional intelligence, and self-management.",
+    image: { alt: 'Event Session', name: 'obum-iwd-wtm-abk-26' },
+    actions: [
+      {
+        link: 'https://docs.google.com/presentation/d/1WOp8lvjQ0i4HLCMoh6dnJUiR_rIv72a8LSPK_jpEY8g/edit?usp=sharing',
+        title: 'Slides',
+      },
+    ],
+    tags: ['Speaker', 'IWD'],
+  },
+  {
+    title: 'Building Your First AI Agent with Kotlin',
+    date: { month: 3, year: 2026 },
+    description:
+      'Hands-on session in Abakaliki on building an AI agent in Kotlin, covering planning, reasoning, and tool usage with LLMs.',
+    image: { alt: 'Workshop Session', name: 'obum-kotlin-ai-abk-26' },
+    actions: [
+      { link: 'https://www.jetbrains.com/koog/', title: 'Checkout Koog' },
+    ],
+    tags: ['Workshop', 'AI', 'Android'],
+  },
+  {
+    title: 'Technology, AI, & Education',
+    date: { month: 3, year: 2026 },
+    description:
+      'Delivered a session in AE-FUNAI inspiring students to #BuildwithAI with Google tools and improve their learning approach.',
+    image: { alt: 'Speaking Event', name: 'obum-sparklive-aefunai-26' },
+    actions: [
+      {
+        link: 'https://docs.google.com/presentation/d/1hVyANVPSPRUXy73JOug896Sl_GZ5x8hfT2ZfZBX3oaQ/edit?usp=sharing',
+        title: 'Slides',
+      },
+    ],
+    tags: ['Speaker', 'AI'],
+  },
+  {
+    title: 'Ethics and AI For Talents',
+    date: { month: 12, year: 2025 },
+    description:
+      'Spoke at DevFest Enugu 2025 on responsible AI and ethical considerations for developers.',
+    image: { alt: 'Event Slide', name: 'obum-df-enugu-25' },
+    actions: [
+      {
+        link: 'https://docs.google.com/presentation/d/1BFZ0Pz7SVgCpyA27yZmrAtvkdIa4udmJ2OE-LKaEQhU/edit',
+        title: 'Slides',
+      },
+    ],
+    tags: ['Speaker', 'DevFest', 'AI'],
+  },
+  {
+    title: 'DevFest Nsukka 2025',
+    date: { month: 12, year: 2025 },
+    description:
+      'Anchored an interactive session on "Firebase, Flutter, and Gemini" to the student community with a Codelab on building a crossword puzzle.',
+    image: { alt: 'Event Photo', name: 'obum-df-nsk-25' },
+    actions: [{ link: 'https://goo.gle/solution-crossword', title: 'Codelab' }],
+    tags: ['Speaker', 'GDG'],
+  },
+  {
+    title: 'DevFest Abuja 2025',
+    date: { month: 11, year: 2025 },
+    description:
+      'Spoke on "Leveraging BigQuery for Business Data in Google Cloud" to a wide tech-savvy audience.',
+    image: { alt: 'Event Photo', name: 'obum-df-abj-25' },
+    actions: [
+      {
+        link: 'https://www.cloudskillsboost.google/course_templates/552',
+        title: 'Codelab',
+      },
+    ],
+    tags: ['Speaker', 'GDG'],
+  },
+  {
+    title: 'DevFest Owerri 2025',
+    date: { month: 11, year: 2025 },
+    description:
+      'Anchored a workshop session on "Building with Web3 in Flutter", exploring Authentication and Smart Contract backends.',
+    image: { alt: 'Event Photo', name: 'obum-df-owerri-25' },
+    actions: [
+      {
+        link: 'https://github.com/keepdeploying/web3-in-flutter',
+        title: 'Workshop',
+      },
+    ],
+    tags: ['Workshop', 'GDG'],
+  },
+  {
+    title: 'DevFest Kaduna 2025',
+    date: { month: 10, year: 2025 },
+    description:
+      'Anchored a workshop on "Create your AI with RAG in Google Cloud", explaining and showcasing grounding.',
+    image: { alt: 'Event Photo', name: 'obum-df-kd-25' },
+    actions: [
+      {
+        link: 'https://github.com/GoogleCloudPlatform/generative-ai/tree/main/rag-grounding',
+        title: 'Google Colab',
+      },
+    ],
+    tags: ['Workshop', 'GDG'],
+  },
+  {
+    title: 'DevFest Onitsha 2025',
+    date: { month: 10, year: 2025 },
+    description:
+      'Anchored a Workshop on "Flutter UIs: Adaptive, Responsive, and Pixel-Perfect." stressing on how and why we should build good UIs.',
+    image: { alt: 'Event Photo', name: 'obum-df-onitsha-25' },
+    actions: [
+      {
+        link: 'https://github.com/keepdeploying/flutter_ui_workshop',
+        title: 'Workshop',
+      },
+    ],
+    tags: ['Workshop', 'GDG'],
+  },
+  {
+    title: '#BuildwithAI Spella Hub Abakaliki 2025',
+    date: { month: 9, year: 2025 },
+    description:
+      'Trained the Developer Students of Spella Hub on using Gemini, Firebase Studio, and other AI tools to improve their development flow.',
+    image: { alt: 'Event Photo', name: 'obum-bwai-spella-hub-abk-25' },
+    actions: [
+      {
+        link: 'https://docs.google.com/presentation/d/1KDWc1Cbo868UPq0j7rgPifkEB5Vv8ovvCr320Q9Swmo/edit?usp=sharing',
+        title: 'Slides',
+      },
+    ],
+    tags: ['Workshop', 'AI'],
+  },
+  {
+    title: '#BuildwithAI Port Harcourt 2025',
+    date: { month: 6, year: 2025 },
+    description:
+      'Anchored a Workshop session on "Build Multi-Agent Gen AI Systems with Google Cloud." using a codelab.',
+    image: { alt: 'Event Photo', name: 'obum-bwai-ph-25' },
+    actions: [
+      { link: 'https://goo.gle/Multi-Agent-Systems', title: 'Codelab' },
+    ],
+    tags: ['Workshop', 'AI'],
+  },
+  {
+    title: '#BuildwithAI Ogbomoso 2025',
+    date: { month: 5, year: 2025 },
+    description:
+      'Trained the audience trained on generating Audio with multimodal Gemini using Colab Notebook.',
+    image: { alt: 'Event Photo', name: 'obum-bwai-ogbomoso-25' },
+    actions: [
+      {
+        link: 'https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/audio/speech/use-cases/storytelling/storytelling.ipynb',
+        title: 'Google Colab',
+      },
+    ],
+    tags: ['Workshop', 'AI'],
+  },
+  {
+    title: '#BuildwithAI Onitsha 2025',
+    date: { month: 5, year: 2025 },
+    description:
+      'Training Session where participants explored Firebase Studio and then used CloudSkillsBoost for Intro to Vertex AI.',
+    image: { alt: 'Event Photo', name: 'obum-bwai-onitsha-25' },
+    actions: [
+      {
+        link: 'https://www.cloudskillsboost.google/course_sessions/24650253/labs/604755',
+        title: 'Codelab',
+      },
+    ],
+    tags: ['Workshop', 'AI'],
+  },
+  {
+    title: '#BuildwithAI Abakaliki 2025',
+    date: { month: 5, year: 2025 },
+    description:
+      'Training Session where participants explored Firebase Studio and then used Google Colab for Intro to Gemma 2.0 Flash',
+    image: { alt: 'Obum Assisting', name: 'obum-bwai-abk-25' },
+    actions: [
+      {
+        link: 'https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_2_0_flash.ipynb',
+        title: 'Google Colab',
+      },
+    ],
+    tags: ['Workshop', 'AI'],
+  },
+  {
+    title: '#BuildwithAI Calabar 2025',
+    date: { month: 3, year: 2025 },
+    description:
+      'Training Session on multiple Google Colab Notebooks with Intro to Gemma being the first.',
+    image: { alt: 'Obum on Stage', name: 'obum-bwai-cal-25' },
+    actions: [
+      { link: 'https://goo.gle/gemini-flash-intro', title: 'Google Colab' },
+    ],
+    tags: ['Workshop', 'AI'],
+  },
+  {
     title: 'DevFest Guinee 2024',
     date: { month: 12, year: 2024 },
     description:
@@ -247,7 +471,7 @@ export const community: Project[] = [
     tags: ['Organizer', 'MLSA'],
   },
   {
-    title: '"Build With AI" Abakaliki',
+    title: '"#BuildwithAI" Abakaliki',
     date: { month: 4, year: 2024 },
     description:
       'Carried out a workshop on "Adding AI to your Flutter Apps using Google AI Dart SDK".',

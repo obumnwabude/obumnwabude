@@ -2,6 +2,15 @@ import type { Article } from '@/types';
 
 export const articles: Article[] = [
   {
+    title: 'Road to Mastery - Being a Google Developer Expert',
+    date: { month: 12, year: 2025 },
+    description:
+      'Becoming an Expert has catapulted my developer career. I have learned much more and met more industry leaders thanks to the GDE program.',
+    image: { alt: 'Obum at Google Kenya Office', name: 'obum-google-kenya' },
+    link: 'https://stories.obumnwabude.com/6157b05ed803',
+    publishedOn: 'Medium',
+  },
+  {
     title: 'How to Implement RBAC in a Community Dashboard with Nuxt',
     date: { month: 11, year: 2024 },
     description:
