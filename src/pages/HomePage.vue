@@ -4,7 +4,7 @@ import ContactMe from '@/components/ContactMe.vue';
 import Project from '@/components/Project.vue';
 import { articles } from '@/content/articles';
 import { community } from '@/content/community';
-import { projects } from '@/content/projects';
+import { featuredProjects } from '@/content/projects';
 import IconFlower2P from '@/icons/IconFlower2P.vue';
 import IconFlower6P from '@/icons/IconFlower6P.vue';
 import { banners } from '@/types';
@@ -21,7 +21,8 @@ const years = new Date().getFullYear() - 2018;
       <p>
         I have been programming for {{ years }} years and counting. I've worked
         with great teams and have built one-of-a-kind solutions. I'm a pro in
-        Flutter, everything web dev, and also in web3 (Solana & Solidity). I am also a Google Developer Expert (GDE) in the Dart & Flutter categories.
+        Flutter, everything web dev, and also in web3 (Solana & Solidity). I am
+        also a Google Developer Expert (GDE) in the Dart & Flutter categories.
       </p>
       <p contact><ContactMe color="var(--primary)" /></p>
     </div>
@@ -43,7 +44,7 @@ const years = new Date().getFullYear() - 2018;
 
   <section>
     <h2>LATEST PROJECTS</h2>
-    <Project :project="project" v-for="project of projects.slice(0, 3)" />
+    <Project :project="project" v-for="project of featuredProjects" />
     <div more>
       <span flower><IconFlower6P color="var(--primary)" /></span>
       <p>Of Course, There Are More.</p>

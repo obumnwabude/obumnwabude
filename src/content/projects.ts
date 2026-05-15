@@ -1,31 +1,73 @@
 import type { Project } from '@/types';
 
+const chainbills = {
+  title: 'Chainbills',
+  description:
+    'First Cross-Chain Crypto payment gateway. Built with Wormhole. Receive any crypto on any chain from any one.',
+  image: { alt: 'Display of Chainbills', name: 'chainbills', png: true },
+  actions: [
+    {
+      link: 'https://chainbills.xyz',
+      title: 'Get Started',
+    },
+    {
+      link: 'https://github.com/chainbills/chainbills',
+      title: 'Source Code',
+    },
+  ],
+  tags: ['Web3', 'Solidity', 'Solana'],
+};
+
+const dado = {
+  title: 'Dado Food',
+  description:
+    'On-Demand Food Delivery Ecosystem with Customer, Rider, and Vendor Mobile Apps serving happy users with local food.',
+  image: { alt: 'Dado', name: 'dado', png: true },
+  actions: [{ link: 'https://dado.ng', title: 'All Apps' }],
+  tags: ['Flutter'],
+};
+
+const orctra = {
+  title: 'Orctra',
+  description:
+    'Prediction market platform built entirely on-chain on the Fogo SVM, enabling users to speculate on short-term price movements of crypto assets.',
+  image: { alt: 'Flyer Image', name: 'orctra' },
+  actions: [
+    {
+      link: 'https://orctra.com',
+      title: 'Trade Now',
+    },
+    {
+      link: 'https://x.com/orctra',
+      title: 'Follow Us',
+    },
+  ],
+  tags: ['Web3', 'Solana'],
+};
+
+export const featuredProjects: Project[] = [orctra, chainbills, dado];
+
 export const projects: Project[] = [
+  orctra,
   {
-    title: 'Chainbills',
+    title: 'RebelOrcs',
     description:
-      'First Cross-Chain Crypto payment gateway. Built with Wormhole. Receive any crypto on any chain from any one.',
-    image: { alt: 'Display of Chainbills', name: 'chainbills', png: true },
+      'The premier marketplace for digital collectibles on FOGO. Buy, Sell, and Trade Unique NFTs across your favorite collections.',
+    image: { alt: 'NFT Arts', name: 'rebelorcs' },
     actions: [
       {
-        link: 'https://chainbills.xyz',
-        title: 'Get Started',
+        link: 'https://rebelorcs.com',
+        title: 'Trade Now',
       },
       {
-        link: 'https://github.com/chainbills/chainbills',
-        title: 'Source Code',
+        link: 'https://x.com/RebelOrcsNFT',
+        title: 'Join Us',
       },
     ],
-    tags: ['Web3', 'Solidity', 'Solana'],
+    tags: ['Web3', 'Solana'],
   },
-  {
-    title: 'Dado Food',
-    description:
-      'On-Demand Food Delivery Ecosystem with Customer, Rider, and Vendor Mobile Apps serving happy users with local food.',
-    image: { alt: 'Dado', name: 'dado', png: true },
-    actions: [{ link: 'https://dado.ng', title: 'All Apps' }],
-    tags: ['Flutter'],
-  },
+  chainbills,
+  dado,
   {
     title: 'Android Bubbles in Flutter',
     description:
