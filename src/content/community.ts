@@ -2,6 +2,20 @@ import type { Project } from '@/types';
 
 export const community: Project[] = [
   {
+    title: 'Deploy your AI with Agent Studio in Google Cloud',
+    date: { month: 5, year: 2026 },
+    description:
+      '@ #BuildwithAI Bauchi. We explored the new Agent Studio in Google Cloud and deployed an AI Chatbot with Cloud Run.',
+    image: { alt: 'Obum at Event', name: 'obum-bwai-bauchi-26' },
+    actions: [
+      {
+        link: 'https://www.skills.google/paths/1282/course_templates/1120/labs/532046',
+        title: 'Google Skills Lab',
+      },
+    ],
+    tags: ['Workshop', 'AI', 'Google Cloud'],
+  },
+  {
     title: 'Create your AI with RAG in Google Cloud',
     date: { month: 4, year: 2026 },
     description:
