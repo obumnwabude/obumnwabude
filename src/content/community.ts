@@ -313,7 +313,7 @@ export const community: Project[] = [
         title: 'About',
       },
       {
-        link: 'https://docs.google.com/presentation/d/19bcCL6lZo3GoAAcncShg9RGb_AKzJFMIhxXHTaWtcho/edit',
+        link: 'https://docs.google.com/presentation/d/1x7IqC66YSjiwJi-aHmJzcu6GqVhKgfoHggPf3FQHlXE/edit?usp=sharing',
         title: 'Slides',
       },
     ],
@@ -330,7 +330,7 @@ export const community: Project[] = [
         title: 'About',
       },
       {
-        link: 'https://docs.google.com/presentation/d/1CVaMWBfs6ZLJgQ4v5QIeSu5Rtj9zSPknyxX3WmxrOsM/edit',
+        link: 'https://docs.google.com/presentation/d/1vl9LLHz4Pl0P4IDnPgOzcmve5X20kBat7gXu10K5CmM/edit?usp=sharing',
         title: 'Slides',
       },
     ],
@@ -348,7 +348,7 @@ export const community: Project[] = [
         title: 'Workshop Repo',
       },
       {
-        link: 'https://docs.google.com/presentation/d/1LcDe0-qkqzjDZKXbJLNMR2ca_LNRzY5M3EXPyhYpUHs/edit',
+        link: 'https://docs.google.com/presentation/d/18xiImzG4FS3r9rlFCjtFuDSWCajgQO9t3s7NDr-jqoI/edit?usp=sharing',
         title: 'Slides',
       },
     ],
@@ -379,7 +379,7 @@ export const community: Project[] = [
         title: 'Recording',
       },
       {
-        link: 'https://docs.google.com/presentation/d/1d2H8eIFWhJypVSyvuVoExhcssxe97qj0E3qPA2-AE1w/edit',
+        link: 'https://docs.google.com/presentation/d/1xNjmAMNRf0O-AJseLGwNgHcGOzAJLpoyFXKuaWazpcQ/edit?usp=sharing',
         title: 'Slides',
       },
     ],
@@ -396,7 +396,7 @@ export const community: Project[] = [
         title: 'Recording',
       },
       {
-        link: 'https://docs.google.com/presentation/d/1SPV4RsfCZWjg_uE22DZhl14U_ER_hh4_MWnjRKG2eVs/edit',
+        link: 'https://docs.google.com/presentation/d/1RbcS7hPJ69MtpvtVfYj55p0m3F7-ulDXH2apsBqWik0/edit?usp=sharing',
         title: 'Slides',
       },
     ],
@@ -428,7 +428,7 @@ export const community: Project[] = [
         title: 'Recording',
       },
       {
-        link: 'https://docs.google.com/presentation/d/1ENiFeO5jBQ12it8-LZXgD1bwchKnJf6HnpIrq2pRwyc',
+        link: 'https://docs.google.com/presentation/d/15wIJbZQ2QzQE0-4y_pZwIPMBTc4hFa9cHFLwP9XCinM/edit?usp=sharing',
         title: 'Slides',
       },
     ],
@@ -513,7 +513,7 @@ export const community: Project[] = [
         title: 'About',
       },
       {
-        link: 'https://docs.google.com/presentation/d/1eJLrRIpQxSuvq-JGucqwbUyLm6z3TcKq4l5bPADuXqY',
+        link: 'https://docs.google.com/presentation/d/1gedT70WjEcUWtXzNqgIxGG58p_ZlMDDT0Q-ZMsRG3AU/edit?usp=sharing',
         title: 'Slides',
       },
       {
@@ -534,7 +534,7 @@ export const community: Project[] = [
         title: 'About',
       },
       {
-        link: 'https://docs.google.com/presentation/d/1kNaTl3GN8hEslbYNC39hwlKoSpb19AkCGF_Krf6TRwg',
+        link: 'https://docs.google.com/presentation/d/110Ft7-UnpFbrL-xJ6NbbG04FFnzCv7UT9LCqT8VbEx0/edit?usp=sharing',
         title: 'Slides',
       },
       {
@@ -555,7 +555,7 @@ export const community: Project[] = [
         title: 'About',
       },
       {
-        link: 'https://docs.google.com/presentation/d/14j2HTcIdLvTdD8eyc6fKD9zpzloOzcQoPo2Ar5Ybxo0',
+        link: 'https://docs.google.com/presentation/d/1MRQwxGqTXzjVy_IyNjJBIlsReKnFujwWZ2Aohj8q60g/edit?usp=sharing',
         title: 'Slides',
       },
       {
@@ -593,7 +593,7 @@ export const community: Project[] = [
         title: 'About',
       },
       {
-        link: 'https://docs.google.com/presentation/d/1zAVkk8pTVqfWo9D1m01qLWh2WEG-u10_P_sCPcOk4IA/edit?usp=sharing',
+        link: 'https://docs.google.com/presentation/d/1W7dKEXD1DIH0MyVtSifLFOMG4SFq1gP78UGdhoMTRsc/edit?usp=sharing',
         title: 'Slides',
       },
     ],
@@ -611,7 +611,7 @@ export const community: Project[] = [
         title: 'About',
       },
       {
-        link: 'https://docs.google.com/presentation/d/1pePuymAJwcieTWk-IGaUN715NC8CPkUNoWkCWlkCo8U/edit?usp=sharing',
+        link: 'https://docs.google.com/presentation/d/1yK2RuAcIGUJNeBDTusbKtALFuiCL4SOANMmYhRCESzc/edit?usp=sharing',
         title: 'Slides',
       },
       {
@@ -633,7 +633,7 @@ export const community: Project[] = [
         title: 'About',
       },
       {
-        link: 'https://docs.google.com/presentation/d/1VWe-7KNKbnWiGL8cyk_DTYCfIbAJUIr3Qt6bUXEnDiM/edit?usp=drivesdk',
+        link: 'https://docs.google.com/presentation/d/11PJdEQLWK1sGoARW81c8CiegicDT79SLi7VaLx-69G0/edit?usp=sharing',
         title: 'Slides',
       },
       {
@@ -655,7 +655,7 @@ export const community: Project[] = [
         title: 'About',
       },
       {
-        link: 'https://docs.google.com/presentation/d/10yZRHJjEbtIq83oY5HrO7wC3xTSckz2CY1AK_tPgObY/edit?usp=sharing',
+        link: 'https://docs.google.com/presentation/d/1-i7U0ZVCyHbkqzsKR8_v4en9YlwX6_mYYP9pFXFCrw8/edit?usp=sharing',
         title: 'Slides',
       },
       {
@@ -677,7 +677,7 @@ export const community: Project[] = [
         title: 'About',
       },
       {
-        link: 'https://docs.google.com/presentation/d/1gaphjTrv27Sm6YeUvS5uu8tS6NNmYn6Tayn-xgg22QI/edit?usp=sharing',
+        link: 'https://docs.google.com/presentation/d/1tqMQHf0KGODvxEjrrECZSh-4hLXdF3yLFwDF7QDB_LU/edit?usp=sharing',
         title: 'Slides',
       },
       {
@@ -699,7 +699,7 @@ export const community: Project[] = [
         title: 'About',
       },
       {
-        link: 'https://docs.google.com/presentation/d/1ZOYuSDHmiFnGK7BZlYtAvUzb_fiD6JAiYI9_V24z0Y4/edit?usp=sharing',
+        link: 'https://docs.google.com/presentation/d/1bl_4_qJ5P5a-8_s__suAx5tEIDMD9BY6lUs9mtqSIhM/edit?usp=sharing',
         title: 'Slides',
       },
       {
@@ -725,7 +725,7 @@ export const community: Project[] = [
         title: 'Recording',
       },
       {
-        link: 'https://docs.google.com/presentation/d/1ll_5dccf5YbqwH9M20yWa4ItBS97OFtxD_hZnbhk9No/edit?usp=sharing',
+        link: 'https://docs.google.com/presentation/d/1-bGtbikYCRMC6x4wv790mB3p1dUXh1DYQFEkj0kDA3s/edit?usp=sharing',
         title: 'Slides',
       },
     ],
@@ -800,7 +800,7 @@ export const community: Project[] = [
         title: 'About',
       },
       {
-        link: 'https://docs.google.com/presentation/d/1pfnoHvdG-xyOkekynN5kzCOirF7IFR7qSaOPRxyH31g/edit?usp=sharing&resourcekey=0-t2MlHWtBTgw-q37Sy87nzQ',
+        link: 'https://docs.google.com/presentation/d/1OtTeu7MgmGry4SdArVGNX6DHPZKggC7OZMm6oLBkFFo/edit?usp=sharing',
         title: 'Slides',
       },
       {
