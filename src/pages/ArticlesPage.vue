@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import Article from '@/components/Article.vue';
+import TimelineScroller from '@/components/TimelineScroller.vue';
 import { articles } from '@/content/articles';
+
+const timelineArticles = articles.map((article, index) => ({
+  id: index,
+  date: article.date,
+}));
 </script>
 
 <template>
@@ -29,6 +35,21 @@ import { articles } from '@/content/articles';
     >.
   </p>
   <div page-content>
-    <Article :article="article" v-for="article of articles" />
+    <div
+      v-for="(article, index) of articles"
+      :key="index"
+      :id="`timeline-item-${index}`"
+      class="timeline-item"
+    >
+      <Article :article="article" />
+    </div>
   </div>
+
+  <TimelineScroller :items="timelineArticles" />
 </template>
+
+<style scoped>
+.timeline-item {
+  scroll-margin-top: 6rem;
+}
+</style>

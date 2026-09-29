@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import Project from '@/components/Project.vue';
+import TimelineScroller from '@/components/TimelineScroller.vue';
 import { community } from '@/content/community';
+
+const timelineCommunity = community.map((contribution, index) => ({
+  id: index,
+  date: contribution.date,
+}));
 </script>
 
 <template>
@@ -92,6 +98,21 @@ import { community } from '@/content/community';
     Following are community engagements that I kept track of.
   </p>
   <div page-content>
-    <Project :project="contribution" v-for="contribution of community" />
+    <div
+      v-for="(contribution, index) of community"
+      :key="index"
+      :id="`timeline-item-${index}`"
+      class="timeline-item"
+    >
+      <Project :project="contribution" />
+    </div>
   </div>
+
+  <TimelineScroller :items="timelineCommunity" />
 </template>
+
+<style scoped>
+.timeline-item {
+  scroll-margin-top: 6rem;
+}
+</style>
