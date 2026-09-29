@@ -16,19 +16,25 @@ const years = new Date().getFullYear() - 2018;
   <div intro>
     <div>
       <IconFlower2P />
-      <h2>OBUMUNEME NWABUDE</h2>
-      <h3>Full-Stack Blockchain, Mobile, and Web Developer.</h3>
+      <h1 name>OBUMUNEME NWABUDE</h1>
+      <h2 tagline>Full-Stack AI, Blockchain, Cloud, Mobile, and Web Developer.</h2>
       <p>
         I have been programming for {{ years }} years and counting. I've worked
         with great teams and have built one-of-a-kind solutions. I'm a pro in
-        Flutter, everything web dev, and also in web3 (Solana & Solidity). I am
-        also a Google Developer Expert (GDE) in the Dart & Flutter categories.
+        Flutter, Cloud, AI, everything web dev, and web3 (Solana & Solidity). I am
+        also a Google Developer Expert (GDE) in Cloud AI & Dart-Flutter.
       </p>
       <p contact><ContactMe color="var(--primary)" /></p>
     </div>
     <div>
       <div gray></div>
-      <img src="/assets/obum.jpg" />
+      <img
+        src="/assets/obum.jpg"
+        alt="Obumuneme Nwabude"
+        width="384"
+        height="384"
+        fetchpriority="high"
+      />
     </div>
   </div>
 
@@ -93,13 +99,15 @@ const years = new Date().getFullYear() - 2018;
   padding-bottom: 4rem;
 }
 
-[intro] h2 {
+[intro] [name] {
   font-size: 1.5rem;
+  font-weight: 700;
   margin-bottom: 0.5rem;
 }
 
-[intro] h3 {
+[intro] [tagline] {
   font-size: 2rem;
+  font-weight: 700;
   margin-bottom: 1rem;
 }
 

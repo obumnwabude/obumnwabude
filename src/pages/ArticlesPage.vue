@@ -10,7 +10,7 @@ const timelineArticles = articles.map((article, index) => ({
 </script>
 
 <template>
-  <h2 page-heading>WRITING ARTICLES</h2>
+  <h1 page-heading>WRITING ARTICLES</h1>
   <p page-intro>
     I write articles on various topics. I write about mobile app development
     with Flutter, about Tech Communities, web development, my stories, and

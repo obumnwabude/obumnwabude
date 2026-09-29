@@ -10,7 +10,7 @@ const timelineCommunity = community.map((contribution, index) => ({
 </script>
 
 <template>
-  <h2 page-heading>CONTRIBUTING TO <span primary>COMMUNITY</span></h2>
+  <h1 page-heading>CONTRIBUTING TO <span primary>COMMUNITY</span></h1>
   <p page-intro>
     I actively volunteer in tech communities in my locality. I am
     <a
@@ -20,15 +20,14 @@ const timelineCommunity = community.map((contribution, index) => ({
       underline
       >Google Developer Expert (GDE)</a
     >
-    in the
+    in
     <a
       href="https://g.dev/obumnwabude"
       rel="noopener noreferrer"
       target="_blank"
       underline
-      >Dart & Flutter</a
-    >
-    categories. At
+      >Cloud AI & Dart-Flutter</a
+    >. At
     <a
       href="https://developers.google.com/community/gdg"
       rel="noopener noreferrer"

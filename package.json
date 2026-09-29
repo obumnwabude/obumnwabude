@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check build-only",
+    "build": "run-p type-check build-only && npm run build:ssr && npm run prerender",
     "preview": "vite preview",
     "build-only": "vite build",
+    "build:ssr": "vite build --ssr src/entry-server.ts --outDir dist-ssr",
+    "prerender": "node scripts/prerender.mjs",
     "type-check": "vue-tsc --noEmit",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/"
