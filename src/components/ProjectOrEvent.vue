@@ -24,12 +24,8 @@ import IconTicket from '@/icons/IconTicket.vue';
 import IconUsers from '@/icons/IconUsers.vue';
 import IconX from '@/icons/IconX.vue';
 import IconZap from '@/icons/IconZap.vue';
-import {
-  displayDate,
-  type ActionIcon,
-  type CodingProject,
-  type CommunityEvent,
-} from '@/types';
+import { displayDate, type ActionIcon, type CodingProject, type CommunityEvent, type ContentAction } from '@/types';
+import { trackAssetError, trackCommunityResourceClick, trackProjectActionClick } from '@/utils/analytics';
 import type { Component } from 'vue';
 
 const { content, featured = false } = defineProps<{
@@ -38,9 +34,26 @@ const { content, featured = false } = defineProps<{
 }>();
 const { ctasEqualWeights, image, title, description, actions, tags } = content;
 
-const isCommunityEvent = (
-  content: CodingProject | CommunityEvent
-): content is CommunityEvent => 'date' in content;
+const isCommunityEvent = (content: CodingProject | CommunityEvent): content is CommunityEvent => 'date' in content;
+
+const handleActionClick = (action: ContentAction) => {
+  if (isCommunityEvent(content)) {
+    trackCommunityResourceClick(
+      title,
+      action.title,
+      action.link,
+      tags || [],
+      content.date ? displayDate(content.date) : undefined,
+      action.icon
+    );
+  } else {
+    trackProjectActionClick(title, action.title, action.link, featured, tags || [], action.icon);
+  }
+};
+
+const handleImageError = () => {
+  trackAssetError(image.name, 'project_image', `/assets/${image.name}.${image.png ? 'png' : 'jpg'}`);
+};
 
 const actionIconMap: Record<ActionIcon, Component> = {
   aboutreadmore: IconAboutReadMore,
@@ -69,19 +82,12 @@ const actionIconMap: Record<ActionIcon, Component> = {
   zap: IconZap,
 };
 
-const getActionIcon = (icon?: ActionIcon): Component =>
-  (icon && actionIconMap[icon]) || IconExternalLink;
+const getActionIcon = (icon?: ActionIcon): Component => (icon && actionIconMap[icon]) || IconExternalLink;
 </script>
 
 <template>
   <div v-reveal="{ delay: 50 }" class="project-wrapper">
-    <GlassCard
-      variant="frost"
-      :hoverable="true"
-      :spotlight="true"
-      :borderBeam="featured"
-      class="project-card"
-    >
+    <GlassCard variant="frost" :hoverable="true" :spotlight="true" :borderBeam="featured" class="project-card">
       <div class="project-inner">
         <div class="project-image-container">
           <img
@@ -89,6 +95,7 @@ const getActionIcon = (icon?: ActionIcon): Component =>
             :alt="image.alt"
             loading="lazy"
             class="project-image"
+            @error="handleImageError"
           />
         </div>
 
@@ -99,10 +106,7 @@ const getActionIcon = (icon?: ActionIcon): Component =>
             </span>
           </div>
 
-          <p
-            v-if="isCommunityEvent(content) && content.date"
-            class="project-date"
-          >
+          <p v-if="isCommunityEvent(content) && content.date" class="project-date">
             {{ displayDate(content.date) }}
           </p>
 
@@ -111,23 +115,23 @@ const getActionIcon = (icon?: ActionIcon): Component =>
 
           <div class="project-actions">
             <a
-              v-for="({ icon, link, title }, i) of actions"
-              :key="link"
-              :href="link"
+              v-for="(action, i) of actions"
+              :key="action.link"
+              :href="action.link"
               target="_blank"
               rel="noopener noreferrer"
               :filled="i === 0 || ctasEqualWeights ? true : undefined"
               :outlined="i !== 0 && !ctasEqualWeights ? true : undefined"
               class="project-action-btn"
+              @click="() => handleActionClick(action)"
             >
-              <span>{{ title }}</span>
+              <span>{{ action.title }}</span>
               <component
-                :is="getActionIcon(icon)"
+                :is="getActionIcon(action.icon)"
                 :size="15"
                 class="action-icon"
                 :class="{
-                  'action-external-icon':
-                    getActionIcon(icon) === IconExternalLink,
+                  'action-external-icon': getActionIcon(action.icon) === IconExternalLink,
                 }"
               />
             </a>

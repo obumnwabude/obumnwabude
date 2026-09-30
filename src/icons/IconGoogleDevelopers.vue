@@ -15,7 +15,7 @@ withDefaults(
     :height="typeof size === 'number' ? Math.round(Number(size) * 0.56) : size"
     viewBox="0 0 256 125"
     fill="none"
-    style="display: inline-block; vertical-align: middle;"
+    style="display: inline-block; vertical-align: middle"
   >
     <path
       fill="currentColor"

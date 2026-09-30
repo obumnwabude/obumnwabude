@@ -1,10 +1,7 @@
+import { LINKS } from '@/content/links';
 import HomePage from '@/pages/HomePage.vue';
-import {
-  createRouter,
-  createWebHistory,
-  createMemoryHistory,
-  type RouteRecordRaw,
-} from 'vue-router';
+import { resetPageScrollTracking, track404Redirect } from '@/utils/analytics';
+import { createMemoryHistory, createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router';
 
 export const baseTitle = 'Obum (Obumuneme Nwabude)';
 
@@ -57,9 +54,7 @@ export const routes: RouteRecordRaw[] = [
 ];
 
 export function createRouterInstance(isServer = typeof window === 'undefined') {
-  const history = isServer
-    ? createMemoryHistory()
-    : createWebHistory(import.meta.env.BASE_URL);
+  const history = isServer ? createMemoryHistory() : createWebHistory(import.meta.env.BASE_URL);
 
   const router = createRouter({
     history,
@@ -70,34 +65,33 @@ export function createRouterInstance(isServer = typeof window === 'undefined') {
   });
 
   router.beforeEach((to, _, next) => {
+    // Intercept broken backlinks and 404 captures
+    if (to.name === 'all') {
+      track404Redirect(to.fullPath, typeof document !== 'undefined' ? document.referrer : '');
+    }
+
+    // Reset scroll & milestone counters for new page view
+    resetPageScrollTracking();
+
     if (typeof document !== 'undefined') {
       if (to.meta && to.meta.title) {
         document.title = to.meta.title as string;
         const ogTitle = document.querySelector('meta[property="og:title"]');
         if (ogTitle) ogTitle.setAttribute('content', to.meta.title as string);
-        const twitterTitle = document.querySelector(
-          'meta[name="twitter:title"]'
-        );
-        if (twitterTitle)
-          twitterTitle.setAttribute('content', to.meta.title as string);
+        const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+        if (twitterTitle) twitterTitle.setAttribute('content', to.meta.title as string);
       }
       if (to.meta && to.meta.description) {
         const desc = document.querySelector('meta[name="description"]');
         if (desc) desc.setAttribute('content', to.meta.description as string);
-        const ogDesc = document.querySelector(
-          'meta[property="og:description"]'
-        );
+        const ogDesc = document.querySelector('meta[property="og:description"]');
         if (ogDesc) ogDesc.setAttribute('content', to.meta.description as string);
-        const twitterDesc = document.querySelector(
-          'meta[name="twitter:description"]'
-        );
-        if (twitterDesc)
-          twitterDesc.setAttribute('content', to.meta.description as string);
+        const twitterDesc = document.querySelector('meta[name="twitter:description"]');
+        if (twitterDesc) twitterDesc.setAttribute('content', to.meta.description as string);
       }
       const canonical = document.querySelector('link[rel="canonical"]');
       if (canonical) {
-        const canonicalUrl = `https://obumnwabude.com${to.path === '/' ? '' : to.path
-          }`;
+        const canonicalUrl = `${LINKS.canonical}${to.path === '/' ? '' : to.path}`;
         canonical.setAttribute('href', canonicalUrl);
         const ogUrl = document.querySelector('meta[property="og:url"]');
         if (ogUrl) ogUrl.setAttribute('content', canonicalUrl);

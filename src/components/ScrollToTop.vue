@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { trackScrollToTop } from '@/utils/analytics';
 import { onMounted, onUnmounted, ref } from 'vue';
 
 const isVisible = ref(false);
@@ -10,6 +11,10 @@ const checkScroll = () => {
 
 const scrollToTop = () => {
   if (typeof window === 'undefined') return;
+  const scrollY = window.scrollY;
+  const total = document.documentElement.scrollHeight - window.innerHeight;
+  const percent = total > 0 ? (scrollY / total) * 100 : 0;
+  trackScrollToTop(scrollY, percent, window.location.pathname);
   window.scrollTo({
     top: 0,
     behavior: 'smooth',
@@ -76,13 +81,8 @@ onUnmounted(() => {
   transform: translateY(16px) scale(0.85);
   pointer-events: none;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.4);
-  transition:
-    opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-    visibility 0.28s ease,
-    background-color 0.2s ease,
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1), transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0.28s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 body.dark .scroll-to-top-btn {
@@ -99,9 +99,7 @@ body.dark .scroll-to-top-btn {
 .scroll-to-top-btn:hover {
   background: rgb(from var(--primary) r g b / 16%);
   border-color: rgb(from var(--primary) r g b / 50%);
-  box-shadow:
-    0 12px 36px rgba(0, 0, 0, 0.18),
-    0 0 16px rgb(from var(--primary) r g b / 35%);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.18), 0 0 16px rgb(from var(--primary) r g b / 35%);
   transform: translateY(-3px) scale(1.05);
 }
 

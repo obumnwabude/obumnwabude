@@ -80,7 +80,9 @@ const tick = () => {
   if (followerRef.value) {
     const scaleX = currentScale;
     const scaleY = currentScale + scrollVelocity * 0.35;
-    followerRef.value.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) translate(-50%, -50%) scale(${scaleX.toFixed(3)}, ${scaleY.toFixed(3)})`;
+    followerRef.value.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) translate(-50%, -50%) scale(${scaleX.toFixed(
+      3
+    )}, ${scaleY.toFixed(3)})`;
   }
 
   if (cursorRingRef.value) {
@@ -143,7 +145,7 @@ onUnmounted(() => {
     :class="{
       'is-active': isVisible,
       'is-interactive': isHoveringInteractive,
-      'is-down': isMouseDown
+      'is-down': isMouseDown,
     }"
     aria-hidden="true"
   >
@@ -186,21 +188,13 @@ onUnmounted(() => {
   position: absolute;
   top: -200px;
   left: -200px;
-  background: radial-gradient(
-    circle at center,
-    rgb(from var(--primary) r g b / 10%) 0%,
-    transparent 65%
-  );
+  background: radial-gradient(circle at center, rgb(from var(--primary) r g b / 10%) 0%, transparent 65%);
   filter: blur(45px);
   transform: translateZ(0);
 }
 
 body.dark .follower-ambient {
-  background: radial-gradient(
-    circle at center,
-    rgb(from var(--primary) r g b / 14%) 0%,
-    transparent 65%
-  );
+  background: radial-gradient(circle at center, rgb(from var(--primary) r g b / 14%) 0%, transparent 65%);
   filter: blur(50px);
 }
 
@@ -211,22 +205,14 @@ body.dark .follower-ambient {
   position: absolute;
   top: -50px;
   left: -50px;
-  background: radial-gradient(
-    circle at center,
-    rgb(from var(--primary) r g b / 16%) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle at center, rgb(from var(--primary) r g b / 16%) 0%, transparent 70%);
   filter: blur(18px);
   transform: translateZ(0);
   transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 body.dark .follower-core {
-  background: radial-gradient(
-    circle at center,
-    rgb(from var(--primary) r g b / 22%) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle at center, rgb(from var(--primary) r g b / 22%) 0%, transparent 70%);
   filter: blur(20px);
 }
 
@@ -267,11 +253,8 @@ body.dark .follower-core {
   box-shadow: 0 0 8px rgb(from var(--primary) r g b / 75%);
   pointer-events: none;
   will-change: transform;
-  transition:
-    width 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-    height 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-    background-color 0.2s ease,
-    opacity 0.2s ease;
+  transition: width 0.22s cubic-bezier(0.16, 1, 0.3, 1), height 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.2s ease, opacity 0.2s ease;
 }
 
 .custom-cursor-ring {
@@ -289,12 +272,8 @@ body.dark .follower-core {
   align-items: center;
   justify-content: center;
   overflow: visible;
-  transition:
-    width 0.26s cubic-bezier(0.16, 1, 0.3, 1),
-    height 0.26s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.2s ease,
-    background-color 0.25s ease,
-    opacity 0.2s ease;
+  transition: width 0.26s cubic-bezier(0.16, 1, 0.3, 1), height 0.26s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.2s ease, background-color 0.25s ease, opacity 0.2s ease;
 }
 
 /* Rotating iridescent sheen orbit */
@@ -324,10 +303,7 @@ body.dark .follower-core {
   justify-content: center;
   opacity: 0.65;
   transform: scale(0.9);
-  transition:
-    transform 0.26s cubic-bezier(0.16, 1, 0.3, 1),
-    opacity 0.25s ease,
-    filter 0.25s ease;
+  transition: transform 0.26s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, filter 0.25s ease;
 }
 
 /* Hovering interactive items: ring expands moderately (not too wide) and flower blooms larger */

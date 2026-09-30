@@ -92,5 +92,4 @@ export const months = [
   'December',
 ];
 
-export const displayDate = ({ month, year }: ContentDate) =>
-  `${months[month]} ${year}`;
+export const displayDate = ({ month, year }: ContentDate) => `${months[month]} ${year}`;

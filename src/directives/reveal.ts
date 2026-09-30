@@ -12,8 +12,7 @@ export interface RevealOptions {
 }
 
 const prefersReducedMotion = () =>
-  typeof window !== 'undefined' &&
-  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 let observer: IntersectionObserver | null = null;
 

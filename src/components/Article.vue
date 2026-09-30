@@ -3,9 +3,18 @@ import GlassCard from '@/components/GlassCard.vue';
 import IconExternalLink from '@/icons/IconExternalLink.vue';
 import IconRight from '@/icons/IconRight.vue';
 import { displayDate, type Article } from '@/types';
+import { trackArticleClick, trackAssetError } from '@/utils/analytics';
 
 const { article } = defineProps<{ article: Article }>();
 const { image, date, title, description, link, publishedOn } = article;
+
+const handleClick = () => {
+  trackArticleClick(title, publishedOn, link, displayDate(date));
+};
+
+const handleImageError = () => {
+  trackAssetError(image.name, 'article_image', `/assets/${image.name}.${image.png ? 'png' : 'jpg'}`);
+};
 </script>
 
 <template>
@@ -17,6 +26,7 @@ const { image, date, title, description, link, publishedOn } = article;
       :title="title"
       :aria-label="title"
       class="article-link"
+      @click="handleClick"
     >
       <GlassCard variant="frost" :hoverable="true" :spotlight="true" class="article-card">
         <div class="article-inner">
@@ -26,6 +36,7 @@ const { image, date, title, description, link, publishedOn } = article;
               :alt="image.alt"
               loading="lazy"
               class="article-image"
+              @error="handleImageError"
             />
           </div>
 
@@ -218,12 +229,8 @@ const { image, date, title, description, link, publishedOn } = article;
   color: var(--primary);
   border: 1px solid rgb(from var(--primary) r g b / 20%);
   box-shadow: var(--shadow-sm);
-  transition:
-    transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1),
-    background-color 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), background-color 0.2s ease, border-color 0.2s ease,
+    color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .article-arrow-btn :deep(svg path) {

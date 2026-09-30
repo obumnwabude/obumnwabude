@@ -40,8 +40,7 @@ export const articles: Article[] = [
   {
     title: 'How to Always Have A BuildContext in Flutter Outside of UI Code',
     date: { month: 4, year: 2024 },
-    description:
-      'Explore how you can obtain a valid BuildContext outside the scope of its natural availability',
+    description: 'Explore how you can obtain a valid BuildContext outside the scope of its natural availability',
     image: { alt: '', name: 'flutter-always-build-context' },
     link: 'https://www.freecodecamp.org/news/how-to-always-have-a-buildcontext-in-flutter-outside-ui-code/',
     publishedOn: 'freeCodeCamp',
@@ -49,8 +48,7 @@ export const articles: Article[] = [
   {
     title: 'How to structure any booking/reservation system with Firebase',
     date: { month: 9, year: 2023 },
-    description:
-      'Check out this one other thing that you can do with Firebase.',
+    description: 'Check out this one other thing that you can do with Firebase.',
     image: { alt: '', name: 'firebase-booking' },
     link: 'https://stories.obumnwabude.com/how-to-structure-any-booking-reservation-system-with-firebase-e7f1774e848e',
     publishedOn: 'Medium',
@@ -58,8 +56,7 @@ export const articles: Article[] = [
   {
     title: 'Hosting a Tech Community Event',
     date: { month: 8, year: 2023 },
-    description:
-      'How to handle your event in real time and things you should do when the event is taking place.',
+    description: 'How to handle your event in real time and things you should do when the event is taking place.',
     image: { alt: '', name: 'host-community-event' },
     link: 'https://blog.obumnwabude.com/hosting-a-tech-community-event',
     publishedOn: 'Hashnode',
@@ -67,8 +64,7 @@ export const articles: Article[] = [
   {
     title: 'How To Improve Flutter Forms',
     date: { month: 8, year: 2023 },
-    description:
-      'Tips on improving user experience on forms created in flutter.',
+    description: 'Tips on improving user experience on forms created in flutter.',
     image: { alt: '', name: 'improve-flutter-forms' },
     link: 'https://dev.to/obumnwabude/how-to-improve-flutter-forms-ni3',
     publishedOn: 'Dev.to',
@@ -76,8 +72,7 @@ export const articles: Article[] = [
   {
     title: 'How to Prevent Account Loss When using Two-Factor Authentication',
     date: { month: 2, year: 2023 },
-    description:
-      "You want to lock out malicious access to your account. But you don't want out yourself.",
+    description: "You want to lock out malicious access to your account. But you don't want out yourself.",
     image: { alt: '', name: '2fa-security' },
     link: 'https://www.freecodecamp.org/news/how-to-prevent-account-loss-when-using-two-factor-authentication/',
     publishedOn: 'freeCodeCamp',
@@ -85,8 +80,7 @@ export const articles: Article[] = [
   {
     title: 'How to Brand Your Flutter app',
     date: { month: 2, year: 2023 },
-    description:
-      'Learn how to setup project name, app colors, fonts and themes in Flutter.',
+    description: 'Learn how to setup project name, app colors, fonts and themes in Flutter.',
     image: { alt: '', name: 'branding-flutter' },
     link: 'https://web.archive.org/web/20230308132853/https://sweetcode.io/what-does-branding-a-flutter-app-entail/',
     publishedOn: 'SweetCode',
@@ -112,15 +106,13 @@ export const articles: Article[] = [
   {
     title: 'How to Assist Language Inclusion in Tech',
     date: { month: 11, year: 2022 },
-    description:
-      'What we can do to minimize the language barrier faced by non-anglophone tech practitioners.',
+    description: 'What we can do to minimize the language barrier faced by non-anglophone tech practitioners.',
     image: { alt: '', name: 'language-inclusion' },
     link: 'https://web.archive.org/web/20221205055458/https://sweetcode.io/how-to-assist-language-inclusion-in-tech/',
     publishedOn: 'SweetCode',
   },
   {
-    title:
-      'How to Restore Poison Messages (or Dead Letters) from Memphis broker vs RabbitMQ',
+    title: 'How to Restore Poison Messages (or Dead Letters) from Memphis broker vs RabbitMQ',
     date: { month: 9, year: 2022 },
     description:
       'Learn causes of poison messages in a message broker. Also learn how to restore them in both Memphis.dev and RabbitMQ.',
@@ -140,8 +132,7 @@ export const articles: Article[] = [
   {
     title: 'How to build a real-time app with NestJS and Memphis broker',
     date: { month: 8, year: 2022 },
-    description:
-      'Learn how to setup and use Memphis, NestJS, and gRPC to come up with a simple chatting application',
+    description: 'Learn how to setup and use Memphis, NestJS, and gRPC to come up with a simple chatting application',
     image: { alt: '', name: 'memphis-nestjs-real-time-chat-app' },
     link: 'https://dev.to/obumnwabude/how-to-build-a-real-time-app-with-nestjs-and-memphis-broker-27fm',
     publishedOn: 'Dev.to',
@@ -185,8 +176,7 @@ export const articles: Article[] = [
   {
     title: 'How to Build a URL Shortener for FREE with Firebase',
     date: { month: 6, year: 2022 },
-    description:
-      'Step-by-step guide on getting your personal URL Shortener for FREE.',
+    description: 'Step-by-step guide on getting your personal URL Shortener for FREE.',
     image: { alt: '', name: 'firebase-url-shortener' },
     link: 'https://medium.com/firebase-developers/firebase-url-shortener-7754377478e0',
     publishedOn: 'Firebase Blog',
@@ -194,8 +184,7 @@ export const articles: Article[] = [
   {
     title: 'How to Implement Any UI in Flutter',
     date: { month: 6, year: 2022 },
-    description:
-      'A guide that will help you convert any user interface image, piece, or screen into Flutter code.',
+    description: 'A guide that will help you convert any user interface image, piece, or screen into Flutter code.',
     image: { alt: 'Article Cover', name: 'fcc-any-ui-flutter' },
     link: 'https://www.freecodecamp.org/news/how-to-implement-any-ui-in-flutter/',
     publishedOn: 'freeCodeCamp',
@@ -203,8 +192,7 @@ export const articles: Article[] = [
   {
     title: 'How to Promote a Tech Community Event',
     date: { month: 6, year: 2022 },
-    description:
-      'You need a way to get people to know that your event is coming up. You need to promote the event.',
+    description: 'You need a way to get people to know that your event is coming up. You need to promote the event.',
     image: { alt: '', name: 'promote-community-event' },
     link: 'https://blog.obumnwabude.com/how-to-promote-a-tech-community-event',
     publishedOn: 'Hashnode',
@@ -275,8 +263,7 @@ export const articles: Article[] = [
   {
     title: 'How To Build Flutter Form for Managing Questions',
     date: { month: 2, year: 2022 },
-    description:
-      'Explains form creation with Flutter. Includes iteration, validation, and user feedback.',
+    description: 'Explains form creation with Flutter. Includes iteration, validation, and user feedback.',
     image: { alt: '', name: 'flutter-form' },
     link: 'https://dev.to/obumnwabude/how-to-build-a-flutter-form-for-managing-questions-and-their-answers-4h4l',
     publishedOn: 'DEV',
@@ -302,8 +289,7 @@ export const articles: Article[] = [
   {
     title: 'Making GitHub-Invite',
     date: { month: 6, year: 2020 },
-    description:
-      'To me, it first sounded unreasonable. After all, ... However, two things changed my mind: ...',
+    description: 'To me, it first sounded unreasonable. After all, ... However, two things changed my mind: ...',
     image: {
       alt: 'Screenshot of Successful Invitation in GitHub Invite',
       name: 'making-github-invite',

@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import { LINKS } from '@/content/links';
 import IconDown from '@/icons/IconDown.vue';
 import IconEmail from '@/icons/IconEmail.vue';
 import IconTelegram from '@/icons/IconTelegram.vue';
 import { useSidebarStore } from '@/stores/sidebar';
+import { trackContactMenuOpened, trackLead } from '@/utils/analytics';
 import Menu from 'primevue/menu';
 import { ref } from 'vue';
 
@@ -11,16 +13,18 @@ const {
   icon = false,
   filled = false,
   label = 'Contact Me',
+  location = 'general',
 } = defineProps<{
   color?: string;
   icon?: boolean;
   filled?: boolean;
   label?: string;
+  location?: string;
 }>();
 
 const hrefs: Record<string, string> = {
-  Email: 'mailto:contact@obum.me',
-  Telegram: 'https://t.me/obumnwabude',
+  Email: LINKS.mailto,
+  Telegram: LINKS.telegram,
 };
 
 const icons: Record<string, any> = {
@@ -29,15 +33,26 @@ const icons: Record<string, any> = {
 };
 
 const sidebar = useSidebarStore();
+
+const onSelectOption = (itemLabel: string) => {
+  const method = itemLabel.toLowerCase() === 'telegram' ? 'telegram' : 'email';
+  trackLead(method, {
+    triggerLocation: location,
+    contactTarget: hrefs[itemLabel],
+  });
+  sidebar.close();
+};
+
 const items = ref([
-  { label: 'Email', command: sidebar.close },
-  { label: 'Telegram', command: sidebar.close },
+  { label: 'Email', command: () => onSelectOption('Email') },
+  { label: 'Telegram', command: () => onSelectOption('Telegram') },
 ]);
 
 const menu = ref();
 const menuId = `contact-menu-${Math.random().toString(36).slice(2, 8)}`;
 
 const toggleMenu = (event: MouseEvent) => {
+  trackContactMenuOpened(location);
   menu.value?.toggle(event);
 };
 </script>
@@ -62,13 +77,7 @@ const toggleMenu = (event: MouseEvent) => {
       <span>{{ label }}</span>
     </button>
 
-    <Menu
-      ref="menu"
-      :id="menuId"
-      :model="items"
-      :popup="true"
-      appendTo="body"
-    >
+    <Menu ref="menu" :id="menuId" :model="items" :popup="true" appendTo="body">
       <template #item="{ item, props }">
         <a
           target="_blank"
@@ -76,6 +85,7 @@ const toggleMenu = (event: MouseEvent) => {
           :href="hrefs[item.label as string]"
           v-bind="props.action"
           menu-item
+          @click="() => onSelectOption(item.label as string)"
         >
           <component :is="icons[item.label as string]" />
           {{ item.label }}

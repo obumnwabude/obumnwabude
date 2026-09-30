@@ -90,10 +90,7 @@ function handleMouseLeave() {
   border-radius: 20px;
   overflow: hidden;
   position: relative;
-  transition:
-    transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1),
-    border-color 260ms ease,
-    box-shadow 260ms ease;
+  transition: transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1), border-color 260ms ease, box-shadow 260ms ease;
 }
 
 .glass-content {

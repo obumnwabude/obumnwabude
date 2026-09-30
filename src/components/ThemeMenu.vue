@@ -5,6 +5,7 @@ import IconSun from '@/icons/IconSun.vue';
 import IconSystemTheme from '@/icons/IconSystemTheme.vue';
 import { useSidebarStore } from '@/stores/sidebar';
 import { themes, useThemeStore, type ThemeMode } from '@/stores/theme';
+import { trackThemeChange } from '@/utils/analytics';
 import Menu from 'primevue/menu';
 import { ref } from 'vue';
 
@@ -14,6 +15,7 @@ const icons = () => ({
   'Device Default': IconSystemTheme,
 });
 const selectTheme = (mode: ThemeMode, event?: MouseEvent) => {
+  trackThemeChange(mode, theme.mode, full ? 'sidebar' : 'header');
   theme.set(mode, event);
   sidebar.close();
 };

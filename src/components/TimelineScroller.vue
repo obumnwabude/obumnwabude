@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { trackTimelineScrub, trackTimelineYearJump, trackTimelineYearReached } from '@/utils/analytics';
+import { computed, onMounted, onUnmounted, ref } from 'vue';
+import { useRoute } from 'vue-router';
 
 export interface TimelineItem {
   id: string | number;
@@ -13,10 +15,10 @@ const props = defineProps<{
   items: TimelineItem[];
 }>();
 
-const monthNames = [
-  'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-  'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
-];
+const route = useRoute();
+const getPageName = (): 'articles' | 'community' => (route.path.includes('community') ? 'community' : 'articles');
+
+const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 // State
 const isVisible = ref(false);
@@ -156,6 +158,11 @@ function onPointerMove(e: PointerEvent) {
 
 function onPointerUp(e: PointerEvent) {
   if (!isDragging.value) return;
+  trackTimelineScrub(getPageName(), {
+    velocity: isHighVelocity.value ? 'high' : 'normal',
+    scrollRatio: scrollRatio.value,
+    yearCrossed: lastYearCrossed || undefined,
+  });
   isDragging.value = false;
   isHighVelocity.value = false;
 
@@ -185,6 +192,7 @@ function handleDrag(clientY: number, isSmooth: boolean = false) {
     // Haptic vibration on crossing year boundaries
     if (targetItem.date?.year && targetItem.date.year !== lastYearCrossed) {
       lastYearCrossed = targetItem.date.year;
+      trackTimelineYearReached(targetItem.date.year, getPageName());
       if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
         navigator.vibrate(10);
       }
@@ -209,6 +217,10 @@ function scrollToItem(id: string | number, isSmooth: boolean = false) {
 
 function jumpToYear(markerRatio: number, itemId: string | number, e: MouseEvent) {
   e.stopPropagation();
+  const item = validItems.value.find((i) => i.id === itemId);
+  if (item?.date?.year) {
+    trackTimelineYearJump(item.date.year, getPageName());
+  }
   scrollRatio.value = markerRatio;
   scrollToItem(itemId, true);
   showBriefly();
@@ -229,11 +241,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <aside
-    class="timeline-scroller"
-    :class="{ 'is-active': isVisible || isDragging }"
-    aria-label="Timeline Navigation"
-  >
+  <aside class="timeline-scroller" :class="{ 'is-active': isVisible || isDragging }" aria-label="Timeline Navigation">
     <!-- Scrubber Track & Rail -->
     <div
       ref="trackRef"
@@ -260,17 +268,9 @@ onUnmounted(() => {
       </div>
 
       <!-- Scrubber Thumb with Floating Contextual Date Bubble -->
-      <div
-        class="scrubber-thumb"
-        :class="{ dragging: isDragging }"
-        :style="{ top: `${scrollRatio * 100}%` }"
-      >
+      <div class="scrubber-thumb" :class="{ dragging: isDragging }" :style="{ top: `${scrollRatio * 100}%` }">
         <!-- Floating Google-Photos-style Date Bubble -->
-        <div
-          v-if="displayDateLabel"
-          class="date-bubble"
-          :class="{ 'high-velocity': isHighVelocity }"
-        >
+        <div v-if="displayDateLabel" class="date-bubble" :class="{ 'high-velocity': isHighVelocity }">
           <span class="bubble-text">{{ displayDateLabel }}</span>
         </div>
 
@@ -295,9 +295,7 @@ onUnmounted(() => {
   touch-action: none;
   opacity: 0;
   transform: translateX(10px);
-  transition:
-    opacity 0.28s cubic-bezier(0.2, 0, 0, 1),
-    transform 0.28s cubic-bezier(0.2, 0, 0, 1);
+  transition: opacity 0.28s cubic-bezier(0.2, 0, 0, 1), transform 0.28s cubic-bezier(0.2, 0, 0, 1);
   pointer-events: none;
 }
 
@@ -343,10 +341,7 @@ onUnmounted(() => {
   background-color: var(--gray);
   border-radius: 1px;
   opacity: 0.55;
-  transition:
-    background-color 0.2s ease,
-    width 0.2s ease,
-    opacity 0.2s ease;
+  transition: background-color 0.2s ease, width 0.2s ease, opacity 0.2s ease;
 }
 
 .tick-label {
@@ -357,10 +352,7 @@ onUnmounted(() => {
   color: var(--gray);
   opacity: 0;
   transform: translateX(4px);
-  transition:
-    opacity 0.2s ease,
-    transform 0.2s ease,
-    color 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease, color 0.2s ease;
   white-space: nowrap;
 }
 
@@ -445,27 +437,19 @@ onUnmounted(() => {
   color: var(--text);
   border: 1px solid var(--glass-border);
   box-shadow: var(--shadow-glass);
-  transition:
-    transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1),
-    background-color 0.2s ease,
-    color 0.2s ease,
+  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, color 0.2s ease,
     border-color 0.2s ease;
 }
 
 /* Light mode specific styling */
 body:not(.dark) .date-bubble {
-  box-shadow:
-    0 8px 24px rgb(16 30 159 / 14%),
-    0 2px 6px rgb(0 0 0 / 6%),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 24px rgb(16 30 159 / 14%), 0 2px 6px rgb(0 0 0 / 6%), inset 0 1px 0 rgba(255, 255, 255, 0.9);
   border-color: var(--glass-border);
 }
 
 /* Dark mode glow */
 body.dark .date-bubble {
-  box-shadow:
-    0 8px 24px rgb(0 0 0 / 65%),
-    0 0 14px rgb(from var(--primary) r g b / 25%),
+  box-shadow: 0 8px 24px rgb(0 0 0 / 65%), 0 0 14px rgb(from var(--primary) r g b / 25%),
     inset 0 1px 0 rgba(255, 255, 255, 0.15);
   border-color: var(--glass-border);
 }

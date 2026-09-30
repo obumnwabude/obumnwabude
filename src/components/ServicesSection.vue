@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import ContactMe from '@/components/ContactMe.vue';
 import GlassCard from '@/components/GlassCard.vue';
+import { trackServiceInquiryClick } from '@/utils/analytics';
 
 const services = [
   {
@@ -62,6 +63,7 @@ const services = [
         :spotlight="true"
         class="service-card"
         v-reveal="{ delay: idx * 90 }"
+        @mouseenter.once="() => trackServiceInquiryClick(service.title, service.badge)"
       >
         <div class="service-inner">
           <div class="service-meta-top">
@@ -91,6 +93,7 @@ const services = [
                 :label="service.cta"
                 color="var(--primary)"
                 class="service-card-cta"
+                :location="'service_' + service.title.toLowerCase().replace(/[^a-z0-9]+/g, '_')"
               />
             </div>
           </div>

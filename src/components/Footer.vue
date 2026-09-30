@@ -5,6 +5,7 @@ import IconArticle from '@/icons/IconArticle.vue';
 import IconHome from '@/icons/IconHome.vue';
 import IconRocket from '@/icons/IconRocket.vue';
 import IconUsers from '@/icons/IconUsers.vue';
+import { trackNavClick } from '@/utils/analytics';
 
 const navItems = [
   { path: '/', label: 'Home', icon: IconHome },
@@ -21,7 +22,7 @@ const year = new Date().getFullYear();
     <div top>
       <div class="footer-left">
         <p>
-          <router-link to="/" obum class="footer-logo">
+          <router-link to="/" obum class="footer-logo" @click="() => trackNavClick('Logo', 'footer')">
             <span class="logo-text">Obum</span>
             <span class="logo-dot"></span>
           </router-link>
@@ -29,7 +30,7 @@ const year = new Date().getFullYear();
         <nav>
           <ul>
             <li v-for="item of navItems" :key="item.path">
-              <router-link :to="item.path" class="footer-nav-link">
+              <router-link :to="item.path" class="footer-nav-link" @click="() => trackNavClick(item.label, 'footer')">
                 <component :is="item.icon" :size="13" class="footer-nav-icon" />
                 <span>{{ item.label }}</span>
               </router-link>
@@ -37,13 +38,11 @@ const year = new Date().getFullYear();
           </ul>
         </nav>
       </div>
-      <ContactMe color="var(--primary)" label="Contact Me" />
+      <ContactMe color="var(--primary)" label="Contact Me" location="footer" />
     </div>
     <div bottom>
-      <SocialIcons />
-      <p class="copyright-text">
-        All Rights Reserved &copy; {{ year }} Obumuneme Nwabude
-      </p>
+      <SocialIcons placement="footer" />
+      <p class="copyright-text">All Rights Reserved &copy; {{ year }} Obumuneme Nwabude</p>
     </div>
   </footer>
 </template>
@@ -102,8 +101,8 @@ body.dark footer {
   font-size: 0.8125rem;
   opacity: 0.78;
   border: 1px solid transparent;
-  transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease,
-    border-color 0.2s ease, transform 0.18s ease;
+  transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease,
+    transform 0.18s ease;
 }
 
 .footer-nav-icon {

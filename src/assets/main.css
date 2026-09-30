@@ -44,17 +44,21 @@
   /* Regularized Shadows */
   --shadow-sm: 0 1px 3px rgba(16, 30, 159, 0.05);
   --shadow-md: 0 4px 14px -2px rgba(16, 30, 159, 0.07);
-  --shadow-glass: 0 8px 24px -4px rgba(16, 30, 159, 0.06), 0 2px 6px -1px rgba(16, 30, 159, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.9);
-  --shadow-glass-hover: 0 14px 32px -4px rgba(16, 30, 159, 0.10), 0 4px 12px -2px rgba(16, 30, 159, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  --shadow-glass: 0 8px 24px -4px rgba(16, 30, 159, 0.06), 0 2px 6px -1px rgba(16, 30, 159, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  --shadow-glass-hover: 0 14px 32px -4px rgba(16, 30, 159, 0.1), 0 4px 12px -2px rgba(16, 30, 159, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
   --shadow-glow: 0 0 20px -2px rgb(from var(--primary) r g b / 20%);
   --shadow-button-filled: 0 2px 8px -1px rgb(from var(--primary) r g b / 30%), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  --shadow-button-filled-hover: 0 4px 14px -1px rgb(from var(--primary) r g b / 40%), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  --shadow-button-filled-hover: 0 4px 14px -1px rgb(from var(--primary) r g b / 40%),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
   --shadow-button-outlined: 0 1px 4px rgb(0 0 0 / 3%), inset 0 1px 0 rgba(255, 255, 255, 0.6);
-  --shadow-button-outlined-hover: 0 3px 12px -1px rgb(from var(--primary) r g b / 18%), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  --shadow-button-outlined-hover: 0 3px 12px -1px rgb(from var(--primary) r g b / 18%),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
 
   /* Glass Surface System */
   --glass-tint: rgba(255, 255, 255, 0.72);
-  --glass-border: rgba(16, 30, 159, 0.10);
+  --glass-border: rgba(16, 30, 159, 0.1);
   --glass-border-hover: rgba(16, 30, 159, 0.28);
   --glass-sheen: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
   --popover-bg: rgba(255, 255, 255, 0.92);
@@ -64,9 +68,8 @@
 body {
   background-color: var(--app-bg);
   color: var(--text);
-  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
   font-size: 16px;
   line-height: 1.5;
   overflow-x: hidden;
@@ -101,13 +104,17 @@ body.dark {
   /* Regularized Shadows (Dark Mode) */
   --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 14px -2px rgba(0, 0, 0, 0.45);
-  --shadow-glass: 0 10px 28px -4px rgba(0, 0, 0, 0.5), 0 2px 8px -2px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  --shadow-glass-hover: 0 16px 36px -4px rgba(0, 0, 0, 0.65), 0 4px 14px -2px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  --shadow-glass: 0 10px 28px -4px rgba(0, 0, 0, 0.5), 0 2px 8px -2px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --shadow-glass-hover: 0 16px 36px -4px rgba(0, 0, 0, 0.65), 0 4px 14px -2px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
   --shadow-glow: 0 0 16px -2px rgb(from var(--primary) r g b / 18%);
   --shadow-button-filled: 0 2px 10px -1px rgb(from var(--primary) r g b / 32%), inset 0 1px 0 rgba(255, 255, 255, 0.25);
-  --shadow-button-filled-hover: 0 4px 16px -1px rgb(from var(--primary) r g b / 42%), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  --shadow-button-filled-hover: 0 4px 16px -1px rgb(from var(--primary) r g b / 42%),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
   --shadow-button-outlined: 0 1px 6px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  --shadow-button-outlined-hover: 0 4px 14px -1px rgb(from var(--primary) r g b / 18%), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  --shadow-button-outlined-hover: 0 4px 14px -1px rgb(from var(--primary) r g b / 18%),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 
   /* Glass Surface System (Dark Mode) */
   --glass-tint: rgba(13, 20, 36, 0.58);
@@ -161,10 +168,7 @@ body.dark {
 }
 
 .glass-hover-lift {
-  transition:
-    transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1),
-    border-color 260ms ease,
-    box-shadow 260ms ease;
+  transition: transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1), border-color 260ms ease, box-shadow 260ms ease;
   will-change: transform;
 }
 
@@ -200,11 +204,13 @@ body.dark {
   inset: -1px;
   border-radius: inherit;
   padding: 1.5px;
-  background: conic-gradient(from var(--angle, 0deg),
-      transparent 65%,
-      var(--accent-2) 80%,
-      var(--primary) 95%,
-      transparent 100%);
+  background: conic-gradient(
+    from var(--angle, 0deg),
+    transparent 65%,
+    var(--accent-2) 80%,
+    var(--primary) 95%,
+    transparent 100%
+  );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
   -webkit-mask-composite: xor;
@@ -370,9 +376,8 @@ a {
 
 button {
   cursor: pointer;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 
 footer {
@@ -424,12 +429,8 @@ ul li {
   text-decoration: none;
   cursor: pointer;
   box-sizing: border-box;
-  transition:
-    transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1),
-    box-shadow 0.18s ease,
-    background-color 0.18s ease,
-    border-color 0.18s ease,
-    color 0.18s ease;
+  transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.18s ease, background-color 0.18s ease,
+    border-color 0.18s ease, color 0.18s ease;
 }
 
 [filled] {
@@ -482,12 +483,11 @@ body.dark [filled] * {
 
 /* Custom Interactive Cursor on Desktop */
 @media (min-width: 769px) and (pointer: fine) {
-
   body,
   a,
   button,
   [clickable],
-  [role="button"],
+  [role='button'],
   input,
   select,
   textarea {
@@ -540,7 +540,6 @@ body.dark [filled] * {
 
 /* Accessibility & Performance Fallbacks */
 @media (prefers-reduced-transparency: reduce) {
-
   .glass-surface,
   .glass-frost,
   .glass-refract,
@@ -559,7 +558,6 @@ body.dark [filled] * {
 }
 
 @media (prefers-reduced-motion: reduce) {
-
   *,
   *::before,
   *::after {
@@ -581,7 +579,6 @@ body.dark [filled] * {
 }
 
 @supports not (backdrop-filter: blur(1px)) {
-
   .glass-frost,
   .glass-refract,
   .glass-dense,

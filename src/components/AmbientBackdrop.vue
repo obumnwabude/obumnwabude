@@ -22,12 +22,7 @@
     <!-- Anti-Banding Micro-Noise Overlay -->
     <svg class="ambient-noise" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
       <filter id="ambient-grain">
-        <feTurbulence
-          type="fractalNoise"
-          baseFrequency="0.8"
-          numOctaves="3"
-          stitchTiles="stitch"
-        />
+        <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" />
         <feColorMatrix type="saturate" values="0" />
       </filter>
       <rect width="100%" height="100%" filter="url(#ambient-grain)" />
@@ -55,11 +50,7 @@
   left: -10%;
   width: 70vw;
   height: 70vh;
-  background: radial-gradient(
-    circle at center,
-    rgb(from var(--primary) r g b / 8%) 0%,
-    transparent 65%
-  );
+  background: radial-gradient(circle at center, rgb(from var(--primary) r g b / 8%) 0%, transparent 65%);
   filter: blur(80px);
 }
 
@@ -69,11 +60,7 @@
   right: -10%;
   width: 75vw;
   height: 75vh;
-  background: radial-gradient(
-    circle at center,
-    rgb(from var(--primary) r g b / 6%) 0%,
-    transparent 65%
-  );
+  background: radial-gradient(circle at center, rgb(from var(--primary) r g b / 6%) 0%, transparent 65%);
   filter: blur(90px);
 }
 
@@ -171,9 +158,7 @@ body.dark .orb-secondary {
     transparent 85%
   );
   border: 1px solid rgba(255, 255, 255, 0.45);
-  box-shadow:
-    inset 2px 2px 6px rgba(255, 255, 255, 0.65),
-    inset -2px -2px 8px rgb(from var(--primary) r g b / 16%),
+  box-shadow: inset 2px 2px 6px rgba(255, 255, 255, 0.65), inset -2px -2px 8px rgb(from var(--primary) r g b / 16%),
     0 4px 16px rgb(from var(--primary) r g b / 8%);
   backdrop-filter: blur(1.5px);
   -webkit-backdrop-filter: blur(1.5px);
@@ -189,9 +174,7 @@ body.dark .glass-bubble {
     transparent 85%
   );
   border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow:
-    inset 2px 2px 5px rgba(255, 255, 255, 0.2),
-    inset -2px -2px 8px rgb(from var(--primary) r g b / 14%),
+  box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.2), inset -2px -2px 8px rgb(from var(--primary) r g b / 14%),
     0 4px 14px rgba(0, 0, 0, 0.35);
 }
 
@@ -220,21 +203,39 @@ body.dark .glass-bubble {
 }
 
 @keyframes bubbleFloat1 {
-  0% { transform: translateY(0) rotate(0deg) scale(1); }
-  50% { transform: translateY(-70px) translateX(25px) rotate(180deg) scale(1.05); }
-  100% { transform: translateY(-130px) translateX(-15px) rotate(360deg) scale(0.96); }
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(-70px) translateX(25px) rotate(180deg) scale(1.05);
+  }
+  100% {
+    transform: translateY(-130px) translateX(-15px) rotate(360deg) scale(0.96);
+  }
 }
 
 @keyframes bubbleFloat2 {
-  0% { transform: translateY(0) rotate(0deg) scale(0.96); }
-  50% { transform: translateY(60px) translateX(-35px) rotate(-180deg) scale(1.06); }
-  100% { transform: translateY(110px) translateX(20px) rotate(-360deg) scale(1); }
+  0% {
+    transform: translateY(0) rotate(0deg) scale(0.96);
+  }
+  50% {
+    transform: translateY(60px) translateX(-35px) rotate(-180deg) scale(1.06);
+  }
+  100% {
+    transform: translateY(110px) translateX(20px) rotate(-360deg) scale(1);
+  }
 }
 
 @keyframes bubbleFloat3 {
-  0% { transform: translateY(0) rotate(0deg) scale(1); }
-  50% { transform: translateY(-50px) translateX(-20px) rotate(120deg) scale(1.08); }
-  100% { transform: translateY(-90px) translateX(30px) rotate(240deg) scale(0.95); }
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(-50px) translateX(-20px) rotate(120deg) scale(1.08);
+  }
+  100% {
+    transform: translateY(-90px) translateX(30px) rotate(240deg) scale(0.95);
+  }
 }
 
 /* Anti-Banding Micro-Noise */

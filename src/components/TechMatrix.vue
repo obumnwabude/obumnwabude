@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import GlassCard from '@/components/GlassCard.vue';
+import { trackSkillTagInteraction } from '@/utils/analytics';
 
 const pillars = [
   {
@@ -61,7 +62,13 @@ const pillars = [
           <p class="pillar-desc">{{ pillar.description }}</p>
 
           <div class="pillar-skills">
-            <span v-for="skill in pillar.skills" :key="skill" class="skill-tag">
+            <span
+              v-for="skill in pillar.skills"
+              :key="skill"
+              class="skill-tag"
+              @mouseenter.once="() => trackSkillTagInteraction(skill, pillar.title)"
+              @click="() => trackSkillTagInteraction(skill, pillar.title)"
+            >
               {{ skill }}
             </span>
           </div>
@@ -166,10 +173,7 @@ const pillars = [
   font-weight: 500;
   padding: 0.25rem 0.65rem;
   border-radius: 9999px;
-  transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 .skill-tag:hover {

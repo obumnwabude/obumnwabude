@@ -57,8 +57,7 @@ export const projects: CodingProject[] = [
   dado,
   {
     title: 'Android Bubbles in Flutter',
-    description:
-      "Flutter Package that enables you to build Android's Conversation Bubbles in your Flutter App.",
+    description: "Flutter Package that enables you to build Android's Conversation Bubbles in your Flutter App.",
     image: { alt: '', name: 'android-bubbles-flutter' },
     actions: [
       {
@@ -188,8 +187,7 @@ export const projects: CodingProject[] = [
   },
   {
     title: 'Calculator',
-    description:
-      'Supports complex math operations. Built using Stacked architecture for state management.',
+    description: 'Supports complex math operations. Built using Stacked architecture for state management.',
     image: { alt: 'Screens of Calculator', name: 'calculator' },
     actions: [
       {
@@ -301,8 +299,7 @@ export const projects: CodingProject[] = [
   },
   {
     title: 'My Notes',
-    description:
-      'Note Taking Website used to teach Firestore during GDSC AE-FUNAI Firebase Series (Workshop).',
+    description: 'Note Taking Website used to teach Firestore during GDSC AE-FUNAI Firebase Series (Workshop).',
     image: { alt: 'Screens of using MyNotes', name: 'mynotes' },
     actions: [
       {

@@ -1,65 +1,49 @@
 <script setup lang="ts">
+import { LINKS } from '@/content/links';
 import IconFacebook from '@/icons/IconFacebook.vue';
 import IconGithub from '@/icons/IconGithub.vue';
 import IconInstagram from '@/icons/IconInstagram.vue';
 import IconLinkedin from '@/icons/IconLinkedin.vue';
 import IconStackoverflow from '@/icons/IconStackoverflow.vue';
 import IconX from '@/icons/IconX.vue';
+import { trackSocialClick } from '@/utils/analytics';
 
-defineProps<{
+const { biggerIcons, placement = 'footer' } = defineProps<{
   biggerIcons?: boolean;
+  placement?: 'header' | 'sidebar' | 'footer';
 }>();
+
+const socialLinks = [
+  { platform: 'LinkedIn', title: 'LinkedIn', href: LINKS.linkedin, icon: IconLinkedin },
+  { platform: 'GitHub', title: 'Github', href: LINKS.github, icon: IconGithub },
+  {
+    platform: 'StackOverflow',
+    title: 'Stackoverflow',
+    href: LINKS.stackoverflow,
+    icon: IconStackoverflow,
+  },
+  { platform: 'X', title: 'X (Twitter)', href: LINKS.x, icon: IconX },
+  { platform: 'Facebook', title: 'Facebook', href: LINKS.facebook, icon: IconFacebook },
+  { platform: 'Instagram', title: 'Instagram', href: LINKS.instagram, icon: IconInstagram },
+];
+
+const handleSocialClick = (platform: string, url: string) => {
+  trackSocialClick(platform, placement, url);
+};
 </script>
 
 <template>
   <div icons :class="{ 'bigger-icons': biggerIcons }">
     <a
-      href="https://linkedin.com/in/obumnwabude"
+      v-for="item in socialLinks"
+      :key="item.platform"
+      :href="item.href"
       target="_blank"
       rel="noopener noreferrer"
-      title="LinkedIn"
+      :title="item.title"
+      @click="() => handleSocialClick(item.platform, item.href)"
     >
-      <IconLinkedin />
-    </a>
-    <a
-      href="https://github.com/obumnwabude"
-      target="_blank"
-      rel="noopener noreferrer"
-      title="Github"
-    >
-      <IconGithub />
-    </a>
-    <a
-      href="https://stackoverflow.com/users/13644299"
-      target="_blank"
-      rel="noopener noreferrer"
-      title="Stackoverflow"
-    >
-      <IconStackoverflow />
-    </a>
-    <a
-      href="https://x.com/obumnwabude"
-      target="_blank"
-      rel="noopener noreferrer"
-      title="X (Twitter)"
-    >
-      <IconX />
-    </a>
-    <a
-      href="https://facebook.com/obumnwabude"
-      target="_blank"
-      rel="noopener noreferrer"
-      title="Facebook"
-    >
-      <IconFacebook />
-    </a>
-    <a
-      href="https://instagram.com/obumnwabude"
-      target="_blank"
-      rel="noopener noreferrer"
-      title="Instagram"
-    >
-      <IconInstagram />
+      <component :is="item.icon" />
     </a>
   </div>
 </template>
@@ -82,8 +66,7 @@ defineProps<{
   justify-content: center;
   color: var(--text);
   opacity: 0.75;
-  transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
-    color 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
 }
 
 [icons] a:hover {

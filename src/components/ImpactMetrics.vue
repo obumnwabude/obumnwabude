@@ -7,6 +7,7 @@ import IconCode from '@/icons/IconCode.vue';
 import IconAward from '@/icons/IconAward.vue';
 import IconPresentation from '@/icons/IconPresentation.vue';
 import IconDocument from '@/icons/IconDocument.vue';
+import { trackEvent, trackMetricCardHover } from '@/utils/analytics';
 import { onMounted, onUnmounted, ref } from 'vue';
 
 // Dynamic calculation of years building snapping from 2018
@@ -84,6 +85,7 @@ const getDisplayValue = (metric: MetricItem) => {
 const animateMetrics = () => {
   if (hasAnimated.value) return;
   hasAnimated.value = true;
+  trackEvent('metrics_counter_animated');
 
   metrics.forEach((metric, index) => {
     if (metric.targetNum === undefined) return;
@@ -166,6 +168,7 @@ onUnmounted(() => {
         :class="{ 'has-rolled': hasAnimated }"
         :style="{ '--card-stagger': `${idx * 90}ms` }"
         v-reveal="{ delay: idx * 80 }"
+        @mouseenter.once="() => trackMetricCardHover(metric.label, String(getDisplayValue(metric)))"
       >
         <div class="metric-inner">
           <div class="metric-top">

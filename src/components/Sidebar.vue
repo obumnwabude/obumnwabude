@@ -7,6 +7,7 @@ import IconHome from '@/icons/IconHome.vue';
 import IconRocket from '@/icons/IconRocket.vue';
 import IconUsers from '@/icons/IconUsers.vue';
 import { useSidebarStore } from '@/stores/sidebar';
+import { trackNavClick } from '@/utils/analytics';
 import Sidebar from 'primevue/sidebar';
 
 const sidebar = useSidebarStore();
@@ -20,13 +21,18 @@ const navItems = [
 </script>
 
 <template>
-  <Sidebar
-    v-model:visible="sidebar.status"
-    position="right"
-    blockScroll
-  >
+  <Sidebar v-model:visible="sidebar.status" position="right" blockScroll>
     <template #header>
-      <router-link to="/" @click="sidebar.close" class="sidebar-logo">
+      <router-link
+        to="/"
+        @click="
+          () => {
+            trackNavClick('Logo', 'mobile_sidebar');
+            sidebar.close();
+          }
+        "
+        class="sidebar-logo"
+      >
         <span class="logo-text">Obum</span>
         <span class="logo-dot"></span>
       </router-link>
@@ -35,19 +41,28 @@ const navItems = [
     <nav>
       <ul>
         <li v-for="item of navItems" :key="item.path">
-          <router-link :to="item.path" @click="sidebar.close" class="sidebar-nav-link">
+          <router-link
+            :to="item.path"
+            @click="
+              () => {
+                trackNavClick(item.label, 'mobile_sidebar');
+                sidebar.close();
+              }
+            "
+            class="sidebar-nav-link"
+          >
             <component :is="item.icon" :size="20" class="sidebar-nav-icon" />
             <span>{{ item.label }}</span>
           </router-link>
         </li>
         <li contact>
-          <ContactMe color="var(--text)" :icon="true" label="Contact Me" />
+          <ContactMe color="var(--text)" :icon="true" label="Contact Me" location="sidebar" />
         </li>
         <li theme><ThemeMenu :full="true" /></li>
       </ul>
     </nav>
 
-    <SocialIcons biggerIcons />
+    <SocialIcons biggerIcons placement="sidebar" />
   </Sidebar>
 </template>
 
@@ -68,11 +83,7 @@ li:not([contact]):not([theme]) a {
   border-radius: 14px;
   color: var(--text);
   border: 1px solid transparent;
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease,
-    border-color 0.2s ease,
-    transform 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
 .sidebar-nav-icon {
@@ -127,11 +138,7 @@ li:not([contact]):not([theme]) a:hover {
   background: var(--glass-tint) !important;
   color: var(--text) !important;
   box-shadow: var(--shadow-button-outlined) !important;
-  transition:
-    border-color 0.2s ease,
-    background-color 0.2s ease,
-    color 0.2s ease,
-    transform 0.18s ease,
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease, transform 0.18s ease,
     box-shadow 0.2s ease;
 }
 

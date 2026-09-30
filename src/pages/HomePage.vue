@@ -12,8 +12,48 @@ import IconFlower2P from '@/icons/IconFlower2P.vue';
 import IconFlower6P from '@/icons/IconFlower6P.vue';
 import IconRight from '@/icons/IconRight.vue';
 import { banners } from '@/types';
+import { trackExploreMoreClick, trackGdeBadgeInteraction, trackNavClick, trackSectionView } from '@/utils/analytics';
+import { onMounted } from 'vue';
 
 const years = new Date().getFullYear() - 2018;
+
+onMounted(() => {
+  if (typeof window === 'undefined' || typeof IntersectionObserver === 'undefined') return;
+
+  const sectionSelectors: { id: string; selector: string }[] = [
+    { id: 'hero', selector: '[intro]' },
+    { id: 'skills_banner', selector: '[banner]' },
+    { id: 'impact_metrics', selector: '.metrics-container' },
+    { id: 'core_capabilities', selector: '.tech-matrix-container' },
+    { id: 'latest_projects', selector: 'section:nth-of-type(2)' },
+    { id: 'latest_articles', selector: 'section:nth-of-type(3)' },
+    { id: 'community_talks', selector: 'section:nth-of-type(4)' },
+    { id: 'services_collaboration', selector: 'section:nth-of-type(5)' },
+    { id: 'closing_cta', selector: '[closing]' },
+  ];
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          const match = (entry.target as any).__sectionId;
+          if (match) {
+            trackSectionView(match, '/');
+          }
+        }
+      }
+    },
+    { threshold: 0.25 }
+  );
+
+  sectionSelectors.forEach(({ id, selector }) => {
+    const el = document.querySelector(selector);
+    if (el) {
+      (el as any).__sectionId = id;
+      observer.observe(el);
+    }
+  });
+});
 </script>
 
 <template>
@@ -23,18 +63,19 @@ const years = new Date().getFullYear() - 2018;
         <IconFlower2P />
       </div>
       <h1 name>OBUMUNEME NWABUDE</h1>
-      <h2 tagline>
-        Full-Stack AI, Blockchain, Cloud, Mobile, and Web Developer.
-      </h2>
+      <h2 tagline>Full-Stack AI, Blockchain, Cloud, Mobile, and Web Developer.</h2>
       <p intro-bio>
-        I have been programming for {{ years }} years and counting. I've worked
-        with great teams and have built one-of-a-kind solutions. I'm a pro in
-        Flutter, Cloud, AI, everything web dev, and web3 (Solana & Solidity). I
-        am also a Google Developer Expert (GDE) in Cloud AI & Dart-Flutter.
+        I have been programming for {{ years }} years and counting. I've worked with great teams and have built
+        one-of-a-kind solutions. I'm a pro in Flutter, Cloud, AI, everything web dev, and web3 (Solana & Solidity). I am
+        also a Google Developer Expert (GDE) in Cloud AI & Dart-Flutter.
       </p>
       <div contact class="hero-cta-group">
-        <ContactMe :filled="true" label="Get In Touch" />
-        <router-link to="/projects" outlined class="hero-secondary-cta"
+        <ContactMe :filled="true" label="Get In Touch" location="hero" />
+        <router-link
+          to="/projects"
+          outlined
+          class="hero-secondary-cta"
+          @click="() => trackNavClick('Explore My Work', 'hero')"
           >Explore My Work</router-link
         >
       </div>
@@ -51,11 +92,9 @@ const years = new Date().getFullYear() - 2018;
           fetchpriority="high"
           class="avatar-img"
         />
-        <div class="gde-glass-badge glass-surface glass-frost">
+        <div class="gde-glass-badge glass-surface glass-frost" @mouseenter.once="trackGdeBadgeInteraction">
           <span class="live-pulse-dot" aria-hidden="true"></span>
-          <span class="badge-text"
-            >Google Developer Expert (GDE) • Cloud AI & Dart-Flutter</span
-          >
+          <span class="badge-text">Google Developer Expert (GDE) • Cloud AI & Dart-Flutter</span>
         </div>
       </div>
     </div>
@@ -63,22 +102,10 @@ const years = new Date().getFullYear() - 2018;
 
   <div banner aria-label="Skill Highlights">
     <div class="banner-inner">
-      <span flower
-        ><IconFlower6P
-          color="var(--primary)"
-          :size="22"
-          :spin="true"
-          :glow="true"
-      /></span>
+      <span flower><IconFlower6P color="var(--primary)" :size="22" :spin="true" :glow="true" /></span>
       <template v-for="banner of banners" :key="banner">
         <span text>{{ banner }}</span>
-        <span flower
-          ><IconFlower6P
-            color="var(--primary)"
-            :size="22"
-            :spin="true"
-            :glow="true"
-        /></span>
+        <span flower><IconFlower6P color="var(--primary)" :size="22" :spin="true" :glow="true" /></span>
       </template>
     </div>
   </div>
@@ -101,15 +128,9 @@ const years = new Date().getFullYear() - 2018;
       :key="project.title"
     />
     <div more class="glass-surface glass-frost glass-more-box">
-      <span flower
-        ><IconFlower6P
-          color="var(--primary)"
-          :size="28"
-          :spin="true"
-          :glow="true"
-      /></span>
+      <span flower><IconFlower6P color="var(--primary)" :size="28" :spin="true" :glow="true" /></span>
       <p>Of Course, There Are More.</p>
-      <router-link to="/projects" outlined class="more-cta-btn">
+      <router-link to="/projects" outlined class="more-cta-btn" @click="() => trackExploreMoreClick('projects')">
         <span>See All Projects</span>
         <IconRight class="more-arrow-icon" />
       </router-link>
@@ -118,21 +139,11 @@ const years = new Date().getFullYear() - 2018;
 
   <section v-reveal>
     <h2>LATEST ARTICLES</h2>
-    <Article
-      :article="article"
-      v-for="article of articles.slice(0, 3)"
-      :key="article.title"
-    />
+    <Article :article="article" v-for="article of articles.slice(0, 3)" :key="article.title" />
     <div more class="glass-surface glass-frost glass-more-box">
-      <span flower
-        ><IconFlower6P
-          color="var(--primary)"
-          :size="28"
-          :spin="true"
-          :glow="true"
-      /></span>
+      <span flower><IconFlower6P color="var(--primary)" :size="28" :spin="true" :glow="true" /></span>
       <p>Of Course, There Are More.</p>
-      <router-link to="/articles" outlined class="more-cta-btn">
+      <router-link to="/articles" outlined class="more-cta-btn" @click="() => trackExploreMoreClick('articles')">
         <span>See All Articles</span>
         <IconRight class="more-arrow-icon" />
       </router-link>
@@ -141,21 +152,11 @@ const years = new Date().getFullYear() - 2018;
 
   <section v-reveal>
     <h2>COMMUNITY & TALKS</h2>
-    <ProjectOrEvent
-      :content="contribution"
-      v-for="contribution of community.slice(0, 3)"
-      :key="contribution.title"
-    />
+    <ProjectOrEvent :content="contribution" v-for="contribution of community.slice(0, 3)" :key="contribution.title" />
     <div more class="glass-surface glass-frost glass-more-box">
-      <span leading-flower
-        ><IconFlower6P
-          color="var(--primary)"
-          :size="28"
-          :spin="true"
-          :glow="true"
-      /></span>
+      <span leading-flower><IconFlower6P color="var(--primary)" :size="28" :spin="true" :glow="true" /></span>
       <p>Of Course, There Are More.</p>
-      <router-link to="/community" outlined class="more-cta-btn">
+      <router-link to="/community" outlined class="more-cta-btn" @click="() => trackExploreMoreClick('community')">
         <span>See All Events</span>
         <IconRight class="more-arrow-icon" />
       </router-link>
@@ -170,21 +171,16 @@ const years = new Date().getFullYear() - 2018;
 
   <div closing v-reveal>
     <div class="closing-card glass-surface glass-frost">
-      <span leading-flower
-        ><IconFlower6P
-          color="var(--primary)"
-          :size="32"
-          :spin="true"
-          :glow="true"
-      /></span>
+      <span leading-flower><IconFlower6P color="var(--primary)" :size="32" :spin="true" :glow="true" /></span>
       <h2>LET'S WORK TOGETHER</h2>
       <p text>
-        "Coming together is a beginning. Keeping together is progress. Working
-        together is success." ~ Henry Ford.
+        "Coming together is a beginning. Keeping together is progress. Working together is success." ~ Henry Ford.
         <br />
         Let's work together to achieve success.
       </p>
-      <p contact><ContactMe color="var(--primary)" label="Contact Me" /></p>
+      <p contact>
+        <ContactMe color="var(--primary)" label="Contact Me" location="closing_cta" />
+      </p>
     </div>
   </div>
 </template>
@@ -242,11 +238,7 @@ const years = new Date().getFullYear() - 2018;
   position: absolute;
   inset: -6px;
   border-radius: 34px;
-  background: radial-gradient(
-    circle,
-    rgb(from var(--primary) r g b / 16%) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle, rgb(from var(--primary) r g b / 16%) 0%, transparent 70%);
   filter: blur(18px);
   opacity: 0.6;
   z-index: 0;
@@ -255,11 +247,7 @@ const years = new Date().getFullYear() - 2018;
 
 body.dark .avatar-aura {
   opacity: 0.4;
-  background: radial-gradient(
-    circle,
-    rgb(from var(--primary) r g b / 14%) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle, rgb(from var(--primary) r g b / 14%) 0%, transparent 70%);
 }
 
 .avatar-frame {

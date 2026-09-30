@@ -7,6 +7,7 @@ import IconMenu from '@/icons/IconMenu.vue';
 import IconRocket from '@/icons/IconRocket.vue';
 import IconUsers from '@/icons/IconUsers.vue';
 import { useSidebarStore } from '@/stores/sidebar';
+import { trackMobileMenuToggle, trackNavClick } from '@/utils/analytics';
 import { onMounted, onUnmounted, ref } from 'vue';
 
 const navItems = [
@@ -40,7 +41,7 @@ onUnmounted(() => {
     <div class="header-inner">
       <div class="header-left">
         <h1>
-          <router-link to="/" obum class="logo-link">
+          <router-link to="/" obum class="logo-link" @click="() => trackNavClick('Logo', 'desktop_header')">
             <span class="logo-text">Obum</span>
             <span class="logo-dot"></span>
           </router-link>
@@ -50,7 +51,7 @@ onUnmounted(() => {
         <nav class="desktop-nav">
           <ul>
             <li v-for="item of navItems" :key="item.path">
-              <router-link :to="item.path" class="nav-link">
+              <router-link :to="item.path" class="nav-link" @click="() => trackNavClick(item.label, 'desktop_header')">
                 <component :is="item.icon" :size="14" class="nav-link-icon" />
                 <span>{{ item.label }}</span>
               </router-link>
@@ -60,11 +61,20 @@ onUnmounted(() => {
       </div>
 
       <div class="header-actions">
-        <ContactMe color="var(--primary)" contact-me :label="'Contact Me'" />
+        <ContactMe color="var(--primary)" contact-me :label="'Contact Me'" location="header" />
         <!-- Theme toggle cast directly into the UI (no borders/background) -->
         <div theme><ThemeMenu :full="false" /></div>
         <!-- Menu toggle cast directly into the UI (no borders/background) -->
-        <button @click="sidebar.open" menu aria-label="Open Navigation Menu">
+        <button
+          @click="
+            () => {
+              trackMobileMenuToggle('open');
+              sidebar.open();
+            }
+          "
+          menu
+          aria-label="Open Navigation Menu"
+        >
           <IconMenu />
         </button>
       </div>
@@ -84,11 +94,8 @@ onUnmounted(() => {
   backdrop-filter: blur(0px);
   -webkit-backdrop-filter: blur(0px);
   box-shadow: none;
-  transition:
-    background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-    backdrop-filter 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+  transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), backdrop-filter 0.3s cubic-bezier(0.16, 1, 0.3, 1),
     -webkit-backdrop-filter 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -171,13 +178,8 @@ h1 {
   color: var(--text);
   opacity: 0.72;
   border: 1px solid transparent;
-  transition:
-    opacity 0.2s ease,
-    background-color 0.2s ease,
-    color 0.2s ease,
-    border-color 0.2s ease,
-    transform 0.18s ease,
-    box-shadow 0.2s ease;
+  transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease,
+    transform 0.18s ease, box-shadow 0.2s ease;
 }
 
 .nav-link-icon {
@@ -218,13 +220,7 @@ h1 {
   right: 8%;
   height: 2px;
   border-radius: 2px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    var(--primary) 20%,
-    var(--primary) 80%,
-    transparent 100%
-  );
+  background: linear-gradient(90deg, transparent 0%, var(--primary) 20%, var(--primary) 80%, transparent 100%);
   box-shadow: 0 0 6px rgb(from var(--primary) r g b / 40%);
 }
 
@@ -297,9 +293,7 @@ body.dark .router-link-active.nav-link {
   outline: none;
   cursor: pointer;
   box-shadow: none;
-  transition:
-    transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1),
-    color 0.18s ease;
+  transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.18s ease;
 }
 
 [menu]:hover {

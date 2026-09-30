@@ -19,8 +19,7 @@ export const community: CommunityEvent[] = [
   {
     title: 'Create your AI with RAG in Google Cloud',
     date: { month: 4, year: 2026 },
-    description:
-      '@ #BuildwithAI Abakaliki. We explored grounding techniques in AI applications.',
+    description: '@ #BuildwithAI Abakaliki. We explored grounding techniques in AI applications.',
     image: { alt: 'Workshop Session', name: 'obum-bwai-abk-26' },
     actions: [
       {
@@ -94,8 +93,7 @@ export const community: CommunityEvent[] = [
   {
     title: 'Ethics and AI For Talents',
     date: { month: 12, year: 2025 },
-    description:
-      'Spoke at DevFest Enugu 2025 on responsible AI and ethical considerations for developers.',
+    description: 'Spoke at DevFest Enugu 2025 on responsible AI and ethical considerations for developers.',
     image: { alt: 'Event Slide', name: 'obum-df-enugu-25' },
     actions: [
       {
@@ -124,8 +122,7 @@ export const community: CommunityEvent[] = [
   {
     title: 'DevFest Abuja 2025',
     date: { month: 11, year: 2025 },
-    description:
-      'Spoke on "Leveraging BigQuery for Business Data in Google Cloud" to a wide tech-savvy audience.',
+    description: 'Spoke on "Leveraging BigQuery for Business Data in Google Cloud" to a wide tech-savvy audience.',
     image: { alt: 'Event Photo', name: 'obum-df-abj-25' },
     actions: [
       {
@@ -214,8 +211,7 @@ export const community: CommunityEvent[] = [
   {
     title: '#BuildwithAI Ogbomoso 2025',
     date: { month: 5, year: 2025 },
-    description:
-      'Trained the audience trained on generating Audio with multimodal Gemini using Colab Notebook.',
+    description: 'Trained the audience trained on generating Audio with multimodal Gemini using Colab Notebook.',
     image: { alt: 'Event Photo', name: 'obum-bwai-ogbomoso-25' },
     actions: [
       {
@@ -259,8 +255,7 @@ export const community: CommunityEvent[] = [
   {
     title: '#BuildwithAI Calabar 2025',
     date: { month: 3, year: 2025 },
-    description:
-      'Training Session on multiple Google Colab Notebooks with Intro to Gemma being the first.',
+    description: 'Training Session on multiple Google Colab Notebooks with Intro to Gemma being the first.',
     image: { alt: 'Obum on Stage', name: 'obum-bwai-cal-25' },
     actions: [
       {
@@ -274,8 +269,7 @@ export const community: CommunityEvent[] = [
   {
     title: 'DevFest Guinee 2024',
     date: { month: 12, year: 2024 },
-    description:
-      'Spoke in French about the various ways by which AI improves user experience in mobile applications.',
+    description: 'Spoke in French about the various ways by which AI improves user experience in mobile applications.',
     image: { alt: 'First Slide', name: 'obum-df24-guinee' },
     actions: [
       {
@@ -294,8 +288,7 @@ export const community: CommunityEvent[] = [
   {
     title: 'Learn About Azure Serverless Functions',
     date: { month: 12, year: 2024 },
-    description:
-      'Explained when and how you can setup serverless compute with Azure.',
+    description: 'Explained when and how you can setup serverless compute with Azure.',
     image: { alt: 'Recording Screenshot', name: 'learn-azure-functions' },
     actions: [
       {
@@ -309,8 +302,7 @@ export const community: CommunityEvent[] = [
   {
     title: 'DevFest Enugu 2024',
     date: { month: 12, year: 2024 },
-    description:
-      'Handled the Community Event Opening Note on Culture and Technology',
+    description: 'Handled the Community Event Opening Note on Culture and Technology',
     image: { alt: 'Obum and SauceCode on Stage', name: 'obum-df24-enugu' },
     actions: [
       {
@@ -381,8 +373,7 @@ export const community: CommunityEvent[] = [
   {
     title: 'DevFest Lagos 2024',
     date: { month: 11, year: 2024 },
-    description:
-      'Carried out a workshop on "How to Build Android Bubbles in Flutter".',
+    description: 'Carried out a workshop on "How to Build Android Bubbles in Flutter".',
     image: { alt: 'Obum on Stage', name: 'obum-df24-lagos' },
     actions: [
       {
@@ -469,8 +460,7 @@ export const community: CommunityEvent[] = [
   {
     title: 'DevFest Afrique Francophone 2024',
     date: { month: 9, year: 2024 },
-    description:
-      'Spoke in French about the various ways by which AI improves user experience in mobile applications.',
+    description: 'Spoke in French about the various ways by which AI improves user experience in mobile applications.',
     image: { alt: 'First Slide', name: 'obum-df24-af-fr' },
     actions: [
       {
@@ -544,8 +534,7 @@ export const community: CommunityEvent[] = [
   {
     title: '"#BuildwithAI" Abakaliki',
     date: { month: 4, year: 2024 },
-    description:
-      'Carried out a workshop on "Adding AI to your Flutter Apps using Google AI Dart SDK".',
+    description: 'Carried out a workshop on "Adding AI to your Flutter Apps using Google AI Dart SDK".',
     image: { alt: 'Speaker Flyer', name: 'obum-build-with-ai' },
     actions: [
       {
@@ -664,8 +653,7 @@ export const community: CommunityEvent[] = [
   {
     title: 'Google I/O Extended Owerri 2023',
     date: { month: 8, year: 2023 },
-    description:
-      'Spoke on "Understanding UI Rendering: How Flutter is platform-agnostic".',
+    description: 'Spoke on "Understanding UI Rendering: How Flutter is platform-agnostic".',
     image: { alt: 'Speaker Flyer', name: 'obum-io-extended-owerri' },
     actions: [
       {
@@ -689,8 +677,7 @@ export const community: CommunityEvent[] = [
   {
     title: 'Google I/O Extended Enugu 2023',
     date: { month: 8, year: 2023 },
-    description:
-      'Spoke on "How to improve Flutter forms", focusing on user experience in mobile apps.',
+    description: 'Spoke on "How to improve Flutter forms", focusing on user experience in mobile apps.',
     image: { alt: 'Speaker Flyer', name: 'obum-io-extended-enugu' },
     actions: [
       {
@@ -714,8 +701,7 @@ export const community: CommunityEvent[] = [
   {
     title: 'Google I/O Extended Onitsha 2023',
     date: { month: 7, year: 2023 },
-    description:
-      'Spoke on "Flutter for Web Developers", comparing developer concepts across both categories.',
+    description: 'Spoke on "Flutter for Web Developers", comparing developer concepts across both categories.',
     image: { alt: 'Speaker Flyer', name: 'obum-io-extended-onitsha' },
     actions: [
       {
@@ -739,8 +725,7 @@ export const community: CommunityEvent[] = [
   {
     title: 'Google I/O Extended Abakaliki 2023',
     date: { month: 7, year: 2023 },
-    description:
-      'Spoke on "Admob in Flutter" and carried out the Flutter Admob Codelab infront of the audience.',
+    description: 'Spoke on "Admob in Flutter" and carried out the Flutter Admob Codelab infront of the audience.',
     image: { alt: 'Speaker Flyer', name: 'obum-io-extended-abakaliki' },
     actions: [
       {
@@ -784,8 +769,7 @@ export const community: CommunityEvent[] = [
   {
     title: 'Flutter Forward Enugu 2023',
     date: { month: 4, year: 2023 },
-    description:
-      'Spoke on "How to animate in Flutter" and assisted in checking in participants during the event.',
+    description: 'Spoke on "How to animate in Flutter" and assisted in checking in participants during the event.',
     image: { alt: 'Speaker Flyer', name: 'obum-flutter-forward-enugu' },
     actions: [
       {
@@ -809,8 +793,7 @@ export const community: CommunityEvent[] = [
   {
     title: 'Flutter Forward Abakaliki 2023',
     date: { month: 3, year: 2023 },
-    description:
-      'Spoke on "Securing Flutter Apps" during Flutter Forward Extended.',
+    description: 'Spoke on "Securing Flutter Apps" during Flutter Forward Extended.',
     image: { alt: 'Speaker Flyer', name: 'obum-flutter-forward-abakaliki' },
     actions: [
       {
@@ -849,8 +832,7 @@ export const community: CommunityEvent[] = [
   {
     title: 'Why you should use Flutter',
     date: { month: 6, year: 2022 },
-    description:
-      'Explained detailed benefits of why we should use Flutter for our projects.',
+    description: 'Explained detailed benefits of why we should use Flutter for our projects.',
     image: { alt: 'Event Flyer', name: 'gdsc-why-flutter' },
     actions: [
       {
@@ -936,8 +918,7 @@ export const community: CommunityEvent[] = [
   {
     title: 'Info Session',
     date: { month: 3, year: 2022 },
-    description:
-      'Ezra at Genesys explained about community and about Genesys to the attendees.',
+    description: 'Ezra at Genesys explained about community and about Genesys to the attendees.',
     image: { alt: '', name: 'genesys-info-session' },
     actions: [
       {
@@ -956,8 +937,7 @@ export const community: CommunityEvent[] = [
   {
     title: "Your GitHub Profile's README",
     date: { month: 2, year: 2022 },
-    description:
-      'Explained why and how to beautify the README of your GitHub profile and GitHub repositories.',
+    description: 'Explained why and how to beautify the README of your GitHub profile and GitHub repositories.',
     image: { alt: 'Event Flyer', name: 'github-profile-readme' },
     actions: [
       {
@@ -1010,8 +990,7 @@ export const community: CommunityEvent[] = [
   {
     title: 'Flutter Study Jam',
     date: { month: 8, year: 2021 },
-    description:
-      'Taught Flutter through the "Names Generator" codelab to GDSC Kabale Students.',
+    description: 'Taught Flutter through the "Names Generator" codelab to GDSC Kabale Students.',
     image: { alt: 'Event Flyer', name: 'obum-kabale21' },
     actions: [
       {
@@ -1025,8 +1004,7 @@ export const community: CommunityEvent[] = [
   {
     title: 'Google I/O 2021',
     date: { month: 5, year: 2021 },
-    description:
-      'Spoke on "You should be in a community" during the GDSC Meetups for Google I/O.',
+    description: 'Spoke on "You should be in a community" during the GDSC Meetups for Google I/O.',
     image: { alt: 'Event Flyer', name: 'obum-io21' },
     actions: [
       {
@@ -1063,8 +1041,7 @@ export const community: CommunityEvent[] = [
   {
     title: '2021 Solution Challenge',
     date: { month: 2, year: 2021 },
-    description:
-      'Meetup and workshops we held to sensitive for the GDSC Solution Challenge in our community.',
+    description: 'Meetup and workshops we held to sensitive for the GDSC Solution Challenge in our community.',
     image: {
       alt: 'Picture of Community Members',
       name: '2021-solution-challenge',
@@ -1111,8 +1088,7 @@ export const community: CommunityEvent[] = [
   {
     title: 'Learning Opportunities',
     date: { month: 10, year: 2020 },
-    description:
-      'Speaker session by Emeka Odibeli, aimed at inspiring community members to keep learning.',
+    description: 'Speaker session by Emeka Odibeli, aimed at inspiring community members to keep learning.',
     image: { alt: 'Section of Event Flyer', name: 'learning-opportunities' },
     actions: [
       {
@@ -1131,8 +1107,7 @@ export const community: CommunityEvent[] = [
   {
     title: 'Firebase Series',
     date: { month: 9, year: 2020 },
-    description:
-      '6 weeks virtual workshops and codelabs where we taught Firebase.',
+    description: '6 weeks virtual workshops and codelabs where we taught Firebase.',
     image: { alt: 'Section of Event Flyer', name: 'firebase-series' },
     actions: [
       {
@@ -1146,8 +1121,7 @@ export const community: CommunityEvent[] = [
   {
     title: 'Onboarding GDSC',
     date: { month: 9, year: 2020 },
-    description:
-      "GDSC AE-FUNAI's first info session. Starting GDSC in our school.",
+    description: "GDSC AE-FUNAI's first info session. Starting GDSC in our school.",
     image: { alt: 'Section of Event Flyer', name: 'gdsc-info-session' },
     actions: [
       {
