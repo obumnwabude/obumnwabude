@@ -87,8 +87,8 @@
 }
 
 body.dark .ambient-orb {
-  opacity: 0.18;
-  filter: blur(110px);
+  opacity: 0.07;
+  filter: blur(130px);
 }
 
 .orb-primary {
@@ -98,6 +98,10 @@ body.dark .ambient-orb {
   height: 440px;
   background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
   animation: orbDriftA 26s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+}
+
+body.dark .orb-secondary {
+  background: radial-gradient(circle, #0284c7 0%, transparent 70%);
 }
 
 .orb-secondary {
@@ -114,7 +118,7 @@ body.dark .ambient-orb {
   left: 28%;
   width: 380px;
   height: 380px;
-  background: radial-gradient(circle, rgb(from var(--primary) r g b / 50%) 0%, transparent 70%);
+  background: radial-gradient(circle, rgb(from var(--primary) r g b / 45%) 0%, transparent 70%);
   animation: orbDriftC 32s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
 }
 
@@ -179,16 +183,16 @@ body.dark .ambient-orb {
 body.dark .glass-bubble {
   background: radial-gradient(
     circle at 30% 28%,
-    rgba(255, 255, 255, 0.22) 0%,
-    rgba(255, 255, 255, 0.04) 35%,
-    rgb(from var(--primary) r g b / 8%) 65%,
+    rgba(255, 255, 255, 0.14) 0%,
+    rgba(255, 255, 255, 0.02) 35%,
+    rgb(from var(--primary) r g b / 4%) 65%,
     transparent 85%
   );
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   box-shadow:
-    inset 2px 2px 6px rgba(255, 255, 255, 0.35),
-    inset -2px -2px 10px rgb(from var(--primary) r g b / 25%),
-    0 4px 18px rgb(from var(--primary) r g b / 12%);
+    inset 2px 2px 5px rgba(255, 255, 255, 0.2),
+    inset -2px -2px 8px rgb(from var(--primary) r g b / 14%),
+    0 4px 14px rgba(0, 0, 0, 0.35);
 }
 
 .bubble-1 {

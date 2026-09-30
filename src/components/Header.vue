@@ -199,13 +199,13 @@ h1 {
     var(--primary) 80%,
     transparent 100%
   );
-  box-shadow: 0 0 8px rgb(from var(--primary) r g b / 70%);
+  box-shadow: 0 0 6px rgb(from var(--primary) r g b / 40%);
 }
 
 body.dark .router-link-active.nav-link {
-  background: rgb(from var(--primary) r g b / 15%);
-  border-color: rgb(from var(--primary) r g b / 35%);
-  box-shadow: 0 2px 10px rgb(from var(--primary) r g b / 20%);
+  background: rgb(from var(--primary) r g b / 8%);
+  border-color: rgb(from var(--primary) r g b / 20%);
+  box-shadow: none;
 }
 
 .header-actions {

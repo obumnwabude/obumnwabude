@@ -155,19 +155,20 @@ const services = [
   width: 3rem;
   height: 3rem;
   border-radius: 14px;
-  background: rgb(from var(--primary) r g b / 12%);
-  border: 1px solid rgb(from var(--primary) r g b / 25%);
+  background: rgb(from var(--primary) r g b / 8%);
+  border: 1px solid rgb(from var(--primary) r g b / 18%);
   color: var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 14px rgb(from var(--primary) r g b / 15%);
-  transition: transform 0.25s ease;
+  transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
   flex-shrink: 0;
 }
 
 .service-card:hover .service-icon {
-  transform: scale(1.1);
+  transform: scale(1.06);
+  background: rgb(from var(--primary) r g b / 14%);
+  border-color: rgb(from var(--primary) r g b / 28%);
 }
 
 .service-badge {
@@ -177,8 +178,8 @@ const services = [
   text-transform: uppercase;
   padding: 0.3rem 0.75rem;
   border-radius: 9999px;
-  background: rgb(from var(--primary) r g b / 10%);
-  border: 1px solid rgb(from var(--primary) r g b / 22%);
+  background: rgb(from var(--primary) r g b / 7%);
+  border: 1px solid rgb(from var(--primary) r g b / 18%);
   color: var(--primary);
   white-space: nowrap;
 }

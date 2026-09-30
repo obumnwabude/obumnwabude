@@ -193,8 +193,8 @@ const years = new Date().getFullYear() - 2018;
 }
 
 body.dark .avatar-aura {
-  opacity: 0.7;
-  background: radial-gradient(circle, rgb(from var(--primary) r g b / 22%) 0%, transparent 70%);
+  opacity: 0.4;
+  background: radial-gradient(circle, rgb(from var(--primary) r g b / 14%) 0%, transparent 70%);
 }
 
 .avatar-frame {

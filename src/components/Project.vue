@@ -126,8 +126,8 @@ const { date, image, title, description, actions, tags } = project;
 }
 
 .project-tag {
-  background: rgb(from var(--primary) r g b / 10%);
-  border: 1px solid rgb(from var(--primary) r g b / 20%);
+  background: rgb(from var(--primary) r g b / 7%);
+  border: 1px solid rgb(from var(--primary) r g b / 18%);
   color: var(--primary);
   border-radius: 20px;
   font-size: 0.75rem;
@@ -139,8 +139,9 @@ const { date, image, title, description, actions, tags } = project;
   transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-.project-card:hover .project-tag {
-  border-color: rgb(from var(--primary) r g b / 40%);
+.project-tag:hover {
+  background: rgb(from var(--primary) r g b / 12%);
+  border-color: rgb(from var(--primary) r g b / 28%);
 }
 
 .project-date {

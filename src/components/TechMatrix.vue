@@ -111,20 +111,20 @@ const pillars = [
   width: 3rem;
   height: 3rem;
   border-radius: 14px;
-  background: rgb(from var(--primary) r g b / 12%);
-  border: 1px solid rgb(from var(--primary) r g b / 25%);
+  background: rgb(from var(--primary) r g b / 8%);
+  border: 1px solid rgb(from var(--primary) r g b / 18%);
   color: var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 4px 14px rgb(from var(--primary) r g b / 15%);
-  transition: transform 0.25s ease, background-color 0.25s ease;
+  transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
 }
 
 .pillar-card:hover .pillar-icon-box {
-  transform: scale(1.08) rotate(3deg);
-  background: rgb(from var(--primary) r g b / 18%);
+  transform: scale(1.06);
+  background: rgb(from var(--primary) r g b / 14%);
+  border-color: rgb(from var(--primary) r g b / 28%);
 }
 
 .pillar-title {
@@ -172,12 +172,9 @@ const pillars = [
     color 0.2s ease;
 }
 
-.pillar-card:hover .skill-tag {
-  border-color: rgb(from var(--primary) r g b / 30%);
-}
-
 .skill-tag:hover {
-  background: rgb(from var(--primary) r g b / 12%);
+  background: rgb(from var(--primary) r g b / 10%);
+  border-color: rgb(from var(--primary) r g b / 24%);
   color: var(--primary);
 }
 </style>

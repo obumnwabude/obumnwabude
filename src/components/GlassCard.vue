@@ -111,17 +111,17 @@ function handleMouseLeave() {
   opacity: 0;
   transition: opacity 300ms ease;
   background: radial-gradient(
-    550px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
-    rgb(from var(--primary) r g b / 16%),
-    transparent 55%
+    380px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
+    rgb(from var(--primary) r g b / 9%),
+    transparent 65%
   );
 }
 
 body.dark .glass-spotlight-glow {
   background: radial-gradient(
-    550px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
-    rgb(from var(--primary) r g b / 22%),
-    transparent 55%
+    380px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
+    rgb(from var(--primary) r g b / 7%),
+    transparent 65%
   );
 }
 
