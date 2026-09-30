@@ -37,7 +37,7 @@ import {
   trackProjectActionClick,
   trackProjectInspectOpened,
 } from '@/utils/analytics';
-import { onBeforeUnmount, onMounted, ref, type Component } from 'vue';
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch, type Component } from 'vue';
 
 const { content, featured = false } = defineProps<{
   content: CodingProject | CommunityEvent;
@@ -50,7 +50,15 @@ const isCommunityEvent = (content: CodingProject | CommunityEvent): content is C
 const isDrawerOpen = ref(false);
 const isSheetOpen = ref(false);
 const isExpandedDesktop = ref(false);
+const overlayVisible = ref(false);
 const isMobile = ref(false);
+const wrapperRef = ref<HTMLElement | null>(null);
+const communityPanelRef = ref<HTMLElement | null>(null);
+const projectPanelRef = ref<HTMLElement | null>(null);
+const pushHeight = ref(0);
+let scrollRaf: number | null = null;
+let suppressEnter = false;
+let suppressEnterTimer: ReturnType<typeof setTimeout> | null = null;
 
 const updateViewport = () => {
   if (typeof window !== 'undefined') {
@@ -67,6 +75,8 @@ onBeforeUnmount(() => {
   if (typeof window !== 'undefined') {
     window.removeEventListener('resize', updateViewport);
   }
+  if (scrollRaf) cancelAnimationFrame(scrollRaf);
+  if (suppressEnterTimer) clearTimeout(suppressEnterTimer);
 });
 
 const openProjectInspector = () => {
@@ -86,20 +96,33 @@ const toggleCommunityDetails = () => {
   }
 };
 
+const toggleProjectDetails = () => {
+  if (isMobile.value) {
+    openProjectInspector();
+  } else {
+    isExpandedDesktop.value = !isExpandedDesktop.value;
+    trackCardExpansion(title, 'project', isExpandedDesktop.value ? 'expand' : 'collapse');
+  }
+};
+
+const hasExpandableRichContent = () =>
+  isCommunityEvent(content) ? hasCommunityRichContent() : hasProjectRichContent();
+
 const handleCardClick = () => {
   if (isCommunityEvent(content)) {
-    if (hasCommunityRichContent()) {
-      toggleCommunityDetails();
-    }
-  } else {
+    if (hasCommunityRichContent()) toggleCommunityDetails();
+  } else if (isMobile.value || !hasProjectRichContent()) {
     openProjectInspector();
+  } else {
+    toggleProjectDetails();
   }
 };
 
 let hoverTimer: ReturnType<typeof setTimeout> | null = null;
 
 const handleMouseEnter = () => {
-  if (isMobile.value || !isCommunityEvent(content) || !hasCommunityRichContent()) return;
+  if (suppressEnter) return;
+  if (isMobile.value || !hasExpandableRichContent()) return;
   if (hoverTimer) clearTimeout(hoverTimer);
   hoverTimer = setTimeout(() => {
     isExpandedDesktop.value = true;
@@ -111,8 +134,19 @@ const handleMouseLeave = () => {
     clearTimeout(hoverTimer);
     hoverTimer = null;
   }
-  if (isMobile.value || !isCommunityEvent(content) || !hasCommunityRichContent()) return;
+  if (isMobile.value || !hasExpandableRichContent()) return;
+  if (!isExpandedDesktop.value) return;
   isExpandedDesktop.value = false;
+  suppressEnter = true;
+  if (suppressEnterTimer) clearTimeout(suppressEnterTimer);
+  suppressEnterTimer = setTimeout(() => {
+    suppressEnter = false;
+    suppressEnterTimer = null;
+  }, 350);
+};
+
+const onPanelAfterLeave = () => {
+  overlayVisible.value = false;
 };
 
 const hasCommunityRichContent = () => {
@@ -124,6 +158,24 @@ const hasCommunityRichContent = () => {
       content.location ||
       content.longDescription ||
       content.expandedTags?.length
+  );
+};
+
+const hasProjectRichContent = () => {
+  if (isCommunityEvent(content)) return false;
+  const project = content as CodingProject;
+  return Boolean(
+    project.longDescription ||
+      project.highlights?.length ||
+      project.expandedTags?.length ||
+      project.metrics ||
+      project.role ||
+      project.category ||
+      project.status ||
+      project.architecture?.frontend?.length ||
+      project.architecture?.backend?.length ||
+      project.architecture?.blockchainOrAi?.length ||
+      project.architecture?.infrastructure?.length
   );
 };
 
@@ -174,13 +226,77 @@ const actionIconMap: Record<ActionIcon, Component> = {
 };
 
 const getActionIcon = (icon?: ActionIcon): Component => (icon && actionIconMap[icon]) || IconExternalLink;
+
+const activePanelRef = computed(() =>
+  isCommunityEvent(content) ? communityPanelRef.value : projectPanelRef.value
+);
+
+const wrapperStyle = computed(() => ({
+  '--overlay-push': `${pushHeight.value}px`,
+}));
+
+const startCollapseCompensation = () => {
+  if (scrollRaf) {
+    cancelAnimationFrame(scrollRaf);
+    scrollRaf = null;
+  }
+  const wrapperEl = wrapperRef.value;
+  if (!wrapperEl) return;
+  if (wrapperEl.getBoundingClientRect().top >= 0) return;
+
+  let lastMargin = parseFloat(getComputedStyle(wrapperEl).marginBottom);
+  const startedAt = performance.now();
+
+  const tick = () => {
+    if (performance.now() - startedAt > 700) {
+      scrollRaf = null;
+      return;
+    }
+    const currentMargin = parseFloat(getComputedStyle(wrapperEl).marginBottom);
+    const delta = lastMargin - currentMargin;
+    if (delta > 0.5) {
+      window.scrollBy(0, -delta);
+      lastMargin = currentMargin;
+    } else if (delta < -0.5) {
+      scrollRaf = null;
+      return;
+    } else {
+      lastMargin = currentMargin;
+    }
+    scrollRaf = requestAnimationFrame(tick);
+  };
+  scrollRaf = requestAnimationFrame(tick);
+};
+
+watch(isExpandedDesktop, async (expanded) => {
+  if (isMobile.value) return;
+  if (expanded) {
+    if (scrollRaf) {
+      cancelAnimationFrame(scrollRaf);
+      scrollRaf = null;
+    }
+    overlayVisible.value = true;
+    await nextTick();
+    pushHeight.value = activePanelRef.value?.scrollHeight ?? 0;
+  } else {
+    pushHeight.value = 0;
+    startCollapseCompensation();
+  }
+});
 </script>
 
 <template>
   <div
     v-reveal="{ delay: 50 }"
+    ref="wrapperRef"
     class="project-wrapper"
-    :class="{ 'is-coding-project': !isCommunityEvent(content) }"
+    :class="{
+      'is-coding-project': !isCommunityEvent(content),
+      'has-overlay': overlayVisible && !isMobile,
+    }"
+    :style="wrapperStyle"
+    @mouseenter="handleMouseEnter"
+    @mouseleave="handleMouseLeave"
   >
     <GlassCard
       variant="frost"
@@ -188,8 +304,6 @@ const getActionIcon = (icon?: ActionIcon): Component => (icon && actionIconMap[i
       :spotlight="true"
       :borderBeam="featured"
       class="project-card"
-      @mouseenter="handleMouseEnter"
-      @mouseleave="handleMouseLeave"
       @click="handleCardClick"
     >
       <!-- Top Row: Image & Details side-by-side on desktop (Stable layout) -->
@@ -205,11 +319,6 @@ const getActionIcon = (icon?: ActionIcon): Component => (icon && actionIconMap[i
             class="project-image"
             @error="handleImageError"
           />
-          <div class="image-inspect-overlay" aria-hidden="true">
-            <span class="inspect-overlay-badge glass-surface glass-frost">
-              <IconDown :size="22" />
-            </span>
-          </div>
         </div>
 
         <div class="project-details">
@@ -275,7 +384,20 @@ const getActionIcon = (icon?: ActionIcon): Component => (icon && actionIconMap[i
             </button>
 
             <button
-              v-if="!isCommunityEvent(content)"
+              v-if="!isCommunityEvent(content) && hasProjectRichContent()"
+              type="button"
+              class="project-more-btn"
+              @click.stop="toggleProjectDetails"
+              :aria-expanded="isExpandedDesktop"
+              :title="isExpandedDesktop && !isMobile ? 'Hide info' : 'More info'"
+              :aria-label="isExpandedDesktop && !isMobile ? 'Hide info' : 'More info'"
+            >
+              <IconUp v-if="isExpandedDesktop && !isMobile" :size="20" />
+              <IconDown v-else :size="20" />
+            </button>
+
+            <button
+              v-else-if="!isCommunityEvent(content)"
               type="button"
               class="project-more-btn"
               @click.stop="openProjectInspector"
@@ -288,59 +410,176 @@ const getActionIcon = (icon?: ActionIcon): Component => (icon && actionIconMap[i
         </div>
       </div>
 
-      <!-- Decoupled Desktop Bento Expansion for Community Event: Spans 100% width below BOTH image & details -->
-      <Transition name="bento-expand">
-        <div
-          v-show="isCommunityEvent(content) && isExpandedDesktop && !isMobile"
-          class="community-bento-panel glass-surface glass-frost"
-          @click.stop
-        >
-          <!-- Expanded Tags inside Community Bento -->
-          <div
-            v-if="(content.expandedTags || content.tags)?.length"
-            class="community-expanded-tags"
-          >
-            <span
-              v-for="tag of (content.expandedTags || content.tags)"
-              :key="tag"
-              class="community-tag-chip"
-            >
-              {{ tag }}
-            </span>
-          </div>
-
-          <div v-if="content.longDescription" class="bento-prose-block">
-            <p class="bento-prose">{{ content.longDescription }}</p>
-          </div>
-
-          <div v-if="(content as CommunityEvent).sessionFormat || (content as CommunityEvent).eventSeries" class="bento-meta-row">
-            <span v-if="(content as CommunityEvent).sessionFormat" class="bento-meta-pill">Format: {{ (content as CommunityEvent).sessionFormat }}</span>
-            <span v-if="(content as CommunityEvent).eventSeries" class="bento-meta-pill">Series: {{ (content as CommunityEvent).eventSeries }}</span>
-          </div>
-
-          <div v-if="(content as CommunityEvent).curriculum?.length" class="bento-section">
-            <h4 class="bento-section-title">Topics & Curriculum</h4>
-            <div class="bento-curriculum-grid">
-              <span v-for="item of (content as CommunityEvent).curriculum" :key="item" class="bento-curriculum-pill">
-                {{ item }}
-              </span>
-            </div>
-          </div>
-
-          <div v-if="(content as CommunityEvent).keyTakeaways?.length" class="bento-section">
-            <h4 class="bento-section-title">Key Takeaways</h4>
-            <ul class="bento-takeaways-list">
-              <li v-for="(takeaway, idx) of (content as CommunityEvent).keyTakeaways" :key="idx" class="bento-takeaway-item">
-                <span class="takeaway-bullet" aria-hidden="true"></span>
-                <span>{{ takeaway }}</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </Transition>
     </GlassCard>
 
-    <!-- Glass Drawer for Project (Slide-over on desktop, full-page on mobile) -->
+    <!-- Overlay Desktop Bento Expansion for Community Event: absolutely positioned below the card, no layout push -->
+    <Transition name="bento-expand" @after-leave="onPanelAfterLeave">
+      <div
+        v-show="isCommunityEvent(content) && isExpandedDesktop && !isMobile"
+        ref="communityPanelRef"
+        class="community-bento-panel glass-surface glass-frost"
+        @click.stop
+      >
+        <!-- Expanded Tags inside Community Bento -->
+        <div
+          v-if="(content.expandedTags || content.tags)?.length"
+          class="community-expanded-tags"
+        >
+          <span
+            v-for="tag of (content.expandedTags || content.tags)"
+            :key="tag"
+            class="community-tag-chip"
+          >
+            {{ tag }}
+          </span>
+        </div>
+
+        <div v-if="content.longDescription" class="bento-prose-block">
+          <p class="bento-prose">{{ content.longDescription }}</p>
+        </div>
+
+        <div v-if="(content as CommunityEvent).sessionFormat || (content as CommunityEvent).eventSeries" class="bento-meta-row">
+          <span v-if="(content as CommunityEvent).sessionFormat" class="bento-meta-pill">Format: {{ (content as CommunityEvent).sessionFormat }}</span>
+          <span v-if="(content as CommunityEvent).eventSeries" class="bento-meta-pill">Series: {{ (content as CommunityEvent).eventSeries }}</span>
+        </div>
+
+        <div v-if="(content as CommunityEvent).curriculum?.length" class="bento-section">
+          <h4 class="bento-section-title">Topics & Curriculum</h4>
+          <div class="bento-curriculum-grid">
+            <span v-for="item of (content as CommunityEvent).curriculum" :key="item" class="bento-curriculum-pill">
+              {{ item }}
+            </span>
+          </div>
+        </div>
+
+        <div v-if="(content as CommunityEvent).keyTakeaways?.length" class="bento-section">
+          <h4 class="bento-section-title">Key Takeaways</h4>
+          <ul class="bento-takeaways-list">
+            <li v-for="(takeaway, idx) of (content as CommunityEvent).keyTakeaways" :key="idx" class="bento-takeaway-item">
+              <span class="takeaway-bullet" aria-hidden="true"></span>
+              <span>{{ takeaway }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </Transition>
+
+    <!-- Overlay Desktop Bento Expansion for Coding Project (experiment): absolute below the card, mirrors community pattern -->
+    <Transition name="bento-expand" @after-leave="onPanelAfterLeave">
+      <div
+        v-show="!isCommunityEvent(content) && isExpandedDesktop && !isMobile"
+        ref="projectPanelRef"
+        class="project-bento-panel community-bento-panel glass-surface glass-frost"
+        @click.stop
+      >
+        <div
+          v-if="(content as CodingProject).category || (content as CodingProject).status || (content as CodingProject).role"
+          class="bento-meta-row"
+        >
+          <span v-if="(content as CodingProject).category" class="bento-meta-pill">
+            {{ (content as CodingProject).category }}
+          </span>
+          <span v-if="(content as CodingProject).status" class="bento-meta-pill">
+            <span class="status-pulse-dot" aria-hidden="true"></span>
+            {{ (content as CodingProject).status }}
+          </span>
+          <span v-if="(content as CodingProject).role" class="bento-meta-pill">
+            Role: {{ (content as CodingProject).role }}
+          </span>
+        </div>
+
+        <div
+          v-if="((content as CodingProject).expandedTags || tags)?.length"
+          class="community-expanded-tags"
+        >
+          <span
+            v-for="tag of ((content as CodingProject).expandedTags || tags)"
+            :key="tag"
+            class="community-tag-chip"
+          >
+            {{ tag }}
+          </span>
+        </div>
+
+        <div v-if="(content as CodingProject).longDescription" class="bento-prose-block">
+          <p class="bento-prose">{{ (content as CodingProject).longDescription }}</p>
+        </div>
+
+        <div v-if="(content as CodingProject).architecture" class="bento-section">
+          <h4 class="bento-section-title">System Architecture</h4>
+          <div class="bento-architecture-grid">
+            <div v-if="(content as CodingProject).architecture?.frontend?.length" class="bento-arch-col">
+              <span class="bento-arch-label">Frontend</span>
+              <div class="bento-curriculum-grid">
+                <span
+                  v-for="item of (content as CodingProject).architecture?.frontend"
+                  :key="item"
+                  class="bento-curriculum-pill"
+                >
+                  {{ item }}
+                </span>
+              </div>
+            </div>
+            <div v-if="(content as CodingProject).architecture?.backend?.length" class="bento-arch-col">
+              <span class="bento-arch-label">Backend & Services</span>
+              <div class="bento-curriculum-grid">
+                <span
+                  v-for="item of (content as CodingProject).architecture?.backend"
+                  :key="item"
+                  class="bento-curriculum-pill"
+                >
+                  {{ item }}
+                </span>
+              </div>
+            </div>
+            <div v-if="(content as CodingProject).architecture?.blockchainOrAi?.length" class="bento-arch-col">
+              <span class="bento-arch-label">Blockchain / AI</span>
+              <div class="bento-curriculum-grid">
+                <span
+                  v-for="item of (content as CodingProject).architecture?.blockchainOrAi"
+                  :key="item"
+                  class="bento-curriculum-pill"
+                >
+                  {{ item }}
+                </span>
+              </div>
+            </div>
+            <div v-if="(content as CodingProject).architecture?.infrastructure?.length" class="bento-arch-col">
+              <span class="bento-arch-label">Infrastructure & DevOps</span>
+              <div class="bento-curriculum-grid">
+                <span
+                  v-for="item of (content as CodingProject).architecture?.infrastructure"
+                  :key="item"
+                  class="bento-curriculum-pill"
+                >
+                  {{ item }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div v-if="(content as CodingProject).highlights?.length" class="bento-section">
+          <h4 class="bento-section-title">Key Engineering Highlights</h4>
+          <ul class="bento-takeaways-list">
+            <li
+              v-for="(highlight, idx) of (content as CodingProject).highlights"
+              :key="idx"
+              class="bento-takeaway-item"
+            >
+              <span class="takeaway-bullet" aria-hidden="true"></span>
+              <span>{{ highlight }}</span>
+            </li>
+          </ul>
+        </div>
+
+        <div v-if="(content as CodingProject).metrics" class="bento-prose-block">
+          <p class="bento-prose">{{ (content as CodingProject).metrics }}</p>
+        </div>
+      </div>
+    </Transition>
+
+    <!-- Glass Drawer for Project (mobile-only fallback while the desktop bento experiment runs) -->
     <GlassDrawer v-if="!isCommunityEvent(content)" v-model:open="isDrawerOpen" :project="content as CodingProject" />
 
     <!-- Mobile Glass Bottom Sheet for Community Event -->
@@ -405,8 +644,25 @@ const getActionIcon = (icon?: ActionIcon): Component => (icon && actionIconMap[i
 
 <style scoped>
 .project-wrapper {
-  margin: 0 auto 5rem;
+  margin: 0 auto calc(5rem + var(--overlay-push, 0px));
   max-width: 1440px;
+  position: relative;
+  transition: margin-bottom 0.34s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-wrapper :deep(.glass-card) {
+  transition: transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1), border-color 260ms ease,
+    border-radius 260ms ease, box-shadow 260ms ease;
+}
+
+.project-wrapper.has-overlay :deep(.glass-card) {
+  border-bottom-color: transparent;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.project-wrapper.has-overlay :deep(.glass-hover-lift:hover) {
+  transform: none;
 }
 
 @media (max-width: 767.98px) {
@@ -633,34 +889,6 @@ const getActionIcon = (icon?: ActionIcon): Component => (icon && actionIconMap[i
   cursor: pointer;
 }
 
-.image-inspect-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.35);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
-.clickable-image:hover .image-inspect-overlay {
-  opacity: 1;
-}
-
-.inspect-overlay-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: 999px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--primary);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-}
-
 .project-header-row {
   display: flex;
   align-items: center;
@@ -681,15 +909,19 @@ const getActionIcon = (icon?: ActionIcon): Component => (icon && actionIconMap[i
   color: var(--gray);
 }
 
-/* Decoupled Bento Expansion for Community Event (Spans 100% width below both image and details) */
+/* Overlay Bento Expansion for Community Event (absolute below the card; last-card also pushes wrapper padding) */
 .community-bento-panel {
-  width: 100%;
-  border-top: 1px solid var(--glass-border);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  border-top: none;
+  border-radius: 0 0 20px 20px;
   padding: 1.5rem 2rem;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  background: rgb(from var(--app-bg) r g b / 40%);
 }
 
 .community-expanded-tags,
@@ -731,6 +963,43 @@ const getActionIcon = (icon?: ActionIcon): Component => (icon && actionIconMap[i
   background: rgb(from var(--text) r g b / 6%);
   border: 1px solid var(--glass-border);
   color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.status-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 6px var(--primary);
+  animation: bento-status-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes bento-status-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(1.25); }
+}
+
+.bento-architecture-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem 1.25rem;
+}
+
+.bento-arch-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.bento-arch-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gray);
 }
 
 .bento-section {
@@ -760,9 +1029,9 @@ const getActionIcon = (icon?: ActionIcon): Component => (icon && actionIconMap[i
   font-weight: 500;
   padding: 0.2rem 0.65rem;
   border-radius: 6px;
-  background: rgb(from var(--primary) r g b / 8%);
-  border: 1px solid rgb(from var(--primary) r g b / 20%);
-  color: var(--primary);
+  background: rgb(from var(--text) r g b / 5%);
+  border: 1px solid var(--glass-border);
+  color: var(--text);
 }
 
 .bento-takeaways-list {

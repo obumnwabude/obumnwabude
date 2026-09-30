@@ -7,14 +7,21 @@ import IconGithub from '@/icons/IconGithub.vue';
 import IconUp from '@/icons/IconUp.vue';
 import { displayDate, type Article } from '@/types';
 import { trackArticleClick, trackAssetError, trackBottomSheetOpened, trackCardExpansion } from '@/utils/analytics';
-import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 
 const { article } = defineProps<{ article: Article }>();
 const { image, date, title, description, link, publishedOn } = article;
 
 const isSheetOpen = ref(false);
 const isExpandedDesktop = ref(false);
+const overlayVisible = ref(false);
 const isMobile = ref(false);
+const wrapperRef = ref<HTMLElement | null>(null);
+const panelRef = ref<HTMLElement | null>(null);
+const pushHeight = ref(0);
+let scrollRaf: number | null = null;
+let suppressEnter = false;
+let suppressEnterTimer: ReturnType<typeof setTimeout> | null = null;
 
 const updateViewport = () => {
   if (typeof window !== 'undefined') {
@@ -31,6 +38,8 @@ onBeforeUnmount(() => {
   if (typeof window !== 'undefined') {
     window.removeEventListener('resize', updateViewport);
   }
+  if (scrollRaf) cancelAnimationFrame(scrollRaf);
+  if (suppressEnterTimer) clearTimeout(suppressEnterTimer);
 });
 
 const handleClick = () => {
@@ -59,6 +68,7 @@ const handleCardClick = () => {
 let hoverTimer: ReturnType<typeof setTimeout> | null = null;
 
 const handleMouseEnter = () => {
+  if (suppressEnter) return;
   if (isMobile.value || !hasRichContent.value) return;
   if (hoverTimer) clearTimeout(hoverTimer);
   hoverTimer = setTimeout(() => {
@@ -72,7 +82,18 @@ const handleMouseLeave = () => {
     hoverTimer = null;
   }
   if (isMobile.value || !hasRichContent.value) return;
+  if (!isExpandedDesktop.value) return;
   isExpandedDesktop.value = false;
+  suppressEnter = true;
+  if (suppressEnterTimer) clearTimeout(suppressEnterTimer);
+  suppressEnterTimer = setTimeout(() => {
+    suppressEnter = false;
+    suppressEnterTimer = null;
+  }, 350);
+};
+
+const onPanelAfterLeave = () => {
+  overlayVisible.value = false;
 };
 
 const hasRichContent = computed(() => {
@@ -80,17 +101,76 @@ const hasRichContent = computed(() => {
     article.keyTakeaways?.length || article.longDescription || article.topicsCovered?.length || article.repoUrl || article.tags?.length
   );
 });
+
+const wrapperStyle = computed(() => ({
+  '--overlay-push': `${pushHeight.value}px`,
+}));
+
+const startCollapseCompensation = () => {
+  if (scrollRaf) {
+    cancelAnimationFrame(scrollRaf);
+    scrollRaf = null;
+  }
+  const wrapperEl = wrapperRef.value;
+  if (!wrapperEl) return;
+  if (wrapperEl.getBoundingClientRect().top >= 0) return;
+
+  let lastMargin = parseFloat(getComputedStyle(wrapperEl).marginBottom);
+  const startedAt = performance.now();
+
+  const tick = () => {
+    if (performance.now() - startedAt > 700) {
+      scrollRaf = null;
+      return;
+    }
+    const currentMargin = parseFloat(getComputedStyle(wrapperEl).marginBottom);
+    const delta = lastMargin - currentMargin;
+    if (delta > 0.5) {
+      window.scrollBy(0, -delta);
+      lastMargin = currentMargin;
+    } else if (delta < -0.5) {
+      scrollRaf = null;
+      return;
+    } else {
+      lastMargin = currentMargin;
+    }
+    scrollRaf = requestAnimationFrame(tick);
+  };
+  scrollRaf = requestAnimationFrame(tick);
+};
+
+watch(isExpandedDesktop, async (expanded) => {
+  if (isMobile.value) return;
+  if (expanded) {
+    if (scrollRaf) {
+      cancelAnimationFrame(scrollRaf);
+      scrollRaf = null;
+    }
+    overlayVisible.value = true;
+    await nextTick();
+    pushHeight.value = panelRef.value?.scrollHeight ?? 0;
+  } else {
+    pushHeight.value = 0;
+    startCollapseCompensation();
+  }
+});
 </script>
 
 <template>
-  <div v-reveal="{ delay: 50 }" class="article-wrapper">
+  <div
+    v-reveal="{ delay: 50 }"
+    ref="wrapperRef"
+    class="article-wrapper"
+    :class="{ 'has-overlay': overlayVisible && !isMobile }"
+    :style="wrapperStyle"
+    @mouseenter="handleMouseEnter"
+    @mouseleave="handleMouseLeave"
+  >
     <GlassCard
       variant="frost"
       :hoverable="true"
       :spotlight="true"
       class="article-card"
-      @mouseenter="handleMouseEnter"
-      @mouseleave="handleMouseLeave"
       @click="handleCardClick"
     >
       <!-- Stable Top Row: Image & Details side-by-side on desktop -->
@@ -157,52 +237,54 @@ const hasRichContent = computed(() => {
         </div>
       </div>
 
-      <!-- Decoupled Desktop Bento Expansion: Spans 100% width below BOTH image and details -->
-      <Transition name="bento-expand">
-        <div
-          v-show="hasRichContent && isExpandedDesktop && !isMobile"
-          class="article-bento-panel glass-surface glass-frost"
-          @click.stop
-        >
-          <!-- Tags shown exclusively in expanded mode -->
-          <div v-if="article.tags?.length" class="article-expanded-tags">
-            <span v-for="tag of article.tags" :key="tag" class="article-tag-chip">
-              {{ tag }}
+    </GlassCard>
+
+    <!-- Overlay Desktop Bento Expansion: absolutely positioned below the card, no layout push -->
+    <Transition name="bento-expand" @after-leave="onPanelAfterLeave">
+      <div
+        v-show="hasRichContent && isExpandedDesktop && !isMobile"
+        ref="panelRef"
+        class="article-bento-panel glass-surface glass-frost"
+        @click.stop
+      >
+        <!-- Tags shown exclusively in expanded mode -->
+        <div v-if="article.tags?.length" class="article-expanded-tags">
+          <span v-for="tag of article.tags" :key="tag" class="article-tag-chip">
+            {{ tag }}
+          </span>
+        </div>
+
+        <div v-if="article.longDescription" class="bento-prose-block">
+          <p class="bento-prose">{{ article.longDescription }}</p>
+        </div>
+
+        <div v-if="article.keyTakeaways?.length" class="bento-section">
+          <h4 class="bento-section-title">Key Architectural Takeaways</h4>
+          <ul class="bento-takeaways-list">
+            <li v-for="(takeaway, idx) of article.keyTakeaways" :key="idx" class="bento-takeaway-item">
+              <span class="takeaway-bullet" aria-hidden="true"></span>
+              <span>{{ takeaway }}</span>
+            </li>
+          </ul>
+        </div>
+
+        <div v-if="article.topicsCovered?.length" class="bento-section">
+          <h4 class="bento-section-title">Concepts Covered</h4>
+          <div class="bento-topics-grid">
+            <span v-for="topic of article.topicsCovered" :key="topic" class="bento-topic-pill">
+              {{ topic }}
             </span>
           </div>
-
-          <div v-if="article.longDescription" class="bento-prose-block">
-            <p class="bento-prose">{{ article.longDescription }}</p>
-          </div>
-
-          <div v-if="article.keyTakeaways?.length" class="bento-section">
-            <h4 class="bento-section-title">Key Architectural Takeaways</h4>
-            <ul class="bento-takeaways-list">
-              <li v-for="(takeaway, idx) of article.keyTakeaways" :key="idx" class="bento-takeaway-item">
-                <span class="takeaway-bullet" aria-hidden="true"></span>
-                <span>{{ takeaway }}</span>
-              </li>
-            </ul>
-          </div>
-
-          <div v-if="article.topicsCovered?.length" class="bento-section">
-            <h4 class="bento-section-title">Concepts Covered</h4>
-            <div class="bento-topics-grid">
-              <span v-for="topic of article.topicsCovered" :key="topic" class="bento-topic-pill">
-                {{ topic }}
-              </span>
-            </div>
-          </div>
-
-          <div v-if="article.repoUrl" class="bento-repo-row">
-            <a :href="article.repoUrl" target="_blank" rel="noopener noreferrer" class="bento-repo-link" outlined @click.stop>
-              <IconGithub :size="15" />
-              <span>Companion Source Code Repository</span>
-            </a>
-          </div>
         </div>
-      </Transition>
-    </GlassCard>
+
+        <div v-if="article.repoUrl" class="bento-repo-row">
+          <a :href="article.repoUrl" target="_blank" rel="noopener noreferrer" class="bento-repo-link" outlined @click.stop>
+            <IconGithub :size="15" />
+            <span>Companion Source Code Repository</span>
+          </a>
+        </div>
+      </div>
+    </Transition>
 
     <!-- Mobile Glass Bottom Sheet for Article Takeaways -->
     <GlassBottomSheet
@@ -264,8 +346,25 @@ const hasRichContent = computed(() => {
 
 <style scoped>
 .article-wrapper {
-  margin: 0 auto 4.5rem;
+  margin: 0 auto calc(4.5rem + var(--overlay-push, 0px));
   max-width: 1440px;
+  position: relative;
+  transition: margin-bottom 0.34s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.article-wrapper :deep(.glass-card) {
+  transition: transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1), border-color 260ms ease,
+    border-radius 260ms ease, box-shadow 260ms ease;
+}
+
+.article-wrapper.has-overlay :deep(.glass-card) {
+  border-bottom-color: transparent;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.article-wrapper.has-overlay :deep(.glass-hover-lift:hover) {
+  transform: none;
 }
 
 @media (max-width: 767.98px) {
@@ -408,15 +507,19 @@ const hasRichContent = computed(() => {
   margin-bottom: 1.25rem;
 }
 
-/* Decoupled Bento In-Place Expansion (Spans 100% width below both image and details) */
+/* Overlay Bento Expansion (absolute below the card; last-card also pushes wrapper padding) */
 .article-bento-panel {
-  width: 100%;
-  border-top: 1px solid var(--glass-border);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  border-top: none;
+  border-radius: 0 0 20px 20px;
   padding: 1.5rem 2rem;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  background: rgb(from var(--app-bg) r g b / 40%);
 }
 
 .bento-prose-block {

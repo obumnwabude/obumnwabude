@@ -320,7 +320,7 @@ export function trackProjectInspectOpened(projectTitle: string, category?: strin
 /**
  * Tracks in-place expansion / collapse of an Article or Community event card on desktop.
  */
-export function trackCardExpansion(title: string, type: 'article' | 'community', action: 'expand' | 'collapse'): void {
+export function trackCardExpansion(title: string, type: 'article' | 'community' | 'project', action: 'expand' | 'collapse'): void {
   trackEvent('card_expansion_toggle', {
     content_title: title,
     content_type: type,
