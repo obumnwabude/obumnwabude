@@ -1,6 +1,10 @@
 <script setup lang="ts">
+import AmbientBackdrop from '@/components/AmbientBackdrop.vue';
 import Footer from '@/components/Footer.vue';
+import GlassDefs from '@/components/GlassDefs.vue';
 import Header from '@/components/Header.vue';
+import MouseFollower from '@/components/MouseFollower.vue';
+import ScrollToTop from '@/components/ScrollToTop.vue';
 import Sidebar from '@/components/Sidebar.vue';
 import { useThemeStore } from '@/stores/theme';
 import { usePrimeVue } from 'primevue/config';
@@ -14,6 +18,9 @@ useThemeStore();
 </script>
 
 <template>
+  <AmbientBackdrop />
+  <GlassDefs />
+  <MouseFollower />
   <Header />
 
   <main>
@@ -22,6 +29,7 @@ useThemeStore();
     <RouterView />
   </main>
 
+  <ScrollToTop />
   <Footer />
 </template>
 

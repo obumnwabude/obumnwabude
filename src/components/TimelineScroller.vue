@@ -400,12 +400,12 @@ onUnmounted(() => {
 .thumb-handle {
   width: 1.25rem;
   height: 2.75rem;
-  background-color: var(--primary);
+  background: linear-gradient(180deg, var(--accent-2) 0%, var(--primary) 100%);
   border-radius: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 14px rgb(from var(--primary) r g b / 45%);
+  box-shadow: 0 4px 16px rgb(from var(--primary) r g b / 50%), inset 0 1px 0 rgba(255, 255, 255, 0.5);
   transition: transform 0.16s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
@@ -417,14 +417,14 @@ onUnmounted(() => {
 .handle-grip {
   width: 3px;
   height: 12px;
-  background-color: var(--app-bg);
+  background-color: #fff;
   border-radius: 2px;
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
 /*
  * Theme-Aware Contextual Date Bubble
- * Frosted glass container adapting to both light and dark modes
+ * Frosted liquid glass container adapting to both light and dark modes
  */
 .date-bubble {
   position: absolute;
@@ -439,12 +439,12 @@ onUnmounted(() => {
   font-weight: 600;
   white-space: nowrap;
   pointer-events: none;
-  background-color: rgb(from var(--app-bg) r g b / 88%);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background-color: var(--glass-tint);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   color: var(--text);
-  border: 1px solid rgb(from var(--text) r g b / 16%);
-  box-shadow: 0 6px 20px rgb(0 0 0 / 18%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-glass);
   transition:
     transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1),
     background-color 0.2s ease,
@@ -456,16 +456,18 @@ onUnmounted(() => {
 body:not(.dark) .date-bubble {
   box-shadow:
     0 8px 24px rgb(16 30 159 / 14%),
-    0 2px 6px rgb(0 0 0 / 6%);
-  border-color: rgb(from var(--primary) r g b / 25%);
+    0 2px 6px rgb(0 0 0 / 6%),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  border-color: var(--glass-border);
 }
 
 /* Dark mode glow */
 body.dark .date-bubble {
   box-shadow:
     0 8px 24px rgb(0 0 0 / 65%),
-    0 0 12px rgb(from var(--primary) r g b / 22%);
-  border-color: rgb(from var(--primary) r g b / 38%);
+    0 0 14px rgb(from var(--primary) r g b / 25%),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  border-color: var(--glass-border);
 }
 
 /* Fast-velocity pill expansion */

@@ -7,11 +7,11 @@ import Menu from 'primevue/menu';
 import { ref } from 'vue';
 
 const { color, icon } = defineProps(['color', 'icon']);
-const hrefs: any = {
+const hrefs: Record<string, string> = {
   Email: 'mailto:contact@obum.me',
   Telegram: 'https://t.me/obumnwabude',
 };
-const icons: any = {
+const icons: Record<string, any> = {
   Email: IconEmail,
   Telegram: IconTelegram,
 };
@@ -28,7 +28,7 @@ const menu = ref();
     @click="menu.toggle"
     aria-haspopup="true"
     aria-controls="contact-menu"
-    :style="{ color }"
+    :style="{ borderColor: color ? color : undefined, color: color ? color : undefined }"
     :class="{ icon }"
     outlined
   >
@@ -39,18 +39,16 @@ const menu = ref();
       id="contact-menu"
       :model="items"
       :popup="true"
-      :style="{ color }"
     >
       <template #item="{ item, props }">
         <a
           target="_blank"
           rel="noopener noreferrer"
-          :href="hrefs[item.label as any]"
+          :href="hrefs[item.label as string]"
           v-bind="props.action"
           menu-item
-          :style="{ color }"
         >
-          <component :is="icons[item.label as any]" />
+          <component :is="icons[item.label as string]" />
           {{ item.label }}
         </a>
       </template>
@@ -60,28 +58,15 @@ const menu = ref();
 
 <style scoped>
 button {
-  align-items: center;
-  background: none;
-  border: 1px solid;
-  border-radius: 32px;
-  color: var(--text);
-  display: flex;
-  font-weight: 500;
-  padding: 0.625rem 3rem;
+  cursor: pointer;
 }
 
 button.icon {
-  align-items: center;
-  display: flex;
-  padding: 0.5rem 1.5rem;
-  width: fit-content;
+  padding: 0 1rem;
+  gap: 0.45rem;
 }
 
 button.icon svg {
-  margin-right: 0.5rem;
-}
-
-button[outlined]:hover {
-  color: var(--app-bg) !important;
+  margin-right: 0;
 }
 </style>

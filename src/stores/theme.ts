@@ -40,15 +40,57 @@ export const useThemeStore = defineStore('theme', () => {
       : 'Dark Theme';
     systemIcon.value =
       window.matchMedia &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches
+        window.matchMedia('(prefers-color-scheme: dark)').matches
         ? 'Dark Theme'
         : 'Light Theme';
   };
 
-  const set = (value: ThemeMode) => {
-    mode.value = value;
-    localStorage.setItem('theme', value);
-    css();
+  const set = (value: ThemeMode, event?: MouseEvent) => {
+    const applyTheme = () => {
+      mode.value = value;
+      if (typeof localStorage !== 'undefined') {
+        localStorage.setItem('theme', value);
+      }
+      css();
+    };
+
+    const doc = typeof document !== 'undefined' ? (document as any) : null;
+    if (
+      !doc ||
+      !doc.startViewTransition ||
+      (typeof window !== 'undefined' &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+    ) {
+      applyTheme();
+      return;
+    }
+
+    const x = event ? event.clientX : window.innerWidth / 2;
+    const y = event ? event.clientY : 0;
+    const endRadius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y)
+    );
+
+    const transition = doc.startViewTransition(() => {
+      applyTheme();
+    });
+
+    transition.ready.then(() => {
+      document.documentElement.animate(
+        {
+          clipPath: [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${endRadius}px at ${x}px ${y}px)`,
+          ],
+        },
+        {
+          duration: 480,
+          easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+          pseudoElement: '::view-transition-new(root)',
+        }
+      );
+    });
   };
 
   onMounted(() => {

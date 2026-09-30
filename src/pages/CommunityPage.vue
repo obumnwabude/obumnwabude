@@ -10,7 +10,7 @@ const timelineCommunity = community.map((contribution, index) => ({
 </script>
 
 <template>
-  <h1 page-heading>CONTRIBUTING TO <span primary>COMMUNITY</span></h1>
+  <h1 page-heading>CONTRIBUTING TO COMMUNITY</h1>
   <p page-intro>
     I actively volunteer in tech communities in my locality. I am
     <a

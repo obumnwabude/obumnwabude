@@ -6,6 +6,7 @@ import VueGtag from 'vue-gtag';
 import App from './App.vue';
 import { createRouterInstance } from './router';
 
+import { vReveal } from './directives/reveal';
 import 'primevue/resources/themes/aura-light-green/theme.css';
 import './assets/main.css';
 
@@ -17,6 +18,7 @@ export function createAppInstance(isServer = false) {
   app.use(pinia);
   app.use(PrimeVue, { ripple: true });
   app.use(router);
+  app.directive('reveal', vReveal);
 
   if (!isServer && !import.meta.env.DEV) {
     app.use(
