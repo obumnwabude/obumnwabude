@@ -241,7 +241,11 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <aside class="timeline-scroller" :class="{ 'is-active': isVisible || isDragging }" aria-label="Timeline Navigation">
+  <aside
+    class="timeline-scroller"
+    :class="{ 'is-active': isVisible || isDragging, 'is-dragging': isDragging }"
+    aria-label="Timeline Navigation"
+  >
     <!-- Scrubber Track & Rail -->
     <div
       ref="trackRef"
@@ -480,7 +484,25 @@ body.dark .date-bubble {
   }
 
   .tick-label {
-    display: none;
+    right: 1.6rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    background-color: var(--glass-tint);
+    backdrop-filter: blur(14px) saturate(180%);
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-glass);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .timeline-scroller:not(.is-dragging) .tick-label {
+    opacity: 0;
+  }
+
+  .timeline-scroller.is-dragging .tick-label {
+    opacity: 1;
+    transform: translateX(0);
   }
 
   .thumb-handle {
