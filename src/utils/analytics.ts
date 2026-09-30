@@ -306,6 +306,38 @@ export function trackExploreMoreClick(section: 'projects' | 'articles' | 'commun
   });
 }
 
+/**
+ * Tracks opening of the Project Glass Inspector drawer or mobile full-page view.
+ */
+export function trackProjectInspectOpened(projectTitle: string, category?: string, source?: string): void {
+  trackEvent('project_inspect_opened', {
+    project_title: projectTitle,
+    category: category || 'General',
+    trigger_source: source || 'project_card',
+  });
+}
+
+/**
+ * Tracks in-place expansion / collapse of an Article or Community event card on desktop.
+ */
+export function trackCardExpansion(title: string, type: 'article' | 'community', action: 'expand' | 'collapse'): void {
+  trackEvent('card_expansion_toggle', {
+    content_title: title,
+    content_type: type,
+    expansion_state: action,
+  });
+}
+
+/**
+ * Tracks opening of the mobile Frosted Glass Bottom Sheet.
+ */
+export function trackBottomSheetOpened(title: string, type: 'article' | 'community'): void {
+  trackEvent('bottom_sheet_opened', {
+    content_title: title,
+    content_type: type,
+  });
+}
+
 // ============================================================================
 // 3. UI, Interactive System & Navigation Telemetry
 // ============================================================================

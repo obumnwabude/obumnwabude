@@ -14,30 +14,139 @@ const routes = [
     title: 'Obum (Obumuneme Nwabude)',
     description:
       'Full-Stack AI, Blockchain, Cloud, Mobile, & Web Developer. Google Developer Expert (GDE) in Cloud AI & Dart-Flutter.',
+    structuredData: null,
   },
   {
     path: '/projects',
     title: 'Projects | Obum (Obumuneme Nwabude)',
     description:
       'Explore software engineering projects built by Obumuneme Nwabude across AI, Cloud, Web3, Flutter, Mobile, and Web applications.',
+    structuredData: null,
   },
   {
     path: '/articles',
     title: 'Articles | Obum (Obumuneme Nwabude)',
     description:
       'Read technical articles, guides, and insights by Obumuneme Nwabude on AI, Cloud, Flutter, Dart, Architecture, Web3, and Tech Communities.',
+    structuredData: null,
   },
   {
     path: '/community',
     title: 'Community | Obum (Obumuneme Nwabude)',
     description:
       'Community contributions, speaking engagements, and workshops delivered by Google Developer Expert Obumuneme Nwabude across Cloud AI & Dart-Flutter.',
+    structuredData: null,
   },
 ];
 
+function generateStructuredData(route, content) {
+  if (route.path === '/') {
+    return null;
+  }
+
+  if (route.path === '/projects') {
+    const items = (content.projects || []).map(project => {
+      const item = {
+        '@type': 'SoftwareApplication',
+        name: project.title,
+        description: project.description,
+        applicationCategory: project.category || undefined,
+      };
+
+      if (project.actions && project.actions.length > 0) {
+        item.url = project.actions[0].link;
+      }
+
+      if (project.image) {
+        item.image = `https://obumnwabude.com/assets/${project.image.name}.${project.image.png ? 'png' : 'jpg'}`;
+      }
+
+      return Object.fromEntries(Object.entries(item).filter(([, v]) => v !== undefined));
+    });
+
+    return JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      itemListElement: items.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        item,
+      })),
+    });
+  }
+
+  if (route.path === '/articles') {
+    const items = (content.articles || []).map(article => {
+      const dateStr = `${article.date.year}-${String(article.date.month).padStart(2, '0')}-01`;
+      return {
+        '@type': 'Article',
+        name: article.title,
+        url: article.link,
+        datePublished: dateStr,
+        author: {
+          '@type': 'Person',
+          name: 'Obumuneme Nwabude',
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: article.publishedOn,
+        },
+      };
+    });
+
+    return JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      itemListElement: items.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        item,
+      })),
+    });
+  }
+
+  if (route.path === '/community') {
+    const items = (content.community || []).map(event => {
+      const dateStr = `${event.date.year}-${String(event.date.month).padStart(2, '0')}-01`;
+      const item = {
+        '@type': 'Event',
+        name: event.title,
+        startDate: dateStr,
+        organizer: {
+          '@type': 'Person',
+          name: 'Obumuneme Nwabude',
+        },
+      };
+
+      if (event.location) {
+        item.location = {
+          '@type': 'Place',
+          name: event.location,
+        };
+      }
+
+      return item;
+    });
+
+    return JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      itemListElement: items.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        item,
+      })),
+    });
+  }
+
+  return null;
+}
+
 async function prerender() {
   const template = fs.readFileSync(path.resolve(distDir, 'index.html'), 'utf-8');
-  const { render } = await import(ssrEntryPath);
+  const { render, projects, articles, community } = await import(ssrEntryPath);
+
+  const content = { projects, articles, community };
 
   console.log('⚡ Pre-rendering routes into static HTML...');
 
@@ -94,6 +203,13 @@ async function prerender() {
       /<meta\s+name="twitter:description"\s+content=".*?"\s*\/?>/s,
       `<meta name="twitter:description" content="${route.description}" />`
     );
+
+    // 7. Generate and inject structured data
+    const structuredData = generateStructuredData(route, content);
+    const ldJsonTag = structuredData
+      ? `<script type="application/ld+json">\n${structuredData}\n</script>`
+      : '';
+    pageHtml = pageHtml.replace('<!-- ROUTE_LD -->', ldJsonTag);
 
     const outDir = route.path === '/' ? distDir : path.join(distDir, route.path);
     if (!fs.existsSync(outDir)) {

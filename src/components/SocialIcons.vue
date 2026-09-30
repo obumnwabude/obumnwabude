@@ -5,7 +5,7 @@ import IconGithub from '@/icons/IconGithub.vue';
 import IconInstagram from '@/icons/IconInstagram.vue';
 import IconLinkedin from '@/icons/IconLinkedin.vue';
 import IconStackoverflow from '@/icons/IconStackoverflow.vue';
-import IconX from '@/icons/IconX.vue';
+import IconXFilled from '@/icons/IconXFilled.vue';
 import { trackSocialClick } from '@/utils/analytics';
 
 const { biggerIcons, placement = 'footer' } = defineProps<{
@@ -22,7 +22,7 @@ const socialLinks = [
     href: LINKS.stackoverflow,
     icon: IconStackoverflow,
   },
-  { platform: 'X', title: 'X (Twitter)', href: LINKS.x, icon: IconX },
+  { platform: 'X', title: 'X (Twitter)', href: LINKS.x, icon: IconXFilled },
   { platform: 'Facebook', title: 'Facebook', href: LINKS.facebook, icon: IconFacebook },
   { platform: 'Instagram', title: 'Instagram', href: LINKS.instagram, icon: IconInstagram },
 ];

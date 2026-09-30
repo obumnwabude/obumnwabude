@@ -1,4 +1,7 @@
 import { renderToString } from '@vue/server-renderer';
+import { articles } from './content/articles';
+import { community } from './content/community';
+import { featuredProjects, projects } from './content/projects';
 import { createAppInstance } from './main';
 
 export async function render(url: string) {
@@ -10,3 +13,5 @@ export async function render(url: string) {
   const html = await renderToString(app);
   return { html };
 }
+
+export { articles, community, featuredProjects, projects };

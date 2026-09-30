@@ -139,7 +139,7 @@ onMounted(() => {
 
   <section v-reveal>
     <h2>LATEST ARTICLES</h2>
-    <Article :article="article" v-for="article of articles.slice(0, 3)" :key="article.title" />
+    <Article :article="article" v-for="article of articles.slice(0, 5)" :key="article.title" />
     <div more class="glass-surface glass-frost glass-more-box">
       <span flower><IconFlower6P color="var(--primary)" :size="28" :spin="true" :glow="true" /></span>
       <p>Of Course, There Are More.</p>
@@ -152,7 +152,7 @@ onMounted(() => {
 
   <section v-reveal>
     <h2>COMMUNITY & TALKS</h2>
-    <ProjectOrEvent :content="contribution" v-for="contribution of community.slice(0, 3)" :key="contribution.title" />
+    <ProjectOrEvent :content="contribution" v-for="contribution of community.slice(0, 5)" :key="contribution.title" />
     <div more class="glass-surface glass-frost glass-more-box">
       <span leading-flower><IconFlower6P color="var(--primary)" :size="28" :spin="true" :glow="true" /></span>
       <p>Of Course, There Are More.</p>
@@ -378,7 +378,7 @@ body.dark [banner] {
 
 /* Sections */
 section {
-  padding-bottom: 5.5rem;
+  padding-bottom: 7.5rem;
 }
 
 section h2 {
@@ -489,6 +489,12 @@ section h2::after {
   section h2::after {
     margin-top: 1rem;
     width: 100%;
+  }
+}
+
+@media (max-width: 767.98px) {
+  section {
+    padding-bottom: 5rem;
   }
 }
 
