@@ -19,9 +19,15 @@ const isMobile = ref(false);
 const wrapperRef = ref<HTMLElement | null>(null);
 const panelRef = ref<HTMLElement | null>(null);
 const pushHeight = ref(0);
+const idleHintVisible = ref(false);
+const reduceMotion = ref(false);
 let scrollRaf: number | null = null;
 let suppressEnter = false;
 let suppressEnterTimer: ReturnType<typeof setTimeout> | null = null;
+let idleTimer: ReturnType<typeof setTimeout> | null = null;
+let idleObserver: IntersectionObserver | null = null;
+let isCardVisible = false;
+const IDLE_HINT_SESSION_KEY = 'obum-idle-hint-shown';
 
 const updateViewport = () => {
   if (typeof window !== 'undefined') {
@@ -29,17 +35,70 @@ const updateViewport = () => {
   }
 };
 
+const armIdleHint = () => {
+  if (idleTimer) {
+    clearTimeout(idleTimer);
+    idleTimer = null;
+  }
+  if (!isMobile.value || reduceMotion.value || !hasRichContent.value) return;
+  if (!isCardVisible || isSheetOpen.value) return;
+  if (sessionStorage.getItem(IDLE_HINT_SESSION_KEY)) return;
+  idleTimer = setTimeout(() => {
+    if (!isMobile.value || !isCardVisible || isSheetOpen.value) return;
+    if (sessionStorage.getItem(IDLE_HINT_SESSION_KEY)) return;
+    idleHintVisible.value = true;
+    sessionStorage.setItem(IDLE_HINT_SESSION_KEY, '1');
+  }, 5000);
+};
+
+const dismissIdleHint = () => {
+  if (idleHintVisible.value) idleHintVisible.value = false;
+  if (idleTimer) {
+    clearTimeout(idleTimer);
+    idleTimer = null;
+  }
+};
+
+const onUserActivity = () => {
+  dismissIdleHint();
+  armIdleHint();
+};
+
 onMounted(() => {
   updateViewport();
   window.addEventListener('resize', updateViewport, { passive: true });
+
+  if (typeof window !== 'undefined' && window.matchMedia) {
+    reduceMotion.value = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  if (wrapperRef.value && 'IntersectionObserver' in window) {
+    idleObserver = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        isCardVisible = entry.intersectionRatio > 0.55;
+        if (isCardVisible) armIdleHint();
+        else dismissIdleHint();
+      },
+      { threshold: [0, 0.55, 1] }
+    );
+    idleObserver.observe(wrapperRef.value);
+  }
+
+  window.addEventListener('scroll', onUserActivity, { passive: true });
+  window.addEventListener('touchstart', onUserActivity, { passive: true });
 });
 
 onBeforeUnmount(() => {
   if (typeof window !== 'undefined') {
     window.removeEventListener('resize', updateViewport);
+    window.removeEventListener('scroll', onUserActivity);
+    window.removeEventListener('touchstart', onUserActivity);
   }
   if (scrollRaf) cancelAnimationFrame(scrollRaf);
   if (suppressEnterTimer) clearTimeout(suppressEnterTimer);
+  if (idleTimer) clearTimeout(idleTimer);
+  if (idleObserver) idleObserver.disconnect();
 });
 
 const handleClick = () => {
@@ -52,6 +111,7 @@ const handleImageError = () => {
 
 
 const toggleArticleDetails = () => {
+  dismissIdleHint();
   if (isMobile.value) {
     trackBottomSheetOpened(title, 'article');
     isSheetOpen.value = true;
@@ -113,20 +173,21 @@ const startCollapseCompensation = () => {
   }
   const wrapperEl = wrapperRef.value;
   if (!wrapperEl) return;
-  if (wrapperEl.getBoundingClientRect().top >= 0) return;
 
   let lastMargin = parseFloat(getComputedStyle(wrapperEl).marginBottom);
   const startedAt = performance.now();
 
   const tick = () => {
-    if (performance.now() - startedAt > 700) {
+    if (performance.now() - startedAt > 1100) {
       scrollRaf = null;
       return;
     }
     const currentMargin = parseFloat(getComputedStyle(wrapperEl).marginBottom);
     const delta = lastMargin - currentMargin;
     if (delta > 0.5) {
-      window.scrollBy(0, -delta);
+      const scrollY = window.scrollY;
+      const applied = Math.min(delta, scrollY);
+      if (applied > 0) window.scrollBy(0, -applied);
       lastMargin = currentMargin;
     } else if (delta < -0.5) {
       scrollRaf = null;
@@ -177,10 +238,10 @@ watch(isExpandedDesktop, async (expanded) => {
       <div class="article-inner">
         <div
           class="article-image-container"
-          @click.stop="handleClick"
+          @click.stop="handleCardClick"
           role="button"
           tabindex="0"
-          :aria-label="`Read ${title}`"
+          :aria-label="`Show ${title} details`"
         >
           <img
             :src="`/assets/${image.name}.${image.png ? 'png' : 'jpg'}`"
@@ -202,25 +263,39 @@ watch(isExpandedDesktop, async (expanded) => {
             </span>
           </div>
 
-          <h3 class="article-title" @click.stop="handleClick" role="link" tabindex="0">
+          <h3 class="article-title" @click.stop="handleCardClick" role="button" tabindex="0">
             {{ title }}
           </h3>
 
           <p class="article-description">{{ description }}</p>
 
           <div class="article-bottom">
-            <button
-              v-if="hasRichContent"
-              type="button"
-              class="article-more-btn"
-              @click.stop="toggleArticleDetails"
-              :aria-expanded="isExpandedDesktop"
-              :aria-label="isExpandedDesktop && !isMobile ? 'Hide info' : 'More info'"
-              :title="isExpandedDesktop && !isMobile ? 'Hide info' : 'More info'"
-            >
-              <IconUp v-if="isExpandedDesktop && !isMobile" :size="20" />
-              <IconDown v-else :size="20" />
-            </button>
+            <div v-if="hasRichContent" class="more-btn-hint-wrap">
+              <button
+                type="button"
+                class="article-more-btn"
+                :class="{ 'is-throbbing': isMobile && !reduceMotion }"
+                @click.stop="toggleArticleDetails"
+                :aria-expanded="isExpandedDesktop"
+                :aria-label="isExpandedDesktop && !isMobile ? 'Hide info' : 'More info'"
+                :title="isExpandedDesktop && !isMobile ? 'Hide info' : 'More info'"
+              >
+                <IconUp v-if="isExpandedDesktop && !isMobile" :size="20" />
+                <IconDown v-else :size="20" />
+              </button>
+              <Transition name="idle-hint">
+                <div
+                  v-if="idleHintVisible && isMobile && !isSheetOpen"
+                  class="idle-hint-tooltip"
+                  role="tooltip"
+                  @click.stop="toggleArticleDetails"
+                >
+                  <span class="idle-hint-glow" aria-hidden="true"></span>
+                  <span class="idle-hint-text">Tap for the takeaways</span>
+                  <span class="idle-hint-caret" aria-hidden="true"></span>
+                </div>
+              </Transition>
+            </div>
 
             <a
               :href="link"
@@ -346,15 +421,15 @@ watch(isExpandedDesktop, async (expanded) => {
 
 <style scoped>
 .article-wrapper {
-  margin: 0 auto calc(4.5rem + var(--overlay-push, 0px));
+  margin: 0 auto calc(5.25rem + var(--overlay-push, 0px));
   max-width: 1440px;
   position: relative;
-  transition: margin-bottom 0.34s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: margin-bottom 0.58s cubic-bezier(0.32, 0.72, 0.24, 1);
 }
 
 .article-wrapper :deep(.glass-card) {
-  transition: transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1), border-color 260ms ease,
-    border-radius 260ms ease, box-shadow 260ms ease;
+  transition: transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1), border-color 420ms ease,
+    border-radius 420ms ease, box-shadow 420ms ease;
 }
 
 .article-wrapper.has-overlay :deep(.glass-card) {
@@ -407,11 +482,6 @@ watch(isExpandedDesktop, async (expanded) => {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.article-card:hover .article-image {
-  transform: scale(1.05);
 }
 
 .article-details {
@@ -634,6 +704,101 @@ watch(isExpandedDesktop, async (expanded) => {
   transform: scale(1.08);
 }
 
+.article-more-btn.is-throbbing > svg {
+  animation: more-btn-throb 1.9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation-delay: 1.2s;
+}
+
+@keyframes more-btn-throb {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.9; }
+  30% { transform: translateY(3px); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .article-more-btn.is-throbbing > svg { animation: none; }
+}
+
+.more-btn-hint-wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.idle-hint-tooltip {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  right: -6px;
+  padding: 0.55rem 0.9rem;
+  border-radius: 12px;
+  background: var(--glass-tint);
+  border: 1px solid rgb(from var(--primary) r g b / 32%);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  box-shadow: 0 10px 28px rgb(0 0 0 / 14%), 0 0 0 1px rgb(from var(--primary) r g b / 8%) inset;
+  font-size: 0.78rem;
+  font-weight: 550;
+  line-height: 1;
+  color: var(--text);
+  white-space: nowrap;
+  cursor: pointer;
+  z-index: 12;
+  overflow: visible;
+}
+
+.idle-hint-text {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(90deg, var(--primary), var(--text));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.idle-hint-glow {
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: radial-gradient(120% 140% at 80% 0%, rgb(from var(--primary) r g b / 18%), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.idle-hint-caret {
+  position: absolute;
+  top: 100%;
+  right: 18px;
+  width: 12px;
+  height: 6px;
+  overflow: hidden;
+}
+
+.idle-hint-caret::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  background: var(--glass-tint);
+  border: 1px solid rgb(from var(--primary) r g b / 32%);
+  transform: rotate(45deg);
+  transform-origin: center;
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+}
+
+.idle-hint-enter-active {
+  transition: opacity 0.32s ease-out, transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.idle-hint-leave-active {
+  transition: opacity 0.22s ease-in, transform 0.22s ease-in;
+}
+
+.idle-hint-enter-from,
+.idle-hint-leave-to {
+  opacity: 0;
+  transform: translateY(6px) scale(0.96);
+}
 
 .article-read-btn {
   display: inline-flex;
@@ -654,13 +819,13 @@ watch(isExpandedDesktop, async (expanded) => {
 }
 
 .bento-expand-enter-active {
-  transition: max-height 0.42s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.32s ease-out 0.06s, padding 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: max-height 0.68s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.44s ease-out 0.08s, padding 0.68s cubic-bezier(0.22, 1, 0.36, 1);
   max-height: 2400px;
   opacity: 1;
 }
 
 .bento-expand-leave-active {
-  transition: max-height 0.34s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease-in, padding 0.34s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: max-height 0.58s cubic-bezier(0.32, 0.72, 0.24, 1), opacity 0.34s ease-in, padding 0.58s cubic-bezier(0.32, 0.72, 0.24, 1);
   max-height: 2400px;
   opacity: 1;
 }
