@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Project from '@/components/Project.vue';
+import ProjectOrEvent from '@/components/ProjectOrEvent.vue';
 import { projects } from '@/content/projects';
 </script>
 
@@ -11,6 +11,6 @@ import { projects } from '@/content/projects';
     projects I've worked (-ing) on over the years.
   </p>
   <div page-content>
-    <Project :project="project" v-for="project of projects" />
+    <ProjectOrEvent :content="project" v-for="project of projects" />
   </div>
 </template>

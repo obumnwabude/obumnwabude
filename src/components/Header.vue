@@ -1,11 +1,21 @@
 <script setup lang="ts">
 import ContactMe from '@/components/ContactMe.vue';
 import ThemeMenu from '@/components/ThemeMenu.vue';
+import IconArticle from '@/icons/IconArticle.vue';
+import IconHome from '@/icons/IconHome.vue';
 import IconMenu from '@/icons/IconMenu.vue';
+import IconRocket from '@/icons/IconRocket.vue';
+import IconUsers from '@/icons/IconUsers.vue';
 import { useSidebarStore } from '@/stores/sidebar';
 import { onMounted, onUnmounted, ref } from 'vue';
 
-const capitalize = (s: string) => s[0].toUpperCase() + s.substring(1);
+const navItems = [
+  { path: '/', label: 'Home', icon: IconHome },
+  { path: '/projects', label: 'Projects', icon: IconRocket },
+  { path: '/articles', label: 'Articles', icon: IconArticle },
+  { path: '/community', label: 'Community', icon: IconUsers },
+];
+
 const sidebar = useSidebarStore();
 const isScrolled = ref(false);
 
@@ -39,12 +49,10 @@ onUnmounted(() => {
         <!-- Wide screen nav immediately after logo on the left -->
         <nav class="desktop-nav">
           <ul>
-            <li>
-              <router-link to="/" class="nav-link">Home</router-link>
-            </li>
-            <li v-for="link of ['projects', 'articles', 'community']" :key="link">
-              <router-link :to="`/${link}`" class="nav-link">
-                {{ capitalize(link) }}
+            <li v-for="item of navItems" :key="item.path">
+              <router-link :to="item.path" class="nav-link">
+                <component :is="item.icon" :size="14" class="nav-link-icon" />
+                <span>{{ item.label }}</span>
               </router-link>
             </li>
           </ul>
@@ -52,7 +60,7 @@ onUnmounted(() => {
       </div>
 
       <div class="header-actions">
-        <ContactMe color="var(--primary)" contact-me />
+        <ContactMe color="var(--primary)" contact-me :label="'Contact Me'" />
         <!-- Theme toggle cast directly into the UI (no borders/background) -->
         <div theme><ThemeMenu :full="false" /></div>
         <!-- Menu toggle cast directly into the UI (no borders/background) -->
@@ -145,8 +153,8 @@ h1 {
 .desktop-nav ul {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  margin: 0;
+  gap: 0.25rem;
+  margin: 0 0 -0.125rem 0;
   padding: 0;
   list-style: none;
 }
@@ -155,13 +163,16 @@ h1 {
   position: relative;
   display: inline-flex;
   align-items: center;
-  padding: 0.4rem 0.95rem;
+  gap: 0.45rem;
+  padding: 0.32rem 0.8rem;
   border-radius: 9999px;
   font-weight: 500;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   color: var(--text);
+  opacity: 0.72;
   border: 1px solid transparent;
   transition:
+    opacity 0.2s ease,
     background-color 0.2s ease,
     color 0.2s ease,
     border-color 0.2s ease,
@@ -169,19 +180,34 @@ h1 {
     box-shadow 0.2s ease;
 }
 
+.nav-link-icon {
+  flex-shrink: 0;
+  opacity: 0.8;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.nav-link:hover .nav-link-icon,
+.router-link-active .nav-link-icon {
+  opacity: 1;
+  color: var(--primary);
+  transform: scale(1.1);
+}
+
 .nav-link:hover {
-  background: rgb(from var(--primary) r g b / 10%);
+  opacity: 1;
+  background: rgb(from var(--primary) r g b / 8%);
   color: var(--primary);
   transform: translateY(-1px);
 }
 
 /* Enhanced Active Indicator with Horizontal Fading-Out Gradient */
 .router-link-active.nav-link {
-  background: rgb(from var(--primary) r g b / 12%);
+  opacity: 1;
+  background: rgb(from var(--primary) r g b / 10%);
   color: var(--primary);
-  border-color: rgb(from var(--primary) r g b / 25%);
+  border-color: rgb(from var(--primary) r g b / 20%);
   font-weight: 600;
-  box-shadow: 0 1px 8px rgb(from var(--primary) r g b / 12%);
+  box-shadow: 0 1px 8px rgb(from var(--primary) r g b / 10%);
 }
 
 .router-link-active.nav-link::after {
@@ -225,17 +251,35 @@ body.dark .router-link-active.nav-link {
 }
 
 /* Cast directly into the UI without borders/backgrounds */
-[theme] :deep([main]:not(.full)) {
+[theme] {
+  display: inline-flex;
+  align-items: center;
+  background: transparent !important;
+}
+
+[theme] :deep([main]:not(.full)),
+[theme] :deep([main]:not(.full):hover),
+[theme] :deep([main]:not(.full):focus),
+[theme] :deep([main]:not(.full):active) {
   width: 2.25rem !important;
   height: 2.25rem !important;
   border: none !important;
   background: transparent !important;
+  background-color: transparent !important;
   box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  outline: none !important;
+}
+
+[theme] :deep([main]:not(.full)) {
   color: var(--text) !important;
-  transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.18s ease;
+  opacity: 0.85;
+  transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.18s ease, opacity 0.18s ease;
 }
 
 [theme] :deep([main]:not(.full):hover) {
+  opacity: 1;
   color: var(--primary) !important;
   transform: scale(1.1);
 }
@@ -293,14 +337,12 @@ body.dark .router-link-active.nav-link {
   }
 
   .header-left {
-    gap: 3rem;
+    gap: 2.75rem;
   }
-}
 
-@media (min-width: 1200px) {
   .nav-link {
-    font-size: 0.9375rem;
-    padding: 0.4rem 1.1rem;
+    font-size: 0.8125rem;
+    padding: 0.32rem 0.75rem;
   }
 }
 </style>

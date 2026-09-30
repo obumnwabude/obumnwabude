@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Project from '@/components/Project.vue';
+import ProjectOrEvent from '@/components/ProjectOrEvent.vue';
 import TimelineScroller from '@/components/TimelineScroller.vue';
 import { community } from '@/content/community';
 
@@ -39,22 +39,22 @@ const timelineCommunity = community.map((contribution, index) => ({
     them in their tech journey.
     <br />
     <br />
-    I am a
-    <a
-      href="https://mvp.microsoft.com/studentambassadors"
-      rel="noopener noreferrer"
-      target="_blank"
-      underline
-      >Microsoft Learn Student Ambassador (MLSA)</a
-    >
-    in my school:
+    At my school:
     <a
       href="https://funai.edu.ng"
       rel="noopener noreferrer"
       target="_blank"
       underline
       >Alex Ekwueme Federal University (AE-FUNAI)</a
-    >. Also, I was once the
+    >, I had served as the pioneer
+    <a
+      href="https://developers.google.com/community/gdsc"
+      rel="noopener noreferrer"
+      target="_blank"
+      underline
+      >Google Developer Student Clubs (GDSC, 2020/21)</a
+    >
+    lead. I was also the pioneer
     <a
       href="https://genesystechhub.com"
       rel="noopener noreferrer"
@@ -62,16 +62,17 @@ const timelineCommunity = community.map((contribution, index) => ({
       underline
       >Genesys</a
     >
-    Campus Club Ambassador for my school. In addition, in 2020/21, I was the
+    Campus Club Ambassador (same year) and a
+
     <a
-      href="https://developers.google.com/community/gdsc"
+      href="https://mvp.microsoft.com/studentambassadors"
       rel="noopener noreferrer"
       target="_blank"
       underline
-      >Google Developer Student Clubs (GDSC)</a
+      >Microsoft Learn Student Ambassador (MLSA, much later)</a
     >
-    lead in my school. While holding these positions, I organized events for my
-    local student community.
+    . While holding these positions, I organized events for my local student
+    community.
     <br />
     <br />
     I also speak at tech events. I've spoken on
@@ -82,7 +83,8 @@ const timelineCommunity = community.map((contribution, index) => ({
       underline
       >Flutter</a
     >
-    on several occasions. Sometimes, I'm a panelist. I also was once a Trainer on the
+    on several occasions. Sometimes, I'm a panelist. I also was once a Trainer
+    on the
     <a
       href="https://blog.google/around-the-globe/google-africa/digitalskillsforafrica-over-500000-people-africa-trained/"
       rel="noopener noreferrer"
@@ -103,7 +105,7 @@ const timelineCommunity = community.map((contribution, index) => ({
       :id="`timeline-item-${index}`"
       class="timeline-item"
     >
-      <Project :project="contribution" />
+      <ProjectOrEvent :content="contribution" />
     </div>
   </div>
 

@@ -22,7 +22,7 @@ export const routes: RouteRecordRaw[] = [
   {
     path: '/projects',
     name: 'projects',
-    component: () => import('@/pages/ProjectsPage.vue'),
+    component: () => import('@/pages/CodingProjectsPage.vue'),
     meta: {
       title: `Projects | ${baseTitle}`,
       description:

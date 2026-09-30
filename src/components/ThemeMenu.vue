@@ -38,7 +38,7 @@ const theme = useThemeStore();
     aria-haspopup="true"
     aria-controls="theme-menu"
     :class="{ full }"
-    outlined
+    :outlined="full ? true : undefined"
     class="glass-theme-btn"
   >
     <component :is="icons()[full ? theme.currentIcon : theme.reverseIcon]" />
@@ -129,7 +129,10 @@ button {
   justify-content: center;
 }
 
-[main]:not(.full) {
+[main]:not(.full),
+[main]:not(.full):hover,
+[main]:not(.full):focus,
+[main]:not(.full):active {
   width: 2.25rem;
   height: 2.25rem;
   border-radius: 50% !important;
@@ -137,6 +140,12 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 
 [main].full {
@@ -147,7 +156,7 @@ button {
 }
 
 [main].full svg {
-  margin-right: 0.5rem;
+  width: 1rem;
 }
 
 [main]:not(.full) span {

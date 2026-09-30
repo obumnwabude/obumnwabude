@@ -1,12 +1,76 @@
 <script setup lang="ts">
 import GlassCard from '@/components/GlassCard.vue';
-import { displayDate, type Project } from '@/types';
+import IconAboutReadMore from '@/icons/IconAboutReadMore.vue';
+import IconApple from '@/icons/IconApple.vue';
+import IconArticle from '@/icons/IconArticle.vue';
+import IconAward from '@/icons/IconAward.vue';
+import IconCode from '@/icons/IconCode.vue';
+import IconDocument from '@/icons/IconDocument.vue';
+import IconExternalLink from '@/icons/IconExternalLink.vue';
+import IconFacebook from '@/icons/IconFacebook.vue';
+import IconFolder from '@/icons/IconFolder.vue';
+import IconGithub from '@/icons/IconGithub.vue';
+import IconGoogleColab from '@/icons/IconGoogleColab.vue';
+import IconGoogleDevelopers from '@/icons/IconGoogleDevelopers.vue';
+import IconGooglePlay from '@/icons/IconGooglePlay.vue';
+import IconHome from '@/icons/IconHome.vue';
+import IconInstagram from '@/icons/IconInstagram.vue';
+import IconLinkedin from '@/icons/IconLinkedin.vue';
+import IconPresentation from '@/icons/IconPresentation.vue';
+import IconRecording from '@/icons/IconRecording.vue';
+import IconRocket from '@/icons/IconRocket.vue';
+import IconSlides from '@/icons/IconSlides.vue';
+import IconTicket from '@/icons/IconTicket.vue';
+import IconUsers from '@/icons/IconUsers.vue';
+import IconX from '@/icons/IconX.vue';
+import IconZap from '@/icons/IconZap.vue';
+import {
+  displayDate,
+  type ActionIcon,
+  type CodingProject,
+  type CommunityEvent,
+} from '@/types';
+import type { Component } from 'vue';
 
-const { project, featured = false } = defineProps<{
-  project: Project;
+const { content, featured = false } = defineProps<{
+  content: CodingProject | CommunityEvent;
   featured?: boolean;
 }>();
-const { date, image, title, description, actions, tags } = project;
+const { ctasEqualWeights, image, title, description, actions, tags } = content;
+
+const isCommunityEvent = (
+  content: CodingProject | CommunityEvent
+): content is CommunityEvent => 'date' in content;
+
+const actionIconMap: Record<ActionIcon, Component> = {
+  aboutreadmore: IconAboutReadMore,
+  apple: IconApple,
+  article: IconArticle,
+  award: IconAward,
+  code: IconCode,
+  document: IconDocument,
+  externallink: IconExternalLink,
+  facebook: IconFacebook,
+  folder: IconFolder,
+  github: IconGithub,
+  googlecolab: IconGoogleColab,
+  googledevelopers: IconGoogleDevelopers,
+  googleplay: IconGooglePlay,
+  home: IconHome,
+  instagram: IconInstagram,
+  linkedin: IconLinkedin,
+  presentation: IconPresentation,
+  recording: IconRecording,
+  rocket: IconRocket,
+  slides: IconSlides,
+  ticket: IconTicket,
+  users: IconUsers,
+  x: IconX,
+  zap: IconZap,
+};
+
+const getActionIcon = (icon?: ActionIcon): Component =>
+  (icon && actionIconMap[icon]) || IconExternalLink;
 </script>
 
 <template>
@@ -35,23 +99,37 @@ const { date, image, title, description, actions, tags } = project;
             </span>
           </div>
 
-          <p v-if="date" class="project-date">{{ displayDate(date) }}</p>
+          <p
+            v-if="isCommunityEvent(content) && content.date"
+            class="project-date"
+          >
+            {{ displayDate(content.date) }}
+          </p>
 
           <h3 class="project-title">{{ title }}</h3>
           <p class="project-description">{{ description }}</p>
 
           <div class="project-actions">
             <a
-              v-for="({ link, title }, i) of actions"
+              v-for="({ icon, link, title }, i) of actions"
               :key="link"
               :href="link"
               target="_blank"
               rel="noopener noreferrer"
-              :filled="i === 0 ? true : undefined"
-              :outlined="i !== 0 ? true : undefined"
+              :filled="i === 0 || ctasEqualWeights ? true : undefined"
+              :outlined="i !== 0 && !ctasEqualWeights ? true : undefined"
               class="project-action-btn"
             >
-              {{ title }}
+              <span>{{ title }}</span>
+              <component
+                :is="getActionIcon(icon)"
+                :size="15"
+                class="action-icon"
+                :class="{
+                  'action-external-icon':
+                    getActionIcon(icon) === IconExternalLink,
+                }"
+              />
             </a>
           </div>
         </div>
@@ -115,7 +193,7 @@ const { date, image, title, description, actions, tags } = project;
   flex-direction: column;
   justify-content: center;
   flex-grow: 1;
-  padding: 1.5rem;
+  padding: 1.25rem;
 }
 
 .project-tags {
@@ -175,6 +253,7 @@ const { date, image, title, description, actions, tags } = project;
 
 .project-actions {
   display: flex;
+  flex-direction: row-reverse;
   flex-wrap: wrap;
   gap: 0.65rem;
   align-items: center;
@@ -183,6 +262,20 @@ const { date, image, title, description, actions, tags } = project;
 
 .project-action-btn {
   cursor: pointer;
+  gap: 0.5rem;
+}
+
+.action-icon {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.project-action-btn:hover .action-external-icon {
+  transform: translate(2px, -2px);
+}
+
+.project-action-btn:hover .action-icon:not(.action-external-icon) {
+  transform: scale(1.15);
 }
 
 @media (min-width: 768px) {
@@ -209,8 +302,12 @@ const { date, image, title, description, actions, tags } = project;
     border-left: 1px solid var(--glass-border);
   }
 
+  .project-wrapper:nth-child(even) .project-actions {
+    flex-direction: row;
+  }
+
   .project-details {
-    padding: 2.25rem 2.5rem;
+    padding: 1.75rem 2rem;
   }
 
   .project-action-btn {

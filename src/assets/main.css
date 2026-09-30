@@ -228,7 +228,7 @@ body.dark {
   color: var(--text) !important;
   box-shadow: -10px 0 40px rgba(0, 0, 0, 0.4) !important;
   padding: 1.5rem 1.5rem 2rem !important;
-  width: min(24rem, 90vw) !important;
+  width: min(21rem, 90vw) !important;
 }
 
 .p-sidebar-header {

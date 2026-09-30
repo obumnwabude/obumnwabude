@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import GlassCard from '@/components/GlassCard.vue';
+import IconExternalLink from '@/icons/IconExternalLink.vue';
 import IconRight from '@/icons/IconRight.vue';
 import { displayDate, type Article } from '@/types';
 
@@ -40,8 +41,11 @@ const { image, date, title, description, link, publishedOn } = article;
             <p class="article-description">{{ description }}</p>
 
             <div class="article-bottom">
-              <span class="read-more-text">Read Article</span>
-              <span class="article-arrow-btn">
+              <span class="read-more-text">
+                <span>Read Article</span>
+                <IconExternalLink :size="13" class="read-external-icon" />
+              </span>
+              <span class="article-arrow-btn" aria-label="Open article">
                 <IconRight />
               </span>
             </div>
@@ -140,7 +144,12 @@ const { image, date, title, description, link, publishedOn } = article;
   color: var(--text);
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.4rem;
+}
+
+.article-badge-icon {
+  color: var(--primary);
+  flex-shrink: 0;
 }
 
 .badge-accent {
@@ -183,6 +192,19 @@ const { image, date, title, description, link, publishedOn } = article;
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.read-external-icon {
+  opacity: 0.75;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+}
+
+.article-card:hover .read-external-icon {
+  opacity: 1;
+  transform: translate(2px, -2px);
 }
 
 .article-arrow-btn {

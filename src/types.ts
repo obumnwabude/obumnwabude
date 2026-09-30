@@ -8,6 +8,7 @@ export interface Card {
   title: string;
   description: string;
   image: CardImage;
+  ctasEqualWeights?: boolean | undefined;
 }
 
 export interface ContentDate {
@@ -15,15 +16,45 @@ export interface ContentDate {
   year: number;
 }
 
+export type ActionIcon =
+  | 'aboutreadmore'
+  | 'apple'
+  | 'article'
+  | 'award'
+  | 'code'
+  | 'document'
+  | 'externallink'
+  | 'facebook'
+  | 'folder'
+  | 'github'
+  | 'googlecolab'
+  | 'googledevelopers'
+  | 'googleplay'
+  | 'home'
+  | 'instagram'
+  | 'linkedin'
+  | 'presentation'
+  | 'recording'
+  | 'rocket'
+  | 'slides'
+  | 'ticket'
+  | 'users'
+  | 'x'
+  | 'zap';
+
 export interface ContentAction {
+  icon: ActionIcon;
   link: string;
   title: string;
 }
 
-export interface Project extends Card {
-  date?: ContentDate;
+export interface CodingProject extends Card {
   actions: ContentAction[];
   tags: string[];
+}
+
+export interface CommunityEvent extends CodingProject {
+  date: ContentDate;
 }
 
 export interface Article extends Card {

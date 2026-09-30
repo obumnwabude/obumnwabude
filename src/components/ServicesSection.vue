@@ -16,6 +16,7 @@ const services = [
       'Offline-first sync & reactive state patterns',
     ],
     tags: ['Flutter', 'Dart', 'Vue.js', 'Node.js', 'GCP'],
+    cta: 'Discuss Your MVP',
   },
   {
     badge: 'Decentralized Systems',
@@ -30,6 +31,7 @@ const services = [
       'Cross-chain bridges (Wormhole) & wallet UX',
     ],
     tags: ['Solana', 'Rust / Anchor', 'Solidity', 'Wormhole', 'dApps'],
+    cta: 'Architect Web3 Solution',
   },
   {
     badge: 'GDE & Strategic Advisory',
@@ -44,6 +46,7 @@ const services = [
       'Engineering mentorship & team upskilling',
     ],
     tags: ['Gemini API', 'Vertex AI', 'Cloud AI', 'Keynotes', 'Advisory'],
+    cta: 'Book Keynote or Advisory',
   },
 ];
 </script>
@@ -82,14 +85,17 @@ const services = [
             <div class="service-tags">
               <span v-for="t in service.tags" :key="t" class="service-tag">{{ t }}</span>
             </div>
+
+            <div class="service-action-row">
+              <ContactMe
+                :label="service.cta"
+                color="var(--primary)"
+                class="service-card-cta"
+              />
+            </div>
           </div>
         </div>
       </GlassCard>
-    </div>
-
-    <div class="services-cta" v-reveal="{ delay: 150 }">
-      <p class="cta-prompt">Have a project, talk, or vision you'd like to bring to life?</p>
-      <ContactMe color="var(--primary)" />
     </div>
   </div>
 </template>
@@ -247,6 +253,30 @@ const services = [
   border: 1px solid var(--glass-border);
   color: var(--text);
   opacity: 0.82;
+}
+
+.service-action-row {
+  margin-top: 1.15rem;
+  padding-top: 0.85rem;
+  border-top: 1px dashed var(--glass-border);
+}
+
+.service-card-cta {
+  display: block;
+}
+
+.service-card-cta :deep(button) {
+  width: 100%;
+  justify-content: center;
+  font-size: 0.8125rem;
+  height: 2.15rem;
+  padding: 0 0.85rem;
+  opacity: 0.9;
+  transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.service-card-cta :deep(button:hover) {
+  opacity: 1;
 }
 
 /* Tablet refinement: Card 3 spans 2 columns gracefully with balanced 2-column layout */

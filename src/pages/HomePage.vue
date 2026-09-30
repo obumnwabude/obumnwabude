@@ -2,7 +2,7 @@
 import Article from '@/components/Article.vue';
 import ContactMe from '@/components/ContactMe.vue';
 import ImpactMetrics from '@/components/ImpactMetrics.vue';
-import Project from '@/components/Project.vue';
+import ProjectOrEvent from '@/components/ProjectOrEvent.vue';
 import ServicesSection from '@/components/ServicesSection.vue';
 import TechMatrix from '@/components/TechMatrix.vue';
 import { articles } from '@/content/articles';
@@ -10,6 +10,7 @@ import { community } from '@/content/community';
 import { featuredProjects } from '@/content/projects';
 import IconFlower2P from '@/icons/IconFlower2P.vue';
 import IconFlower6P from '@/icons/IconFlower6P.vue';
+import IconRight from '@/icons/IconRight.vue';
 import { banners } from '@/types';
 
 const years = new Date().getFullYear() - 2018;
@@ -28,10 +29,15 @@ const years = new Date().getFullYear() - 2018;
       <p intro-bio>
         I have been programming for {{ years }} years and counting. I've worked
         with great teams and have built one-of-a-kind solutions. I'm a pro in
-        Flutter, Cloud, AI, everything web dev, and web3 (Solana & Solidity). I am
-        also a Google Developer Expert (GDE) in Cloud AI & Dart-Flutter.
+        Flutter, Cloud, AI, everything web dev, and web3 (Solana & Solidity). I
+        am also a Google Developer Expert (GDE) in Cloud AI & Dart-Flutter.
       </p>
-      <p contact><ContactMe color="var(--primary)" /></p>
+      <div contact class="hero-cta-group">
+        <ContactMe :filled="true" label="Get In Touch" />
+        <router-link to="/projects" outlined class="hero-secondary-cta"
+          >Explore My Work</router-link
+        >
+      </div>
     </div>
 
     <div intro-avatar v-reveal="{ delay: 120 }">
@@ -47,7 +53,9 @@ const years = new Date().getFullYear() - 2018;
         />
         <div class="gde-glass-badge glass-surface glass-frost">
           <span class="live-pulse-dot" aria-hidden="true"></span>
-          <span class="badge-text">Google Developer Expert (GDE) • Cloud AI & Flutter</span>
+          <span class="badge-text"
+            >Google Developer Expert (GDE) • Cloud AI & Dart-Flutter</span
+          >
         </div>
       </div>
     </div>
@@ -55,10 +63,22 @@ const years = new Date().getFullYear() - 2018;
 
   <div banner aria-label="Skill Highlights">
     <div class="banner-inner">
-      <span flower><IconFlower6P color="var(--primary)" :size="22" :spin="true" :glow="true" /></span>
+      <span flower
+        ><IconFlower6P
+          color="var(--primary)"
+          :size="22"
+          :spin="true"
+          :glow="true"
+      /></span>
       <template v-for="banner of banners" :key="banner">
         <span text>{{ banner }}</span>
-        <span flower><IconFlower6P color="var(--primary)" :size="22" :spin="true" :glow="true" /></span>
+        <span flower
+          ><IconFlower6P
+            color="var(--primary)"
+            :size="22"
+            :spin="true"
+            :glow="true"
+        /></span>
       </template>
     </div>
   </div>
@@ -74,16 +94,25 @@ const years = new Date().getFullYear() - 2018;
 
   <section v-reveal>
     <h2>LATEST PROJECTS</h2>
-    <Project
-      :project="project"
+    <ProjectOrEvent
+      :content="project"
       :featured="index === 0"
       v-for="(project, index) of featuredProjects"
       :key="project.title"
     />
     <div more class="glass-surface glass-frost glass-more-box">
-      <span flower><IconFlower6P color="var(--primary)" :size="28" :spin="true" :glow="true" /></span>
+      <span flower
+        ><IconFlower6P
+          color="var(--primary)"
+          :size="28"
+          :spin="true"
+          :glow="true"
+      /></span>
       <p>Of Course, There Are More.</p>
-      <router-link to="/projects" outlined class="more-cta-btn">... See All Projects</router-link>
+      <router-link to="/projects" outlined class="more-cta-btn">
+        <span>See All Projects</span>
+        <IconRight class="more-arrow-icon" />
+      </router-link>
     </div>
   </section>
 
@@ -95,23 +124,41 @@ const years = new Date().getFullYear() - 2018;
       :key="article.title"
     />
     <div more class="glass-surface glass-frost glass-more-box">
-      <span flower><IconFlower6P color="var(--primary)" :size="28" :spin="true" :glow="true" /></span>
+      <span flower
+        ><IconFlower6P
+          color="var(--primary)"
+          :size="28"
+          :spin="true"
+          :glow="true"
+      /></span>
       <p>Of Course, There Are More.</p>
-      <router-link to="/articles" outlined class="more-cta-btn">... See All Articles</router-link>
+      <router-link to="/articles" outlined class="more-cta-btn">
+        <span>See All Articles</span>
+        <IconRight class="more-arrow-icon" />
+      </router-link>
     </div>
   </section>
 
   <section v-reveal>
     <h2>COMMUNITY & TALKS</h2>
-    <Project
-      :project="contribution"
+    <ProjectOrEvent
+      :content="contribution"
       v-for="contribution of community.slice(0, 3)"
       :key="contribution.title"
     />
     <div more class="glass-surface glass-frost glass-more-box">
-      <span leading-flower><IconFlower6P color="var(--primary)" :size="28" :spin="true" :glow="true" /></span>
+      <span leading-flower
+        ><IconFlower6P
+          color="var(--primary)"
+          :size="28"
+          :spin="true"
+          :glow="true"
+      /></span>
       <p>Of Course, There Are More.</p>
-      <router-link to="/community" outlined class="more-cta-btn">... See All Events</router-link>
+      <router-link to="/community" outlined class="more-cta-btn">
+        <span>See All Events</span>
+        <IconRight class="more-arrow-icon" />
+      </router-link>
     </div>
   </section>
 
@@ -123,7 +170,13 @@ const years = new Date().getFullYear() - 2018;
 
   <div closing v-reveal>
     <div class="closing-card glass-surface glass-frost">
-      <span leading-flower><IconFlower6P color="var(--primary)" :size="32" :spin="true" :glow="true" /></span>
+      <span leading-flower
+        ><IconFlower6P
+          color="var(--primary)"
+          :size="32"
+          :spin="true"
+          :glow="true"
+      /></span>
       <h2>LET'S WORK TOGETHER</h2>
       <p text>
         "Coming together is a beginning. Keeping together is progress. Working
@@ -131,7 +184,7 @@ const years = new Date().getFullYear() - 2018;
         <br />
         Let's work together to achieve success.
       </p>
-      <p contact><ContactMe color="var(--primary)" /></p>
+      <p contact><ContactMe color="var(--primary)" label="Contact Me" /></p>
     </div>
   </div>
 </template>
@@ -174,6 +227,10 @@ const years = new Date().getFullYear() - 2018;
   max-width: 600px;
 }
 
+.hero-secondary-cta {
+  margin-left: 0.75rem;
+}
+
 /* Avatar Aura & Frame */
 [intro-avatar] {
   position: relative;
@@ -185,7 +242,11 @@ const years = new Date().getFullYear() - 2018;
   position: absolute;
   inset: -6px;
   border-radius: 34px;
-  background: radial-gradient(circle, rgb(from var(--primary) r g b / 16%) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgb(from var(--primary) r g b / 16%) 0%,
+    transparent 70%
+  );
   filter: blur(18px);
   opacity: 0.6;
   z-index: 0;
@@ -194,7 +255,11 @@ const years = new Date().getFullYear() - 2018;
 
 body.dark .avatar-aura {
   opacity: 0.4;
-  background: radial-gradient(circle, rgb(from var(--primary) r g b / 14%) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgb(from var(--primary) r g b / 14%) 0%,
+    transparent 70%
+  );
 }
 
 .avatar-frame {
@@ -247,7 +312,8 @@ body.dark .avatar-frame {
 }
 
 @keyframes pulseDot {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
     transform: scale(1);
   }

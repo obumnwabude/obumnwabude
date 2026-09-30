@@ -1,16 +1,18 @@
-import type { Project } from '@/types';
+import type { CodingProject } from '@/types';
 
-const chainbills = {
+const chainbills: CodingProject = {
   title: 'Chainbills',
   description:
     'First Cross-Chain Crypto payment gateway. Built with Wormhole. Receive any crypto on any chain from any one.',
   image: { alt: 'Display of Chainbills', name: 'chainbills', png: true },
   actions: [
     {
+      icon: 'zap',
       link: 'https://chainbills.xyz',
       title: 'Get Started',
     },
     {
+      icon: 'github',
       link: 'https://github.com/chainbills/chainbills',
       title: 'Source Code',
     },
@@ -18,26 +20,28 @@ const chainbills = {
   tags: ['Web3', 'Solidity', 'Solana'],
 };
 
-const dado = {
+const dado: CodingProject = {
   title: 'Dado Food',
   description:
     'On-Demand Food Delivery Ecosystem with Customer, Rider, and Vendor Mobile Apps serving happy users with local food.',
   image: { alt: 'Dado', name: 'dado', png: true },
-  actions: [{ link: 'https://dado.ng', title: 'All Apps' }],
+  actions: [{ icon: 'rocket', link: 'https://dado.ng', title: 'All Apps' }],
   tags: ['Flutter'],
 };
 
-const orctra = {
+const orctra: CodingProject = {
   title: 'Orctra',
   description:
     'Prediction market platform built entirely on-chain on the Fogo SVM, enabling users to speculate on short-term price movements of crypto assets.',
   image: { alt: 'Flyer Image', name: 'orctra' },
   actions: [
     {
+      icon: 'zap',
       link: 'https://orctra.com',
       title: 'Trade Now',
     },
     {
+      icon: 'externallink',
       link: 'https://x.com/orctra',
       title: 'Follow Us',
     },
@@ -45,27 +49,10 @@ const orctra = {
   tags: ['Web3', 'Solana'],
 };
 
-export const featuredProjects: Project[] = [orctra, chainbills, dado];
+export const featuredProjects: CodingProject[] = [orctra, chainbills, dado];
 
-export const projects: Project[] = [
+export const projects: CodingProject[] = [
   orctra,
-  {
-    title: 'RebelOrcs',
-    description:
-      'The premier marketplace for digital collectibles on FOGO. Buy, Sell, and Trade Unique NFTs across your favorite collections.',
-    image: { alt: 'NFT Arts', name: 'rebelorcs' },
-    actions: [
-      {
-        link: 'https://rebelorcs.com',
-        title: 'Trade Now',
-      },
-      {
-        link: 'https://x.com/RebelOrcsNFT',
-        title: 'Join Us',
-      },
-    ],
-    tags: ['Web3', 'Solana'],
-  },
   chainbills,
   dado,
   {
@@ -75,6 +62,7 @@ export const projects: Project[] = [
     image: { alt: '', name: 'android-bubbles-flutter' },
     actions: [
       {
+        icon: 'github',
         link: 'https://github.com/keepdeploying/conversation_bubbles',
         title: 'Package',
       },
@@ -86,14 +74,17 @@ export const projects: Project[] = [
     description:
       'Confide Community is a social network supporting your need to share confidences, hopes, dreams, problems, learn, inspire, and laughter.',
     image: { alt: 'Confide Logo', name: 'confide', png: true },
+    ctasEqualWeights: true,
     actions: [
       {
-        link: 'https://apps.apple.com/us/app/confide-join-our-community/id6503924952',
-        title: 'App Store',
-      },
-      {
+        icon: 'googleplay',
         link: 'https://play.google.com/store/apps/details?id=com.confidecommunity.app',
         title: 'Google Play',
+      },
+      {
+        icon: 'apple',
+        link: 'https://apps.apple.com/us/app/confide-join-our-community/id6503924952',
+        title: 'App Store',
       },
     ],
     tags: ['Flutter'],
@@ -105,10 +96,12 @@ export const projects: Project[] = [
     image: { alt: 'DevFest Abakaliki 2024 Flyer', name: 'dfai24' },
     actions: [
       {
+        icon: 'ticket',
         link: 'https://devfestabakaliki.com',
         title: 'Get Ticket',
       },
       {
+        icon: 'github',
         link: 'https://github.com/obumnwabude/devfestabakaliki2024',
         title: 'Source Code',
       },
@@ -122,6 +115,7 @@ export const projects: Project[] = [
     image: { alt: 'WalletSMSLockr Logo', name: 'walletsmslockr', png: true },
     actions: [
       {
+        icon: 'googleplay',
         link: 'https://play.google.com/store/apps/details?id=com.lokdon.walletsmslockr',
         title: 'Download on Google Play',
       },
@@ -138,6 +132,7 @@ export const projects: Project[] = [
     },
     actions: [
       {
+        icon: 'github',
         link: 'https://github.com/obumnwabude/obumnwabude',
         title: 'Source Code on GitHub',
       },
@@ -151,6 +146,7 @@ export const projects: Project[] = [
     image: { alt: 'CTLearn Logo', name: 'ctlearn', png: true },
     actions: [
       {
+        icon: 'googleplay',
         link: 'https://play.google.com/store/apps/details?id=net.ctlearn.app',
         title: 'Download on Google Play',
       },
@@ -164,6 +160,7 @@ export const projects: Project[] = [
     image: { alt: 'Screenshots of the Todo App', name: 'stacked-todo' },
     actions: [
       {
+        icon: 'github',
         link: 'https://github.com/obumnwabude/Flutter_stacked_todo',
         title: 'Source Code on GitHub',
       },
@@ -177,10 +174,12 @@ export const projects: Project[] = [
     image: { alt: 'LinkedIn Class Flyer', name: 'linkedin-class-ad' },
     actions: [
       {
+        icon: 'externallink',
         link: 'https://linkedinclass.obumnwabude.com',
         title: 'Visit',
       },
       {
+        icon: 'github',
         link: 'https://github.com/obumnwabude/linkedin-class',
         title: 'Source Code',
       },
@@ -194,10 +193,12 @@ export const projects: Project[] = [
     image: { alt: 'Screens of Calculator', name: 'calculator' },
     actions: [
       {
+        icon: 'googleplay',
         link: 'https://play.google.com/store/apps/details?id=com.keepdeploying.calculator',
         title: 'Google Play',
       },
       {
+        icon: 'github',
         link: 'https://github.com/keepdeploying/calculator',
         title: 'Source Code',
       },
@@ -211,6 +212,7 @@ export const projects: Project[] = [
     image: { alt: 'Screenshot of the 404 page', name: 'obum.me-404' },
     actions: [
       {
+        icon: 'github',
         link: 'https://github.com/obumnwabude/obum.me',
         title: 'Source Code on GitHub',
       },
@@ -224,10 +226,12 @@ export const projects: Project[] = [
     image: { alt: 'Screenshot of TMS', name: 'tms' },
     actions: [
       {
+        icon: 'zap',
         link: 'https://tutorialmgt.web.app',
         title: 'Get Started',
       },
       {
+        icon: 'github',
         link: 'https://github.com/obumnwabude/tutorialmgt',
         title: 'Source Code',
       },
@@ -241,10 +245,12 @@ export const projects: Project[] = [
     image: { alt: 'Community Picture', name: 'genesys-community' },
     actions: [
       {
+        icon: 'externallink',
         link: 'https://genesysaefunai.web.app',
         title: 'Join Us',
       },
       {
+        icon: 'github',
         link: 'https://github.com/obumnwabude/genesys-community',
         title: 'Source Code',
       },
@@ -258,6 +264,7 @@ export const projects: Project[] = [
     image: { alt: 'Screens of Battery Info', name: 'battery-info' },
     actions: [
       {
+        icon: 'github',
         link: 'https://github.com/obumnwabude/battery_info',
         title: 'Source Code on GitHub',
       },
@@ -271,6 +278,7 @@ export const projects: Project[] = [
     image: { alt: 'Mmèmmè Logo', name: 'mmemme' },
     actions: [
       {
+        icon: 'externallink',
         link: 'https://mmemme1.web.app',
         title: 'Visit Preview',
       },
@@ -284,6 +292,7 @@ export const projects: Project[] = [
     image: { alt: 'Christmas Cantata Flyer', name: 'cantata' },
     actions: [
       {
+        icon: 'github',
         link: 'https://github.com/obumnwabude/choircarolquiz',
         title: 'Source Code on GitHub',
       },
@@ -297,10 +306,12 @@ export const projects: Project[] = [
     image: { alt: 'Screens of using MyNotes', name: 'mynotes' },
     actions: [
       {
+        icon: 'externallink',
         link: 'https://mynotesobum.web.app',
         title: 'Sample',
       },
       {
+        icon: 'github',
         link: 'https://github.com/gdscaefunai/mynotes',
         title: 'Source Code',
       },
@@ -314,10 +325,12 @@ export const projects: Project[] = [
     image: { alt: 'Screenshot of GitHub Invite', name: 'github-invite' },
     actions: [
       {
+        icon: 'externallink',
         link: 'https://githubinvite.web.app',
         title: 'Sample',
       },
       {
+        icon: 'github',
         link: 'https://github.com/obumnwabude/github-invite',
         title: 'Source Code',
       },
@@ -331,6 +344,7 @@ export const projects: Project[] = [
     image: { alt: '', name: 'backend' },
     actions: [
       {
+        icon: 'github',
         link: 'https://github.com/obumnwabude/ecx-backend-30daysofcode',
         title: 'Submissions',
       },
@@ -343,10 +357,12 @@ export const projects: Project[] = [
     image: { alt: '', name: 'backend' },
     actions: [
       {
+        icon: 'document',
         link: 'https://documenter.getpostman.com/view/11131742/SzfAxRPo',
         title: 'Documentation',
       },
       {
+        icon: 'github',
         link: 'https://github.com/obumnwabude/wolverstore',
         title: 'Source Code',
       },

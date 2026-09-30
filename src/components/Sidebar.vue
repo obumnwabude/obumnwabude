@@ -2,11 +2,21 @@
 import ContactMe from '@/components/ContactMe.vue';
 import SocialIcons from '@/components/SocialIcons.vue';
 import ThemeMenu from '@/components/ThemeMenu.vue';
+import IconArticle from '@/icons/IconArticle.vue';
+import IconHome from '@/icons/IconHome.vue';
+import IconRocket from '@/icons/IconRocket.vue';
+import IconUsers from '@/icons/IconUsers.vue';
 import { useSidebarStore } from '@/stores/sidebar';
 import Sidebar from 'primevue/sidebar';
 
-const capitalize = (s: string) => s[0].toUpperCase() + s.substring(1);
 const sidebar = useSidebarStore();
+
+const navItems = [
+  { path: '/', label: 'Home', icon: IconHome },
+  { path: '/projects', label: 'Projects', icon: IconRocket },
+  { path: '/articles', label: 'Articles', icon: IconArticle },
+  { path: '/community', label: 'Community', icon: IconUsers },
+];
 </script>
 
 <template>
@@ -24,22 +34,20 @@ const sidebar = useSidebarStore();
 
     <nav>
       <ul>
-        <li>
-          <router-link to="/" @click="sidebar.close">Home</router-link>
-        </li>
-        <li v-for="link of ['projects', 'articles', 'community']" :key="link">
-          <router-link :to="`/${link}`" @click="sidebar.close">
-            {{ capitalize(link) }}
+        <li v-for="item of navItems" :key="item.path">
+          <router-link :to="item.path" @click="sidebar.close" class="sidebar-nav-link">
+            <component :is="item.icon" :size="20" class="sidebar-nav-icon" />
+            <span>{{ item.label }}</span>
           </router-link>
         </li>
         <li contact>
-          <ContactMe color="var(--text)" :icon="true" />
+          <ContactMe color="var(--text)" :icon="true" label="Contact Me" />
         </li>
         <li theme><ThemeMenu :full="true" /></li>
       </ul>
     </nav>
 
-    <SocialIcons />
+    <SocialIcons biggerIcons />
   </Sidebar>
 </template>
 
@@ -51,8 +59,10 @@ nav ul {
 }
 
 li:not([contact]):not([theme]) a {
-  display: block;
-  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-size: 1.15rem;
   font-weight: 500;
   padding: 0.65rem 1rem;
   border-radius: 14px;
@@ -65,13 +75,26 @@ li:not([contact]):not([theme]) a {
     transform 0.2s ease;
 }
 
+.sidebar-nav-icon {
+  flex-shrink: 0;
+  opacity: 0.75;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+li:not([contact]):not([theme]) a:hover .sidebar-nav-icon,
+.router-link-active .sidebar-nav-icon {
+  opacity: 1;
+  color: var(--primary);
+  transform: scale(1.1);
+}
+
 li:not([contact]):not([theme]) a:hover {
   background: rgb(from var(--primary) r g b / 12%);
   color: var(--primary);
   transform: translateX(4px);
 }
 
-.router-link-active {
+.router-link-active:not(.sidebar-logo) {
   background: rgb(from var(--primary) r g b / 15%) !important;
   color: var(--primary) !important;
   font-weight: 600 !important;

@@ -1,6 +1,6 @@
-import type { Project } from '@/types';
+import type { CommunityEvent } from '@/types';
 
-export const community: Project[] = [
+export const community: CommunityEvent[] = [
   {
     title: 'Deploy your AI with Agent Studio in Google Cloud',
     date: { month: 5, year: 2026 },
@@ -9,6 +9,7 @@ export const community: Project[] = [
     image: { alt: 'Obum at Event', name: 'obum-bwai-bauchi-26' },
     actions: [
       {
+        icon: 'googledevelopers',
         link: 'https://www.skills.google/paths/1282/course_templates/1120/labs/532046',
         title: 'Google Skills Lab',
       },
@@ -23,6 +24,7 @@ export const community: Project[] = [
     image: { alt: 'Workshop Session', name: 'obum-bwai-abk-26' },
     actions: [
       {
+        icon: 'googlecolab',
         link: 'https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/grounding/intro-grounding-gemini.ipynb',
         title: 'Google Colab',
       },
@@ -37,6 +39,7 @@ export const community: Project[] = [
     image: { alt: 'Workshop Session', name: 'obum-bwai-ib-26' },
     actions: [
       {
+        icon: 'googledevelopers',
         link: 'https://www.skills.google/course_templates/552',
         title: 'Course Lab',
       },
@@ -51,6 +54,7 @@ export const community: Project[] = [
     image: { alt: 'Event Session', name: 'obum-iwd-wtm-abk-26' },
     actions: [
       {
+        icon: 'slides',
         link: 'https://docs.google.com/presentation/d/1WOp8lvjQ0i4HLCMoh6dnJUiR_rIv72a8LSPK_jpEY8g/edit?usp=sharing',
         title: 'Slides',
       },
@@ -64,7 +68,11 @@ export const community: Project[] = [
       'Hands-on session in Abakaliki on building an AI agent in Kotlin, covering planning, reasoning, and tool usage with LLMs.',
     image: { alt: 'Workshop Session', name: 'obum-kotlin-ai-abk-26' },
     actions: [
-      { link: 'https://www.jetbrains.com/koog/', title: 'Checkout Koog' },
+      {
+        icon: 'externallink',
+        link: 'https://www.jetbrains.com/koog/',
+        title: 'Checkout Koog',
+      },
     ],
     tags: ['Workshop', 'AI', 'Android'],
   },
@@ -76,6 +84,7 @@ export const community: Project[] = [
     image: { alt: 'Speaking Event', name: 'obum-sparklive-aefunai-26' },
     actions: [
       {
+        icon: 'slides',
         link: 'https://docs.google.com/presentation/d/1hVyANVPSPRUXy73JOug896Sl_GZ5x8hfT2ZfZBX3oaQ/edit?usp=sharing',
         title: 'Slides',
       },
@@ -90,6 +99,7 @@ export const community: Project[] = [
     image: { alt: 'Event Slide', name: 'obum-df-enugu-25' },
     actions: [
       {
+        icon: 'slides',
         link: 'https://docs.google.com/presentation/d/1BFZ0Pz7SVgCpyA27yZmrAtvkdIa4udmJ2OE-LKaEQhU/edit',
         title: 'Slides',
       },
@@ -102,7 +112,13 @@ export const community: Project[] = [
     description:
       'Anchored an interactive session on "Firebase, Flutter, and Gemini" to the student community with a Codelab on building a crossword puzzle.',
     image: { alt: 'Event Photo', name: 'obum-df-nsk-25' },
-    actions: [{ link: 'https://goo.gle/solution-crossword', title: 'Codelab' }],
+    actions: [
+      {
+        icon: 'googledevelopers',
+        link: 'https://goo.gle/solution-crossword',
+        title: 'Codelab',
+      },
+    ],
     tags: ['Speaker', 'GDG'],
   },
   {
@@ -113,6 +129,7 @@ export const community: Project[] = [
     image: { alt: 'Event Photo', name: 'obum-df-abj-25' },
     actions: [
       {
+        icon: 'googledevelopers',
         link: 'https://www.cloudskillsboost.google/course_templates/552',
         title: 'Codelab',
       },
@@ -127,6 +144,7 @@ export const community: Project[] = [
     image: { alt: 'Event Photo', name: 'obum-df-owerri-25' },
     actions: [
       {
+        icon: 'googledevelopers',
         link: 'https://github.com/keepdeploying/web3-in-flutter',
         title: 'Workshop',
       },
@@ -141,6 +159,7 @@ export const community: Project[] = [
     image: { alt: 'Event Photo', name: 'obum-df-kd-25' },
     actions: [
       {
+        icon: 'googlecolab',
         link: 'https://github.com/GoogleCloudPlatform/generative-ai/tree/main/rag-grounding',
         title: 'Google Colab',
       },
@@ -155,6 +174,7 @@ export const community: Project[] = [
     image: { alt: 'Event Photo', name: 'obum-df-onitsha-25' },
     actions: [
       {
+        icon: 'googledevelopers',
         link: 'https://github.com/keepdeploying/flutter_ui_workshop',
         title: 'Workshop',
       },
@@ -169,6 +189,7 @@ export const community: Project[] = [
     image: { alt: 'Event Photo', name: 'obum-bwai-spella-hub-abk-25' },
     actions: [
       {
+        icon: 'slides',
         link: 'https://docs.google.com/presentation/d/1KDWc1Cbo868UPq0j7rgPifkEB5Vv8ovvCr320Q9Swmo/edit?usp=sharing',
         title: 'Slides',
       },
@@ -182,7 +203,11 @@ export const community: Project[] = [
       'Anchored a Workshop session on "Build Multi-Agent Gen AI Systems with Google Cloud." using a codelab.',
     image: { alt: 'Event Photo', name: 'obum-bwai-ph-25' },
     actions: [
-      { link: 'https://goo.gle/Multi-Agent-Systems', title: 'Codelab' },
+      {
+        icon: 'googledevelopers',
+        link: 'https://goo.gle/Multi-Agent-Systems',
+        title: 'Codelab',
+      },
     ],
     tags: ['Workshop', 'AI'],
   },
@@ -194,6 +219,7 @@ export const community: Project[] = [
     image: { alt: 'Event Photo', name: 'obum-bwai-ogbomoso-25' },
     actions: [
       {
+        icon: 'googlecolab',
         link: 'https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/audio/speech/use-cases/storytelling/storytelling.ipynb',
         title: 'Google Colab',
       },
@@ -208,6 +234,7 @@ export const community: Project[] = [
     image: { alt: 'Event Photo', name: 'obum-bwai-onitsha-25' },
     actions: [
       {
+        icon: 'googledevelopers',
         link: 'https://www.cloudskillsboost.google/course_sessions/24650253/labs/604755',
         title: 'Codelab',
       },
@@ -222,6 +249,7 @@ export const community: Project[] = [
     image: { alt: 'Obum Assisting', name: 'obum-bwai-abk-25' },
     actions: [
       {
+        icon: 'googlecolab',
         link: 'https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/getting-started/intro_gemini_2_0_flash.ipynb',
         title: 'Google Colab',
       },
@@ -235,7 +263,11 @@ export const community: Project[] = [
       'Training Session on multiple Google Colab Notebooks with Intro to Gemma being the first.',
     image: { alt: 'Obum on Stage', name: 'obum-bwai-cal-25' },
     actions: [
-      { link: 'https://goo.gle/gemini-flash-intro', title: 'Google Colab' },
+      {
+        icon: 'googlecolab',
+        link: 'https://goo.gle/gemini-flash-intro',
+        title: 'Google Colab',
+      },
     ],
     tags: ['Workshop', 'AI'],
   },
@@ -247,12 +279,14 @@ export const community: Project[] = [
     image: { alt: 'First Slide', name: 'obum-df24-guinee' },
     actions: [
       {
-        link: 'https://gdg.community.dev/e/mr5n7u/',
-        title: 'About',
-      },
-      {
+        icon: 'recording',
         link: 'https://youtu.be/rAt9UMLk0bs',
         title: 'Recording',
+      },
+      {
+        icon: 'aboutreadmore',
+        link: 'https://gdg.community.dev/e/mr5n7u/',
+        title: 'About',
       },
     ],
     tags: ['Speaker', 'GDG'],
@@ -265,6 +299,7 @@ export const community: Project[] = [
     image: { alt: 'Recording Screenshot', name: 'learn-azure-functions' },
     actions: [
       {
+        icon: 'recording',
         link: 'https://youtu.be/qYfQhgpWuKA',
         title: 'Recording',
       },
@@ -279,6 +314,7 @@ export const community: Project[] = [
     image: { alt: 'Obum and SauceCode on Stage', name: 'obum-df24-enugu' },
     actions: [
       {
+        icon: 'recording',
         link: 'https://youtu.be/3HG1kEwbn9Y',
         title: 'Recording',
       },
@@ -292,12 +328,14 @@ export const community: Project[] = [
     image: { alt: 'First Slide', name: 'obum-df24-calabar' },
     actions: [
       {
-        link: 'https://gdg.community.dev/e/m88tfc/',
-        title: 'About',
-      },
-      {
+        icon: 'recording',
         link: 'https://youtu.be/TYoEo6ghwJ0',
         title: 'Recording',
+      },
+      {
+        icon: 'aboutreadmore',
+        link: 'https://gdg.community.dev/e/m88tfc/',
+        title: 'About',
       },
     ],
     tags: ['Speaker', 'GDG'],
@@ -309,12 +347,14 @@ export const community: Project[] = [
     image: { alt: 'Obum on Stage', name: 'obum-df24-ogbomoso' },
     actions: [
       {
-        link: 'https://gdg.community.dev/e/mjteas/',
-        title: 'About',
-      },
-      {
+        icon: 'slides',
         link: 'https://docs.google.com/presentation/d/1x7IqC66YSjiwJi-aHmJzcu6GqVhKgfoHggPf3FQHlXE/edit?usp=sharing',
         title: 'Slides',
+      },
+      {
+        icon: 'aboutreadmore',
+        link: 'https://gdg.community.dev/e/mjteas/',
+        title: 'About',
       },
     ],
     tags: ['Speaker', 'GDG'],
@@ -326,12 +366,14 @@ export const community: Project[] = [
     image: { alt: 'Obum on Stage', name: 'obum-df24-kaduna' },
     actions: [
       {
-        link: 'https://gdg.community.dev/e/m4k5p5/',
-        title: 'About',
-      },
-      {
+        icon: 'slides',
         link: 'https://docs.google.com/presentation/d/1vl9LLHz4Pl0P4IDnPgOzcmve5X20kBat7gXu10K5CmM/edit?usp=sharing',
         title: 'Slides',
+      },
+      {
+        icon: 'aboutreadmore',
+        link: 'https://gdg.community.dev/e/m4k5p5/',
+        title: 'About',
       },
     ],
     tags: ['Speaker', 'GDG'],
@@ -344,10 +386,12 @@ export const community: Project[] = [
     image: { alt: 'Obum on Stage', name: 'obum-df24-lagos' },
     actions: [
       {
+        icon: 'github',
         link: 'https://github.com/keepdeploying/bubbles_in_flutter_workshop',
         title: 'Workshop Repo',
       },
       {
+        icon: 'slides',
         link: 'https://docs.google.com/presentation/d/18xiImzG4FS3r9rlFCjtFuDSWCajgQO9t3s7NDr-jqoI/edit?usp=sharing',
         title: 'Slides',
       },
@@ -362,6 +406,7 @@ export const community: Project[] = [
     image: { alt: 'Photo of Panelists', name: 'df24-lagos-gdes-panel' },
     actions: [
       {
+        icon: 'aboutreadmore',
         link: 'https://devfestlagos.com/',
         title: 'About',
       },
@@ -375,10 +420,12 @@ export const community: Project[] = [
     image: { alt: 'First Slide', name: 'obum-df24-ai' },
     actions: [
       {
+        icon: 'recording',
         link: 'https://youtu.be/TYoEo6ghwJ0',
         title: 'Recording',
       },
       {
+        icon: 'slides',
         link: 'https://docs.google.com/presentation/d/1xNjmAMNRf0O-AJseLGwNgHcGOzAJLpoyFXKuaWazpcQ/edit?usp=sharing',
         title: 'Slides',
       },
@@ -392,10 +439,12 @@ export const community: Project[] = [
     image: { alt: 'Attending Community', name: 'obum-fbc24-community' },
     actions: [
       {
+        icon: 'recording',
         link: 'https://www.youtube.com/live/dXrvd3nKKFE?t=2955s',
         title: 'Recording',
       },
       {
+        icon: 'slides',
         link: 'https://docs.google.com/presentation/d/1RbcS7hPJ69MtpvtVfYj55p0m3F7-ulDXH2apsBqWik0/edit?usp=sharing',
         title: 'Slides',
       },
@@ -410,6 +459,7 @@ export const community: Project[] = [
     image: { alt: 'Photo of Stage', name: 'fbc24-gdes-panel' },
     actions: [
       {
+        icon: 'aboutreadmore',
         link: 'https://www.flutterbytesconf.com/',
         title: 'About',
       },
@@ -424,10 +474,12 @@ export const community: Project[] = [
     image: { alt: 'First Slide', name: 'obum-df24-af-fr' },
     actions: [
       {
+        icon: 'recording',
         link: 'https://youtu.be/rAt9UMLk0bs',
         title: 'Recording',
       },
       {
+        icon: 'slides',
         link: 'https://docs.google.com/presentation/d/15wIJbZQ2QzQE0-4y_pZwIPMBTc4hFa9cHFLwP9XCinM/edit?usp=sharing',
         title: 'Slides',
       },
@@ -442,10 +494,12 @@ export const community: Project[] = [
     image: { alt: 'Obum speaking on stage', name: 'obum-io-asaba-24' },
     actions: [
       {
+        icon: 'aboutreadmore',
         link: 'https://gdg.community.dev/e/mgcbfp/',
         title: 'About',
       },
       {
+        icon: 'x',
         link: 'https://x.com/GdgAsaba/status/1813937612245405801',
         title: 'Tweet',
       },
@@ -460,10 +514,12 @@ export const community: Project[] = [
     image: { alt: 'Panelists for "Mobile & AI"', name: 'mobile-ai-panel' },
     actions: [
       {
+        icon: 'recording',
         link: 'https://youtu.be/hqz-8LjA4-E',
         title: 'Recording',
       },
       {
+        icon: 'aboutreadmore',
         link: 'https://gdg.community.dev/e/m2ru49/',
         title: 'About',
       },
@@ -478,6 +534,7 @@ export const community: Project[] = [
     image: { alt: 'Event Flyer', name: 'github-codespaces-portfolio' },
     actions: [
       {
+        icon: 'recording',
         link: 'https://youtu.be/nrL9IAS3Uy8',
         title: 'Recording',
       },
@@ -492,10 +549,12 @@ export const community: Project[] = [
     image: { alt: 'Speaker Flyer', name: 'obum-build-with-ai' },
     actions: [
       {
+        icon: 'aboutreadmore',
         link: 'https://gdg.community.dev/e/mm2fcy/',
         title: 'About',
       },
       {
+        icon: 'x',
         link: 'https://twitter.com/GDGAbakaliki/status/1782719581015961831',
         title: 'Tweet',
       },
@@ -509,14 +568,17 @@ export const community: Project[] = [
     image: { alt: 'Speaker Flyer', name: 'obum-df23-asaba' },
     actions: [
       {
-        link: 'https://gdg.community.dev/e/mbcaf6/',
-        title: 'About',
-      },
-      {
+        icon: 'slides',
         link: 'https://docs.google.com/presentation/d/1gedT70WjEcUWtXzNqgIxGG58p_ZlMDDT0Q-ZMsRG3AU/edit?usp=sharing',
         title: 'Slides',
       },
       {
+        icon: 'aboutreadmore',
+        link: 'https://gdg.community.dev/e/mbcaf6/',
+        title: 'About',
+      },
+      {
+        icon: 'x',
         link: 'https://twitter.com/obumnwabude/status/1733410762603876691',
         title: 'Thread',
       },
@@ -530,14 +592,17 @@ export const community: Project[] = [
     image: { alt: 'Speaker Flyer', name: 'obum-df23-enugu' },
     actions: [
       {
-        link: 'https://gdg.community.dev/e/m24sqy/',
-        title: 'About',
-      },
-      {
+        icon: 'slides',
         link: 'https://docs.google.com/presentation/d/110Ft7-UnpFbrL-xJ6NbbG04FFnzCv7UT9LCqT8VbEx0/edit?usp=sharing',
         title: 'Slides',
       },
       {
+        icon: 'aboutreadmore',
+        link: 'https://gdg.community.dev/e/m24sqy/',
+        title: 'About',
+      },
+      {
+        icon: 'recording',
         link: 'https://youtu.be/w9lD35D78N8',
         title: 'Recording',
       },
@@ -551,14 +616,17 @@ export const community: Project[] = [
     image: { alt: 'Speaker Flyer', name: 'obum-df23-luwero' },
     actions: [
       {
-        link: 'https://gdg.community.dev/e/m5qj29/',
-        title: 'About',
-      },
-      {
+        icon: 'slides',
         link: 'https://docs.google.com/presentation/d/1MRQwxGqTXzjVy_IyNjJBIlsReKnFujwWZ2Aohj8q60g/edit?usp=sharing',
         title: 'Slides',
       },
       {
+        icon: 'aboutreadmore',
+        link: 'https://gdg.community.dev/e/m5qj29/',
+        title: 'About',
+      },
+      {
+        icon: 'recording',
         link: 'https://youtu.be/UkWkXmFQAb8',
         title: 'Recording',
       },
@@ -572,10 +640,7 @@ export const community: Project[] = [
     image: { alt: 'Event Flyer', name: 'gdsc-aefunai-info-session-2023' },
     actions: [
       {
-        link: 'https://gdsc.community.dev/e/m64rvc/',
-        title: 'About',
-      },
-      {
+        icon: 'recording',
         link: 'https://x.com/gdscaefunai/status/1704569899404902860?s=20',
         title: 'Recording',
       },
@@ -589,10 +654,7 @@ export const community: Project[] = [
     image: { alt: 'Event Flyer', name: 'gdsc-nau-info-session-2023' },
     actions: [
       {
-        link: 'https://gdsc.community.dev/e/mndxka/',
-        title: 'About',
-      },
-      {
+        icon: 'slides',
         link: 'https://docs.google.com/presentation/d/1W7dKEXD1DIH0MyVtSifLFOMG4SFq1gP78UGdhoMTRsc/edit?usp=sharing',
         title: 'Slides',
       },
@@ -607,14 +669,17 @@ export const community: Project[] = [
     image: { alt: 'Speaker Flyer', name: 'obum-io-extended-owerri' },
     actions: [
       {
-        link: 'https://gdg.community.dev/e/mguey6/',
-        title: 'About',
-      },
-      {
+        icon: 'slides',
         link: 'https://docs.google.com/presentation/d/1yK2RuAcIGUJNeBDTusbKtALFuiCL4SOANMmYhRCESzc/edit?usp=sharing',
         title: 'Slides',
       },
       {
+        icon: 'aboutreadmore',
+        link: 'https://gdg.community.dev/e/mguey6/',
+        title: 'About',
+      },
+      {
+        icon: 'x',
         link: 'https://twitter.com/obumnwabude/status/1692863659666513924',
         title: 'Thread',
       },
@@ -629,14 +694,17 @@ export const community: Project[] = [
     image: { alt: 'Speaker Flyer', name: 'obum-io-extended-enugu' },
     actions: [
       {
-        link: 'https://gdg.community.dev/e/m76sm3/',
-        title: 'About',
-      },
-      {
+        icon: 'slides',
         link: 'https://docs.google.com/presentation/d/11PJdEQLWK1sGoARW81c8CiegicDT79SLi7VaLx-69G0/edit?usp=sharing',
         title: 'Slides',
       },
       {
+        icon: 'aboutreadmore',
+        link: 'https://gdg.community.dev/e/m76sm3/',
+        title: 'About',
+      },
+      {
+        icon: 'x',
         link: 'https://twitter.com/GdgEnugu/status/1690326639924613120',
         title: 'Tweet',
       },
@@ -651,14 +719,17 @@ export const community: Project[] = [
     image: { alt: 'Speaker Flyer', name: 'obum-io-extended-onitsha' },
     actions: [
       {
-        link: 'https://gdg.community.dev/e/mpae52/',
-        title: 'About',
-      },
-      {
+        icon: 'slides',
         link: 'https://docs.google.com/presentation/d/1-i7U0ZVCyHbkqzsKR8_v4en9YlwX6_mYYP9pFXFCrw8/edit?usp=sharing',
         title: 'Slides',
       },
       {
+        icon: 'aboutreadmore',
+        link: 'https://gdg.community.dev/e/mpae52/',
+        title: 'About',
+      },
+      {
+        icon: 'x',
         link: 'https://twitter.com/obumnwabude/status/1682696894093443077',
         title: 'Thread',
       },
@@ -673,14 +744,17 @@ export const community: Project[] = [
     image: { alt: 'Speaker Flyer', name: 'obum-io-extended-abakaliki' },
     actions: [
       {
-        link: 'https://gdg.community.dev/e/myc9en/',
-        title: 'About',
-      },
-      {
+        icon: 'slides',
         link: 'https://docs.google.com/presentation/d/1tqMQHf0KGODvxEjrrECZSh-4hLXdF3yLFwDF7QDB_LU/edit?usp=sharing',
         title: 'Slides',
       },
       {
+        icon: 'aboutreadmore',
+        link: 'https://gdg.community.dev/e/myc9en/',
+        title: 'About',
+      },
+      {
+        icon: 'externallink',
         link: 'https://twitter.com/GDGAbakaliki/status/1675195522703826944',
         title: 'Pictures',
       },
@@ -695,14 +769,12 @@ export const community: Project[] = [
     image: { alt: 'Speaker Flyer', name: 'obum-io-extended-aefunai' },
     actions: [
       {
-        link: 'https://gdsc.community.dev/e/mmy9qk/',
-        title: 'About',
-      },
-      {
+        icon: 'slides',
         link: 'https://docs.google.com/presentation/d/1bl_4_qJ5P5a-8_s__suAx5tEIDMD9BY6lUs9mtqSIhM/edit?usp=sharing',
         title: 'Slides',
       },
       {
+        icon: 'x',
         link: 'https://twitter.com/amdanielbryte/status/1672960754406903809',
         title: 'Thread',
       },
@@ -717,16 +789,19 @@ export const community: Project[] = [
     image: { alt: 'Speaker Flyer', name: 'obum-flutter-forward-enugu' },
     actions: [
       {
+        icon: 'slides',
+        link: 'https://docs.google.com/presentation/d/1-bGtbikYCRMC6x4wv790mB3p1dUXh1DYQFEkj0kDA3s/edit?usp=sharing',
+        title: 'Slides',
+      },
+      {
+        icon: 'aboutreadmore',
         link: 'https://gdg.community.dev/e/mmdbgt/',
         title: 'About',
       },
       {
+        icon: 'recording',
         link: 'https://www.youtube.com/watch?v=vW4bjrtZbS8&list=PL6XlbQ29dTFNKszXJ6-afaQEpl7iULE8E&t=2049s',
         title: 'Recording',
-      },
-      {
-        link: 'https://docs.google.com/presentation/d/1-bGtbikYCRMC6x4wv790mB3p1dUXh1DYQFEkj0kDA3s/edit?usp=sharing',
-        title: 'Slides',
       },
     ],
     tags: ['Speaker', 'GDG'],
@@ -739,10 +814,12 @@ export const community: Project[] = [
     image: { alt: 'Speaker Flyer', name: 'obum-flutter-forward-abakaliki' },
     actions: [
       {
+        icon: 'aboutreadmore',
         link: 'https://gdg.community.dev/e/mz2m5j/',
         title: 'About',
       },
       {
+        icon: 'x',
         link: 'https://twitter.com/obumnwabude/status/1632365534191710208',
         title: 'Thread',
       },
@@ -757,10 +834,12 @@ export const community: Project[] = [
     image: { alt: 'Speaker Flyer', name: 'obum-devfest-yaounde' },
     actions: [
       {
+        icon: 'aboutreadmore',
         link: 'https://gdg.community.dev/e/mz4ac2/',
         title: 'About',
       },
       {
+        icon: 'x',
         link: 'https://twitter.com/obumnwabude/status/1588822831223435264',
         title: 'Thread',
       },
@@ -775,14 +854,12 @@ export const community: Project[] = [
     image: { alt: 'Event Flyer', name: 'gdsc-why-flutter' },
     actions: [
       {
-        link: 'https://gdsc.community.dev/e/mz64z3/',
-        title: 'About',
-      },
-      {
+        icon: 'slides',
         link: 'https://docs.google.com/presentation/d/1EuXoQC0zO_tPq8deT6plxuwbzK988-789FxUsdTfJfM/edit?usp=sharing&resourcekey=0-V0dhDAuwoCJimDdxeyBItA',
         title: 'Slides',
       },
       {
+        icon: 'recording',
         link: 'https://youtu.be/yiNGvba7bhs',
         title: 'Recording',
       },
@@ -796,14 +873,17 @@ export const community: Project[] = [
     image: { alt: 'Speaker Flyer', name: 'obum-flutterfest-enugu' },
     actions: [
       {
-        link: 'https://gdg.community.dev/e/mbyat2/',
-        title: 'About',
-      },
-      {
+        icon: 'slides',
         link: 'https://docs.google.com/presentation/d/1OtTeu7MgmGry4SdArVGNX6DHPZKggC7OZMm6oLBkFFo/edit?usp=sharing',
         title: 'Slides',
       },
       {
+        icon: 'aboutreadmore',
+        link: 'https://gdg.community.dev/e/mbyat2/',
+        title: 'About',
+      },
+      {
+        icon: 'facebook',
         link: 'https://facebook.com/story.php?story_fbid=pfbid02E9mkdSk9rvEkaeBqWQNysMk3J9eFA5bnWf1HAuLtbaZa8VMpC3fXzkgaZLRksfVxl&id=101671715841906',
         title: 'Post',
       },
@@ -821,10 +901,12 @@ export const community: Project[] = [
     },
     actions: [
       {
+        icon: 'slides',
         link: 'https://docs.google.com/presentation/d/1QrBqRMKlQ1QZms-LJjsSXa3OsFYx_pAm/edit?usp=drivesdk&ouid=114519401531947192354&rtpof=true&sd=true',
         title: 'Slides',
       },
       {
+        icon: 'recording',
         link: 'https://youtu.be/7T0-712hs6Y',
         title: 'Recording',
       },
@@ -839,10 +921,12 @@ export const community: Project[] = [
     image: { alt: 'About the speaker', name: 'careers-in-tech' },
     actions: [
       {
+        icon: 'slides',
         link: 'https://docs.google.com/presentation/d/1K7OY6OmYM_4bO6trZo2o9FhO-wZ2FYME/edit#slide=id.p1',
         title: 'Slides',
       },
       {
+        icon: 'recording',
         link: 'https://youtu.be/0AgBinwAPic',
         title: 'Recording',
       },
@@ -857,10 +941,12 @@ export const community: Project[] = [
     image: { alt: '', name: 'genesys-info-session' },
     actions: [
       {
+        icon: 'slides',
         link: 'https://docs.google.com/presentation/d/1qkTbbUpkb-9ASFZUqOFI9O7_PKQDOk5OrNhWyNxbphM/edit?usp=sharing',
         title: 'Slides',
       },
       {
+        icon: 'recording',
         link: 'https://youtu.be/fIdwA4zt6Sc',
         title: 'Recording',
       },
@@ -875,10 +961,12 @@ export const community: Project[] = [
     image: { alt: 'Event Flyer', name: 'github-profile-readme' },
     actions: [
       {
+        icon: 'slides',
         link: 'https://1drv.ms/p/s!AiER2Bfzp1AIgSwDQhEv4QmzEHI6?e=GKxYJZ',
         title: 'Powerpoint',
       },
       {
+        icon: 'recording',
         link: 'https://youtu.be/yTbhmbQTn1Y',
         title: 'Recording',
       },
@@ -892,10 +980,7 @@ export const community: Project[] = [
     image: { alt: 'Screenshot of Building Todo App', name: 'gdsc-todo' },
     actions: [
       {
-        link: 'https://gdsc.community.dev/e/m4tt5b/',
-        title: 'About',
-      },
-      {
+        icon: 'recording',
         link: 'https://youtu.be/S8qAld1rg8c',
         title: 'Recording',
       },
@@ -910,10 +995,12 @@ export const community: Project[] = [
     image: { alt: 'Event Flyer', name: 'collaborating-with-github' },
     actions: [
       {
+        icon: 'slides',
         link: 'https://1drv.ms/p/s!AiER2Bfzp1AIgS0wu4xK-p4keIx-?e=mHqzFk',
         title: 'Powerpoint',
       },
       {
+        icon: 'recording',
         link: 'https://youtu.be/-yC5CQsYP0k',
         title: 'Recording',
       },
@@ -928,10 +1015,7 @@ export const community: Project[] = [
     image: { alt: 'Event Flyer', name: 'obum-kabale21' },
     actions: [
       {
-        link: 'https://gdsc.community.dev/e/mcjh5k/',
-        title: 'About',
-      },
-      {
+        icon: 'x',
         link: 'https://twitter.com/obumnwabude/status/1426742707272228864',
         title: 'Tweet',
       },
@@ -946,10 +1030,12 @@ export const community: Project[] = [
     image: { alt: 'Event Flyer', name: 'obum-io21' },
     actions: [
       {
+        icon: 'aboutreadmore',
         link: 'https://io.google/2021',
         title: 'About',
       },
       {
+        icon: 'x',
         link: 'https://twitter.com/obumnwabude/status/1394577906932793345',
         title: 'Tweet',
       },
@@ -967,6 +1053,7 @@ export const community: Project[] = [
     },
     actions: [
       {
+        icon: 'article',
         link: 'https://medium.com/dscaefunai/8853deda34ef',
         title: 'Story',
       },
@@ -984,12 +1071,14 @@ export const community: Project[] = [
     },
     actions: [
       {
-        link: 'https://dsc.community.dev/e/m8tk74/',
-        title: 'About',
-      },
-      {
+        icon: 'article',
         link: 'https://medium.com/dscaefunai/9bd29c242ed7',
         title: 'Story',
+      },
+      {
+        icon: 'aboutreadmore',
+        link: 'https://dsc.community.dev/e/m8tk74/',
+        title: 'About',
       },
     ],
     tags: ['Organizer', 'GDSC'],
@@ -1002,14 +1091,17 @@ export const community: Project[] = [
     image: { alt: 'Section of Event Flyer', name: 'git-and-github-event' },
     actions: [
       {
+        icon: 'slides',
         link: 'https://docs.google.com/presentation/d/1__cTDHCp2r6rhQxDGlEWkJSZF0kOQCcDNaNG7qGSca0/edit?usp=sharing',
         title: 'Slides',
       },
       {
+        icon: 'article',
         link: 'https://medium.com/dscaefunai/c98ae719bedb',
         title: 'Story',
       },
       {
+        icon: 'recording',
         link: 'https://youtu.be/uf12u9keG10',
         title: 'Recording',
       },
@@ -1024,12 +1116,14 @@ export const community: Project[] = [
     image: { alt: 'Section of Event Flyer', name: 'learning-opportunities' },
     actions: [
       {
-        link: 'https://dsc.community.dev/e/mbzuvd/',
-        title: 'About',
-      },
-      {
+        icon: 'article',
         link: 'https://medium.com/dscaefunai/3430cfff6b2f',
         title: 'Story',
+      },
+      {
+        icon: 'aboutreadmore',
+        link: 'https://dsc.community.dev/e/mbzuvd/',
+        title: 'About',
       },
     ],
     tags: ['Organizer', 'GDSC'],
@@ -1042,6 +1136,7 @@ export const community: Project[] = [
     image: { alt: 'Section of Event Flyer', name: 'firebase-series' },
     actions: [
       {
+        icon: 'article',
         link: 'https://medium.com/dscaefunai/617772e53a8c',
         title: 'Story',
       },
@@ -1056,14 +1151,17 @@ export const community: Project[] = [
     image: { alt: 'Section of Event Flyer', name: 'gdsc-info-session' },
     actions: [
       {
-        link: 'https://dsc.community.dev/e/mm72hn/',
-        title: 'About',
-      },
-      {
+        icon: 'slides',
         link: 'https://docs.google.com/presentation/d/1WvraEIbd4_8b97X2wKAIrzADyxDQSttlinBITdG_3pg/edit?usp=sharing',
         title: 'Slides',
       },
       {
+        icon: 'aboutreadmore',
+        link: 'https://dsc.community.dev/e/mm72hn/',
+        title: 'About',
+      },
+      {
+        icon: 'article',
         link: 'https://medium.com/dscaefunai/fd34bbf8520e',
         title: 'Story',
       },
