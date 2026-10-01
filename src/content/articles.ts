@@ -4,6 +4,7 @@ export const articles: Article[] = [
   {
     title: 'What Every Dev Should Know About Tracking Product Data',
     date: { month: 8, year: 2026 },
+    category: 'Architectures',
     readTime: '16 min read',
     description:
       'Three categories of product data every developer should track, when to start, event naming that stays useful, and how to handle privacy responsibly.',
@@ -25,6 +26,7 @@ export const articles: Article[] = [
     title: 'How to Make Your Antigravity Agent Skills Configurable (Without Forking Them)',
     date: { month: 7, year: 2026 },
     readTime: '12 min read',
+    category: 'Architectures',
     description:
       'Make Antigravity Agent Skills reusable and customizable across teams without forking, using a default-plus-override YAML config pattern.',
     longDescription:
@@ -44,6 +46,7 @@ export const articles: Article[] = [
   {
     title: 'Road to Mastery - Being a Google Developer Expert',
     date: { month: 12, year: 2025 },
+    category: 'Stories',
     description:
       'Becoming an Expert has catapulted my developer career. I have learned much more and met more industry leaders thanks to the GDE program.',
     longDescription:
@@ -64,6 +67,7 @@ export const articles: Article[] = [
     title: 'How to Implement RBAC in a Community Dashboard with Nuxt',
     date: { month: 11, year: 2024 },
     readTime: '16 min read',
+    category: 'Architectures',
     description:
       'Learn how to integrate Role Based Access Control (RBAC) with Permit.io in Nuxt to create different access levels in an example app.',
     longDescription:
@@ -92,6 +96,7 @@ export const articles: Article[] = [
     title: 'How to Use Streams and Services for Flutter State',
     date: { month: 9, year: 2024 },
     readTime: '16 min read',
+    category: '#Flutter',
     description:
       "Explore an Easy and Flexible State Management Architecture in Flutter with rxdart's Stream manipulations and singleton classes.",
     longDescription:
@@ -119,6 +124,7 @@ export const articles: Article[] = [
     title: 'How is Flutter Platform-Agnostic?',
     date: { month: 5, year: 2024 },
     readTime: '9 min read',
+    category: '#Flutter',
     description:
       'Explore how Flutter is platform-agnostic through how it renders user interfaces and through platform channels.',
     longDescription:
@@ -145,6 +151,7 @@ export const articles: Article[] = [
     title: 'How to Always Have A BuildContext in Flutter Outside of UI Code',
     date: { month: 4, year: 2024 },
     readTime: '12 min read',
+    category: '#Flutter',
     description:
       'How to get a valid BuildContext where the widget tree does not reach: background services, HTTP interceptors, domain models. Walks through wiring a global NavigatorState key so snackbars, dialogs, and route pushes work safely from anywhere in the codebase.',
     longDescription:
@@ -164,6 +171,7 @@ export const articles: Article[] = [
   {
     title: 'How to structure any booking/reservation system with Firebase',
     date: { month: 9, year: 2023 },
+    category: 'Architectures',
     description:
       'Design a real-time booking and reservation engine on Firebase that survives concurrent slot grabs, using Firestore atomic transactions to kill double-booking races and scheduled Cloud Functions to reap expired holds automatically.',
     longDescription:
@@ -183,6 +191,7 @@ export const articles: Article[] = [
   {
     title: 'Hosting a Tech Community Event',
     date: { month: 8, year: 2023 },
+    category: 'Communities',
     readTime: '8 min read',
     description: 'How to handle your event in real time and things you should do when the event is taking place.',
     longDescription:
@@ -202,6 +211,7 @@ export const articles: Article[] = [
     title: 'How To Improve Flutter Forms',
     date: { month: 8, year: 2023 },
     readTime: '10 min read',
+    category: '#Flutter',
     description:
       'Small UX moves that dramatically lower drop-off on Flutter forms: chained FocusNode transitions with TextInputAction.next, debounced remote validation to stop input stutter, and error messaging that does not shift the layout as it appears.',
     longDescription:
@@ -221,6 +231,7 @@ export const articles: Article[] = [
     title: 'How to Prevent Account Loss When using Two-Factor Authentication',
     date: { month: 2, year: 2023 },
     readTime: '10 min read',
+    category: 'Architectures',
     description:
       'How multi-factor authentication can lock you out of your own account, and how to avoid it. Covers authenticator app sync, cryptographic backup codes, hardware security keys (FIDO2 and WebAuthn), and why SMS 2FA fails as both a security guarantee and a recovery fallback.',
     longDescription:
@@ -239,6 +250,7 @@ export const articles: Article[] = [
   {
     title: 'How to Brand Your Flutter app',
     date: { month: 2, year: 2023 },
+    category: '#Flutter',
     description:
       'Set up a coherent design system in a Flutter app with Material 3: unified ThemeData, ColorScheme.fromSeed for automatic light and dark schemes, a typography scale, custom splash screens, and native launcher icons across Android and iOS.',
     longDescription:
@@ -258,6 +270,7 @@ export const articles: Article[] = [
   {
     title: 'Firebase CORS Proxy Server',
     date: { month: 1, year: 2023 },
+    category: 'Architectures',
     description:
       'Learn how to bypass CORS issues making API calls through a CORS server that you setup for free yourself with Firebase.',
     longDescription:
@@ -277,6 +290,7 @@ export const articles: Article[] = [
   {
     title: 'Guide to Testing Angular apps',
     date: { month: 12, year: 2022 },
+    category: 'Architectures',
     description:
       'Learn the basics of testing Angular apps, including guide for unit testing, component testing, and end-to-end testing.',
     longDescription:
@@ -297,6 +311,7 @@ export const articles: Article[] = [
     title: 'Flutter For Front-End Web Developers',
     date: { month: 9, year: 2022 },
     readTime: '8 min read',
+    category: '#Flutter',
     description:
       'A translation guide for web developers picking up Flutter: which HTML and CSS mental models carry over (Flexbox, the box model), which do not (declarative Element tree, constraints-down-sizes-up), and how to reason about widget hierarchies without a DOM.',
     longDescription:
@@ -315,15 +330,16 @@ export const articles: Article[] = [
   {
     title: 'Why I Chose Angular to Build a URL Shortener',
     date: { month: 7, year: 2022 },
+    category: 'Architectures',
     readTime: '8 min read',
     description:
-      'Reviews the available tools, decision choices, and factors that influenced choosing Angular for the project’s frontend.',
+      "Reviews the available tools, decision choices, and factors that influenced choosing Angular for the project's frontend.",
     longDescription:
-      'An architectural post-mortem evaluating modern frontend framework options for a serverless utility tool. Analyzes why Angular’s built-in dependency injection, strict TypeScript typing, modular router, and comprehensive tooling made it an ideal frontend paired with Firebase serverless hosting and Firestore database.',
+      "An architectural post-mortem evaluating modern frontend framework options for a serverless utility tool. Analyzes why Angular's built-in dependency injection, strict TypeScript typing, modular router, and comprehensive tooling made it an ideal frontend paired with Firebase serverless hosting and Firestore database.",
     tags: ['Angular', 'CSS-Tricks', 'Frontend Architecture', 'Firebase', 'TypeScript'],
     keyTakeaways: [
       'Evaluating architectural trade-offs between Angular, React, and Vue for utility applications.',
-      'Leveraging Angular’s first-party dependency injection for clean API service abstraction.',
+      "Leveraging Angular's first-party dependency injection for clean API service abstraction.",
       'Achieving rapid deployment with Firebase Hosting and serverless redirects.',
     ],
     topicsCovered: ['Framework Comparison', 'Dependency Injection', 'Firebase Integration', 'Modular Architecture'],
@@ -335,6 +351,7 @@ export const articles: Article[] = [
     title: 'How to Use Stacked Architecture',
     date: { month: 7, year: 2022 },
     readTime: '26 min read',
+    category: '#Flutter',
     description:
       'Explains what Stacked architecture is and guides you through creating a simple Todo App in Flutter with Stacked.',
     longDescription:
@@ -355,6 +372,7 @@ export const articles: Article[] = [
     title: 'Why You Should Use Flutter',
     date: { month: 7, year: 2022 },
     readTime: '16 min read',
+    category: '#Flutter',
     description:
       'A technical and business case for adopting Flutter: sub-second stateful hot reload, a single codebase compiling natively to iOS, Android, web, and desktop, high-performance Impeller rendering, and the depth of the pub.dev package ecosystem.',
     longDescription:
@@ -374,6 +392,7 @@ export const articles: Article[] = [
     title: 'How to Implement Any UI in Flutter',
     date: { month: 6, year: 2022 },
     readTime: '14 min read',
+    category: '#Flutter',
     description: 'A guide that will help you convert any user interface image, piece, or screen into Flutter code.',
     longDescription:
       'A systematic methodology for deconstructing complex UI/UX designs into modular Flutter widget trees. Teaches developers how to break down mockups from top-left to bottom-right, identifying layout primitives (Row, Column, Stack, Positioned), selecting appropriate pub.dev packages, and utilizing CustomPainter for complex visual shapes.',
@@ -392,6 +411,7 @@ export const articles: Article[] = [
     title: 'How to Promote a Tech Community Event',
     date: { month: 6, year: 2022 },
     readTime: '7 min read',
+    category: 'Communities',
     description:
       'A promotion playbook for community organisers: crafting an event message that lands, sequencing across social media, email, blogs and partner communities, and timing the cadence so interest peaks the week of the event.',
     longDescription:
@@ -411,6 +431,7 @@ export const articles: Article[] = [
     title: 'How to Plan Your Community Event',
     date: { month: 5, year: 2022 },
     readTime: '11 min read',
+    category: 'Communities',
     description:
       "Don't just start hosting the event. Please, first plan it. Planning is like being in the event before it happens. ",
     longDescription:
@@ -430,6 +451,7 @@ export const articles: Article[] = [
     title: 'Grow a Tech Community',
     date: { month: 5, year: 2022 },
     readTime: '4 min read',
+    category: 'Communities',
     description:
       "Grow a tech community because you want to mentor people (where you can). You will impact people's lives and become a leader.",
     longDescription:
@@ -449,6 +471,7 @@ export const articles: Article[] = [
     title: '5 things you will Gain from Tech Communities',
     date: { month: 5, year: 2022 },
     readTime: '4 min read',
+    category: 'Communities',
     description:
       "Community works for many people and it will work for you too. We are talking of huge benefits you won't find in other places.",
     longDescription:
@@ -468,6 +491,7 @@ export const articles: Article[] = [
     title: '10 Ways to Contribute to Tech communities',
     date: { month: 5, year: 2022 },
     readTime: '7 min read',
+    category: 'Communities',
     description:
       'Give back to the community. The active participation of community members is the fuel that fires the life of a given tech community.',
     longDescription:
@@ -487,6 +511,7 @@ export const articles: Article[] = [
     title: 'On Tech Community Events',
     date: { month: 5, year: 2022 },
     readTime: '7 min read',
+    category: 'Communities',
     description:
       'Community events are moments of bonding and celebration. They are organised to keep the community alive.',
     longDescription:
@@ -506,6 +531,7 @@ export const articles: Article[] = [
     title: 'Understand Tech Communities',
     date: { month: 5, year: 2022 },
     readTime: '4 min read',
+    category: 'Communities',
     description:
       'A primer on what tech communities actually are: self-organised groups of people who share (or want to share) digital skills, built on peer learning, mentorship, and inclusive governance rather than institutional hierarchy.',
     longDescription:
@@ -525,6 +551,7 @@ export const articles: Article[] = [
     title: 'Understand Serverless Architecture',
     date: { month: 2, year: 2022 },
     readTime: '8 min read',
+    category: 'Architectures',
     description:
       'A primer on serverless computing: how function-as-a-service platforms let you ship business logic without provisioning servers, why pay-per-execution and auto-scaling change the cost model, and the trade-offs (cold starts, vendor lock-in) to weigh before adopting it.',
     longDescription:
@@ -544,6 +571,7 @@ export const articles: Article[] = [
     title: 'How To Build Flutter Form for Managing Questions',
     date: { month: 2, year: 2022 },
     readTime: '6 min read',
+    category: '#Flutter',
     description:
       'Build a dynamic Flutter question form: add and remove rows without losing internal state, validate fields in real time with visual error hints, and coordinate multiple controllers so the whole form stays in sync as users type.',
     longDescription:
@@ -562,6 +590,8 @@ export const articles: Article[] = [
   {
     title: 'How I first perceived TEDx',
     date: { month: 12, year: 2020 },
+    readTime: '10 min read',
+    category: 'Stories',
     description:
       'A personal reflection on why TEDx keeps pulling me in: local speakers, world-class ideas, and the specific feeling of walking out of a talk holding a thought that reshapes something you were already carrying.',
     longDescription:
@@ -580,6 +610,8 @@ export const articles: Article[] = [
   {
     title: 'Becoming a Developer',
     date: { month: 8, year: 2020 },
+    readTime: '10 min read',
+    category: 'Stories',
     description:
       'The full arc of how I became a developer: secondary school beginnings, scholarship acceptances, first shipped projects, volunteer work with student communities, and the eventual step into organising the kinds of events I used to attend.',
     longDescription:
@@ -598,6 +630,8 @@ export const articles: Article[] = [
   {
     title: 'Making GitHub-Invite',
     date: { month: 6, year: 2020 },
+    category: 'Stories',
+    readTime: '10 min read',
     description:
       'The story of building GitHub-Invite: why the ask first sounded pointless (why not just paste invitations manually?), the two realisations that changed my mind, and what it took to ship a small tool that quietly saved organisers hours per cohort.',
     longDescription:
@@ -619,6 +653,8 @@ export const articles: Article[] = [
   {
     title: 'Taking Part in ECX #30DaysOfCode',
     date: { month: 4, year: 2020 },
+    category: 'Stories',
+    readTime: '9 min read',
     description:
       'A retrospective on completing the ECX #30DaysOfCode backend track during the COVID lockdown: 30 mentor-set tasks in 30 days, a public leaderboard that kept everyone honest, and the way a daily challenge structures an otherwise shapeless week.',
     longDescription:
@@ -640,6 +676,8 @@ export const articles: Article[] = [
   {
     title: 'My #GADS Story',
     date: { month: 2, year: 2020 },
+    category: 'Stories',
+    readTime: '6 min read',
     description:
       'How the Google Africa Developer Scholarship shaped my early career: full access to Pluralsight, the Enugu GADS meetup community, and the moment those two things compounded into the confidence to build and share work in public.',
     longDescription:

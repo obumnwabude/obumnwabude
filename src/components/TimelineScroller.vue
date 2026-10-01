@@ -254,6 +254,7 @@ onUnmounted(() => {
       @pointermove="onPointerMove"
       @pointerup="onPointerUp"
       @pointercancel="onPointerUp"
+      @touchstart.passive="showBriefly"
     >
       <!-- Rail line -->
       <div class="rail-line"></div>
@@ -296,7 +297,6 @@ onUnmounted(() => {
   width: 2.75rem;
   z-index: 900;
   user-select: none;
-  touch-action: none;
   opacity: 0;
   transform: translateX(10px);
   transition: opacity 0.28s cubic-bezier(0.2, 0, 0, 1), transform 0.28s cubic-bezier(0.2, 0, 0, 1);
@@ -315,6 +315,7 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   cursor: pointer;
+  touch-action: none;
 }
 
 /* Background vertical rail */
@@ -481,6 +482,11 @@ body.dark .date-bubble {
     right: 0.4rem;
     top: 16%;
     bottom: 16%;
+    width: 3.5rem;
+  }
+
+  .scrubber-track {
+    padding-right: 0.5rem;
   }
 
   .tick-label {

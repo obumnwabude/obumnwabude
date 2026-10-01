@@ -1,6 +1,15 @@
 <script setup lang="ts">
+import ContentFilter from '@/components/ContentFilter.vue';
 import ProjectOrEvent from '@/components/ProjectOrEvent.vue';
 import { projects } from '@/content/projects';
+import { CodingCategories, type CodingCategory } from '@/types';
+import { computed, ref } from 'vue';
+
+const activeFilter = ref<CodingCategory | null>(null);
+const allCategories = [...CodingCategories];
+const filteredProjects = computed(() =>
+  activeFilter.value ? projects.filter((p) => p.category === activeFilter.value) : projects
+);
 </script>
 
 <template>
@@ -15,12 +24,33 @@ import { projects } from '@/content/projects';
     <br /><br />
     Following are hand-picked projects I've worked (-ing) on over the years.
   </p>
+
+  <ContentFilter :filters="allCategories" v-model="activeFilter" label="Filter projects by category" />
+
   <div page-content>
-    <ProjectOrEvent
-      v-for="(project, index) of projects"
-      :key="project.title"
-      :content="project"
-      :is-last="index === projects.length - 1"
-    />
+    <TransitionGroup name="filter-list" tag="div">
+      <ProjectOrEvent
+        v-for="(project, index) of filteredProjects"
+        :key="project.title"
+        :content="project"
+        :is-last="index === filteredProjects.length - 1"
+      />
+    </TransitionGroup>
   </div>
 </template>
+
+<style scoped>
+.filter-list-move,
+.filter-list-enter-active,
+.filter-list-leave-active {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.filter-list-enter-from,
+.filter-list-leave-to {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.filter-list-leave-active {
+  position: absolute;
+}
+</style>

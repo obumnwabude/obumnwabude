@@ -10,7 +10,7 @@ export const community: CommunityEvent[] = [
       'A hands-on Google Developer Groups workshop delivered for #BuildwithAI Bauchi. Focused on orchestrating autonomous generative AI agents using Google Cloud Agent Studio. Guided participants through configuring reasoning engines, wiring custom API tools to LLMs, managing system prompts, and packaging the resulting conversational agent in Docker for serverless deployment on Google Cloud Run.',
     eventSeries: '#BuildwithAI',
     location: 'Bauchi, Nigeria',
-    sessionFormat: 'Hands-on Workshop',
+    sessionFormat: 'Workshop',
     curriculum: [
       'Configuring Google Cloud Agent Studio and reasoning engines',
       'Prompt engineering with structured JSON schema responses',
@@ -44,7 +44,7 @@ export const community: CommunityEvent[] = [
       'A technical workshop for GDG Abakaliki exploring practical Retrieval-Augmented Generation (RAG) architectures with Google Cloud and the Gemini API. Demonstrated how to overcome LLM hallucinations by grounding generative models with private domain documents, vector embeddings, and Google Cloud Vertex AI Search.',
     eventSeries: '#BuildwithAI',
     location: 'Abakaliki, Nigeria',
-    sessionFormat: 'Hands-on Workshop',
+    sessionFormat: 'Workshop',
     curriculum: [
       'Fundamentals of LLM hallucinations and vector search grounding',
       'Generating vector embeddings with Vertex AI text-embedding models',
@@ -80,7 +80,7 @@ export const community: CommunityEvent[] = [
       'An interactive masterclass at GDG Ibadan on operationalizing machine learning models from Vertex AI Studio. Covered multi-modal prompt tuning, system instruction boundaries, parameter tuning (temperature, Top-P, Top-K), and exporting production endpoints to Cloud Run microservices.',
     eventSeries: '#BuildwithAI',
     location: 'Ibadan, Nigeria',
-    sessionFormat: 'Hands-on Workshop',
+    sessionFormat: 'Workshop',
     curriculum: [
       'Multi-modal prompt engineering and few-shot calibration in Vertex AI Studio',
       'Structuring system instructions for reliable downstream parsing',
@@ -147,7 +147,7 @@ export const community: CommunityEvent[] = [
       'A deep-dive live coding workshop hosted by the Abakaliki Tech Community exploring autonomous agent creation in Kotlin. Utilizing the JetBrains Koog framework, participants constructed goal-directed autonomous agents that create execution plans, invoke external tools, and loop until objective completion.',
     eventSeries: 'Abakaliki Tech Community',
     location: 'Abakaliki, Nigeria',
-    sessionFormat: 'Hands-on Workshop',
+    sessionFormat: 'Workshop',
     curriculum: [
       'Agentic reasoning loops: Plan, Execute, Verify, Reflect',
       'Integrating JetBrains Koog with LLM endpoints on the JVM',
@@ -180,7 +180,7 @@ export const community: CommunityEvent[] = [
       'An inspiring student community session at Alex Ekwueme Federal University Ndufu-Alike (AE-FUNAI) exploring how artificial intelligence is reshaping higher education and developer skill acquisition. Highlighted Google student developer programs, practical prompt design, and personalized learning loops.',
     eventSeries: 'University Outreach',
     location: 'AE-FUNAI, Ebonyi State',
-    sessionFormat: 'Technical Talk',
+    sessionFormat: 'Talk',
     curriculum: [
       'Harnessing generative AI as a personalized study partner and code tutor',
       'Navigating Google Developer Student Clubs and career pipelines',
@@ -212,7 +212,7 @@ export const community: CommunityEvent[] = [
       'A featured talk delivered at DevFest Enugu 2025 examining the critical responsibilities software engineers bear when integrating machine learning models into public software. Covered algorithmic bias, intellectual property considerations, user privacy, and actionable safety guardrails.',
     eventSeries: 'DevFest',
     location: 'Enugu, Nigeria',
-    sessionFormat: 'Technical Talk',
+    sessionFormat: 'Talk',
     curriculum: [
       'Detecting and mitigating training data bias in generative models',
       'Data privacy principles when transmitting user inputs to external LLM APIs',
@@ -242,10 +242,10 @@ export const community: CommunityEvent[] = [
     description:
       'Anchored an interactive session on "Firebase, Flutter, and Gemini" to the student community with a Codelab on building a crossword puzzle.',
     longDescription:
-      'An interactive codelab workshop delivered at DevFest Nsukka 2025 demonstrating full-stack app development by uniting Flutter on the frontend, Firebase on the backend, and Google’s Gemini API for dynamic AI crossword puzzle generation.',
+      "An interactive codelab workshop delivered at DevFest Nsukka 2025 demonstrating full-stack app development by uniting Flutter on the frontend, Firebase on the backend, and Google's Gemini API for dynamic AI crossword puzzle generation.",
     eventSeries: 'DevFest',
     location: 'Nsukka, Nigeria',
-    sessionFormat: 'Hands-on Workshop',
+    sessionFormat: 'Workshop',
     curriculum: [
       'Generating dynamic puzzle clues and grids via the Gemini API',
       'Real-time multi-player crossword state synchronization with Firebase',
@@ -277,7 +277,7 @@ export const community: CommunityEvent[] = [
       'A technical presentation delivered to enterprise developers and data professionals at DevFest Abuja 2025. Unpacked how organizations can transform raw transactional records into business intelligence using serverless Google Cloud BigQuery, scheduled analytical queries, and BigQuery ML.',
     eventSeries: 'DevFest',
     location: 'Abuja, Nigeria',
-    sessionFormat: 'Technical Talk',
+    sessionFormat: 'Talk',
     curriculum: [
       'Architecting partitioned and clustered BigQuery datasets for cost optimization',
       'Writing high-performance SQL analytical queries across petabyte-scale data',
@@ -310,7 +310,7 @@ export const community: CommunityEvent[] = [
       'A hands-on developer workshop at DevFest Owerri 2025 walking mobile engineers through the complete pipeline of integrating decentralized Web3 protocols into native Flutter mobile applications. Covered wallet connection protocols, signature requests, and reading/writing smart contract state.',
     eventSeries: 'DevFest',
     location: 'Owerri, Nigeria',
-    sessionFormat: 'Hands-on Workshop',
+    sessionFormat: 'Workshop',
     curriculum: [
       'Deep linking and mobile wallet connect standards (WalletConnect v2)',
       'Interacting with smart contracts using web3dart and Solana Dart SDKs',
@@ -343,7 +343,7 @@ export const community: CommunityEvent[] = [
       'A technical workshop at DevFest Kaduna 2025 focusing on grounding Gemini models with private enterprise knowledge bases. Attendees practiced configuring vector stores, generating text embeddings, and executing semantic searches.',
     eventSeries: 'DevFest',
     location: 'Kaduna, Nigeria',
-    sessionFormat: 'Hands-on Workshop',
+    sessionFormat: 'Workshop',
     curriculum: [
       'Vector databases and semantic similarity search mechanisms',
       'Google Cloud Vertex AI Search integration with Gemini',
@@ -376,7 +376,7 @@ export const community: CommunityEvent[] = [
       'A practical workshop delivered at DevFest Onitsha 2025 emphasizing responsive and adaptive mobile UI architecture in Flutter. Taught developers how to structure layouts that scale effortlessly across phones, foldable devices, tablets, and web browsers using LayoutBuilder, MediaQuery, and adaptive widgets.',
     eventSeries: 'DevFest',
     location: 'Onitsha, Nigeria',
-    sessionFormat: 'Hands-on Workshop',
+    sessionFormat: 'Workshop',
     curriculum: [
       'Responsive design principles with LayoutBuilder and MediaQuery',
       'Adaptive controls switching automatically between Cupertino and Material widgets',
@@ -417,6 +417,7 @@ export const community: CommunityEvent[] = [
       'AI tools significantly reduce development iteration time when integrated early in the workflow.',
       'Combining Firebase and Gemini enables rapid full-stack AI application development.',
     ],
+    sessionFormat: 'Workshop',
     resources: {
       slides: 'https://docs.google.com/presentation/d/1KDWc1Cbo868UPq0j7rgPifkEB5Vv8ovvCr320Q9Swmo/edit?usp=sharing',
     },
@@ -448,6 +449,7 @@ export const community: CommunityEvent[] = [
       'Multi-agent systems decompose complex problems into specialized, composable units.',
       'Google Cloud provides serverless primitives ideal for scaling independent agent workloads.',
     ],
+    sessionFormat: 'Workshop',
     resources: {
       codelab: 'https://goo.gle/Multi-Agent-Systems',
     },
@@ -465,7 +467,8 @@ export const community: CommunityEvent[] = [
   {
     title: '#BuildwithAI Ogbomoso 2025',
     date: { month: 5, year: 2025 },
-    description: 'Trained the audience on generating Audio with multimodal Gemini using a Colab Notebook. Walked through model selection, prompt shaping, and playback in-notebook.',
+    description:
+      'Trained the audience on generating Audio with multimodal Gemini using a Colab Notebook. Walked through model selection, prompt shaping, and playback in-notebook.',
     longDescription:
       'A hands-on workshop demonstrating audio generation capabilities using Google AI Gemini in a multimodal context. Participants worked through Colab notebooks learning how to generate, process, and integrate synthetic audio into applications.',
     curriculum: [
@@ -478,6 +481,7 @@ export const community: CommunityEvent[] = [
       'Gemini supports both text and audio generation for rich multimodal applications.',
       'Colab notebooks enable rapid experimentation with AI capabilities without local setup.',
     ],
+    sessionFormat: 'Workshop',
     resources: {
       colabNotebook:
         'https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/audio/speech/use-cases/storytelling/storytelling.ipynb',
@@ -506,6 +510,7 @@ export const community: CommunityEvent[] = [
       'Deploying ML models as scalable endpoints',
       'Monitoring model performance and inference costs',
     ],
+    sessionFormat: 'Workshop',
     keyTakeaways: [
       'Firebase and Vertex AI integrate seamlessly for full-stack AI applications.',
       'Managed ML services eliminate infrastructure complexity, letting developers focus on data and models.',
@@ -537,6 +542,7 @@ export const community: CommunityEvent[] = [
       'Running Gemma models locally in Google Colab',
       'Building cost-effective AI applications with lightweight models',
     ],
+    sessionFormat: 'Workshop',
     keyTakeaways: [
       'Gemma 2.0 Flash delivers excellent quality-to-latency trade-offs for edge and mobile deployment.',
       'Combining lightweight models with Firebase enables efficient real-time AI features.',
@@ -585,11 +591,13 @@ export const community: CommunityEvent[] = [
     ],
     tags: ['Workshop', 'AI'],
     expandedTags: ['Workshop', 'AI', 'Gemma', 'Colab', 'Introduction'],
+    sessionFormat: 'Workshop',
   },
   {
     title: 'DevFest Guinee 2024',
     date: { month: 12, year: 2024 },
-    description: 'Spoke in French about the various ways by which AI improves user experience in mobile applications. Covered on-device personalization, intelligent defaults, and contextual UI moments.',
+    description:
+      'Spoke in French about the various ways by which AI improves user experience in mobile applications. Covered on-device personalization, intelligent defaults, and contextual UI moments.',
     longDescription:
       'A conference talk presented in French exploring the intersection of artificial intelligence and mobile user experience design. Discussed how AI transforms app interactions, from personalization to predictive interfaces.',
     curriculum: [
@@ -598,6 +606,7 @@ export const community: CommunityEvent[] = [
       'On-device vs. cloud AI trade-offs',
       'User experience best practices for AI features',
     ],
+    sessionFormat: 'Talk',
     keyTakeaways: [
       'AI enables mobile apps to anticipate user needs and adapt interactions dynamically.',
       'Thoughtful AI integration improves rather than complicates user experience.',
@@ -624,7 +633,8 @@ export const community: CommunityEvent[] = [
   {
     title: 'Learn About Azure Serverless Functions',
     date: { month: 12, year: 2024 },
-    description: 'Explained when and how you can set up serverless compute with Azure. Covered Azure Functions triggers, deployment options, and where serverless makes sense vs where it does not.',
+    description:
+      'Explained when and how you can set up serverless compute with Azure. Covered Azure Functions triggers, deployment options, and where serverless makes sense vs where it does not.',
     longDescription:
       'An educational session on Azure Functions demonstrating serverless compute patterns and when to apply them. Covered deployment strategies, scaling behavior, and cost optimization for event-driven workloads.',
     curriculum: [
@@ -633,6 +643,7 @@ export const community: CommunityEvent[] = [
       'Deploying and managing Azure Functions',
       'Pricing models and cost optimization strategies',
     ],
+    sessionFormat: 'Talk',
     keyTakeaways: [
       'Serverless functions reduce operational overhead and scale automatically with demand.',
       'Selecting the right trigger type aligns compute cost with actual usage patterns.',
@@ -654,7 +665,8 @@ export const community: CommunityEvent[] = [
   {
     title: 'DevFest Enugu 2024',
     date: { month: 12, year: 2024 },
-    description: 'Handled the Community Event Opening Note on Culture and Technology. Framed how local culture shapes how communities adopt and shape technology.',
+    description:
+      'Handled the Community Event Opening Note on Culture and Technology. Framed how local culture shapes how communities adopt and shape technology.',
     longDescription:
       'A keynote opening remarks delivered at DevFest Enugu 2024 reflecting on the intersection of technology and cultural values in engineering communities. Set the tone for the conference by exploring shared responsibility in technology advancement.',
     curriculum: [
@@ -662,6 +674,7 @@ export const community: CommunityEvent[] = [
       'Building inclusive and sustainable engineering communities',
       'Bridging technical innovation with human values',
     ],
+    sessionFormat: 'Keynote',
     keyTakeaways: [
       'Engineering decisions carry cultural and social implications beyond technical metrics.',
       'Communities thrive when technology is developed with intention and cultural awareness.',
@@ -683,7 +696,8 @@ export const community: CommunityEvent[] = [
   {
     title: 'DevFest Calabar 2024',
     date: { month: 12, year: 2024 },
-    description: 'Spoke on "Expert Tips for Flutter UI Performance". Covered frame rate targets, rebuild scope, and profiling to hit smooth 60/120fps.',
+    description:
+      'Spoke on "Expert Tips for Flutter UI Performance". Covered frame rate targets, rebuild scope, and profiling to hit smooth 60/120fps.',
     longDescription:
       'A technical presentation exploring advanced optimization techniques for Flutter UI rendering. Covered frame rate optimization, widget rebuild efficiency, and memory profiling to achieve smooth 60/120 fps performance.',
     curriculum: [
@@ -692,6 +706,7 @@ export const community: CommunityEvent[] = [
       'Memory profiling and leak detection',
       'Animation performance and Skia optimization',
     ],
+    sessionFormat: 'Talk',
     keyTakeaways: [
       'Minimizing widget rebuild scope is the single highest-impact optimization for UI performance.',
       'DevTools profiling uncovers non-obvious performance bottlenecks in complex UIs.',
@@ -718,15 +733,17 @@ export const community: CommunityEvent[] = [
   {
     title: 'DevFest Ogbomoso 2024',
     date: { month: 11, year: 2024 },
-    description: 'Spoke on "How to use Google AI for A/B Testing". Explored using generative AI to accelerate hypothesis generation, variant creation, and result analysis.',
+    description:
+      'Spoke on "How to use Google AI for A/B Testing". Explored using generative AI to accelerate hypothesis generation, variant creation, and result analysis.',
     longDescription:
-      'A technical talk on leveraging Google AI tools to design, analyze, and optimize A/B testing experiments. Explored how generative AI can accelerate hypothesis generation, variant creation, and statistical analysis workflows.',
+      'A Talk on leveraging Google AI tools to design, analyze, and optimize A/B testing experiments. Explored how generative AI can accelerate hypothesis generation, variant creation, and statistical analysis workflows.',
     curriculum: [
       'A/B testing fundamentals and statistical rigor',
       'Generating test variants with Google AI',
       'Analyzing results with AI-powered insights',
       'Ethical considerations in experimentation',
     ],
+    sessionFormat: 'Talk',
     keyTakeaways: [
       'AI accelerates the hypothesis-to-insight cycle in experimentation workflows.',
       'Maintaining statistical validity is critical even when using automated testing tools.',
@@ -753,7 +770,8 @@ export const community: CommunityEvent[] = [
   {
     title: 'DevFest Kaduna 2024',
     date: { month: 11, year: 2024 },
-    description: 'Spoke on "How AI Improves User Experience on Mobile". Covered personalization, contextual recommendations, on-device AI trade-offs, and privacy-first patterns.',
+    description:
+      'Spoke on "How AI Improves User Experience on Mobile". Covered personalization, contextual recommendations, on-device AI trade-offs, and privacy-first patterns.',
     longDescription:
       'An exploration of how artificial intelligence transforms mobile app user experiences through personalization, contextual recommendations, and intelligent automation. Discussed on-device AI trade-offs and privacy-first approaches.',
     curriculum: [
@@ -766,6 +784,7 @@ export const community: CommunityEvent[] = [
       'Mobile AI delivers personalized experiences while respecting user privacy through on-device processing.',
       'Well-designed AI features feel natural and enhance rather than complicate user flows.',
     ],
+    sessionFormat: 'Talk',
     resources: {
       slides: 'https://docs.google.com/presentation/d/1vl9LLHz4Pl0P4IDnPgOzcmve5X20kBat7gXu10K5CmM/edit?usp=sharing',
     },
@@ -788,7 +807,8 @@ export const community: CommunityEvent[] = [
   {
     title: 'DevFest Lagos 2024',
     date: { month: 11, year: 2024 },
-    description: 'Carried out a workshop on "How to Build Android Bubbles in Flutter". Walked through the conversation_bubbles plugin, notification metadata, and shortcut wiring.',
+    description:
+      'Carried out a workshop on "How to Build Android Bubbles in Flutter". Walked through the conversation_bubbles plugin, notification metadata, and shortcut wiring.',
     longDescription:
       'A hands-on workshop demonstrating Android Bubbles implementation in Flutter. Covered Material Design bubble patterns, thread management, and creating rich chat experiences with floating conversation bubbles.',
     curriculum: [
@@ -797,6 +817,7 @@ export const community: CommunityEvent[] = [
       'Implementing floating bubble UI patterns',
       'Handling user interactions in bubble context',
     ],
+    sessionFormat: 'Workshop',
     keyTakeaways: [
       'Bubbles enable users to continue conversations without leaving their current app context.',
       'Material Design bubbles maintain visual consistency across Android versions.',
@@ -834,12 +855,12 @@ export const community: CommunityEvent[] = [
       'Community-sourced questions and expert insights',
       'Industry trends in mobile development',
     ],
+    sessionFormat: 'Panel',
     keyTakeaways: [
       'Google Developer Experts directly shape language and framework direction based on community feedback.',
       'Flutter and Dart communities are thriving with continuous innovation and learning opportunities.',
     ],
-    resources: {
-    },
+    resources: {},
     image: { alt: 'Photo of Panelists', name: 'df24-lagos-gdes-panel' },
     actions: [
       {
@@ -854,9 +875,10 @@ export const community: CommunityEvent[] = [
   {
     title: 'DevFest Abakaliki 2024',
     date: { month: 9, year: 2024 },
-    description: 'Spoke on "Expert Tips for Flutter UI Performance". Walked through profiling tools, rendering pipeline optimization, and real-world case studies.',
+    description:
+      'Spoke on "Expert Tips for Flutter UI Performance". Walked through profiling tools, rendering pipeline optimization, and real-world case studies.',
     longDescription:
-      'A deep technical talk exploring optimization techniques for Flutter UI rendering and performance. Covered profiling tools, rendering pipeline optimization, and real-world case studies achieving smooth 60/120 fps.',
+      'A deep Talk exploring optimization techniques for Flutter UI rendering and performance. Covered profiling tools, rendering pipeline optimization, and real-world case studies achieving smooth 60/120 fps.',
     curriculum: [
       'Flutter rendering pipeline architecture and frame budgets',
       'Profiling and identifying performance bottlenecks with DevTools',
@@ -886,11 +908,13 @@ export const community: CommunityEvent[] = [
     ],
     tags: ['Speaker', 'GDG'],
     expandedTags: ['Speaker', 'GDG', 'DevFest', 'Flutter', 'Performance', 'Optimization'],
+    sessionFormat: 'Talk',
   },
   {
     title: 'FlutterBytes Conference 2024',
     date: { month: 11, year: 2024 },
-    description: 'Spoke on "Bringing Blockchain & Web3 into Flutter". Covered wallet integration, signing flows, and reading and writing smart contract state from a mobile app.',
+    description:
+      'Spoke on "Bringing Blockchain & Web3 into Flutter". Covered wallet integration, signing flows, and reading and writing smart contract state from a mobile app.',
     longDescription:
       'A technical presentation exploring the integration of blockchain and Web3 technologies into Flutter applications. Covered wallet integration, smart contract interaction, and building decentralized user experiences.',
     curriculum: [
@@ -920,6 +944,7 @@ export const community: CommunityEvent[] = [
         title: 'Slides',
       },
     ],
+    sessionFormat: 'Talk',
     tags: ['Speaker', 'FlutterBytesConf'],
     expandedTags: ['Speaker', 'FlutterBytesConf', 'Web3', 'Blockchain', 'Flutter'],
   },
@@ -940,8 +965,8 @@ export const community: CommunityEvent[] = [
       'Flutter community members drive innovation through active feedback and collaboration.',
       'Expert guidance accelerates learning and helps avoid common pitfalls.',
     ],
-    resources: {
-    },
+    sessionFormat: 'Panel',
+    resources: {},
     image: { alt: 'Photo of Stage', name: 'fbc24-gdes-panel' },
     actions: [
       {
@@ -956,7 +981,8 @@ export const community: CommunityEvent[] = [
   {
     title: 'DevFest Afrique Francophone 2024',
     date: { month: 9, year: 2024 },
-    description: 'Spoke in French about the various ways by which AI improves user experience in mobile applications. Covered on-device inference, contextual recommendations, and intelligent defaults.',
+    description:
+      'Spoke in French about the various ways by which AI improves user experience in mobile applications. Covered on-device inference, contextual recommendations, and intelligent defaults.',
     longDescription:
       "A conference presentation in French exploring AI's transformative impact on mobile user experience. Covered personalization, intelligent features, and design patterns for AI-enhanced applications.",
     curriculum: [
@@ -965,6 +991,7 @@ export const community: CommunityEvent[] = [
       'Privacy-first AI on mobile devices',
       'User experience design for AI features',
     ],
+    sessionFormat: 'Talk',
     keyTakeaways: [
       'AI transforms mobile apps from reactive tools into anticipatory assistants.',
       'Responsible AI design prioritizes user control and transparency.',
@@ -992,7 +1019,8 @@ export const community: CommunityEvent[] = [
   {
     title: 'Google I/O Extended Asaba 2024',
     date: { month: 7, year: 2024 },
-    description: 'Spoke on the updates in Dart & Flutter announced during 2024\'s Google I/O under the heading "Dart Macros & A Better Flutter". Focused on macros as a metaprogramming capability and framework improvements landing in the SDK.',
+    description:
+      'Spoke on the updates in Dart & Flutter announced during 2024\'s Google I/O under the heading "Dart Macros & A Better Flutter". Focused on macros as a metaprogramming capability and framework improvements landing in the SDK.',
     longDescription:
       'A presentation on the latest features announced at Google I/O 2024 for Dart and Flutter. Focused on Dart macros as a metaprogramming capability and framework improvements enhancing developer experience.',
     curriculum: [
@@ -1005,8 +1033,8 @@ export const community: CommunityEvent[] = [
       'Dart macros enable powerful compile-time abstractions reducing boilerplate code.',
       'Flutter continues evolving with focus on performance and developer experience.',
     ],
-    resources: {
-    },
+    sessionFormat: 'Talk',
+    resources: {},
     image: { alt: 'Obum speaking on stage', name: 'obum-io-asaba-24' },
     actions: [
       {
@@ -1026,7 +1054,8 @@ export const community: CommunityEvent[] = [
   {
     title: 'Google I/O Extended Enugu 2024',
     date: { month: 7, year: 2024 },
-    description: 'Spoke on the panel of "The Future of Mobile Development with AI-Embedded Chipsets" with other seasoned software engineers. Covered on-device inference, hardware acceleration, and what shifts for app developers building on next-gen silicon.',
+    description:
+      'Spoke on the panel of "The Future of Mobile Development with AI-Embedded Chipsets" with other seasoned software engineers. Covered on-device inference, hardware acceleration, and what shifts for app developers building on next-gen silicon.',
     longDescription:
       'A panel discussion exploring how AI-embedded chipsets reshape mobile development. Covered on-device AI, hardware acceleration, and practical implications for app developers building next-generation experiences.',
     curriculum: [
@@ -1039,6 +1068,7 @@ export const community: CommunityEvent[] = [
       'AI-embedded chipsets enable powerful on-device experiences without cloud latency.',
       'Mobile developers must evolve skills to leverage hardware AI capabilities.',
     ],
+    sessionFormat: 'Panel',
     resources: {
       recording: 'https://youtu.be/hqz-8LjA4-E',
     },
@@ -1075,6 +1105,7 @@ export const community: CommunityEvent[] = [
       'GitHub Codespaces removes environment setup barriers, accelerating project starts.',
       'Cloud development environments enable seamless collaboration across teams.',
     ],
+    sessionFormat: 'Workshop',
     resources: {
       recording: 'https://youtu.be/nrL9IAS3Uy8',
     },
@@ -1105,8 +1136,8 @@ export const community: CommunityEvent[] = [
       'The Google AI Dart SDK simplifies adding generative AI to Flutter apps with minimal overhead.',
       'Effective prompt engineering is key to getting useful, consistent AI responses.',
     ],
-    resources: {
-    },
+    sessionFormat: 'Workshop',
+    resources: {},
     image: { alt: 'Speaker Flyer', name: 'obum-build-with-ai' },
     actions: [
       {
@@ -1128,7 +1159,7 @@ export const community: CommunityEvent[] = [
     date: { month: 12, year: 2023 },
     description: 'Spoke on "Using Streams and Services for Flutter State".',
     longDescription:
-      'A technical talk exploring state management patterns in Flutter using Streams and Services. Covered reactive programming principles, BLoC patterns, and building scalable state architectures.',
+      'A Talk exploring state management patterns in Flutter using Streams and Services. Covered reactive programming principles, BLoC patterns, and building scalable state architectures.',
     curriculum: [
       'Dart Streams and reactive programming fundamentals',
       'Service layer architecture for state management',
@@ -1139,6 +1170,7 @@ export const community: CommunityEvent[] = [
       'Streams provide a powerful abstraction for managing state changes over time.',
       'Service-based architectures decouple UI from business logic, improving testability.',
     ],
+    sessionFormat: 'Talk',
     resources: {
       slides: 'https://docs.google.com/presentation/d/1gedT70WjEcUWtXzNqgIxGG58p_ZlMDDT0Q-ZMsRG3AU/edit?usp=sharing',
     },
@@ -1166,7 +1198,8 @@ export const community: CommunityEvent[] = [
   {
     title: 'DevFest Enugu 2023',
     date: { month: 11, year: 2023 },
-    description: 'Spoke on "Flutter CustomPaint vs SVG Image Spec". Weighed when procedural CustomPaint wins vs when to inline an SVG, with the performance trade-offs behind each.',
+    description:
+      'Spoke on "Flutter CustomPaint vs SVG Image Spec". Weighed when procedural CustomPaint wins vs when to inline an SVG, with the performance trade-offs behind each.',
     longDescription:
       'A comparative analysis of graphics rendering approaches in Flutter. Examined when to use CustomPaint for procedural graphics versus SVG image specifications, covering performance trade-offs and use cases.',
     curriculum: [
@@ -1179,6 +1212,7 @@ export const community: CommunityEvent[] = [
       'CustomPaint excels for dynamic, procedurally-generated graphics with low overhead.',
       'SVG is ideal for static vector graphics and complex illustrations.',
     ],
+    sessionFormat: 'Talk',
     resources: {
       slides: 'https://docs.google.com/presentation/d/110Ft7-UnpFbrL-xJ6NbbG04FFnzCv7UT9LCqT8VbEx0/edit?usp=sharing',
       recording: 'https://youtu.be/w9lD35D78N8',
@@ -1207,7 +1241,8 @@ export const community: CommunityEvent[] = [
   {
     title: 'DevFest Luwero 2023',
     date: { month: 11, year: 2023 },
-    description: 'Spoke on "How to Customize Flutter Packages". Covered forking, extending, and maintaining project-specific variants of pub.dev packages without losing upstream updates.',
+    description:
+      'Spoke on "How to Customize Flutter Packages". Covered forking, extending, and maintaining project-specific variants of pub.dev packages without losing upstream updates.',
     longDescription:
       'A technical session on extending and customizing existing Flutter packages for project-specific needs. Covered forking packages, modifying behavior, and maintaining custom variants.',
     curriculum: [
@@ -1220,6 +1255,7 @@ export const community: CommunityEvent[] = [
       'Extending packages through composition often beats forking for maintainability.',
       'Understanding package internals allows powerful customizations without reinventing.',
     ],
+    sessionFormat: 'Talk',
     resources: {
       slides: 'https://docs.google.com/presentation/d/1MRQwxGqTXzjVy_IyNjJBIlsReKnFujwWZ2Aohj8q60g/edit?usp=sharing',
       recording: 'https://youtu.be/UkWkXmFQAb8',
@@ -1248,7 +1284,8 @@ export const community: CommunityEvent[] = [
   {
     title: 'GSDC AE-FUNAI Info Session 2023',
     date: { month: 9, year: 2023 },
-    description: 'Introduced Technical Writing to a student audience. Covered documentation principles, audience awareness, and the writing habits that separate useful docs from wall-of-text ones.',
+    description:
+      'Introduced Technical Writing to a student audience. Covered documentation principles, audience awareness, and the writing habits that separate useful docs from wall-of-text ones.',
     longDescription:
       'An introductory session on technical writing for computer science students. Covered documentation principles, audience awareness, and practical skills for writing clear technical content.',
     curriculum: [
@@ -1261,6 +1298,7 @@ export const community: CommunityEvent[] = [
       'Technical writing is a skill every engineer should develop for better communication.',
       'Clear documentation multiplies the impact of code and projects.',
     ],
+    sessionFormat: 'Talk',
     resources: {
       recording: 'https://x.com/gdscaefunai/status/1704569899404902860?s=20',
     },
@@ -1278,7 +1316,8 @@ export const community: CommunityEvent[] = [
   {
     title: 'GDSC NAU Info Session 2023',
     date: { month: 9, year: 2023 },
-    description: 'Introduced Flutter, Firebase, and Google Cloud to new GDSC members. Framed how the three fit together for shipping a full-stack app fast.',
+    description:
+      'Introduced Flutter, Firebase, and Google Cloud to new GDSC members. Framed how the three fit together for shipping a full-stack app fast.',
     longDescription:
       'An information session introducing Google Developer Student Club members to the Flutter framework, Firebase backend services, and Google Cloud infrastructure. Provided pathways for learning full-stack app development.',
     curriculum: [
@@ -1291,6 +1330,7 @@ export const community: CommunityEvent[] = [
       'Flutter, Firebase, and Google Cloud form a powerful stack for rapid app development.',
       'Student communities provide structured learning and mentorship opportunities.',
     ],
+    sessionFormat: 'Keynote',
     resources: {
       slides: 'https://docs.google.com/presentation/d/1W7dKEXD1DIH0MyVtSifLFOMG4SFq1gP78UGdhoMTRsc/edit?usp=sharing',
     },
@@ -1308,7 +1348,8 @@ export const community: CommunityEvent[] = [
   {
     title: 'Google I/O Extended Owerri 2023',
     date: { month: 8, year: 2023 },
-    description: 'Spoke on "Understanding UI Rendering: How Flutter is platform-agnostic". Walked through the Skia and Impeller pipeline and how Flutter draws the same UI across Android, iOS, Web, and Desktop.',
+    description:
+      'Spoke on "Understanding UI Rendering: How Flutter is platform-agnostic". Walked through the Skia and Impeller pipeline and how Flutter draws the same UI across Android, iOS, Web, and Desktop.',
     longDescription:
       'A deep technical dive into Flutter rendering architecture. Explained the Skia graphics engine, the rendering pipeline, and how Flutter achieves platform-agnostic UI across Android, iOS, Web, and Desktop.',
     curriculum: [
@@ -1321,6 +1362,7 @@ export const community: CommunityEvent[] = [
       "Flutter's rendering abstraction enables consistent visuals across platforms.",
       'Understanding rendering mechanics helps developers optimize performance.',
     ],
+    sessionFormat: 'Talk',
     resources: {
       slides: 'https://docs.google.com/presentation/d/1yK2RuAcIGUJNeBDTusbKtALFuiCL4SOANMmYhRCESzc/edit?usp=sharing',
     },
@@ -1348,7 +1390,8 @@ export const community: CommunityEvent[] = [
   {
     title: 'Google I/O Extended Enugu 2023',
     date: { month: 8, year: 2023 },
-    description: 'Spoke on "How to improve Flutter forms", focusing on user experience in mobile apps. Covered validation, accessible error handling, and UI patterns that reduce user friction.',
+    description:
+      'Spoke on "How to improve Flutter forms", focusing on user experience in mobile apps. Covered validation, accessible error handling, and UI patterns that reduce user friction.',
     longDescription:
       'A practical session on building high-quality form experiences in Flutter. Covered validation, accessibility, error handling, and UI patterns that reduce user friction and frustration.',
     curriculum: [
@@ -1361,6 +1404,7 @@ export const community: CommunityEvent[] = [
       'Good forms are invisible. Great forms guide users and handle edge cases gracefully.',
       'Accessibility in forms benefits all users, not just those with disabilities.',
     ],
+    sessionFormat: 'Talk',
     resources: {
       slides: 'https://docs.google.com/presentation/d/11PJdEQLWK1sGoARW81c8CiegicDT79SLi7VaLx-69G0/edit?usp=sharing',
     },
@@ -1388,7 +1432,8 @@ export const community: CommunityEvent[] = [
   {
     title: 'Google I/O Extended Onitsha 2023',
     date: { month: 7, year: 2023 },
-    description: 'Spoke on "Flutter for Web Developers", comparing developer concepts across both categories. Drew parallels between the DOM and Flutter widget trees so web developers could reuse familiar mental models.',
+    description:
+      'Spoke on "Flutter for Web Developers", comparing developer concepts across both categories. Drew parallels between the DOM and Flutter widget trees so web developers could reuse familiar mental models.',
     longDescription:
       'A bridge-building talk for web developers transitioning to Flutter. Drew parallels between web and mobile development paradigms, helping web developers apply familiar concepts to cross-platform mobile building.',
     curriculum: [
@@ -1401,6 +1446,7 @@ export const community: CommunityEvent[] = [
       'Flutter concepts like widgets and composition are familiar to web developers with components.',
       'Cross-platform thinking accelerates learning and career growth.',
     ],
+    sessionFormat: 'Talk',
     resources: {
       slides: 'https://docs.google.com/presentation/d/1-i7U0ZVCyHbkqzsKR8_v4en9YlwX6_mYYP9pFXFCrw8/edit?usp=sharing',
     },
@@ -1428,7 +1474,8 @@ export const community: CommunityEvent[] = [
   {
     title: 'Google I/O Extended Abakaliki 2023',
     date: { month: 7, year: 2023 },
-    description: 'Spoke on "Admob in Flutter" and carried out the Flutter AdMob Codelab in front of the audience. Covered integration, placement strategies, and revenue considerations.',
+    description:
+      'Spoke on "Admob in Flutter" and carried out the Flutter AdMob Codelab in front of the audience. Covered integration, placement strategies, and revenue considerations.',
     longDescription:
       'A hands-on session on monetizing Flutter apps with Google AdMob. Covered integration, best practices for ad placement, revenue optimization, and user experience considerations.',
     curriculum: [
@@ -1441,6 +1488,7 @@ export const community: CommunityEvent[] = [
       'Strategic ad placement balances revenue with user experience.',
       'AdMob analytics provide insights for optimizing ad performance.',
     ],
+    sessionFormat: 'Talk',
     resources: {
       slides: 'https://docs.google.com/presentation/d/1tqMQHf0KGODvxEjrrECZSh-4hLXdF3yLFwDF7QDB_LU/edit?usp=sharing',
     },
@@ -1468,7 +1516,8 @@ export const community: CommunityEvent[] = [
   {
     title: 'Google I/O Extended AE-FUNAI 2023',
     date: { month: 6, year: 2023 },
-    description: 'Introduced cloud computing fundamentals using Google Cloud, with hands-on Cloud Skills Boost essentials for the room to work through in real time.',
+    description:
+      'Introduced cloud computing fundamentals using Google Cloud, with hands-on Cloud Skills Boost essentials for the room to work through in real time.',
     longDescription:
       'An introductory session on cloud computing fundamentals using Google Cloud. Covered core services, deployment models, and guided students through Cloud Skills Boost essentials to start their cloud journey.',
     curriculum: [
@@ -1481,6 +1530,7 @@ export const community: CommunityEvent[] = [
       'Cloud literacy is essential for modern software development.',
       'Google Cloud Skills Boost provides structured, hands-on learning paths.',
     ],
+    sessionFormat: 'Talk',
     resources: {
       slides: 'https://docs.google.com/presentation/d/1bl_4_qJ5P5a-8_s__suAx5tEIDMD9BY6lUs9mtqSIhM/edit?usp=sharing',
     },
@@ -1503,7 +1553,8 @@ export const community: CommunityEvent[] = [
   {
     title: 'Flutter Forward Enugu 2023',
     date: { month: 4, year: 2023 },
-    description: 'Spoke on "How to animate in Flutter" and assisted in checking in participants during the event. Covered implicit and explicit animations, controllers, and composition patterns for polished motion.',
+    description:
+      'Spoke on "How to animate in Flutter" and assisted in checking in participants during the event. Covered implicit and explicit animations, controllers, and composition patterns for polished motion.',
     longDescription:
       'A comprehensive talk on animation techniques in Flutter. Covered implicit animations, explicit animations, animation controllers, and advanced composition patterns for creating polished, responsive UIs.',
     curriculum: [
@@ -1516,6 +1567,7 @@ export const community: CommunityEvent[] = [
       'Animations transform apps from static to alive, improving perceived performance.',
       'Proper animation structure prevents jank and keeps frame rates smooth.',
     ],
+    sessionFormat: 'Talk',
     resources: {
       slides: 'https://docs.google.com/presentation/d/1-bGtbikYCRMC6x4wv790mB3p1dUXh1DYQFEkj0kDA3s/edit?usp=sharing',
       recording: 'https://www.youtube.com/watch?v=vW4bjrtZbS8&list=PL6XlbQ29dTFNKszXJ6-afaQEpl7iULE8E&t=2049s',
@@ -1544,7 +1596,8 @@ export const community: CommunityEvent[] = [
   {
     title: 'Flutter Forward Abakaliki 2023',
     date: { month: 3, year: 2023 },
-    description: 'Spoke on "Securing Flutter Apps" during Flutter Forward Extended. Covered secure storage, encrypted API communication, and hardening common mobile attack vectors.',
+    description:
+      'Spoke on "Securing Flutter Apps" during Flutter Forward Extended. Covered secure storage, encrypted API communication, and hardening common mobile attack vectors.',
     longDescription:
       'A security-focused talk on protecting Flutter applications from common vulnerabilities. Covered secure storage, API communication, dependency management, and platform-specific security concerns.',
     curriculum: [
@@ -1557,8 +1610,8 @@ export const community: CommunityEvent[] = [
       'Security must be designed in from the start, not bolted on later.',
       'Flutter developers must understand both Dart and native platform security.',
     ],
-    resources: {
-    },
+    sessionFormat: 'Talk',
+    resources: {},
     image: { alt: 'Speaker Flyer', name: 'obum-flutter-forward-abakaliki' },
     actions: [
       {
@@ -1578,7 +1631,8 @@ export const community: CommunityEvent[] = [
   {
     title: 'DevFest Yaounde 2022',
     date: { month: 11, year: 2022 },
-    description: 'Facilitated the Flutter track at DevFest Yaounde, guiding developers through hands-on Cloud Skills Boost quests and shipping small apps end to end.',
+    description:
+      'Facilitated the Flutter track at DevFest Yaounde, guiding developers through hands-on Cloud Skills Boost quests and shipping small apps end to end.',
     longDescription:
       'Served as the primary Flutter track facilitator at DevFest Yaounde 2022. Guided developers through hands-on Cloud Skills Boost quests, answering questions and providing mentorship.',
     curriculum: [
@@ -1591,8 +1645,8 @@ export const community: CommunityEvent[] = [
       'Structured learning through quests makes skill acquisition tangible and motivating.',
       'Mentors amplify learning by answering questions and clarifying concepts.',
     ],
-    resources: {
-    },
+    sessionFormat: 'Workshop',
+    resources: {},
     image: { alt: 'Speaker Flyer', name: 'obum-devfest-yaounde' },
     actions: [
       {
@@ -1612,7 +1666,8 @@ export const community: CommunityEvent[] = [
   {
     title: 'Why you should use Flutter',
     date: { month: 6, year: 2022 },
-    description: 'Explained the detailed benefits of using Flutter for our projects. Covered code reuse across iOS and Android, hot reload developer experience, and what the pub.dev ecosystem unlocks.',
+    description:
+      'Explained the detailed benefits of using Flutter for our projects. Covered code reuse across iOS and Android, hot reload developer experience, and what the pub.dev ecosystem unlocks.',
     longDescription:
       'A persuasive talk on the strategic advantages of choosing Flutter for cross-platform mobile development. Covered code reuse, time-to-market, developer experience, and community ecosystem.',
     curriculum: [
@@ -1625,6 +1680,7 @@ export const community: CommunityEvent[] = [
       'Flutter enables teams to ship to multiple platforms with one codebase.',
       'Strong developer experience and tooling make Flutter productive and enjoyable.',
     ],
+    sessionFormat: 'Talk',
     resources: {
       slides:
         'https://docs.google.com/presentation/d/1EuXoQC0zO_tPq8deT6plxuwbzK988-789FxUsdTfJfM/edit?usp=sharing&resourcekey=0-V0dhDAuwoCJimDdxeyBItA',
@@ -1649,7 +1705,8 @@ export const community: CommunityEvent[] = [
   {
     title: 'FlutterFest Enugu 2022',
     date: { month: 5, year: 2022 },
-    description: 'Spoke on "How to Implement any Screen/UI in Flutter". Walked through breaking a mockup down top-to-bottom into layout primitives, then composing widgets to match.',
+    description:
+      'Spoke on "How to Implement any Screen/UI in Flutter". Walked through breaking a mockup down top-to-bottom into layout primitives, then composing widgets to match.',
     longDescription:
       'A practical masterclass on approaching UI design and implementation challenges in Flutter. Covered problem decomposition, widget composition, and techniques for translating any design into code.',
     curriculum: [
@@ -1662,6 +1719,7 @@ export const community: CommunityEvent[] = [
       'Breaking complex UIs into reusable widget components is the core Flutter skill.',
       'Proper constraint understanding solves most Flutter layout challenges.',
     ],
+    sessionFormat: 'Talk',
     resources: {
       slides: 'https://docs.google.com/presentation/d/1OtTeu7MgmGry4SdArVGNX6DHPZKggC7OZMm6oLBkFFo/edit?usp=sharing',
     },
@@ -1689,7 +1747,8 @@ export const community: CommunityEvent[] = [
   {
     title: 'Understanding Technical Writing',
     date: { month: 4, year: 2022 },
-    description: 'Community workshop introducing technical writing fundamentals with freeCodeCamp contributor Ihechikara. Covered documentation structure, audience analysis, and how to turn a rough idea into a published post.',
+    description:
+      'Community workshop introducing technical writing fundamentals with freeCodeCamp contributor Ihechikara. Covered documentation structure, audience analysis, and how to turn a rough idea into a published post.',
     longDescription:
       'A community workshop introducing technical writing fundamentals with freeCodeCamp contributor Ihechikara. Covered documentation styles, audience analysis, and practical tips for getting started as a technical writer.',
     curriculum: [
@@ -1707,6 +1766,7 @@ export const community: CommunityEvent[] = [
         'https://docs.google.com/presentation/d/1QrBqRMKlQ1QZms-LJjsSXa3OsFYx_pAm/edit?usp=drivesdk&ouid=114519401531947192354&rtpof=true&sd=true',
       recording: 'https://youtu.be/7T0-712hs6Y',
     },
+    sessionFormat: 'Talk',
     image: {
       alt: 'Slide from the event slides',
       name: 'understanding-technical-writing',
@@ -1729,7 +1789,8 @@ export const community: CommunityEvent[] = [
   {
     title: 'Careers In Tech',
     date: { month: 3, year: 2022 },
-    description: 'Career guidance session with Onyebuchi Nwafor from VeendHQ, exploring different tech career paths and practical steps for breaking into the industry.',
+    description:
+      'Career guidance session with Onyebuchi Nwafor from VeendHQ, exploring different tech career paths and practical steps for breaking into the industry.',
     longDescription:
       'A career guidance session with Onyebuchi Nwafor from VeendHQ exploring why technology careers offer fulfilling opportunities and how to navigate entry points into the industry.',
     curriculum: [
@@ -1738,6 +1799,7 @@ export const community: CommunityEvent[] = [
       'Building skills and creating your first projects',
       'Job hunting and interview preparation',
     ],
+    sessionFormat: 'Talk',
     keyTakeaways: [
       'Technology offers diverse career paths beyond software engineering.',
       'Starting with passion projects builds both skills and confidence.',
@@ -1765,7 +1827,8 @@ export const community: CommunityEvent[] = [
   {
     title: 'Info Session',
     date: { month: 3, year: 2022 },
-    description: 'Ezra at Genesys explained about community and about Genesys to the attendees. Covered community values, current projects, and concrete ways to get involved.',
+    description:
+      'Ezra at Genesys explained about community and about Genesys to the attendees. Covered community values, current projects, and concrete ways to get involved.',
     longDescription:
       'An introductory session about the Genesys community and organization. Covered community values, mission, and how to get involved with projects and initiatives.',
     curriculum: [
@@ -1774,6 +1837,7 @@ export const community: CommunityEvent[] = [
       'Getting involved and contributing',
       'Networking and collaboration opportunities',
     ],
+    sessionFormat: 'Keynote',
     keyTakeaways: [
       'Communities amplify individual efforts through collaboration and mutual support.',
       'Genesys provides structure and support for community-driven projects.',
@@ -1801,7 +1865,8 @@ export const community: CommunityEvent[] = [
   {
     title: "Your GitHub Profile's README",
     date: { month: 2, year: 2022 },
-    description: 'Explained why and how to beautify the README of your GitHub profile and repositories. Covered markdown formatting, profile READMEs, and using READMEs as a portfolio surface.',
+    description:
+      'Explained why and how to beautify the README of your GitHub profile and repositories. Covered markdown formatting, profile READMEs, and using READMEs as a portfolio surface.',
     longDescription:
       'A creative session on crafting compelling GitHub profiles through well-designed README files. Covered markdown formatting, GitHub features, and portfolio presentation strategies.',
     curriculum: [
@@ -1810,6 +1875,7 @@ export const community: CommunityEvent[] = [
       'Portfolio presentation through project documentation',
       'Tools and templates for beautiful READMEs',
     ],
+    sessionFormat: 'Workshop',
     keyTakeaways: [
       'A well-crafted GitHub profile makes a strong first impression on employers and collaborators.',
       'Clear README files are the gateway to project adoption and contributions.',
@@ -1837,7 +1903,8 @@ export const community: CommunityEvent[] = [
   {
     title: 'Introduction to Flutter (Todo App)',
     date: { month: 11, year: 2021 },
-    description: 'Taught Flutter on screen while building a simple Todo App. Live-coded through layout, state, and persistence so beginners could follow along.',
+    description:
+      'Taught Flutter on screen while building a simple Todo App. Live-coded through layout, state, and persistence so beginners could follow along.',
     longDescription:
       'A beginner-friendly live coding session introducing Flutter through building a functional Todo application. Covered stateful widgets, lists, and user interaction fundamentals.',
     curriculum: [
@@ -1850,6 +1917,7 @@ export const community: CommunityEvent[] = [
       'Flutter enables rapid app development with live reload and hot reload.',
       'Simple projects are excellent vehicles for learning core framework concepts.',
     ],
+    sessionFormat: 'Workshop',
     resources: {
       recording: 'https://youtu.be/S8qAld1rg8c',
     },
@@ -1867,7 +1935,8 @@ export const community: CommunityEvent[] = [
   {
     title: 'Collaborating with GitHub',
     date: { month: 8, year: 2021 },
-    description: 'Practical intro to collaborative development with GitHub. Covered basic workflows, pull requests, and code review as a team habit.',
+    description:
+      'Practical intro to collaborative development with GitHub. Covered basic workflows, pull requests, and code review as a team habit.',
     longDescription:
       'A practical guide to collaborative development with GitHub. Covered version control workflows, pull requests, code review, and issue tracking for team projects.',
     curriculum: [
@@ -1876,6 +1945,7 @@ export const community: CommunityEvent[] = [
       'Code review and discussion in GitHub',
       'Issue tracking and project management',
     ],
+    sessionFormat: 'Workshop',
     keyTakeaways: [
       'GitHub pull requests enable asynchronous collaboration and knowledge sharing.',
       'Clear communication in issues and PRs prevents misunderstandings and rework.',
@@ -1903,7 +1973,8 @@ export const community: CommunityEvent[] = [
   {
     title: 'Flutter Study Jam',
     date: { month: 8, year: 2021 },
-    description: 'Taught Flutter through the "Names Generator" codelab to GDSC Kabale Students. Live-coded the app end to end and answered questions in real time.',
+    description:
+      'Taught Flutter through the "Names Generator" codelab to GDSC Kabale Students. Live-coded the app end to end and answered questions in real time.',
     longDescription:
       'A hands-on Flutter Study Jam session with GDSC Kabale members. Guided students through the Names Generator codelab, covering basic stateless widgets and user interaction.',
     curriculum: [
@@ -1916,6 +1987,7 @@ export const community: CommunityEvent[] = [
       'Codelabs provide structured, beginner-friendly paths into Flutter.',
       'Study jams create community and shared learning experiences.',
     ],
+    sessionFormat: 'Workshop',
     image: { alt: 'Event Flyer', name: 'obum-kabale21' },
     actions: [
       {
@@ -1930,9 +2002,10 @@ export const community: CommunityEvent[] = [
   {
     title: 'Google I/O 2021',
     date: { month: 5, year: 2021 },
-    description: 'Spoke on "You should be in a community" during the GDSC Meetups for Google I/O. Framed why community compounds a developer\'s career and how to find or start one.',
+    description:
+      'Spoke on "You should be in a community" during the GDSC Meetups for Google I/O. Framed why community compounds a developer\'s career and how to find or start one.',
     longDescription:
-      'A keynote talk at Google I/O 2021 GDSC Meetups emphasizing the importance of community in a developer\'s journey. Shared personal experiences and practical advice on joining and contributing to tech communities.',
+      "A keynote talk at Google I/O 2021 GDSC Meetups emphasizing the importance of community in a developer's journey. Shared personal experiences and practical advice on joining and contributing to tech communities.",
     curriculum: [
       'Why communities matter for learning and growth',
       'Building strong communities and culture',
@@ -1943,6 +2016,7 @@ export const community: CommunityEvent[] = [
       'No developer grows alone. Communities accelerate learning and provide support.',
       'Strong communities create opportunities and amplify individual impact.',
     ],
+    sessionFormat: 'Keynote',
     image: { alt: 'Event Flyer', name: 'obum-io21' },
     actions: [
       {
@@ -1962,7 +2036,8 @@ export const community: CommunityEvent[] = [
   {
     title: '2021 DES & DEV Bootcamp',
     date: { month: 5, year: 2021 },
-    description: '6-week bootcamp combining intensive technical learning with community-focused initiatives across UI/UX Design and Web Development tracks.',
+    description:
+      '6-week bootcamp combining intensive technical learning with community-focused initiatives across UI/UX Design and Web Development tracks.',
     longDescription:
       'A comprehensive 6-week bootcamp combining 4 weeks of intensive technical learning with 2 weeks of community-focused initiatives. Participants chose between UI/UX Design or Web Development tracks with mentorship and real-world projects.',
     curriculum: [
@@ -1971,6 +2046,7 @@ export const community: CommunityEvent[] = [
       'Mentorship and professional development',
       'Community building and collaborative projects',
     ],
+    sessionFormat: 'Keynote',
     keyTakeaways: [
       'Bootcamps accelerate learning through structured curricula and peer support.',
       'Community engagement amplifies individual growth and creates lasting networks.',
@@ -1992,15 +2068,17 @@ export const community: CommunityEvent[] = [
   {
     title: '2021 Solution Challenge',
     date: { month: 2, year: 2021 },
-    description: 'Meetups and workshops we held to sensitise the community for the GDSC Solution Challenge. Walked through prior winning entries and what judges tend to reward.',
+    description:
+      'Meetups and workshops we held to sensitise the community for the GDSC Solution Challenge. Walked through prior winning entries and what judges tend to reward.',
     longDescription:
-      'A series of workshops and meetups organized to support GDSC members preparing for Google\'s Solution Challenge. Covered ideation, prototyping, and project development for social impact solutions.',
+      "A series of workshops and meetups organized to support GDSC members preparing for Google's Solution Challenge. Covered ideation, prototyping, and project development for social impact solutions.",
     curriculum: [
       'Problem identification and solution design',
       'Prototyping and MVP development',
       'Social impact measurement',
       'Pitching and presentation skills',
     ],
+    sessionFormat: 'Workshop',
     keyTakeaways: [
       'The Solution Challenge inspires student developers to tackle real-world problems.',
       'Community support and mentorship are critical for challenge success.',
@@ -2027,7 +2105,8 @@ export const community: CommunityEvent[] = [
   {
     title: 'Git and GitHub',
     date: { month: 11, year: 2020 },
-    description: 'Multi-GDSC collaborative event on Git and GitHub with speaker Auwal MS. Covered version control fundamentals and the mental model behind branches and commits.',
+    description:
+      'Multi-GDSC collaborative event on Git and GitHub with speaker Auwal MS. Covered version control fundamentals and the mental model behind branches and commits.',
     longDescription:
       'A multi-GDSC collaborative event introducing version control fundamentals using Git and GitHub. Featured speaker Auwal MS shared practical workflows for individual and team projects.',
     curriculum: [
@@ -2040,6 +2119,7 @@ export const community: CommunityEvent[] = [
       'Version control is essential infrastructure for any software project.',
       'Multi-GDSC collaborations strengthen community networks and knowledge sharing.',
     ],
+    sessionFormat: 'Workshop',
     resources: {
       slides: 'https://docs.google.com/presentation/d/1__cTDHCp2r6rhQxDGlEWkJSZF0kOQCcDNaNG7qGSca0/edit?usp=sharing',
       recording: 'https://youtu.be/uf12u9keG10',
@@ -2068,9 +2148,11 @@ export const community: CommunityEvent[] = [
   {
     title: 'Learning Opportunities',
     date: { month: 10, year: 2020 },
-    description: 'Speaker session by Emeka Odibeli, aimed at inspiring community members to keep learning. Covered practical study habits and where to find good free resources.',
+    description:
+      'Speaker session by Emeka Odibeli, aimed at inspiring community members to keep learning. Covered practical study habits and where to find good free resources.',
     longDescription:
       'An inspirational speaker session with Emeka Odibeli addressing students on the importance of continuous learning and practical strategies for accessing learning resources.',
+    sessionFormat: 'Talk',
     curriculum: [
       'Mindset and growth mentality in learning',
       'Learning resources and communities',
@@ -2098,9 +2180,11 @@ export const community: CommunityEvent[] = [
     expandedTags: ['Organizer', 'GDSC', 'Learning', 'Inspiration', 'Growth'],
   },
   {
+    sessionFormat: 'Workshop',
     title: 'Firebase Series',
     date: { month: 9, year: 2020 },
-    description: '6-week virtual workshop series where we taught Firebase. Covered backend services, real-time databases, and hands-on codelabs end to end.',
+    description:
+      '6-week virtual workshop series where we taught Firebase. Covered backend services, real-time databases, and hands-on codelabs end to end.',
     longDescription:
       'A 6-week virtual workshop series on Firebase covering backend services, real-time databases, and deployment. Participants completed hands-on codelabs and built projects.',
     curriculum: [
@@ -2127,9 +2211,11 @@ export const community: CommunityEvent[] = [
   {
     title: 'Onboarding GDSC',
     date: { month: 9, year: 2020 },
-    description: 'The inaugural Google Developer Student Club info session at AE-FUNAI introducing the club mission and learning resources.',
+    description:
+      'The inaugural Google Developer Student Club info session at AE-FUNAI introducing the club mission and learning resources.',
     longDescription:
       'The inaugural Google Developer Student Club info session at AE-FUNAI. Introduced the club mission, learning paths, and community values to establish the foundation for ongoing student developer community.',
+    sessionFormat: 'Keynote',
     curriculum: [
       'GDSC mission and global community',
       'Learning paths and available resources',

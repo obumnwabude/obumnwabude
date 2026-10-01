@@ -253,6 +253,7 @@ body.dark {
 /* PrimeVue Component Overrides with Liquid Glass */
 .p-sidebar {
   background: var(--popover-bg) !important;
+  border-width: 0 0 0 1px !important;
   border-left: 1px solid var(--popover-border) !important;
   backdrop-filter: blur(28px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(28px) saturate(180%) !important;
@@ -555,19 +556,41 @@ body.dark [filled] * {
   }
 }
 
-/* Circular View Transitions Overrides */
+/* View Transitions API — smooth page morphing */
 ::view-transition-old(root),
 ::view-transition-new(root) {
-  animation: none;
-  mix-blend-mode: normal;
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 ::view-transition-old(root) {
-  z-index: 1;
+  animation-name: vt-slide-out;
 }
 
 ::view-transition-new(root) {
-  z-index: 9999;
+  animation-name: vt-slide-in;
+}
+
+@keyframes vt-slide-out {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+}
+
+@keyframes vt-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 /* Accessibility & Performance Fallbacks */

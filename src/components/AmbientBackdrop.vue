@@ -84,7 +84,6 @@ body.dark .ambient-orb {
   width: 440px;
   height: 440px;
   background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
-  animation: orbDriftA 26s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
 }
 
 body.dark .orb-secondary {
@@ -97,7 +96,6 @@ body.dark .orb-secondary {
   width: 480px;
   height: 480px;
   background: radial-gradient(circle, rgb(from var(--primary) r g b / 70%) 0%, transparent 70%);
-  animation: orbDriftB 22s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
 }
 
 .orb-cyan {
@@ -106,43 +104,6 @@ body.dark .orb-secondary {
   width: 380px;
   height: 380px;
   background: radial-gradient(circle, rgb(from var(--primary) r g b / 45%) 0%, transparent 70%);
-  animation: orbDriftC 32s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
-}
-
-@keyframes orbDriftA {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(140px, 90px) scale(1.15);
-  }
-  100% {
-    transform: translate(-80px, 160px) scale(0.92);
-  }
-}
-
-@keyframes orbDriftB {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(-160px, -110px) scale(1.12);
-  }
-  100% {
-    transform: translate(90px, 120px) scale(0.88);
-  }
-}
-
-@keyframes orbDriftC {
-  0% {
-    transform: translate(0, 0) scale(0.95);
-  }
-  50% {
-    transform: translate(110px, -130px) scale(1.18);
-  }
-  100% {
-    transform: translate(-120px, 60px) scale(1.05);
-  }
 }
 
 /* Floating Iridescent Glass Bubbles */
@@ -162,7 +123,6 @@ body.dark .orb-secondary {
     0 4px 16px rgb(from var(--primary) r g b / 8%);
   backdrop-filter: blur(1.5px);
   -webkit-backdrop-filter: blur(1.5px);
-  will-change: transform;
 }
 
 body.dark .glass-bubble {
@@ -183,7 +143,6 @@ body.dark .glass-bubble {
   height: 90px;
   left: 8%;
   bottom: 25%;
-  animation: bubbleFloat1 8.5s ease-in-out infinite alternate;
 }
 
 .bubble-2 {
@@ -191,7 +150,6 @@ body.dark .glass-bubble {
   height: 140px;
   right: 14%;
   top: 22%;
-  animation: bubbleFloat2 11.5s ease-in-out infinite alternate;
 }
 
 .bubble-3 {
@@ -199,42 +157,104 @@ body.dark .glass-bubble {
   height: 65px;
   left: 48%;
   top: 55%;
-  animation: bubbleFloat3 9.5s ease-in-out infinite alternate;
 }
 
-@keyframes bubbleFloat1 {
-  0% {
-    transform: translateY(0) rotate(0deg) scale(1);
+/* Only animate on devices with no reduced-motion preference */
+@media (prefers-reduced-motion: no-preference) {
+  .orb-primary {
+    animation: orbDriftA 26s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
   }
-  50% {
-    transform: translateY(-70px) translateX(25px) rotate(180deg) scale(1.05);
-  }
-  100% {
-    transform: translateY(-130px) translateX(-15px) rotate(360deg) scale(0.96);
-  }
-}
 
-@keyframes bubbleFloat2 {
-  0% {
-    transform: translateY(0) rotate(0deg) scale(0.96);
+  .orb-secondary {
+    animation: orbDriftB 22s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
   }
-  50% {
-    transform: translateY(60px) translateX(-35px) rotate(-180deg) scale(1.06);
-  }
-  100% {
-    transform: translateY(110px) translateX(20px) rotate(-360deg) scale(1);
-  }
-}
 
-@keyframes bubbleFloat3 {
-  0% {
-    transform: translateY(0) rotate(0deg) scale(1);
+  .orb-cyan {
+    animation: orbDriftC 32s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
   }
-  50% {
-    transform: translateY(-50px) translateX(-20px) rotate(120deg) scale(1.08);
+
+  .bubble-1 {
+    animation: bubbleFloat1 8.5s ease-in-out infinite alternate;
   }
-  100% {
-    transform: translateY(-90px) translateX(30px) rotate(240deg) scale(0.95);
+
+  .bubble-2 {
+    animation: bubbleFloat2 11.5s ease-in-out infinite alternate;
+  }
+
+  .bubble-3 {
+    animation: bubbleFloat3 9.5s ease-in-out infinite alternate;
+  }
+
+  @keyframes orbDriftA {
+    0% {
+      transform: translate(0, 0) scale(1);
+    }
+    50% {
+      transform: translate(140px, 90px) scale(1.15);
+    }
+    100% {
+      transform: translate(-80px, 160px) scale(0.92);
+    }
+  }
+
+  @keyframes orbDriftB {
+    0% {
+      transform: translate(0, 0) scale(1);
+    }
+    50% {
+      transform: translate(-160px, -110px) scale(1.12);
+    }
+    100% {
+      transform: translate(90px, 120px) scale(0.88);
+    }
+  }
+
+  @keyframes orbDriftC {
+    0% {
+      transform: translate(0, 0) scale(0.95);
+    }
+    50% {
+      transform: translate(110px, -130px) scale(1.18);
+    }
+    100% {
+      transform: translate(-120px, 60px) scale(1.05);
+    }
+  }
+
+  @keyframes bubbleFloat1 {
+    0% {
+      transform: translateY(0) rotate(0deg) scale(1);
+    }
+    50% {
+      transform: translateY(-70px) translateX(25px) rotate(180deg) scale(1.05);
+    }
+    100% {
+      transform: translateY(-130px) translateX(-15px) rotate(360deg) scale(0.96);
+    }
+  }
+
+  @keyframes bubbleFloat2 {
+    0% {
+      transform: translateY(0) rotate(0deg) scale(0.96);
+    }
+    50% {
+      transform: translateY(60px) translateX(-35px) rotate(-180deg) scale(1.06);
+    }
+    100% {
+      transform: translateY(110px) translateX(20px) rotate(-360deg) scale(1);
+    }
+  }
+
+  @keyframes bubbleFloat3 {
+    0% {
+      transform: translateY(0) rotate(0deg) scale(1);
+    }
+    50% {
+      transform: translateY(-50px) translateX(-20px) rotate(120deg) scale(1.08);
+    }
+    100% {
+      transform: translateY(-90px) translateX(30px) rotate(240deg) scale(0.95);
+    }
   }
 }
 

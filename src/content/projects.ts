@@ -6,7 +6,7 @@ const chainbills: CodingProject = {
     'Cross-chain, non-custodial payable-link gateway that settles payments across EVM chains and Solana using Circle CCTP and Wormhole. Receive any crypto on any chain from anyone.',
   longDescription:
     'Chainbills is an interoperable cross-chain crypto payment gateway where users create a payable, share one link, and accept crypto from any supported chain. Payments settle on-chain through Circle CCTP and Wormhole across EVM and Solana, with no custodian in between. Built with Anchor/Rust PDAs on Solana and Solidity smart contracts on EVM, Chainbills features non-custodial merchant payment processing, multi-chain relayers, and real-time settlement tracking.',
-  category: 'Web3 / Blockchain',
+  category: 'Blockchain / Web3',
   status: 'Open Source & Production Ready',
   role: 'Creator & Full-Stack Web3 Engineer',
   architecture: {
@@ -70,7 +70,7 @@ const orctra: CodingProject = {
     'Gamified capital economy live on EVM (minting active) with Solana settlement rolling out. Features on-chain prediction ladders, liquidity vaults, and cross-chain settlement.',
   longDescription:
     'Orctra is a gamified capital economy protocol built across EVM and Solana. The protocol features on-chain prediction ladders with progressive multiplier rungs, liquidity swap vaults, NFT-to-token swap fees, and automated royalty distributions. Engineered with high-performance smart contracts on EVM and Solana (Anchor/Rust), Orctra enables non-custodial participants to speculate on asset directions, climb prize ladders, and earn protocol yield with cryptographic settlement.',
-  category: 'Web3 / Blockchain',
+  category: 'Blockchain / Web3',
   status: 'Live on EVM',
   role: 'Lead Architect & Smart Contract Developer',
   architecture: {
@@ -108,7 +108,7 @@ const androidBubbles: CodingProject = {
     "Open-source Flutter plugin that exposes Android's native Conversation Bubbles overlay (introduced in Android 11) to Dart apps, so messaging and chat features can pop out as floating, multi-tasking chat heads over other apps. Ships with a working example and clean platform-channel bindings for NotificationManager and BubbleMetadata.",
   longDescription:
     "Android Bubbles in Flutter (conversation_bubbles) is an open-source Flutter plugin that bridges Flutter apps to Android's native Conversation Bubbles system API (introduced in Android 11+). The plugin enables messaging and communication apps to pop out floating, multi-tasking chat heads over other applications, handling Android NotificationManager lifecycles, BubbleMetadata, shortcuts, and platform channel data transfer seamlessly.",
-  category: 'Open Source Tooling',
+  category: 'Mobile & Flutter',
   status: 'Open Source on GitHub',
   role: 'Author & Maintainer',
   architecture: {
@@ -623,7 +623,7 @@ export const projects: CodingProject[] = [
       'Small utility that takes a GitHub username and an organization name and sends an org invitation through the GitHub API, so organizers can onboard cohorts in bulk instead of pasting invites by hand. Node.js backend on Firebase Functions.',
     longDescription:
       'A Node.js utility that automates GitHub organization invitations. Users provide a GitHub username and organization identifier, and the tool uses the GitHub API to send direct org invitations.',
-    category: 'Cloud & AI',
+    category: 'AI & Cloud',
     status: 'Open Source on GitHub',
     role: 'Developer',
     architecture: {
@@ -656,7 +656,7 @@ export const projects: CodingProject[] = [
       'Personal submissions from the ECX #30DaysOfCode backend track in 2020, working through daily Node.js and JavaScript challenges from HTTP fundamentals up through API design and lightweight databases. Public archive of the full 30-day journey.',
     longDescription:
       'A collection of backend development challenges completed during the ECX #30DaysOfCode program in 2020. The submissions showcase Node.js solutions for progressive backend engineering tasks, from fundamentals to API design.',
-    category: 'Cloud & AI',
+    category: 'Full-Stack Web',
     status: 'Learning Archive',
     role: 'Participant',
     architecture: {

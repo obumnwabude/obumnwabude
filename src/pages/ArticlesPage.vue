@@ -1,14 +1,25 @@
 <script setup lang="ts">
 import Article from '@/components/Article.vue';
+import ContentFilter from '@/components/ContentFilter.vue';
 import TimelineScroller from '@/components/TimelineScroller.vue';
 import { articles } from '@/content/articles';
 import { LINKS } from '@/content/links';
+import { ArticleCategories, type ArticleCategory } from '@/types';
 import { trackAuthorProfileClick } from '@/utils/analytics';
+import { computed, ref } from 'vue';
 
-const timelineArticles = articles.map((article, index) => ({
-  id: index,
-  date: article.date,
-}));
+const activeFilter = ref<ArticleCategory | null>(null);
+const allArticleCategories = [...ArticleCategories];
+const filteredArticles = computed(() =>
+  activeFilter.value ? articles.filter((a) => a.category === activeFilter.value) : articles
+);
+
+const timelineArticles = computed(() =>
+  filteredArticles.value.map((article, index) => ({
+    id: index,
+    date: article.date,
+  }))
+);
 </script>
 
 <template>
@@ -42,10 +53,20 @@ const timelineArticles = articles.map((article, index) => ({
       >freeCodeCamp</a
     >, and outlets like Medium, Hashnode, Dev.to, and SweetCode.
   </p>
+
+  <ContentFilter :filters="allArticleCategories" v-model="activeFilter" label="Filter articles" />
+
   <div page-content>
-    <div v-for="(article, index) of articles" :key="index" :id="`timeline-item-${index}`" class="timeline-item">
-      <Article :article="article" />
-    </div>
+    <TransitionGroup name="filter-list" tag="div">
+      <div
+        v-for="(article, index) of filteredArticles"
+        :key="article.title"
+        :id="`timeline-item-${index}`"
+        class="timeline-item"
+      >
+        <Article :article="article" />
+      </div>
+    </TransitionGroup>
   </div>
 
   <TimelineScroller :items="timelineArticles" />
@@ -54,5 +75,19 @@ const timelineArticles = articles.map((article, index) => ({
 <style scoped>
 .timeline-item {
   scroll-margin-top: 6rem;
+}
+
+.filter-list-move,
+.filter-list-enter-active,
+.filter-list-leave-active {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.filter-list-enter-from,
+.filter-list-leave-to {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.filter-list-leave-active {
+  position: absolute;
 }
 </style>

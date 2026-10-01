@@ -55,12 +55,18 @@ export interface ProjectArchitecture {
   infrastructure?: string[];
 }
 
-export interface CodingProject extends Card {
+export type CodingCategory = 'Full-Stack Web' | 'Mobile & Flutter' | 'Blockchain / Web3' | 'AI & Cloud';
+export const CodingCategories = ['Full-Stack Web', 'Mobile & Flutter', 'Blockchain / Web3', 'AI & Cloud'];
+
+interface ProjectOrEventType extends Card {
   actions: ContentAction[];
   tags: string[];
   expandedTags?: string[];
-  longDescription?: string;
-  category?: 'Web3 / Blockchain' | 'Cloud & AI' | 'Mobile & Flutter' | 'Full-Stack Web' | 'Open Source Tooling';
+  longDescription: string;
+}
+
+export interface CodingProject extends ProjectOrEventType {
+  category: CodingCategory;
   status?: string;
   role?: string;
   architecture?: ProjectArchitecture;
@@ -76,21 +82,28 @@ export interface CommunityResources {
   recording?: string;
 }
 
-export interface CommunityEvent extends CodingProject {
+export type EventSessionFormat = 'Workshop' | 'Talk' | 'Keynote' | 'Panel';
+export const EventSessionFormats = ['Workshop', 'Talk', 'Keynote', 'Panel'] as const;
+
+export interface CommunityEvent extends ProjectOrEventType {
   date: ContentDate;
   eventSeries?: string;
   location?: string;
-  sessionFormat?: 'Hands-on Workshop' | 'Keynote' | 'Technical Talk' | 'Panel Discussion' | 'Community Session';
+  sessionFormat: EventSessionFormat;
   curriculum?: string[];
   keyTakeaways?: string[];
   resources?: CommunityResources;
 }
 
+export type ArticleCategory = 'Architectures' | '#Flutter' | 'Stories' | 'Communities';
+export const ArticleCategories = ['Architectures', '#Flutter', 'Stories', 'Communities'] as const;
+
 export interface Article extends Card {
   date: ContentDate;
   link: string;
+  category: ArticleCategory;
   publishedOn: string;
-  readTime?: string;
+  readTime: string;
   tags?: string[];
   keyTakeaways?: string[];
   topicsCovered?: string[];
@@ -100,6 +113,8 @@ export interface Article extends Card {
 }
 
 export const banners = [
+  'AI',
+  'Google Cloud',
   'Web3 Dev',
   'Solana (Rust)',
   'EVM (Solidity)',

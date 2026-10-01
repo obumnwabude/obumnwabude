@@ -1,14 +1,25 @@
 <script setup lang="ts">
+import ContentFilter from '@/components/ContentFilter.vue';
 import ProjectOrEvent from '@/components/ProjectOrEvent.vue';
 import TimelineScroller from '@/components/TimelineScroller.vue';
 import { community } from '@/content/community';
 import { LINKS } from '@/content/links';
+import { type EventSessionFormat, EventSessionFormats } from '@/types';
 import { trackCommunityIntroLinkClick } from '@/utils/analytics';
+import { computed, ref } from 'vue';
 
-const timelineCommunity = community.map((contribution, index) => ({
-  id: index,
-  date: contribution.date,
-}));
+const activeFilter = ref<EventSessionFormat | null>(null);
+const allSessionFormats = [...EventSessionFormats];
+const filteredCommunity = computed(() =>
+  activeFilter.value ? community.filter((c) => c.sessionFormat === activeFilter.value) : community
+);
+
+const timelineCommunity = computed(() =>
+  filteredCommunity.value.map((contribution, index) => ({
+    id: index,
+    date: contribution.date,
+  }))
+);
 </script>
 
 <template>
@@ -30,7 +41,7 @@ const timelineCommunity = community.map((contribution, index) => ({
       target="_blank"
       underline
       @click="() => trackCommunityIntroLinkClick('GDE Profile (Cloud AI & Dart-Flutter)', LINKS.gdev)"
-      >Cloud AI & Dart-Flutter</a
+      >Cloud AI &amp; Dart-Flutter</a
     >. At
     <a
       :href="LINKS.gdg"
@@ -110,10 +121,20 @@ const timelineCommunity = community.map((contribution, index) => ({
     <br />
     Following are community engagements that I kept track of.
   </p>
+
+  <ContentFilter :filters="allSessionFormats" v-model="activeFilter" label="Filter community events" />
+
   <div page-content>
-    <div v-for="(contribution, index) of community" :key="index" :id="`timeline-item-${index}`" class="timeline-item">
-      <ProjectOrEvent :content="contribution" />
-    </div>
+    <TransitionGroup name="filter-list" tag="div">
+      <div
+        v-for="(contribution, index) of filteredCommunity"
+        :key="contribution.title"
+        :id="`timeline-item-${index}`"
+        class="timeline-item"
+      >
+        <ProjectOrEvent :content="contribution" />
+      </div>
+    </TransitionGroup>
   </div>
 
   <TimelineScroller :items="timelineCommunity" />
@@ -122,5 +143,19 @@ const timelineCommunity = community.map((contribution, index) => ({
 <style scoped>
 .timeline-item {
   scroll-margin-top: 6rem;
+}
+
+.filter-list-move,
+.filter-list-enter-active,
+.filter-list-leave-active {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.filter-list-enter-from,
+.filter-list-leave-to {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.filter-list-leave-active {
+  position: absolute;
 }
 </style>
