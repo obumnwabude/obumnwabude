@@ -19,10 +19,19 @@ const navItems = [
 
 const sidebar = useSidebarStore();
 const isScrolled = ref(false);
+const scrollProgress = ref(0);
 
 const handleScroll = () => {
   if (typeof window === 'undefined') return;
   isScrolled.value = window.scrollY > 15;
+  const docH = document.documentElement.scrollHeight - window.innerHeight;
+  scrollProgress.value = docH > 0 ? Math.min(100, (window.scrollY / docH) * 100) : 0;
+};
+
+const openCommandPalette = () => {
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent('open-command-palette', { detail: { trigger: 'header_button' } }));
+  }
 };
 
 onMounted(() => {
@@ -62,6 +71,29 @@ onUnmounted(() => {
 
       <div class="header-actions">
         <ContactMe color="var(--primary)" contact-me :label="'Contact Me'" location="header" />
+        <!-- Search / Command Palette trigger -->
+        <button
+          type="button"
+          search
+          aria-label="Open command palette"
+          title="Search (⌘K)"
+          @click="openCommandPalette"
+        >
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </button>
         <!-- Theme toggle cast directly into the UI (no borders/background) -->
         <div theme><ThemeMenu :full="false" /></div>
         <!-- Menu toggle cast directly into the UI (no borders/background) -->
@@ -79,6 +111,7 @@ onUnmounted(() => {
         </button>
       </div>
     </div>
+    <div class="progress-bar" :style="{ transform: `scaleX(${scrollProgress / 100})` }"></div>
   </header>
 </template>
 
@@ -110,6 +143,23 @@ onUnmounted(() => {
 
 body.dark .glass-header.is-scrolled {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45), inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-2) 0%, var(--primary) 100%);
+  transform-origin: left;
+  transform: scaleX(0);
+  opacity: 0;
+  transition: transform 0.1s linear, opacity 0.3s ease;
+}
+
+.glass-header.is-scrolled .progress-bar {
+  opacity: 1;
 }
 
 .header-inner {
@@ -298,6 +348,29 @@ body.dark .router-link-active.nav-link {
 
 [menu]:hover {
   color: var(--primary);
+  transform: scale(1.1);
+}
+
+[search] {
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  width: 2.25rem;
+  height: 2.25rem;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  cursor: pointer;
+  box-shadow: none;
+  opacity: 0.85;
+  transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.18s ease, opacity 0.18s ease;
+}
+
+[search]:hover {
+  color: var(--primary);
+  opacity: 1;
   transform: scale(1.1);
 }
 

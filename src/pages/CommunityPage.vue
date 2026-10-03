@@ -8,10 +8,17 @@ import { type EventSessionFormat, EventSessionFormats } from '@/types';
 import { trackCommunityIntroLinkClick } from '@/utils/analytics';
 import { computed, ref } from 'vue';
 
-const activeFilter = ref<EventSessionFormat | null>(null);
+const activeFilters = ref<EventSessionFormat[]>([]);
 const allSessionFormats = [...EventSessionFormats];
 const filteredCommunity = computed(() =>
-  activeFilter.value ? community.filter((c) => c.sessionFormat === activeFilter.value) : community
+  activeFilters.value.length ? community.filter((c) => activeFilters.value.includes(c.sessionFormat)) : community
+);
+
+const communityCounts = computed(() =>
+  allSessionFormats.reduce<Record<string, number>>((acc, fmt) => {
+    acc[fmt] = community.filter((c) => c.sessionFormat === fmt).length;
+    return acc;
+  }, {})
 );
 
 const timelineCommunity = computed(() =>
@@ -25,7 +32,7 @@ const timelineCommunity = computed(() =>
 <template>
   <h1 page-heading>CONTRIBUTING TO COMMUNITY</h1>
   <p page-intro>
-    I actively volunteer in tech communities in my locality. I am
+    I actively volunteer in tech communities in my locality. I am a
     <a
       :href="LINKS.gde"
       rel="noopener noreferrer"
@@ -122,7 +129,13 @@ const timelineCommunity = computed(() =>
     Following are community engagements that I kept track of.
   </p>
 
-  <ContentFilter :filters="allSessionFormats" v-model="activeFilter" label="Filter community events" />
+  <ContentFilter
+    :filters="allSessionFormats"
+    v-model="activeFilters"
+    :counts="communityCounts"
+    :total-count="community.length"
+    label="Filter community events"
+  />
 
   <div page-content>
     <TransitionGroup name="filter-list" tag="div">

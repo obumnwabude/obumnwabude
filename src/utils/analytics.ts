@@ -320,7 +320,11 @@ export function trackProjectInspectOpened(projectTitle: string, category?: strin
 /**
  * Tracks in-place expansion / collapse of an Article or Community event card on desktop.
  */
-export function trackCardExpansion(title: string, type: 'article' | 'community' | 'project', action: 'expand' | 'collapse'): void {
+export function trackCardExpansion(
+  title: string,
+  type: 'article' | 'community' | 'project',
+  action: 'expand' | 'collapse'
+): void {
   trackEvent('card_expansion_toggle', {
     content_title: title,
     content_type: type,
@@ -415,6 +419,64 @@ export function trackNavClick(
 export function trackMobileMenuToggle(action: 'open' | 'close'): void {
   trackEvent('mobile_menu_toggle', {
     action,
+  });
+}
+
+// ============================================================================
+// Command Palette (Cmd/Ctrl + K)
+// ============================================================================
+
+export type PaletteResultType = 'article' | 'project' | 'community' | 'nav' | 'action';
+export type PaletteOpenTrigger = 'keyboard' | 'header_button' | 'sidebar' | 'other';
+
+/**
+ * Tracks when the command palette is opened.
+ */
+export function trackPaletteOpened(trigger: PaletteOpenTrigger): void {
+  trackEvent('palette_opened', {
+    trigger,
+  });
+}
+
+/**
+ * Tracks activation of a palette result.
+ */
+export function trackPaletteResultSelected(details: {
+  resultType: PaletteResultType;
+  resultLabel: string;
+  resultIndex: number;
+  query: string;
+  destination?: string;
+  submenu?: string;
+}): void {
+  trackEvent('palette_result_selected', {
+    result_type: details.resultType,
+    result_label: details.resultLabel,
+    result_index: details.resultIndex,
+    query: details.query || '(empty)',
+    query_length: details.query.length,
+    destination: details.destination || '',
+    submenu: details.submenu || 'main',
+  });
+}
+
+/**
+ * Tracks entering the theme submenu inside the palette.
+ */
+export function trackPaletteSubmenuOpened(submenu: 'theme'): void {
+  trackEvent('palette_submenu_opened', {
+    submenu,
+  });
+}
+
+/**
+ * Tracks closing the palette without any selection.
+ */
+export function trackPaletteDismissed(details: { query: string; resultCount: number }): void {
+  trackEvent('palette_dismissed', {
+    query: details.query || '(empty)',
+    query_length: details.query.length,
+    result_count: details.resultCount,
   });
 }
 

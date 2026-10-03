@@ -4,7 +4,7 @@ import { trackSkillTagInteraction } from '@/utils/analytics';
 
 const pillars = [
   {
-    iconSvg: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/><path d="m12 10.5 1 2 2 1-2 1-1 2-1-2-2-1 2-1 1-2z"/><path d="m19 4 .5 1.2 1.2.5-1.2.5-.5 1.2-.5-1.2-1.2-.5 1.2-.5.5-1.2z"/></svg>`,
+    iconSvg: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C12 7 17 12 22 12C17 12 12 17 12 22C12 17 7 12 2 12C7 12 12 7 12 2Z"/></svg>`,
     title: 'Cloud & Generative AI',
     subtitle: 'Autonomous Agents & Multimodal Intelligence',
     description:

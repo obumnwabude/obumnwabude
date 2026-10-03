@@ -8,10 +8,17 @@ import { ArticleCategories, type ArticleCategory } from '@/types';
 import { trackAuthorProfileClick } from '@/utils/analytics';
 import { computed, ref } from 'vue';
 
-const activeFilter = ref<ArticleCategory | null>(null);
+const activeFilters = ref<ArticleCategory[]>([]);
 const allArticleCategories = [...ArticleCategories];
 const filteredArticles = computed(() =>
-  activeFilter.value ? articles.filter((a) => a.category === activeFilter.value) : articles
+  activeFilters.value.length ? articles.filter((a) => activeFilters.value.includes(a.category)) : articles
+);
+
+const articleCounts = computed(() =>
+  allArticleCategories.reduce<Record<string, number>>((acc, cat) => {
+    acc[cat] = articles.filter((a) => a.category === cat).length;
+    return acc;
+  }, {})
 );
 
 const timelineArticles = computed(() =>
@@ -54,7 +61,13 @@ const timelineArticles = computed(() =>
     >, and outlets like Medium, Hashnode, Dev.to, and SweetCode.
   </p>
 
-  <ContentFilter :filters="allArticleCategories" v-model="activeFilter" label="Filter articles" />
+  <ContentFilter
+    :filters="allArticleCategories"
+    v-model="activeFilters"
+    :counts="articleCounts"
+    :total-count="articles.length"
+    label="Filter articles"
+  />
 
   <div page-content>
     <TransitionGroup name="filter-list" tag="div">

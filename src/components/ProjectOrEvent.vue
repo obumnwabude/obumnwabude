@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import GlassBottomSheet from '@/components/GlassBottomSheet.vue';
 import GlassCard from '@/components/GlassCard.vue';
+import GlassDrawer from '@/components/GlassDrawer.vue';
 import IconAboutReadMore from '@/icons/IconAboutReadMore.vue';
 import IconApple from '@/icons/IconApple.vue';
 import IconArticle from '@/icons/IconArticle.vue';
@@ -7,7 +9,6 @@ import IconAward from '@/icons/IconAward.vue';
 import IconCode from '@/icons/IconCode.vue';
 import IconDocument from '@/icons/IconDocument.vue';
 import IconDown from '@/icons/IconDown.vue';
-import IconUp from '@/icons/IconUp.vue';
 import IconExternalLink from '@/icons/IconExternalLink.vue';
 import IconFacebook from '@/icons/IconFacebook.vue';
 import IconFolder from '@/icons/IconFolder.vue';
@@ -23,12 +24,11 @@ import IconRecording from '@/icons/IconRecording.vue';
 import IconRocket from '@/icons/IconRocket.vue';
 import IconSlides from '@/icons/IconSlides.vue';
 import IconTicket from '@/icons/IconTicket.vue';
+import IconUp from '@/icons/IconUp.vue';
 import IconUsers from '@/icons/IconUsers.vue';
 import IconX from '@/icons/IconX.vue';
 import IconZap from '@/icons/IconZap.vue';
 import { displayDate, type ActionIcon, type CodingProject, type CommunityEvent, type ContentAction } from '@/types';
-import GlassBottomSheet from '@/components/GlassBottomSheet.vue';
-import GlassDrawer from '@/components/GlassDrawer.vue';
 import {
   trackAssetError,
   trackBottomSheetOpened,
@@ -37,6 +37,7 @@ import {
   trackProjectActionClick,
   trackProjectInspectOpened,
 } from '@/utils/analytics';
+import { contentId } from '@/utils/slug';
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch, type Component } from 'vue';
 
 const { content, featured = false } = defineProps<{
@@ -51,6 +52,7 @@ const isDrawerOpen = ref(false);
 const isSheetOpen = ref(false);
 const isExpandedDesktop = ref(false);
 const overlayVisible = ref(false);
+const isCollapsing = ref(false);
 const isMobile = ref(false);
 const wrapperRef = ref<HTMLElement | null>(null);
 const communityPanelRef = ref<HTMLElement | null>(null);
@@ -65,6 +67,8 @@ let idleTimer: ReturnType<typeof setTimeout> | null = null;
 let idleObserver: IntersectionObserver | null = null;
 let isCardVisible = false;
 const IDLE_HINT_SESSION_KEY = 'obum-idle-hint-shown';
+
+let hoverTimer: ReturnType<typeof setTimeout> | null = null;
 
 const updateViewport = () => {
   if (typeof window !== 'undefined') {
@@ -109,6 +113,7 @@ const onUserActivity = () => {
   armIdleHint();
 };
 
+
 onMounted(() => {
   updateViewport();
   window.addEventListener('resize', updateViewport, { passive: true });
@@ -118,6 +123,7 @@ onMounted(() => {
   }
 
   if (wrapperRef.value && 'IntersectionObserver' in window) {
+    // Idle hint observer (mobile)
     idleObserver = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
@@ -188,8 +194,6 @@ const handleCardClick = () => {
   }
 };
 
-let hoverTimer: ReturnType<typeof setTimeout> | null = null;
-
 const handleMouseEnter = () => {
   if (suppressEnter) return;
   if (isMobile.value || !hasExpandableRichContent()) return;
@@ -217,6 +221,7 @@ const handleMouseLeave = () => {
 
 const onPanelAfterLeave = () => {
   overlayVisible.value = false;
+  isCollapsing.value = false;
 };
 
 const hasCommunityRichContent = () => {
@@ -297,47 +302,11 @@ const actionIconMap: Record<ActionIcon, Component> = {
 
 const getActionIcon = (icon?: ActionIcon): Component => (icon && actionIconMap[icon]) || IconExternalLink;
 
-const activePanelRef = computed(() =>
-  isCommunityEvent(content) ? communityPanelRef.value : projectPanelRef.value
-);
+const activePanelRef = computed(() => (isCommunityEvent(content) ? communityPanelRef.value : projectPanelRef.value));
 
 const wrapperStyle = computed(() => ({
   '--overlay-push': `${pushHeight.value}px`,
 }));
-
-const startCollapseCompensation = () => {
-  if (scrollRaf) {
-    cancelAnimationFrame(scrollRaf);
-    scrollRaf = null;
-  }
-  const wrapperEl = wrapperRef.value;
-  if (!wrapperEl) return;
-
-  let lastMargin = parseFloat(getComputedStyle(wrapperEl).marginBottom);
-  const startedAt = performance.now();
-
-  const tick = () => {
-    if (performance.now() - startedAt > 1100) {
-      scrollRaf = null;
-      return;
-    }
-    const currentMargin = parseFloat(getComputedStyle(wrapperEl).marginBottom);
-    const delta = lastMargin - currentMargin;
-    if (delta > 0.5) {
-      const scrollY = window.scrollY;
-      const applied = Math.min(delta, scrollY);
-      if (applied > 0) window.scrollBy(0, -applied);
-      lastMargin = currentMargin;
-    } else if (delta < -0.5) {
-      scrollRaf = null;
-      return;
-    } else {
-      lastMargin = currentMargin;
-    }
-    scrollRaf = requestAnimationFrame(tick);
-  };
-  scrollRaf = requestAnimationFrame(tick);
-};
 
 watch(isExpandedDesktop, async (expanded) => {
   if (isMobile.value) return;
@@ -346,12 +315,59 @@ watch(isExpandedDesktop, async (expanded) => {
       cancelAnimationFrame(scrollRaf);
       scrollRaf = null;
     }
+    // Expand is immediate — no margin transition, no bento transition.
+    isCollapsing.value = false;
     overlayVisible.value = true;
     await nextTick();
-    pushHeight.value = activePanelRef.value?.scrollHeight ?? 0;
+    // Compensate for the padding that's still interpolating when we measure.
+    // bento-expand-enter-from forces padding-top/bottom to 0, and the enter-to
+    // easing is fast-out so most of the padding is restored within a couple of
+    // frames, but not all of it. scrollHeight follows the current (interpolating)
+    // padding, so we add whatever is still missing against the natural total.
+    if (activePanelRef.value) {
+      const el = activePanelRef.value;
+      const style = getComputedStyle(el);
+      const curPadY = (parseFloat(style.paddingTop) || 0) + (parseFloat(style.paddingBottom) || 0);
+      // Matches .community-bento-panel padding: 1.5rem 2rem (1.5rem × 2 = 48px).
+      const naturalPadY = 48;
+      pushHeight.value = el.scrollHeight + Math.max(0, naturalPadY - curPadY);
+    }
   } else {
+    const wrapper = wrapperRef.value;
+    if (!wrapper) {
+      pushHeight.value = 0;
+      return;
+    }
+    const rect = wrapper.getBoundingClientRect();
+    const toShrink = pushHeight.value;
+    // If the card has scrolled entirely past the top of the viewport, don't rely
+    // on the 580ms margin-bottom transition — the continuous layout change fights
+    // scroll anchoring and reads as the sub-pixel wobble. Instead: suppress the
+    // transition, snap the push to 0 in one frame, and compensate the scroll by
+    // the same amount in the same frame so the viewport doesn't shift at all.
+    if (rect.bottom < 0 && toShrink > 0) {
+      wrapper.style.transition = 'none';
+      wrapper.style.setProperty('--overlay-push', '0px');
+      // Force a synchronous layout read so the margin change takes effect this frame
+      void wrapper.offsetHeight;
+      window.scrollBy({ top: -toShrink });
+      // Sync Vue state — no new DOM write, inline style already pinned push to 0
+      pushHeight.value = 0;
+      // Restore the transition for the next cycle
+      requestAnimationFrame(() => {
+        const el = wrapperRef.value;
+        if (!el) return;
+        el.style.transition = '';
+        el.style.removeProperty('--overlay-push');
+      });
+      return;
+    }
+    // Card still in view (or push already 0): run the margin-bottom transition
+    // for the collapse only (is-collapsing class), and keep the card in frame.
+    isCollapsing.value = true;
     pushHeight.value = 0;
-    startCollapseCompensation();
+    await nextTick();
+    wrapper.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 });
 </script>
@@ -360,10 +376,12 @@ watch(isExpandedDesktop, async (expanded) => {
   <div
     v-reveal="{ delay: 50 }"
     ref="wrapperRef"
+    :id="contentId(title)"
     class="project-wrapper"
     :class="{
       'is-coding-project': !isCommunityEvent(content),
       'has-overlay': overlayVisible && !isMobile,
+      'is-collapsing': isCollapsing,
     }"
     :style="wrapperStyle"
     @mouseenter="handleMouseEnter"
@@ -379,10 +397,7 @@ watch(isExpandedDesktop, async (expanded) => {
     >
       <!-- Top Row: Image & Details side-by-side on desktop (Stable layout) -->
       <div class="project-inner">
-        <div
-          class="project-image-container clickable-image"
-          @click.stop="handleCardClick"
-        >
+        <div class="project-image-container clickable-image" @click.stop="handleCardClick">
           <img
             :src="`/assets/${image.name}.${image.png ? 'png' : 'jpg'}`"
             :alt="image.alt"
@@ -407,10 +422,7 @@ watch(isExpandedDesktop, async (expanded) => {
             <span v-if="content.location" class="location-text">{{ content.location }}</span>
           </p>
 
-          <h3
-            class="project-title clickable-title"
-            @click.stop="handleCardClick"
-          >
+          <h3 class="project-title clickable-title" @click.stop="handleCardClick">
             {{ title }}
           </h3>
 
@@ -498,7 +510,6 @@ watch(isExpandedDesktop, async (expanded) => {
           </div>
         </div>
       </div>
-
     </GlassCard>
 
     <!-- Overlay Desktop Bento Expansion for Community Event: absolutely positioned below the card, no layout push -->
@@ -510,15 +521,8 @@ watch(isExpandedDesktop, async (expanded) => {
         @click.stop
       >
         <!-- Expanded Tags inside Community Bento -->
-        <div
-          v-if="(content.expandedTags || content.tags)?.length"
-          class="community-expanded-tags"
-        >
-          <span
-            v-for="tag of (content.expandedTags || content.tags)"
-            :key="tag"
-            class="community-tag-chip"
-          >
+        <div v-if="(content.expandedTags || content.tags)?.length" class="community-expanded-tags">
+          <span v-for="tag of content.expandedTags || content.tags" :key="tag" class="community-tag-chip">
             {{ tag }}
           </span>
         </div>
@@ -527,9 +531,16 @@ watch(isExpandedDesktop, async (expanded) => {
           <p class="bento-prose">{{ content.longDescription }}</p>
         </div>
 
-        <div v-if="(content as CommunityEvent).sessionFormat || (content as CommunityEvent).eventSeries" class="bento-meta-row">
-          <span v-if="(content as CommunityEvent).sessionFormat" class="bento-meta-pill">Format: {{ (content as CommunityEvent).sessionFormat }}</span>
-          <span v-if="(content as CommunityEvent).eventSeries" class="bento-meta-pill">Series: {{ (content as CommunityEvent).eventSeries }}</span>
+        <div
+          v-if="(content as CommunityEvent).sessionFormat || (content as CommunityEvent).eventSeries"
+          class="bento-meta-row"
+        >
+          <span v-if="(content as CommunityEvent).sessionFormat" class="bento-meta-pill"
+            >Format: {{ (content as CommunityEvent).sessionFormat }}</span
+          >
+          <span v-if="(content as CommunityEvent).eventSeries" class="bento-meta-pill"
+            >Series: {{ (content as CommunityEvent).eventSeries }}</span
+          >
         </div>
 
         <div v-if="(content as CommunityEvent).curriculum?.length" class="bento-section">
@@ -544,7 +555,11 @@ watch(isExpandedDesktop, async (expanded) => {
         <div v-if="(content as CommunityEvent).keyTakeaways?.length" class="bento-section">
           <h4 class="bento-section-title">Key Takeaways</h4>
           <ul class="bento-takeaways-list">
-            <li v-for="(takeaway, idx) of (content as CommunityEvent).keyTakeaways" :key="idx" class="bento-takeaway-item">
+            <li
+              v-for="(takeaway, idx) of (content as CommunityEvent).keyTakeaways"
+              :key="idx"
+              class="bento-takeaway-item"
+            >
               <span class="takeaway-bullet" aria-hidden="true"></span>
               <span>{{ takeaway }}</span>
             </li>
@@ -577,15 +592,8 @@ watch(isExpandedDesktop, async (expanded) => {
           </span>
         </div>
 
-        <div
-          v-if="((content as CodingProject).expandedTags || tags)?.length"
-          class="community-expanded-tags"
-        >
-          <span
-            v-for="tag of ((content as CodingProject).expandedTags || tags)"
-            :key="tag"
-            class="community-tag-chip"
-          >
+        <div v-if="((content as CodingProject).expandedTags || tags)?.length" class="community-expanded-tags">
+          <span v-for="tag of ((content as CodingProject).expandedTags || tags)" :key="tag" class="community-tag-chip">
             {{ tag }}
           </span>
         </div>
@@ -680,7 +688,7 @@ watch(isExpandedDesktop, async (expanded) => {
     >
       <!-- Tags inside Mobile Sheet -->
       <div v-if="(content.expandedTags || content.tags)?.length" class="sheet-tags-row">
-        <span v-for="tag of (content.expandedTags || content.tags)" :key="tag" class="community-tag-chip">
+        <span v-for="tag of content.expandedTags || content.tags" :key="tag" class="community-tag-chip">
           {{ tag }}
         </span>
       </div>
@@ -736,12 +744,18 @@ watch(isExpandedDesktop, async (expanded) => {
   margin: 0 auto calc(6rem + var(--overlay-push, 0px));
   max-width: 1440px;
   position: relative;
-  transition: margin-bottom 0.58s cubic-bezier(0.32, 0.72, 0.24, 1);
+  /* No transition by default — expand is instant. */
+  /* Clears the fixed header + sticky content filter when scrolled to via hash or .scrollIntoView() */
+  scroll-margin-top: 128px;
+}
+
+.project-wrapper.is-collapsing {
+  transition: margin-bottom 0.7s cubic-bezier(0.32, 0.72, 0.24, 1);
 }
 
 .project-wrapper :deep(.glass-card) {
-  transition: transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1), border-color 420ms ease,
-    border-radius 420ms ease, box-shadow 420ms ease;
+  transition: transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1), border-color 420ms ease, border-radius 420ms ease,
+    box-shadow 420ms ease;
 }
 
 .project-wrapper.has-overlay :deep(.glass-card) {
@@ -907,12 +921,22 @@ watch(isExpandedDesktop, async (expanded) => {
 }
 
 @keyframes more-btn-throb {
-  0%, 60%, 100% { transform: translateY(0); opacity: 0.9; }
-  30% { transform: translateY(3px); opacity: 1; }
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+  30% {
+    transform: translateY(3px);
+    opacity: 1;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .project-more-btn.is-throbbing > svg { animation: none; }
+  .project-more-btn.is-throbbing > svg {
+    animation: none;
+  }
 }
 
 .more-btn-hint-wrap {
@@ -1077,7 +1101,6 @@ watch(isExpandedDesktop, async (expanded) => {
   margin-bottom: 0.85rem;
 }
 
-
 .location-dot {
   margin: 0 0.35rem;
   opacity: 0.5;
@@ -1101,6 +1124,38 @@ watch(isExpandedDesktop, async (expanded) => {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+}
+
+/* Border beam wraps the combined card + bento outline as a single shape when expanded.
+   Beam lives on the wrapper, extending from -1px above the card to pushHeight+1px below it. */
+.project-wrapper.has-overlay::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: calc(-1 * var(--overlay-push, 0px) - 2px);
+  border-radius: 20px;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--angle, 0deg),
+    transparent 65%,
+    var(--accent-2) 80%,
+    var(--primary) 95%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+  animation: spin-beam 5s linear infinite;
+  transition: bottom 0.58s cubic-bezier(0.32, 0.72, 0.24, 1);
+  z-index: 11;
+}
+
+/* Hide the card's own beam while the combined wrapper beam owns the outline */
+.project-wrapper.has-overlay :deep(.glass-border-beam::after) {
+  opacity: 0;
 }
 
 .community-expanded-tags,
@@ -1157,8 +1212,15 @@ watch(isExpandedDesktop, async (expanded) => {
 }
 
 @keyframes bento-status-pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.55; transform: scale(1.25); }
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(1.25);
+  }
 }
 
 .bento-architecture-grid {
@@ -1248,13 +1310,15 @@ watch(isExpandedDesktop, async (expanded) => {
 }
 
 .bento-expand-enter-active {
-  transition: max-height 0.68s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.44s ease-out 0.08s, padding 0.68s cubic-bezier(0.22, 1, 0.36, 1);
+  /* Expand is instant — no transition. */
+  transition: none;
   max-height: 2400px;
   opacity: 1;
 }
 
 .bento-expand-leave-active {
-  transition: max-height 0.58s cubic-bezier(0.32, 0.72, 0.24, 1), opacity 0.34s ease-in, padding 0.58s cubic-bezier(0.32, 0.72, 0.24, 1);
+  transition: max-height 0s cubic-bezier(0.32, 0.72, 0.24, 1), opacity 0s ease-in,
+    padding 0s cubic-bezier(0.32, 0.72, 0.24, 1);
   max-height: 2400px;
   opacity: 1;
 }

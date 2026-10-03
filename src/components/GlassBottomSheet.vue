@@ -14,6 +14,7 @@ const emit = defineEmits<{
 }>();
 
 const isMounted = ref(false);
+const didPushState = ref(false);
 
 const close = () => {
   emit('update:open', false);
@@ -26,14 +27,33 @@ const handleKeyDown = (e: KeyboardEvent) => {
   }
 };
 
+const handlePopState = () => {
+  if (props.open) {
+    close();
+  }
+};
+
 watch(
   () => props.open,
   (isOpen) => {
     if (typeof document === 'undefined') return;
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      // Push a fake history entry so back button closes sheet instead of navigating
+      if (typeof window !== 'undefined' && typeof window.history !== 'undefined') {
+        window.history.pushState({ sheetOpen: true }, '');
+        didPushState.value = true;
+      }
     } else {
       document.body.style.overflow = '';
+      // Clean up fake history entry if we pushed one
+      if (didPushState.value) {
+        didPushState.value = false;
+        // Only go back if current state is our fake one (avoid double-back)
+        if (typeof window !== 'undefined' && window.history.state?.sheetOpen) {
+          window.history.back();
+        }
+      }
     }
   }
 );
@@ -41,11 +61,13 @@ watch(
 onMounted(() => {
   isMounted.value = true;
   window.addEventListener('keydown', handleKeyDown);
+  window.addEventListener('popstate', handlePopState);
 });
 
 onBeforeUnmount(() => {
   if (typeof window !== 'undefined') {
     window.removeEventListener('keydown', handleKeyDown);
+    window.removeEventListener('popstate', handlePopState);
   }
   if (typeof document !== 'undefined') {
     document.body.style.overflow = '';

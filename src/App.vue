@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import AmbientBackdrop from '@/components/AmbientBackdrop.vue';
+import CommandPalette from '@/components/CommandPalette.vue';
 import Footer from '@/components/Footer.vue';
 import GlassDefs from '@/components/GlassDefs.vue';
 import Header from '@/components/Header.vue';
@@ -31,6 +32,7 @@ useThemeStore();
 
   <ScrollToTop />
   <Footer />
+  <CommandPalette />
 </template>
 
 <style scoped>

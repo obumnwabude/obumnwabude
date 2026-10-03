@@ -2,6 +2,7 @@
 import IconFlower6P from '@/icons/IconFlower6P.vue';
 import { onMounted, onUnmounted, ref } from 'vue';
 
+const isTouchDevice = ref(false);
 const isVisible = ref(false);
 const isHoveringInteractive = ref(false);
 const isMouseDown = ref(false);
@@ -98,7 +99,10 @@ const tick = () => {
 
 onMounted(() => {
   if (typeof window === 'undefined') return;
-  if (window.matchMedia('(pointer: coarse)').matches) return;
+  if (window.matchMedia('(pointer: coarse)').matches) {
+    isTouchDevice.value = true;
+    return;
+  }
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   lastScrollY = window.scrollY;
@@ -128,39 +132,41 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <!-- Ambient radiant wash behind glass cards -->
-  <div
-    ref="followerRef"
-    class="mouse-follower"
-    :class="{ 'is-active': isVisible, 'is-interactive': isHoveringInteractive }"
-    aria-hidden="true"
-  >
-    <div class="follower-ambient"></div>
-    <div class="follower-core"></div>
-  </div>
-
-  <!-- Custom Viewport Mouse Pointer with Bespoke Iridescent Branding -->
-  <div
-    class="custom-cursor-layer"
-    :class="{
-      'is-active': isVisible,
-      'is-interactive': isHoveringInteractive,
-      'is-down': isMouseDown,
-    }"
-    aria-hidden="true"
-  >
-    <!-- Center Dot with Chromatic Glow -->
-    <div ref="cursorDotRef" class="custom-cursor-dot"></div>
-
-    <!-- Outer Iridescent Trailing Ring with Always-Present Brand 6P Flower -->
-    <div ref="cursorRingRef" class="custom-cursor-ring">
-      <div class="cursor-sheen-ring"></div>
-      <!-- 6P flower brand mark: always present, blooms slightly larger on hover -->
-      <span class="cursor-flower-glyph">
-        <IconFlower6P color="var(--primary)" :size="16" :spin="true" />
-      </span>
+  <template v-if="!isTouchDevice">
+    <!-- Ambient radiant wash behind glass cards -->
+    <div
+      ref="followerRef"
+      class="mouse-follower"
+      :class="{ 'is-active': isVisible, 'is-interactive': isHoveringInteractive }"
+      aria-hidden="true"
+    >
+      <div class="follower-ambient"></div>
+      <div class="follower-core"></div>
     </div>
-  </div>
+
+    <!-- Custom Viewport Mouse Pointer with Bespoke Iridescent Branding -->
+    <div
+      class="custom-cursor-layer"
+      :class="{
+        'is-active': isVisible,
+        'is-interactive': isHoveringInteractive,
+        'is-down': isMouseDown,
+      }"
+      aria-hidden="true"
+    >
+      <!-- Center Dot with Chromatic Glow -->
+      <div ref="cursorDotRef" class="custom-cursor-dot"></div>
+
+      <!-- Outer Iridescent Trailing Ring with Always-Present Brand 6P Flower -->
+      <div ref="cursorRingRef" class="custom-cursor-ring">
+        <div class="cursor-sheen-ring"></div>
+        <!-- 6P flower brand mark: always present, blooms slightly larger on hover -->
+        <span class="cursor-flower-glyph">
+          <IconFlower6P color="var(--primary)" :size="16" :spin="true" />
+        </span>
+      </div>
+    </div>
+  </template>
 </template>
 
 <style scoped>

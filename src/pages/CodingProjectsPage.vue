@@ -5,10 +5,17 @@ import { projects } from '@/content/projects';
 import { CodingCategories, type CodingCategory } from '@/types';
 import { computed, ref } from 'vue';
 
-const activeFilter = ref<CodingCategory | null>(null);
+const activeFilters = ref<CodingCategory[]>([]);
 const allCategories = [...CodingCategories];
 const filteredProjects = computed(() =>
-  activeFilter.value ? projects.filter((p) => p.category === activeFilter.value) : projects
+  activeFilters.value.length ? projects.filter((p) => activeFilters.value.includes(p.category)) : projects
+);
+
+const projectCounts = computed(() =>
+  allCategories.reduce<Record<string, number>>((acc, cat) => {
+    acc[cat] = projects.filter((p) => p.category === cat).length;
+    return acc;
+  }, {})
 );
 </script>
 
@@ -25,7 +32,13 @@ const filteredProjects = computed(() =>
     Following are hand-picked projects I've worked (-ing) on over the years.
   </p>
 
-  <ContentFilter :filters="allCategories" v-model="activeFilter" label="Filter projects by category" />
+  <ContentFilter
+    :filters="allCategories"
+    v-model="activeFilters"
+    :counts="projectCounts"
+    :total-count="projects.length"
+    label="Filter projects by category"
+  />
 
   <div page-content>
     <TransitionGroup name="filter-list" tag="div">

@@ -59,12 +59,18 @@ export function createRouterInstance(isServer = typeof window === 'undefined') {
   const router = createRouter({
     history,
     routes,
-    scrollBehavior(_, __, saved) {
+    scrollBehavior(to, _from, saved) {
+      if (to.hash) {
+        // The fixed header + pinned content filter together consume ~128px
+        // at the top of the viewport. Push the anchor below both so the
+        // targeted card sits in the clear.
+        return { el: to.hash, top: 128, behavior: 'smooth' };
+      }
       return saved ? saved : { top: 0 };
     },
   });
 
-  router.beforeEach((to, _, next) => {
+  router.beforeEach((to, fromRoute, next) => {
     // Intercept broken backlinks and 404 captures
     if (to.name === 'all') {
       track404Redirect(to.fullPath, typeof document !== 'undefined' ? document.referrer : '');
@@ -97,6 +103,19 @@ export function createRouterInstance(isServer = typeof window === 'undefined') {
         if (ogUrl) ogUrl.setAttribute('content', canonicalUrl);
       }
     }
+
+    // View Transitions API for smooth page morphing
+    if (
+      typeof document !== 'undefined' &&
+      'startViewTransition' in document &&
+      fromRoute.name !== undefined // skip initial load
+    ) {
+      (document as any).startViewTransition(() => {
+        next();
+      });
+      return; // don't call next() again
+    }
+
     next();
   });
 
