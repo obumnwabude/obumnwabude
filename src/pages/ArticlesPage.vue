@@ -6,10 +6,31 @@ import { articles } from '@/content/articles';
 import { LINKS } from '@/content/links';
 import { ArticleCategories, type ArticleCategory } from '@/types';
 import { trackAuthorProfileClick } from '@/utils/analytics';
-import { computed, ref } from 'vue';
+import { computed, nextTick, onMounted, ref, watch } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
-const activeFilters = ref<ArticleCategory[]>([]);
+const router = useRouter();
+const route = useRoute();
+const filterAnchorRef = ref<HTMLElement | null>(null);
+
+const isValidCategory = (value: string): value is ArticleCategory => {
+  return ArticleCategories.includes(value as ArticleCategory);
+};
+
+const parseFiltersFromRoute = (): ArticleCategory[] => {
+  const filtersParam = route.query.filters;
+  if (!filtersParam) return [];
+  if (typeof filtersParam === 'string') {
+    return filtersParam.split(',').filter(isValidCategory);
+  }
+  return Array.isArray(filtersParam)
+    ? filtersParam.filter((f): f is ArticleCategory => typeof f === 'string' && isValidCategory(f))
+    : [];
+};
+
+const activeFilters = computed((): ArticleCategory[] => parseFiltersFromRoute());
 const allArticleCategories = [...ArticleCategories];
+
 const filteredArticles = computed(() =>
   activeFilters.value.length ? articles.filter((a) => activeFilters.value.includes(a.category)) : articles
 );
@@ -27,6 +48,32 @@ const timelineArticles = computed(() =>
     date: article.date,
   }))
 );
+
+const updateFilters = (newFilters: string[]) => {
+  const validFilters = newFilters.filter(isValidCategory);
+  if (validFilters.length === 0) {
+    router.push({ query: {} });
+  } else {
+    router.push({ query: { filters: validFilters.join(',') } });
+  }
+};
+
+function scrollToFilter(behavior: ScrollBehavior = 'smooth') {
+  const anchor = filterAnchorRef.value;
+  if (!anchor) return;
+  const stickyTop = window.innerWidth >= 768 ? 64 : 60;
+  const target = window.scrollY + anchor.getBoundingClientRect().top - stickyTop;
+  window.scrollTo({ top: Math.max(0, target), behavior });
+}
+
+onMounted(() => {
+  if (activeFilters.value.length) nextTick(() => scrollToFilter('auto'));
+});
+
+watch(activeFilters, async () => {
+  await nextTick();
+  scrollToFilter();
+});
 </script>
 
 <template>
@@ -61,9 +108,11 @@ const timelineArticles = computed(() =>
     >, and outlets like Medium, Hashnode, Dev.to, and SweetCode.
   </p>
 
+  <div ref="filterAnchorRef" aria-hidden="true" style="height: 0; overflow: hidden"></div>
   <ContentFilter
     :filters="allArticleCategories"
-    v-model="activeFilters"
+    :model-value="activeFilters"
+    @update:model-value="updateFilters"
     :counts="articleCounts"
     :total-count="articles.length"
     label="Filter articles"

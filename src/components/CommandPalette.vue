@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { articles } from '@/content/articles';
+import { community } from '@/content/community';
+import { projects } from '@/content/projects';
 import IconArticle from '@/icons/IconArticle.vue';
 import IconHome from '@/icons/IconHome.vue';
 import IconMoon from '@/icons/IconMoon.vue';
@@ -6,9 +9,6 @@ import IconRocket from '@/icons/IconRocket.vue';
 import IconSun from '@/icons/IconSun.vue';
 import IconSystemTheme from '@/icons/IconSystemTheme.vue';
 import IconUsers from '@/icons/IconUsers.vue';
-import { articles } from '@/content/articles';
-import { community } from '@/content/community';
-import { projects } from '@/content/projects';
 import { themes, useThemeStore, type ThemeMode } from '@/stores/theme';
 import { displayDate } from '@/types';
 import {
@@ -127,25 +127,29 @@ const projectItems: PaletteResult[] = projects.map((p) => ({
   hash: '#' + contentId(p.title),
 }));
 
-const communityItems: PaletteResult[] = community.map((c) => ({
-  type: 'community' as const,
-  label: c.title,
-  sublabel: `${c.sessionFormat} · ${displayDate(c.date)}${c.location ? ' · ' + c.location : ''}`,
-  searchExtras: [
-    c.description,
-    c.longDescription ?? '',
-    c.sessionFormat,
-    c.eventSeries ?? '',
-    c.location ?? '',
-    (c.tags ?? []).join(' '),
-    (c.expandedTags ?? []).join(' '),
-    (c.curriculum ?? []).join(' '),
-    (c.keyTakeaways ?? []).join(' '),
-  ].join(' '),
-  badges: [c.sessionFormat],
-  route: '/community',
-  hash: '#' + contentId(c.title),
-}));
+const communityItems: PaletteResult[] = community.map((c) => {
+  const sessionType = c.categories[0];
+  return {
+    type: 'community' as const,
+    label: c.title,
+    sublabel: `${sessionType} · ${displayDate(c.date)}${c.location ? ' · ' + c.location : ''}`,
+    searchExtras: [
+      c.description,
+      c.longDescription ?? '',
+      sessionType,
+      c.eventSeries ?? '',
+      c.location ?? '',
+      (c.tags ?? []).join(' '),
+      (c.expandedTags ?? []).join(' '),
+      (c.curriculum ?? []).join(' '),
+      (c.keyTakeaways ?? []).join(' '),
+      (c.categories ?? []).join(' '),
+    ].join(' '),
+    badges: [sessionType],
+    route: '/community',
+    hash: '#' + contentId(c.title),
+  };
+});
 
 const allItems: PaletteResult[] = [...navItems, ...articleItems, ...projectItems, ...communityItems];
 
@@ -194,10 +198,8 @@ function pushRecent(label: string) {
   }
 }
 
-const recentItems = computed<PaletteResult[]>(() =>
-  recentLabels.value
-    .map((lbl) => allItems.find((i) => i.label === lbl))
-    .filter(Boolean) as PaletteResult[]
+const recentItems = computed<PaletteResult[]>(
+  () => recentLabels.value.map((lbl) => allItems.find((i) => i.label === lbl)).filter(Boolean) as PaletteResult[]
 );
 
 const filteredResults = computed<PaletteResult[]>(() => {
@@ -275,9 +277,7 @@ const groups = computed<Group[]>(() => {
     });
 });
 
-const flatResults = computed<PaletteResult[]>(() =>
-  groups.value.flatMap((g) => g.items)
-);
+const flatResults = computed<PaletteResult[]>(() => groups.value.flatMap((g) => g.items));
 
 // `true` once a result has been activated this session — toggles whether we fire palette_dismissed.
 let activatedThisSession = false;
@@ -380,9 +380,7 @@ function activate(item: PaletteResult) {
   pushRecent(item.label);
   activatedThisSession = true;
   const idx = flatResults.value.indexOf(item);
-  const destination = item.route
-    ? item.route + (item.hash ?? '')
-    : item.href || '';
+  const destination = item.route ? item.route + (item.hash ?? '') : item.href || '';
   trackPaletteResultSelected({
     resultType: item.type,
     resultLabel: item.label,
@@ -504,7 +502,16 @@ function flatIndex(group: Group, localIdx: number): number {
               aria-label="Back to main search"
               @click="exitSubmenu"
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
                 <polyline points="15 18 9 12 15 6" />
               </svg>
             </button>
@@ -529,18 +536,23 @@ function flatIndex(group: Group, localIdx: number): number {
               v-model="query"
               class="palette-input"
               type="text"
-              :placeholder="submenuMode === 'theme' ? 'Pick a theme...' : 'Search articles, projects, tags, workshops...'"
+              :placeholder="
+                submenuMode === 'theme' ? 'Pick a theme...' : 'Search articles, projects, tags, workshops...'
+              "
               autocomplete="off"
               spellcheck="false"
             />
-            <button
-              v-if="query"
-              class="palette-clear"
-              type="button"
-              aria-label="Clear search"
-              @click="query = ''"
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <button v-if="query" class="palette-clear" type="button" aria-label="Clear search" @click="query = ''">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
                 <line x1="18" y1="6" x2="6" y2="18" />
                 <line x1="6" y1="6" x2="18" y2="18" />
               </svg>
@@ -552,7 +564,16 @@ function flatIndex(group: Group, localIdx: number): number {
             <template v-if="flatResults.length === 0">
               <div class="palette-empty">
                 <span class="palette-empty-icon" aria-hidden="true">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
                     <circle cx="11" cy="11" r="8" />
                     <line x1="21" y1="21" x2="16.65" y2="16.65" />
                   </svg>
@@ -584,10 +605,23 @@ function flatIndex(group: Group, localIdx: number): number {
                 </span>
                 <span class="palette-item-content">
                   <span class="palette-item-label" v-html="highlightLabel(item.label, query)" />
-                  <span v-if="item.sublabel" class="palette-item-sublabel" v-html="highlightLabel(item.sublabel, query)" />
+                  <span
+                    v-if="item.sublabel"
+                    class="palette-item-sublabel"
+                    v-html="highlightLabel(item.sublabel, query)"
+                  />
                 </span>
                 <span v-if="item.isActive?.()" class="palette-item-check" aria-label="Active" title="Active">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                 </span>
@@ -617,7 +651,9 @@ function flatIndex(group: Group, localIdx: number): number {
             <span class="palette-hint"><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
             <span class="palette-hint"><kbd>↵</kbd> open</span>
             <span class="palette-hint"><kbd>Esc</kbd> close</span>
-            <span class="palette-count-live" v-if="query">{{ flatResults.length }} result<span v-if="flatResults.length !== 1">s</span></span>
+            <span class="palette-count-live" v-if="query"
+              >{{ flatResults.length }} result<span v-if="flatResults.length !== 1">s</span></span
+            >
           </div>
         </div>
       </div>

@@ -4,22 +4,52 @@ import ProjectOrEvent from '@/components/ProjectOrEvent.vue';
 import TimelineScroller from '@/components/TimelineScroller.vue';
 import { community } from '@/content/community';
 import { LINKS } from '@/content/links';
-import { type EventSessionFormat, EventSessionFormats } from '@/types';
+import { type EventSessionCategory, EventSessionCategories } from '@/types';
 import { trackCommunityIntroLinkClick } from '@/utils/analytics';
-import { computed, ref } from 'vue';
+import { computed, nextTick, onMounted, ref, watch } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
-const activeFilters = ref<EventSessionFormat[]>([]);
-const allSessionFormats = [...EventSessionFormats];
-const filteredCommunity = computed(() =>
-  activeFilters.value.length ? community.filter((c) => activeFilters.value.includes(c.sessionFormat)) : community
-);
+const router = useRouter();
+const route = useRoute();
+const filterAnchorRef = ref<HTMLElement | null>(null);
 
-const communityCounts = computed(() =>
-  allSessionFormats.reduce<Record<string, number>>((acc, fmt) => {
-    acc[fmt] = community.filter((c) => c.sessionFormat === fmt).length;
-    return acc;
-  }, {})
-);
+const allEventCategories: EventSessionCategory[] = [...EventSessionCategories];
+
+const isValidCategory = (value: string): value is EventSessionCategory => {
+  return EventSessionCategories.includes(value as EventSessionCategory);
+};
+
+const parseFiltersFromRoute = (): EventSessionCategory[] => {
+  const filtersParam = route.query.filters;
+  if (!filtersParam) return [];
+  if (typeof filtersParam === 'string') {
+    return filtersParam.split(',').filter(isValidCategory);
+  }
+  return Array.isArray(filtersParam)
+    ? filtersParam.filter((f): f is EventSessionCategory => typeof f === 'string' && isValidCategory(f))
+    : [];
+};
+
+const activeFilters = computed((): EventSessionCategory[] => parseFiltersFromRoute());
+
+const filteredCommunity = computed(() => {
+  if (!activeFilters.value.length) return community;
+  return community.filter((c) => {
+    const eventCategories = c.categories || [];
+    return activeFilters.value.some((filter) => eventCategories.includes(filter));
+  });
+});
+
+const communityCounts = computed(() => {
+  const counts: Record<string, number> = {};
+  allEventCategories.forEach((category) => {
+    counts[category] = community.filter((c) => {
+      const eventCategories = c.categories || [];
+      return eventCategories.includes(category);
+    }).length;
+  });
+  return counts;
+});
 
 const timelineCommunity = computed(() =>
   filteredCommunity.value.map((contribution, index) => ({
@@ -27,6 +57,32 @@ const timelineCommunity = computed(() =>
     date: contribution.date,
   }))
 );
+
+const updateFilters = (newFilters: string[]) => {
+  const validFilters = newFilters.filter(isValidCategory);
+  if (validFilters.length === 0) {
+    router.push({ query: {} });
+  } else {
+    router.push({ query: { filters: validFilters.join(',') } });
+  }
+};
+
+function scrollToFilter(behavior: ScrollBehavior = 'smooth') {
+  const anchor = filterAnchorRef.value;
+  if (!anchor) return;
+  const stickyTop = window.innerWidth >= 768 ? 64 : 60;
+  const target = window.scrollY + anchor.getBoundingClientRect().top - stickyTop;
+  window.scrollTo({ top: Math.max(0, target), behavior });
+}
+
+onMounted(() => {
+  if (activeFilters.value.length) nextTick(() => scrollToFilter('auto'));
+});
+
+watch(activeFilters, async () => {
+  await nextTick();
+  scrollToFilter();
+});
 </script>
 
 <template>
@@ -129,9 +185,11 @@ const timelineCommunity = computed(() =>
     Following are community engagements that I kept track of.
   </p>
 
+  <div ref="filterAnchorRef" aria-hidden="true" style="height: 0; overflow: hidden"></div>
   <ContentFilter
-    :filters="allSessionFormats"
-    v-model="activeFilters"
+    :filters="allEventCategories"
+    :model-value="activeFilters"
+    @update:model-value="updateFilters"
     :counts="communityCounts"
     :total-count="community.length"
     label="Filter community events"

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useGlobalScroll } from '@/composables/useGlobalScroll';
-import { ref, onMounted, onUnmounted, computed, nextTick, watch } from 'vue';
+import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue';
 
 interface Props {
   filters: string[];
@@ -38,7 +38,6 @@ function clearAll() {
 }
 
 const isAllActive = computed(() => props.modelValue.length === 0);
-const activeCount = computed(() => props.modelValue.length);
 
 function countFor(filter: string): number {
   return props.counts?.[filter] ?? 0;
@@ -129,7 +128,16 @@ watch(
           @click="scrollByDirection('left')"
         >
           <span class="scroll-cue-arrow" aria-hidden="true">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
               <polyline points="15 18 9 12 15 6" />
             </svg>
           </span>
@@ -145,7 +153,7 @@ watch(
           :aria-pressed="isAllActive"
         >
           <span>All</span>
-          <span class="pill-count">{{ isAllActive ? totalCount : activeCount }}</span>
+          <span class="pill-count">{{ totalCount }}</span>
         </button>
         <button
           v-for="filter in props.filters"
@@ -161,7 +169,16 @@ watch(
           :aria-pressed="props.modelValue.includes(filter)"
         >
           <span class="pill-check" aria-hidden="true">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
               <polyline points="20 6 9 17 4 12" />
             </svg>
           </span>
@@ -180,7 +197,16 @@ watch(
           @click="scrollByDirection('right')"
         >
           <span class="scroll-cue-arrow" aria-hidden="true">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
               <polyline points="9 18 15 12 9 6" />
             </svg>
           </span>
@@ -203,11 +229,8 @@ watch(
   padding-top: 0.6rem;
   padding-bottom: 0.6rem;
   background: transparent;
-  transition:
-    background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-    backdrop-filter 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), backdrop-filter 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .content-filter-wrapper.is-sticky.is-pinned {
@@ -340,13 +363,23 @@ watch(
 }
 
 @keyframes cue-bounce-left {
-  0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(-3px); }
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-3px);
+  }
 }
 
 @keyframes cue-bounce-right {
-  0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(3px); }
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(3px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -387,14 +420,8 @@ watch(
   border: 1px solid var(--glass-border);
   background: var(--glass-tint);
   color: var(--text);
-  transition:
-    background 0.22s ease,
-    color 0.22s ease,
-    border-color 0.22s ease,
-    box-shadow 0.22s ease,
-    opacity 0.22s ease,
-    transform 0.18s ease,
-    padding 0.22s ease;
+  transition: background 0.22s ease, color 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease,
+    opacity 0.22s ease, transform 0.18s ease, padding 0.22s ease;
   flex-shrink: 0;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -436,9 +463,7 @@ watch(
   overflow: hidden;
   opacity: 0;
   transform: translateX(-4px) scale(0.7);
-  transition:
-    width 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-    opacity 0.18s ease,
+  transition: width 0.22s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.18s ease,
     transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 

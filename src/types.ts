@@ -82,14 +82,14 @@ export interface CommunityResources {
   recording?: string;
 }
 
-export type EventSessionFormat = 'Workshop' | 'Talk' | 'Keynote' | 'Panel';
-export const EventSessionFormats = ['Workshop', 'Talk', 'Keynote', 'Panel'] as const;
+export type EventSessionCategory = 'Workshop' | 'Talk' | 'Keynote' | 'Panel' | '#BuildwithAI' | '#DevFest';
+export const EventSessionCategories = ['Workshop', 'Talk', 'Keynote', 'Panel', '#BuildwithAI', '#DevFest'] as const;
 
 export interface CommunityEvent extends ProjectOrEventType {
   date: ContentDate;
   eventSeries?: string;
   location?: string;
-  sessionFormat: EventSessionFormat;
+  categories: EventSessionCategory[];
   curriculum?: string[];
   keyTakeaways?: string[];
   resources?: CommunityResources;

@@ -59,12 +59,21 @@ export function createRouterInstance(isServer = typeof window === 'undefined') {
   const router = createRouter({
     history,
     routes,
-    scrollBehavior(to, _from, saved) {
+    scrollBehavior(to, from, saved) {
       if (to.hash) {
         // The fixed header + pinned content filter together consume ~128px
         // at the top of the viewport. Push the anchor below both so the
         // targeted card sits in the clear.
         return { el: to.hash, top: 128, behavior: 'smooth' };
+      }
+      // Same-page navigation (filter/query changes): let the page component
+      // own the scroll so our scrollToFilter() runs uncontested.
+      if (to.name === from.name) {
+        return false;
+      }
+      // Direct navigation to a pre-filtered URL: onMounted scroll handles it.
+      if (to.query.filters) {
+        return false;
       }
       return saved ? saved : { top: 0 };
     },

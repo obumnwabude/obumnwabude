@@ -2,6 +2,7 @@
 import GlassBottomSheet from '@/components/GlassBottomSheet.vue';
 import GlassCard from '@/components/GlassCard.vue';
 import GlassDrawer from '@/components/GlassDrawer.vue';
+import { useGlobalScroll } from '@/composables/useGlobalScroll';
 import IconAboutReadMore from '@/icons/IconAboutReadMore.vue';
 import IconApple from '@/icons/IconApple.vue';
 import IconArticle from '@/icons/IconArticle.vue';
@@ -28,7 +29,6 @@ import IconUp from '@/icons/IconUp.vue';
 import IconUsers from '@/icons/IconUsers.vue';
 import IconX from '@/icons/IconX.vue';
 import IconZap from '@/icons/IconZap.vue';
-import { useGlobalScroll } from '@/composables/useGlobalScroll';
 import { displayDate, type ActionIcon, type CodingProject, type CommunityEvent, type ContentAction } from '@/types';
 import {
   trackAssetError,
@@ -113,7 +113,6 @@ const onUserActivity = () => {
   dismissIdleHint();
   armIdleHint();
 };
-
 
 onMounted(() => {
   updateViewport();
@@ -230,7 +229,7 @@ const hasCommunityRichContent = () => {
   return Boolean(
     content.curriculum?.length ||
       content.keyTakeaways?.length ||
-      content.sessionFormat ||
+      content.categories?.length ||
       content.location ||
       content.longDescription ||
       content.expandedTags?.length
@@ -533,15 +532,15 @@ watch(isExpandedDesktop, async (expanded) => {
         </div>
 
         <div
-          v-if="(content as CommunityEvent).sessionFormat || (content as CommunityEvent).eventSeries"
+          v-if="(content as CommunityEvent).categories?.length || (content as CommunityEvent).eventSeries"
           class="bento-meta-row"
         >
-          <span v-if="(content as CommunityEvent).sessionFormat" class="bento-meta-pill"
-            >Format: {{ (content as CommunityEvent).sessionFormat }}</span
-          >
-          <span v-if="(content as CommunityEvent).eventSeries" class="bento-meta-pill"
-            >Series: {{ (content as CommunityEvent).eventSeries }}</span
-          >
+          <span v-if="(content as CommunityEvent).categories?.length" class="bento-meta-pill">{{
+            (content as CommunityEvent).categories[0]
+          }}</span>
+          <span v-if="(content as CommunityEvent).eventSeries" class="bento-meta-pill">{{
+            (content as CommunityEvent).eventSeries
+          }}</span>
         </div>
 
         <div v-if="(content as CommunityEvent).curriculum?.length" class="bento-section">
@@ -685,7 +684,7 @@ watch(isExpandedDesktop, async (expanded) => {
       v-if="isCommunityEvent(content)"
       v-model:open="isSheetOpen"
       :title="title"
-      :badge="(content as CommunityEvent).sessionFormat || 'Session Details'"
+      :badge="(content as CommunityEvent).categories?.[0] || 'Session Details'"
     >
       <!-- Tags inside Mobile Sheet -->
       <div v-if="(content.expandedTags || content.tags)?.length" class="sheet-tags-row">
@@ -906,10 +905,8 @@ watch(isExpandedDesktop, async (expanded) => {
   color: var(--text);
   background: rgb(from var(--text) r g b / 5%);
   border: 1px solid var(--glass-border);
-  transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-    background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .project-more-btn:hover {
