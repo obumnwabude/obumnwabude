@@ -51,7 +51,7 @@
   width: 70vw;
   height: 70vh;
   background: radial-gradient(circle at center, rgb(from var(--primary) r g b / 8%) 0%, transparent 65%);
-  filter: blur(80px);
+  filter: blur(40px);
 }
 
 .ambient-wash-2 {
@@ -61,21 +61,21 @@
   width: 75vw;
   height: 75vh;
   background: radial-gradient(circle at center, rgb(from var(--primary) r g b / 6%) 0%, transparent 65%);
-  filter: blur(90px);
+  filter: blur(40px);
 }
 
 /* Drifting Chromatic Orbs */
 .ambient-orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(100px);
+  filter: blur(45px);
   opacity: 0.22;
   will-change: transform;
 }
 
 body.dark .ambient-orb {
   opacity: 0.07;
-  filter: blur(130px);
+  filter: blur(55px);
 }
 
 .orb-primary {
@@ -275,9 +275,17 @@ body.dark .ambient-noise {
 
 @media (max-width: 767.98px) {
   .ambient-orb {
-    filter: blur(60px);
-    width: 280px !important;
-    height: 280px !important;
+    filter: blur(30px);
+    width: 240px !important;
+    height: 240px !important;
+    animation: none !important;
+  }
+  body.dark .ambient-orb {
+    filter: blur(35px);
+  }
+  .ambient-wash-1,
+  .ambient-wash-2 {
+    filter: blur(24px);
   }
   .glass-bubble {
     display: none;

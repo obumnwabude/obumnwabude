@@ -6,9 +6,10 @@ import IconHome from '@/icons/IconHome.vue';
 import IconMenu from '@/icons/IconMenu.vue';
 import IconRocket from '@/icons/IconRocket.vue';
 import IconUsers from '@/icons/IconUsers.vue';
+import { useGlobalScroll } from '@/composables/useGlobalScroll';
 import { useSidebarStore } from '@/stores/sidebar';
 import { trackMobileMenuToggle, trackNavClick } from '@/utils/analytics';
-import { onMounted, onUnmounted, ref } from 'vue';
+import { onMounted, ref } from 'vue';
 
 const navItems = [
   { path: '/', label: 'Home', icon: IconHome },
@@ -23,9 +24,13 @@ const scrollProgress = ref(0);
 
 const handleScroll = () => {
   if (typeof window === 'undefined') return;
-  isScrolled.value = window.scrollY > 15;
+  const nextScrolled = window.scrollY > 15;
+  if (nextScrolled !== isScrolled.value) isScrolled.value = nextScrolled;
   const docH = document.documentElement.scrollHeight - window.innerHeight;
-  scrollProgress.value = docH > 0 ? Math.min(100, (window.scrollY / docH) * 100) : 0;
+  const nextProgress = docH > 0 ? Math.min(100, (window.scrollY / docH) * 100) : 0;
+  if (Math.abs(nextProgress - scrollProgress.value) >= 0.5) {
+    scrollProgress.value = nextProgress;
+  }
 };
 
 const openCommandPalette = () => {
@@ -36,13 +41,9 @@ const openCommandPalette = () => {
 
 onMounted(() => {
   handleScroll();
-  window.addEventListener('scroll', handleScroll, { passive: true });
 });
 
-onUnmounted(() => {
-  if (typeof window === 'undefined') return;
-  window.removeEventListener('scroll', handleScroll);
-});
+useGlobalScroll(handleScroll);
 </script>
 
 <template>
@@ -136,8 +137,8 @@ onUnmounted(() => {
 .glass-header.is-scrolled {
   background: var(--glass-tint);
   border-bottom: 1px solid var(--glass-border);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
   box-shadow: 0 4px 20px rgb(0 0 0 / 5%), inset 0 -1px 0 rgba(255, 255, 255, 0.3);
 }
 

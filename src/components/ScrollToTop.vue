@@ -1,12 +1,14 @@
 <script setup lang="ts">
+import { useGlobalScroll } from '@/composables/useGlobalScroll';
 import { trackScrollToTop } from '@/utils/analytics';
-import { onMounted, onUnmounted, ref } from 'vue';
+import { onMounted, ref } from 'vue';
 
 const isVisible = ref(false);
 
 const checkScroll = () => {
   if (typeof window === 'undefined') return;
-  isVisible.value = window.scrollY > 280;
+  const next = window.scrollY > 280;
+  if (next !== isVisible.value) isVisible.value = next;
 };
 
 const scrollToTop = () => {
@@ -23,13 +25,9 @@ const scrollToTop = () => {
 
 onMounted(() => {
   checkScroll();
-  window.addEventListener('scroll', checkScroll, { passive: true });
 });
 
-onUnmounted(() => {
-  if (typeof window === 'undefined') return;
-  window.removeEventListener('scroll', checkScroll);
-});
+useGlobalScroll(checkScroll);
 </script>
 
 <template>
@@ -68,8 +66,8 @@ onUnmounted(() => {
   border-radius: 50%;
   border: 1px solid var(--glass-border);
   background: var(--glass-tint);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(10px) saturate(140%);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
   color: var(--primary);
   display: flex;
   align-items: center;

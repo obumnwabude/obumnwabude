@@ -28,6 +28,7 @@ import IconUp from '@/icons/IconUp.vue';
 import IconUsers from '@/icons/IconUsers.vue';
 import IconX from '@/icons/IconX.vue';
 import IconZap from '@/icons/IconZap.vue';
+import { useGlobalScroll } from '@/composables/useGlobalScroll';
 import { displayDate, type ActionIcon, type CodingProject, type CommunityEvent, type ContentAction } from '@/types';
 import {
   trackAssetError,
@@ -136,14 +137,14 @@ onMounted(() => {
     idleObserver.observe(wrapperRef.value);
   }
 
-  window.addEventListener('scroll', onUserActivity, { passive: true });
   window.addEventListener('touchstart', onUserActivity, { passive: true });
 });
+
+useGlobalScroll(onUserActivity);
 
 onBeforeUnmount(() => {
   if (typeof window !== 'undefined') {
     window.removeEventListener('resize', updateViewport);
-    window.removeEventListener('scroll', onUserActivity);
     window.removeEventListener('touchstart', onUserActivity);
   }
   if (scrollRaf) cancelAnimationFrame(scrollRaf);
@@ -905,7 +906,10 @@ watch(isExpandedDesktop, async (expanded) => {
   color: var(--text);
   background: rgb(from var(--text) r g b / 5%);
   border: 1px solid var(--glass-border);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .project-more-btn:hover {

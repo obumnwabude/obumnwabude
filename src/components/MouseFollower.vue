@@ -12,18 +12,22 @@ const cursorRingRef = ref<HTMLElement | null>(null);
 
 let mouseX = -500;
 let mouseY = -500;
+let lastEventTarget: HTMLElement | null = null;
 let currentX = -500;
 let currentY = -500;
 let targetScale = 1;
 let currentScale = 1;
-let lastScrollY = 0;
-let scrollVelocity = 0;
 let rafId: number | null = null;
-let scrollTimeout: number | null = null;
+let pendingInteractiveCheck = false;
+
+const INTERACTIVE_SELECTOR =
+  'a, button, [action], .glass-card, .p-menuitem-content, input, textarea, select, .project-card, .article-card, [role="button"], [clickable]';
 
 const onMouseMove = (e: MouseEvent) => {
   mouseX = e.clientX;
   mouseY = e.clientY;
+  lastEventTarget = e.target as HTMLElement | null;
+  pendingInteractiveCheck = true;
   if (!isVisible.value) isVisible.value = true;
 
   if (cursorDotRef.value) {
@@ -47,30 +51,16 @@ const onMouseEnter = () => {
   isVisible.value = true;
 };
 
-const onScroll = () => {
-  if (typeof window === 'undefined') return;
-  const currentYPos = window.scrollY;
-  const delta = Math.abs(currentYPos - lastScrollY);
-  scrollVelocity = Math.min(delta * 0.08, 1.5);
-  lastScrollY = currentYPos;
-
-  if (scrollTimeout) clearTimeout(scrollTimeout);
-  scrollTimeout = window.setTimeout(() => {
-    scrollVelocity = 0;
-  }, 120);
-};
-
-const checkInteractiveHover = (e: MouseEvent) => {
-  const target = e.target as HTMLElement | null;
-  if (!target) return;
-  const interactive = target.closest(
-    'a, button, [action], .glass-card, .p-menuitem-content, input, textarea, select, .project-card, .article-card, [role="button"], [clickable]'
-  );
-  isHoveringInteractive.value = Boolean(interactive);
-};
-
 const tick = () => {
-  // Smooth linear interpolation (lerp)
+  if (pendingInteractiveCheck && lastEventTarget) {
+    const interactive = lastEventTarget.closest(INTERACTIVE_SELECTOR);
+    const nextInteractive = Boolean(interactive);
+    if (nextInteractive !== isHoveringInteractive.value) {
+      isHoveringInteractive.value = nextInteractive;
+    }
+    pendingInteractiveCheck = false;
+  }
+
   const ease = 0.16;
   currentX += (mouseX - currentX) * ease;
   currentY += (mouseY - currentY) * ease;
@@ -79,40 +69,35 @@ const tick = () => {
   currentScale += (targetScale - currentScale) * 0.12;
 
   if (followerRef.value) {
-    const scaleX = currentScale;
-    const scaleY = currentScale + scrollVelocity * 0.35;
-    followerRef.value.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) translate(-50%, -50%) scale(${scaleX.toFixed(
+    followerRef.value.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) translate(-50%, -50%) scale(${currentScale.toFixed(
       3
-    )}, ${scaleY.toFixed(3)})`;
+    )})`;
   }
 
   if (cursorRingRef.value) {
     cursorRingRef.value.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) translate(-50%, -50%)`;
   }
 
-  // Decay scroll velocity smoothly
-  scrollVelocity *= 0.88;
-  if (scrollVelocity < 0.005) scrollVelocity = 0;
-
   rafId = requestAnimationFrame(tick);
 };
 
 onMounted(() => {
   if (typeof window === 'undefined') return;
-  if (window.matchMedia('(pointer: coarse)').matches) {
+  if (
+    window.matchMedia('(pointer: coarse)').matches ||
+    window.matchMedia('(hover: none)').matches ||
+    window.matchMedia('(max-width: 767.98px)').matches
+  ) {
     isTouchDevice.value = true;
     return;
   }
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  lastScrollY = window.scrollY;
   window.addEventListener('mousemove', onMouseMove, { passive: true });
-  window.addEventListener('mousemove', checkInteractiveHover, { passive: true });
   window.addEventListener('mousedown', onMouseDownHandler, { passive: true });
   window.addEventListener('mouseup', onMouseUpHandler, { passive: true });
   document.addEventListener('mouseleave', onMouseLeave);
   document.addEventListener('mouseenter', onMouseEnter);
-  window.addEventListener('scroll', onScroll, { passive: true });
 
   rafId = requestAnimationFrame(tick);
 });
@@ -120,14 +105,11 @@ onMounted(() => {
 onUnmounted(() => {
   if (typeof window === 'undefined') return;
   window.removeEventListener('mousemove', onMouseMove);
-  window.removeEventListener('mousemove', checkInteractiveHover);
   window.removeEventListener('mousedown', onMouseDownHandler);
   window.removeEventListener('mouseup', onMouseUpHandler);
   document.removeEventListener('mouseleave', onMouseLeave);
   document.removeEventListener('mouseenter', onMouseEnter);
-  window.removeEventListener('scroll', onScroll);
   if (rafId) cancelAnimationFrame(rafId);
-  if (scrollTimeout) clearTimeout(scrollTimeout);
 });
 </script>
 

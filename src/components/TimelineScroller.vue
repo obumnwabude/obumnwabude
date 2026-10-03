@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useGlobalScroll } from '@/composables/useGlobalScroll';
 import { trackTimelineScrub, trackTimelineYearJump, trackTimelineYearReached } from '@/utils/analytics';
 import { computed, onMounted, onUnmounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
@@ -227,14 +228,14 @@ function jumpToYear(markerRatio: number, itemId: string | number, e: MouseEvent)
 }
 
 onMounted(() => {
-  window.addEventListener('scroll', updateOnScroll, { passive: true });
   if (validItems.value.length > 0) {
     activeDate.value = validItems.value[0].date;
   }
 });
 
+useGlobalScroll(updateOnScroll);
+
 onUnmounted(() => {
-  window.removeEventListener('scroll', updateOnScroll);
   if (hideTimer) clearTimeout(hideTimer);
   if (velocityTimer) clearTimeout(velocityTimer);
 });

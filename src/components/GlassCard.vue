@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { onBeforeUnmount, ref, computed } from 'vue';
 
 export interface GlassCardProps {
   variant?: 'frost' | 'refract' | 'dense' | 'solid';
@@ -25,11 +25,16 @@ const tiltTransform = ref('');
 
 const variantClass = computed(() => `glass-${props.variant}`);
 
-function handleMouseMove(e: MouseEvent) {
-  if (!cardRef.value) return;
+let pendingMove: { x: number; y: number } | null = null;
+let moveRaf: number | null = null;
+
+function flushMove() {
+  moveRaf = null;
+  if (!pendingMove || !cardRef.value) return;
+  const { x: clientX, y: clientY } = pendingMove;
   const rect = cardRef.value.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
+  const x = clientX - rect.left;
+  const y = clientY - rect.top;
 
   cardRef.value.style.setProperty('--spotlight-x', `${x}px`);
   cardRef.value.style.setProperty('--spotlight-y', `${y}px`);
@@ -43,6 +48,12 @@ function handleMouseMove(e: MouseEvent) {
   }
 }
 
+function handleMouseMove(e: MouseEvent) {
+  pendingMove = { x: e.clientX, y: e.clientY };
+  if (moveRaf !== null) return;
+  moveRaf = requestAnimationFrame(flushMove);
+}
+
 function handleMouseEnter() {
   isHovered.value = true;
 }
@@ -50,7 +61,16 @@ function handleMouseEnter() {
 function handleMouseLeave() {
   isHovered.value = false;
   tiltTransform.value = '';
+  if (moveRaf !== null) {
+    cancelAnimationFrame(moveRaf);
+    moveRaf = null;
+  }
+  pendingMove = null;
 }
+
+onBeforeUnmount(() => {
+  if (moveRaf !== null) cancelAnimationFrame(moveRaf);
+});
 </script>
 
 <template>

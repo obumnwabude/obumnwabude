@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useGlobalScroll } from '@/composables/useGlobalScroll';
 import { ref, onMounted, onUnmounted, computed, nextTick, watch } from 'vue';
 
 interface Props {
@@ -52,7 +53,8 @@ const canScrollRight = ref(false);
 function onPageScroll() {
   if (!wrapperRef.value || !props.sticky) return;
   const rect = wrapperRef.value.getBoundingClientRect();
-  isPinned.value = rect.top <= 72;
+  const next = rect.top <= 72;
+  if (next !== isPinned.value) isPinned.value = next;
 }
 
 function updateScrollEdges() {
@@ -77,10 +79,7 @@ function scrollByDirection(dir: 'left' | 'right') {
 let resizeObserver: ResizeObserver | null = null;
 
 onMounted(() => {
-  if (props.sticky) {
-    window.addEventListener('scroll', onPageScroll, { passive: true });
-    onPageScroll();
-  }
+  if (props.sticky) onPageScroll();
   nextTick(updateScrollEdges);
   if (rowRef.value) {
     rowRef.value.addEventListener('scroll', updateScrollEdges, { passive: true });
@@ -92,10 +91,11 @@ onMounted(() => {
   window.addEventListener('resize', updateScrollEdges, { passive: true });
 });
 
+if (props.sticky) {
+  useGlobalScroll(onPageScroll);
+}
+
 onUnmounted(() => {
-  if (props.sticky) {
-    window.removeEventListener('scroll', onPageScroll);
-  }
   if (rowRef.value) {
     rowRef.value.removeEventListener('scroll', updateScrollEdges);
   }

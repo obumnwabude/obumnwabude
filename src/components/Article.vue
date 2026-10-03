@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import GlassBottomSheet from '@/components/GlassBottomSheet.vue';
 import GlassCard from '@/components/GlassCard.vue';
+import { useGlobalScroll } from '@/composables/useGlobalScroll';
 import IconDown from '@/icons/IconDown.vue';
 import IconExternalLink from '@/icons/IconExternalLink.vue';
 import IconGithub from '@/icons/IconGithub.vue';
@@ -92,14 +93,14 @@ onMounted(() => {
     idleObserver.observe(wrapperRef.value);
   }
 
-  window.addEventListener('scroll', onUserActivity, { passive: true });
   window.addEventListener('touchstart', onUserActivity, { passive: true });
 });
+
+useGlobalScroll(onUserActivity);
 
 onBeforeUnmount(() => {
   if (typeof window !== 'undefined') {
     window.removeEventListener('resize', updateViewport);
-    window.removeEventListener('scroll', onUserActivity);
     window.removeEventListener('touchstart', onUserActivity);
   }
   if (scrollRaf) cancelAnimationFrame(scrollRaf);
@@ -752,7 +753,10 @@ watch(isExpandedDesktop, async (expanded) => {
   color: var(--text);
   background: rgb(from var(--text) r g b / 5%);
   border: 1px solid var(--glass-border);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .article-more-btn:hover {
