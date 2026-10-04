@@ -55,7 +55,7 @@ const metrics: MetricItem[] = [
     targetNum: articlesTarget,
     suffix: '+',
     label: 'Published Articles',
-    description: 'Deep dives on CSS-Tricks, freeCodeCamp, LogRocket & Medium',
+    description: 'Deep dives on CSS-Tricks, freeCodeCamp & Medium',
   },
 ];
 
