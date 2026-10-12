@@ -2,6 +2,224 @@ import type { CommunityEvent } from '@/types';
 
 export const community: CommunityEvent[] = [
   {
+    title: 'Create your AI with RAG in Google Cloud.',
+    date: { month: 10, year: 2026 },
+    description:
+      '@ #DevFest Ajah 2026. Explained how to #BuildwithAI using RAG and Google Cloud to ground LLMs with private knowledge bases.',
+    longDescription:
+      'A technical talk delivered at DevFest Ajah 2026 breaking down how Retrieval-Augmented Generation (RAG) grounds Gemini and other LLMs on private, trustworthy knowledge instead of letting them hallucinate. Walked through the full pipeline from document chunking and vector embeddings to Vertex AI Search datastores, and showed how teams can ship grounded answers backed by their own corpora on Google Cloud.',
+    eventSeries: 'DevFest',
+    location: 'Ajah, Lagos, Nigeria',
+    categories: ['Talk', '#DevFest'],
+    curriculum: [
+      'Why LLMs hallucinate and how grounding closes the gap',
+      'Generating vector embeddings with Vertex AI text-embedding models',
+      'Configuring Vertex AI Search datastores and indexes',
+      'Running grounded Gemini queries against private documents',
+    ],
+    keyTakeaways: [
+      'Grounded generation beats fine-tuning as the first lever for trustworthy enterprise AI.',
+      'A well-chunked, well-indexed corpus matters more than model size for answer quality.',
+      'Vertex AI makes the embed, index, retrieve, and generate loop production-ready without stitching tools together.',
+    ],
+    resources: {
+      codelab: 'https://www.skills.google/paths/1210',
+    },
+    image: { alt: 'Obum & Audience at Event', name: 'obum-df-ajah-26' },
+    actions: [
+      {
+        icon: 'googledevelopers',
+        link: 'https://www.skills.google/paths/1210',
+        title: 'Google Skills',
+      },
+    ],
+    tags: ['Speaker', 'DevFest', 'AI'],
+    expandedTags: ['Speaker', 'DevFest', 'AI', 'Google Cloud', 'RAG', 'Gemini'],
+  },
+  {
+    title: 'AI for Productivity.',
+    date: { month: 9, year: 2026 },
+    description:
+      'Session for FECAMDS AEFUTHA students sharing Gemini AI Pro for students and using AI for transcriptions, summaries, and studies.',
+    longDescription:
+      'A student-facing session delivered to FECAMDS members at Alex Ekwueme Federal University Teaching Hospital Abakaliki (AEFUTHA) on working smarter, learning faster, and creating more with AI. Introduced the free Google AI Pro for Students benefit at one.google.com/ai-students and showed how Gemini Chat, Gemini in Google Workspace, and NotebookLM can be used for research, transcription, summarisation, and generative study aids.',
+    eventSeries: 'University Outreach',
+    location: 'AEFUTHA, Abakaliki, Nigeria',
+    categories: ['Talk'],
+    curriculum: [
+      'What AI is and how it predicts, suggests, and generates',
+      'Claiming the free Google AI Pro for Students plan at one.google.com/ai-students',
+      'Using Gemini Chat, Gemini in Google Workspace, and NotebookLM for coursework',
+      'Live demo of scoped research with NotebookLM and the Gemini app',
+    ],
+    keyTakeaways: [
+      'Students on verified accounts get paid-tier Gemini Pro at no cost, so most should be claiming it.',
+      'NotebookLM is the fastest way to ground answers on a specific set of lecture notes and papers.',
+      'AI serves students best as an assistant that compresses research and transcription, not as a replacement for thinking.',
+    ],
+    resources: {
+      slides: 'https://docs.google.com/presentation/d/1DDSWwy3lszGlSpIKuo2LOiDKrAhPcr84XvvviOi575E/edit?usp=sharing',
+    },
+    image: { alt: 'Obum & Audience at Event', name: 'obum-fecamds-aefutha-26' },
+    actions: [
+      {
+        icon: 'slides',
+        link: 'https://docs.google.com/presentation/d/1DDSWwy3lszGlSpIKuo2LOiDKrAhPcr84XvvviOi575E/edit?usp=sharing',
+        title: 'Slides',
+      },
+    ],
+    tags: ['Speaker', 'AI'],
+    expandedTags: ['Speaker', 'AI', 'Gemini', 'Students', 'NotebookLM'],
+  },
+  {
+    title: 'Preparing, Publishing, & Distributing Flutter Apps (French).',
+    date: { month: 9, year: 2026 },
+    description:
+      'Virtual Session for the #FlutterFire Summer Camp of the Francophone Africa Developer Community. Walked through preparing, publishing, and distributing Flutter apps to the Google Play Store and Apple App Store.',
+    longDescription:
+      "A virtual session delivered in French (Modules 24 and 25 of the FlutterFire Summer Camp 2026) for the Francophone Africa Developer Community. Covered the end-to-end path from a working Flutter app to a listing on the Google Play Store and the Apple App Store, including signing, versioning, store assets, review-safe builds, and progressive rollout strategies for both Android and iOS.",
+    eventSeries: '#FlutterFire Summer Camp',
+    categories: ['Workshop'],
+    curriculum: [
+      'Preparing release builds for Android (app bundles, keystores, signing) and iOS (archives, provisioning)',
+      'Creating Play Console and App Store Connect listings, screenshots, and store metadata',
+      'Managing versioning, release tracks, and staged rollouts',
+      'Common review rejections and how to pre-empt them on both stores',
+    ],
+    keyTakeaways: [
+      'Store readiness is a separate discipline from app development and deserves its own checklist.',
+      'Staged rollouts on Android and phased release on iOS catch regressions before they hit everyone.',
+      'A clean signing and versioning setup upfront saves hours per release cycle.',
+    ],
+    resources: {
+      recording: 'https://www.youtube.com/watch?v=w__ZuiKvUtw',
+    },
+    image: { alt: 'Google Meet Screenshot of Audience', name: 'google-meet-screenshot-flutterfire-26' },
+    actions: [
+      {
+        icon: 'recording',
+        link: 'https://www.youtube.com/watch?v=w__ZuiKvUtw',
+        title: 'Recording',
+      },
+    ],
+    tags: ['Workshop', 'Flutter'],
+    expandedTags: ['Workshop', 'Flutter', 'FlutterFire', 'Play Store', 'App Store', 'Francophone'],
+  },
+  {
+    title: 'Building a Career in the AI Era.',
+    date: { month: 8, year: 2026 },
+    description:
+      'Virtual Session for the GDG on Campus University of Nigeria, Nsukka. Discussed the impact of AI on software engineering careers and how to prepare for the future of work.',
+    longDescription:
+      "A virtual session for GDG on Campus University of Nigeria, Nsukka on building a career that compounds in the AI era. Framed what AI has actually changed (speed, employability bar, online presence, community leverage) and gave students a concrete playbook: grow a credible digital footprint, join and contribute to communities, pick AI-oriented roles that lean on what AI still can't do, and ship with AI as an assistant rather than a replacement.",
+    eventSeries: 'GDG on Campus',
+    location: 'University of Nigeria, Nsukka (Virtual)',
+    categories: ['Talk'],
+    curriculum: [
+      'What AI has changed: speed, raised baseline, and the pace of opportunity',
+      'Standing out beyond grades and certificates with projects, uniqueness, and innovation',
+      'Growing a deliberate online presence (portfolio, content, recommendations)',
+      'Using community (volunteering, speaking, mentorship) as a career accelerant',
+      'Picking AI-oriented career paths and #BuildWithAI opportunities',
+    ],
+    keyTakeaways: [
+      'AI raised the baseline, so the differentiators are now digital footprint, projects, and community.',
+      'Treat AI as an assistant that unlocks faster senior-level paths, not as a shortcut around learning.',
+      'Communities compound: volunteering and consistent sharing create career optionality that cold applications cannot.',
+    ],
+    resources: {
+      recording: 'https://www.youtube.com/watch?v=tIr8aHaWf_0&t=3360',
+      slides: 'https://docs.google.com/presentation/d/17bu5J8_lPrvKIkoTSgiqrxDOOKrNVvlHKHpYe_9aNxI/edit?usp=sharing',
+    },
+    image: { alt: 'Flyer of Obum for the Event', name: 'obum-flyer-gdgoc-unn-26' },
+    actions: [
+      {
+        icon: 'recording',
+        link: 'https://www.youtube.com/watch?v=tIr8aHaWf_0&t=3360',
+        title: 'Recording',
+      },
+      {
+        icon: 'slides',
+        link: 'https://docs.google.com/presentation/d/17bu5J8_lPrvKIkoTSgiqrxDOOKrNVvlHKHpYe_9aNxI/edit?usp=sharing',
+        title: 'Slides',
+      },
+    ],
+    tags: ['Speaker', 'GDGoC', 'AI'],
+    expandedTags: ['Speaker', 'GDGoC', 'AI', 'Career', 'Community', 'UNN'],
+  },
+  {
+    title: 'AI for Builders: Fast, Smart & Efficient.',
+    date: { month: 7, year: 2026 },
+    description:
+      '@ Spella Hub, Abakaliki. Discussed options for building businesses and developing software with the excess available Google AI tools.',
+    longDescription:
+      "Part of the Spella ICT Hub AI Career & Business Masterclass series, this session covered going from idea to deployment faster using AI across two angles: #BuildWithAI in your coding flow (Gemini, Google Antigravity, VS Code Agents, ChatGPT/Codex, GitHub Copilot, Claude Code) and #BuildWithAI inside the products themselves (API keys, RAG and grounding, custom AI). Closed with a live coding-environment demo and a candid look at common mistakes and career opportunities for builders.",
+    eventSeries: '#BuildwithAI',
+    location: 'Abakaliki, Nigeria',
+    categories: ['Workshop', '#BuildwithAI'],
+    curriculum: [
+      'What AI is as a tool for builders: prediction, suggestion, generation',
+      'Coding with AI assistants: Gemini, Google Antigravity, VS Code Agents, ChatGPT/Codex, GitHub Copilot, Claude Code',
+      'Shipping AI inside products with API keys, RAG/grounding, and custom models',
+      'Live demo of an AI-assisted coding environment end to end',
+      'Common mistakes with AI tools and the career paths opening up for builders',
+    ],
+    keyTakeaways: [
+      'AI is most valuable as a pair-programming assistant that absorbs repetitive work and lets builders schedule and review tasks.',
+      'There is no single best coding AI; the mix of Gemini, Antigravity, Copilot, Codex, and Claude Code depends on the task.',
+      'Shipping AI inside a product rarely needs training; API keys plus RAG covers most real cases.',
+    ],
+    resources: {
+      slides: 'https://docs.google.com/presentation/d/1wd33O0-Mxt63b2G7-qe6o6kTIN030z1M7TW6r-hhI4U/edit?usp=sharing',
+    },
+    image: { alt: 'Obum at Event with Audience', name: 'obum-bwai-spella-hub-abk-26' },
+    actions: [
+      {
+        icon: 'slides',
+        link: 'https://docs.google.com/presentation/d/1wd33O0-Mxt63b2G7-qe6o6kTIN030z1M7TW6r-hhI4U/edit?usp=sharing',
+        title: 'Slides',
+      },
+    ],
+    tags: ['Workshop', 'AI'],
+    expandedTags: ['Workshop', 'AI', 'Gemini', 'Antigravity', 'Copilot', 'RAG'],
+  },
+  {
+    title: 'AI for Developers: Building Faster, Smarter & More Efficiently.',
+    date: { month: 6, year: 2026 },
+    description:
+      '@ Zecoms Digital Space, Abakaliki. We explored AI conversations for beginners breaking into software engineering.',
+    longDescription:
+      "An interactive, demo-filled walkthrough for developers starting their mentorship and technology academy journey at Zecoms Digital Space. Covered how AI predicts, suggests, and generates, how to #BuildWithAI in the coding flow with Gemini, Google Antigravity, VS Code Agents, ChatGPT/Codex, GitHub Copilot, and Claude Code, and how to ship AI inside products using API keys, RAG, and grounding. Closed with a live coding-environment demo and advice on learning well in the AI age.",
+    eventSeries: '#BuildwithAI',
+    location: 'Abakaliki, Nigeria',
+    categories: ['Workshop', '#BuildwithAI'],
+    curriculum: [
+      'AI capabilities for developers: prediction, suggestion, generation',
+      'Pair programming with Gemini, Antigravity, VS Code Agents, Copilot, Codex, and Claude Code',
+      'Shipping AI inside products with API keys, RAG, and grounding',
+      'Live demo of an AI-assisted coding environment end to end',
+      'How to learn, measure progress, and avoid common mistakes with AI tools',
+    ],
+    keyTakeaways: [
+      'The highest-leverage move early in a dev career is to offload repetitive work to an AI assistant and review the output critically.',
+      'Different coding assistants shine at different tasks; being fluent across a few beats loyalty to one.',
+      'Most AI product features need API keys and RAG, not training; this shortens the path from idea to shipping.',
+    ],
+    resources: {
+      slides: 'https://docs.google.com/presentation/d/1VPRy_Uvj0QdssLf9vnaAeR5u7WdD58NEojKWlIqnv-c/edit?usp=sharing',
+    },
+    image: { alt: 'Obum at Event', name: 'obum-zecoms-26' },
+    actions: [
+      {
+        icon: 'slides',
+        link: 'https://docs.google.com/presentation/d/1VPRy_Uvj0QdssLf9vnaAeR5u7WdD58NEojKWlIqnv-c/edit?usp=sharing',
+        title: 'Slides',
+      },
+    ],
+    tags: ['Workshop', 'AI'],
+    expandedTags: ['Workshop', 'AI', 'Gemini', 'Copilot', 'Claude Code', 'RAG'],
+  },
+  {
     title: 'Deploy your AI with Agent Studio in Google Cloud',
     date: { month: 5, year: 2026 },
     description:
