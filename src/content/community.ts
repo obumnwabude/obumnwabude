@@ -37,7 +37,7 @@ export const community: CommunityEvent[] = [
     expandedTags: ['Speaker', 'DevFest', 'AI', 'Google Cloud', 'RAG', 'Gemini'],
   },
   {
-    title: 'AI for Productivity.',
+    title: 'AI for Productivity',
     date: { month: 9, year: 2026 },
     description:
       'Session for FECAMDS AEFUTHA students sharing Gemini AI Pro for students and using AI for transcriptions, summaries, and studies.',
