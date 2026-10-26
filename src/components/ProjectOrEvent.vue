@@ -65,9 +65,12 @@ let scrollRaf: number | null = null;
 let suppressEnter = false;
 let suppressEnterTimer: ReturnType<typeof setTimeout> | null = null;
 let idleTimer: ReturnType<typeof setTimeout> | null = null;
+let idleSeenTimer: ReturnType<typeof setTimeout> | null = null;
 let idleObserver: IntersectionObserver | null = null;
 let isCardVisible = false;
-const IDLE_HINT_SESSION_KEY = 'obum-idle-hint-shown';
+const idleHintSessionKey = computed(() =>
+  isCommunityEvent(content) ? 'obum-idle-hint-shown-community' : 'obum-idle-hint-shown-project'
+);
 
 let hoverTimer: ReturnType<typeof setTimeout> | null = null;
 
@@ -78,7 +81,7 @@ const updateViewport = () => {
 };
 
 const idleHintText = computed(() =>
-  isCommunityEvent(content) ? 'Tap for the curriculum' : 'Tap for the architecture'
+  isCommunityEvent(content) ? 'See curriculum' : 'See architecture'
 );
 
 const hasIdleHintTarget = computed(() =>
@@ -92,12 +95,16 @@ const armIdleHint = () => {
   }
   if (!isMobile.value || reduceMotion.value || !hasIdleHintTarget.value) return;
   if (!isCardVisible || isSheetOpen.value || isDrawerOpen.value) return;
-  if (sessionStorage.getItem(IDLE_HINT_SESSION_KEY)) return;
+  if (sessionStorage.getItem(idleHintSessionKey.value)) return;
   idleTimer = setTimeout(() => {
     if (!isMobile.value || !isCardVisible || isSheetOpen.value || isDrawerOpen.value) return;
-    if (sessionStorage.getItem(IDLE_HINT_SESSION_KEY)) return;
+    if (sessionStorage.getItem(idleHintSessionKey.value)) return;
     idleHintVisible.value = true;
-    sessionStorage.setItem(IDLE_HINT_SESSION_KEY, '1');
+    if (idleSeenTimer) clearTimeout(idleSeenTimer);
+    idleSeenTimer = setTimeout(() => {
+      sessionStorage.setItem(idleHintSessionKey.value, '1');
+      idleSeenTimer = null;
+    }, 2000);
   }, 5000);
 };
 
@@ -106,6 +113,10 @@ const dismissIdleHint = () => {
   if (idleTimer) {
     clearTimeout(idleTimer);
     idleTimer = null;
+  }
+  if (idleSeenTimer) {
+    clearTimeout(idleSeenTimer);
+    idleSeenTimer = null;
   }
 };
 
@@ -137,6 +148,7 @@ onMounted(() => {
   }
 
   window.addEventListener('touchstart', onUserActivity, { passive: true });
+  window.addEventListener('touchmove', onUserActivity, { passive: true });
 });
 
 useGlobalScroll(onUserActivity);
@@ -145,10 +157,12 @@ onBeforeUnmount(() => {
   if (typeof window !== 'undefined') {
     window.removeEventListener('resize', updateViewport);
     window.removeEventListener('touchstart', onUserActivity);
+    window.removeEventListener('touchmove', onUserActivity);
   }
   if (scrollRaf) cancelAnimationFrame(scrollRaf);
   if (suppressEnterTimer) clearTimeout(suppressEnterTimer);
   if (idleTimer) clearTimeout(idleTimer);
+  if (idleSeenTimer) clearTimeout(idleSeenTimer);
   if (idleObserver) idleObserver.disconnect();
 });
 
@@ -201,6 +215,16 @@ const handleMouseEnter = () => {
   hoverTimer = setTimeout(() => {
     isExpandedDesktop.value = true;
   }, 160);
+};
+
+const handleFocusIn = () => {
+  handleMouseEnter();
+};
+
+const handleFocusOut = (e: FocusEvent) => {
+  const next = e.relatedTarget as Node | null;
+  if (next && wrapperRef.value?.contains(next)) return;
+  handleMouseLeave();
 };
 
 const handleMouseLeave = () => {
@@ -386,6 +410,8 @@ watch(isExpandedDesktop, async (expanded) => {
     :style="wrapperStyle"
     @mouseenter="handleMouseEnter"
     @mouseleave="handleMouseLeave"
+    @focusin="handleFocusIn"
+    @focusout="handleFocusOut"
   >
     <GlassCard
       variant="frost"
@@ -482,17 +508,6 @@ watch(isExpandedDesktop, async (expanded) => {
                 <IconDown v-else :size="20" />
               </button>
 
-              <button
-                v-else-if="!isCommunityEvent(content)"
-                type="button"
-                class="project-more-btn"
-                :class="{ 'is-throbbing': isMobile && !reduceMotion }"
-                @click.stop="openProjectInspector"
-                title="More info"
-                aria-label="More info"
-              >
-                <IconDown :size="20" />
-              </button>
 
               <Transition name="idle-hint">
                 <div
@@ -948,7 +963,8 @@ watch(isExpandedDesktop, async (expanded) => {
 .idle-hint-tooltip {
   position: absolute;
   bottom: calc(100% + 12px);
-  right: -6px;
+  left: -6px;
+  max-width: min(220px, calc(100vw - 48px));
   padding: 0.55rem 0.9rem;
   border-radius: 12px;
   background: var(--glass-tint);
@@ -958,9 +974,8 @@ watch(isExpandedDesktop, async (expanded) => {
   box-shadow: 0 10px 28px rgb(0 0 0 / 14%), 0 0 0 1px rgb(from var(--primary) r g b / 8%) inset;
   font-size: 0.78rem;
   font-weight: 550;
-  line-height: 1;
+  line-height: 1.25;
   color: var(--text);
-  white-space: nowrap;
   cursor: pointer;
   z-index: 12;
   overflow: visible;
@@ -987,7 +1002,7 @@ watch(isExpandedDesktop, async (expanded) => {
 .idle-hint-caret {
   position: absolute;
   top: 100%;
-  right: 18px;
+  left: 18px;
   width: 12px;
   height: 6px;
   overflow: hidden;

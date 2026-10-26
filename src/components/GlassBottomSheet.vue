@@ -15,10 +15,41 @@ const emit = defineEmits<{
 
 const isMounted = ref(false);
 const didPushState = ref(false);
+const dragOffset = ref(0);
+const isDragging = ref(false);
+let dragPointerId: number | null = null;
+let dragStartY = 0;
+
+const DRAG_CLOSE_THRESHOLD = 110;
 
 const close = () => {
   emit('update:open', false);
   emit('close');
+};
+
+const onDragStart = (e: PointerEvent) => {
+  if (e.pointerType === 'mouse') return;
+  dragPointerId = e.pointerId;
+  dragStartY = e.clientY;
+  isDragging.value = true;
+  (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+};
+
+const onDragMove = (e: PointerEvent) => {
+  if (dragPointerId !== e.pointerId) return;
+  const delta = e.clientY - dragStartY;
+  dragOffset.value = Math.max(0, delta);
+};
+
+const onDragEnd = (e: PointerEvent) => {
+  if (dragPointerId !== e.pointerId) return;
+  const shouldClose = dragOffset.value > DRAG_CLOSE_THRESHOLD;
+  dragPointerId = null;
+  isDragging.value = false;
+  if (shouldClose) {
+    close();
+  }
+  dragOffset.value = 0;
 };
 
 const handleKeyDown = (e: KeyboardEvent) => {
@@ -83,9 +114,20 @@ onBeforeUnmount(() => {
 
     <Transition name="sheet-slide">
       <div v-if="open" class="glass-sheet-container" role="dialog" aria-modal="true" :aria-label="title || 'Details'">
-        <div class="glass-sheet-panel glass-surface glass-frost">
+        <div
+          class="glass-sheet-panel glass-surface glass-frost"
+          :class="{ 'is-dragging': isDragging }"
+          :style="dragOffset ? { transform: `translateY(${dragOffset}px)` } : undefined"
+        >
           <!-- Mobile Pull Handle -->
-          <div class="sheet-handle-bar" @click="close">
+          <div
+            class="sheet-handle-bar"
+            @click="close"
+            @pointerdown="onDragStart"
+            @pointermove="onDragMove"
+            @pointerup="onDragEnd"
+            @pointercancel="onDragEnd"
+          >
             <span class="sheet-handle"></span>
           </div>
 
@@ -153,6 +195,11 @@ onBeforeUnmount(() => {
   border-radius: 20px 20px 0 0;
   box-shadow: 0 -12px 48px rgba(0, 0, 0, 0.45);
   overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-sheet-panel.is-dragging {
+  transition: none;
 }
 
 @media (min-width: 768px) {
@@ -170,7 +217,12 @@ onBeforeUnmount(() => {
   display: flex;
   justify-content: center;
   padding: 0.75rem 0 0.25rem 0;
-  cursor: pointer;
+  cursor: grab;
+  touch-action: none;
+}
+
+.sheet-handle-bar:active {
+  cursor: grabbing;
 }
 
 @media (min-width: 768px) {
