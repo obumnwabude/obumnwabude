@@ -106,7 +106,7 @@ export function createRouterInstance(isServer = typeof window === 'undefined') {
       }
       const canonical = document.querySelector('link[rel="canonical"]');
       if (canonical) {
-        const canonicalUrl = `${LINKS.canonical}${to.path === '/' ? '' : to.path}`;
+        const canonicalUrl = `${LINKS.canonical}${to.path}`;
         canonical.setAttribute('href', canonicalUrl);
         const ogUrl = document.querySelector('meta[property="og:url"]');
         if (ogUrl) ogUrl.setAttribute('content', canonicalUrl);

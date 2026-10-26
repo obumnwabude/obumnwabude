@@ -152,7 +152,7 @@ async function prerender() {
 
   for (const route of routes) {
     const { html } = await render(route.path);
-    const canonicalUrl = `https://obumnwabude.com${route.path === '/' ? '' : route.path}`;
+    const canonicalUrl = `https://obumnwabude.com${route.path}`;
 
     let pageHtml = template;
 

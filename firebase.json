@@ -2,6 +2,7 @@
   "hosting": {
     "target": "obumnwabude",
     "public": "dist",
+    "trailingSlash": false,
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {

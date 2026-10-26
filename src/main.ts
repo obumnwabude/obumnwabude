@@ -4,6 +4,7 @@ import { createSSRApp } from 'vue';
 import VueGtag from 'vue-gtag';
 
 import App from './App.vue';
+import { GA_MEASUREMENT_ID } from './content/links';
 import { createRouterInstance } from './router';
 
 import { vReveal } from './directives/reveal';
@@ -31,16 +32,15 @@ export function createAppInstance(isServer = false) {
     }
   };
 
-  const gaId = import.meta.env.VITE_GA_MEASUREMENT_ID;
-  if (!isServer && gaId) {
+  // Skip GA on the local dev server so localhost visits don't pollute reports.
+  if (!isServer && !import.meta.env.DEV) {
     app.use(
       VueGtag,
       {
         config: {
-          id: gaId,
-          params: {
-            debug_mode: isDebugMode(),
-          },
+          id: GA_MEASUREMENT_ID,
+          // GA treats ANY debug_mode value (even false) as "on", so only send it when debugging.
+          params: isDebugMode() ? { debug_mode: true } : {},
         },
       },
       router

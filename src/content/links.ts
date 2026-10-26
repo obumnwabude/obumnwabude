@@ -2,6 +2,9 @@
  * Centralized links repository.
  * Exports all primary site, contact, profile, community, and external URLs in one central LINKS object.
  */
+/** Google Analytics 4 measurement ID (web stream "obumnwabude"). Public by design, safe to commit. */
+export const GA_MEASUREMENT_ID = 'G-VLJ5M4SZ44';
+
 export const LINKS = {
   // Canonical & Personal Website
   canonical: 'https://obumnwabude.com',
