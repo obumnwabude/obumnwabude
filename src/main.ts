@@ -9,7 +9,8 @@ import { createRouterInstance } from './router';
 
 import { vReveal } from './directives/reveal';
 import { initGlobalAnalytics, isDebugMode, trackJsError } from './utils/analytics';
-import 'primevue/resources/themes/aura-light-green/theme.css';
+// Only the parts of the PrimeVue theme this site uses (see scripts/subset-primevue-css.mjs).
+import './assets/primevue-subset.css';
 import './assets/main.css';
 
 export function createAppInstance(isServer = false) {

@@ -9,6 +9,7 @@ import ScrollToTop from '@/components/ScrollToTop.vue';
 import Sidebar from '@/components/Sidebar.vue';
 import { useThemeStore } from '@/stores/theme';
 import { usePrimeVue } from 'primevue/config';
+import { onMounted, ref } from 'vue';
 import { RouterView } from 'vue-router';
 
 const PrimeVue = usePrimeVue();
@@ -16,6 +17,11 @@ PrimeVue.config.ripple = true;
 
 // this forces the theme refresh when the app loads
 useThemeStore();
+
+// The palette teleports to <body>; pre-rendered HTML can't hold teleported markup,
+// so render it only in the browser to keep hydration clean.
+const mounted = ref(false);
+onMounted(() => (mounted.value = true));
 </script>
 
 <template>
@@ -32,7 +38,7 @@ useThemeStore();
 
   <ScrollToTop />
   <Footer />
-  <CommandPalette />
+  <CommandPalette v-if="mounted" />
 </template>
 
 <style scoped>

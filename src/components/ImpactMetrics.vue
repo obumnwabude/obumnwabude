@@ -180,7 +180,7 @@ onUnmounted(() => {
               <component :is="metricIcons[metric.id]" :size="20" color="var(--primary)" />
             </span>
           </div>
-          <h3 class="metric-label">{{ metric.label }}</h3>
+          <p class="metric-label">{{ metric.label }}</p>
           <p class="metric-desc">{{ metric.description }}</p>
         </div>
       </GlassCard>
@@ -315,6 +315,7 @@ onUnmounted(() => {
 }
 
 .metric-label {
+  margin-top: 0;
   font-size: 1.05rem;
   font-weight: 600;
   color: var(--text);

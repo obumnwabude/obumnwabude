@@ -643,3 +643,21 @@ body.dark [filled] * {
     background: var(--app-bg);
   }
 }
+
+/* <picture> wrappers around card images must not change layout. */
+picture {
+  display: contents;
+}
+
+/* Visible to screen readers only (keeps heading levels in order without changing the design). */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

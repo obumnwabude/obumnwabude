@@ -40,6 +40,7 @@ import {
 } from '@/utils/analytics';
 import { contentId } from '@/utils/slug';
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch, type Component } from 'vue';
+import { IMAGE_SIZES, hasResponsiveImages, originalSrc, webpSrcset } from '@/utils/images';
 
 const { content, featured = false } = defineProps<{
   content: CodingProject | CommunityEvent;
@@ -424,13 +425,10 @@ watch(isExpandedDesktop, async (expanded) => {
       <!-- Top Row: Image & Details side-by-side on desktop (Stable layout) -->
       <div class="project-inner">
         <div class="project-image-container clickable-image" @click.stop="handleCardClick">
-          <img
-            :src="`/assets/${image.name}.${image.png ? 'png' : 'jpg'}`"
-            :alt="image.alt"
-            loading="lazy"
-            class="project-image"
-            @error="handleImageError"
-          />
+          <picture>
+            <source v-if="hasResponsiveImages" type="image/webp" :srcset="webpSrcset(image)" :sizes="IMAGE_SIZES.project" />
+            <img :src="originalSrc(image)" :alt="image.alt" loading="lazy" decoding="async" class="project-image" @error="handleImageError" />
+          </picture>
         </div>
 
         <div class="project-details">

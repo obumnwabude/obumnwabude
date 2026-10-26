@@ -204,7 +204,12 @@ async function prerender() {
       `<meta name="twitter:description" content="${route.description}" />`
     );
 
-    // 7. Generate and inject structured data
+    // 7. The hero portrait only appears on the home page, so only preload it there.
+    if (route.path !== '/') {
+      pageHtml = pageHtml.replace(/<link\s+rel="preload"\s+as="image"[^>]*obum-384\.webp[^>]*>\s*/s, '');
+    }
+
+    // 8. Generate and inject structured data
     const structuredData = generateStructuredData(route, content);
     const ldJsonTag = structuredData
       ? `<script type="application/ld+json">\n${structuredData}\n</script>`
@@ -219,6 +224,26 @@ async function prerender() {
     fs.writeFileSync(outFile, pageHtml, 'utf-8');
     console.log(`  ✓ Rendered ${route.path} -> ${path.relative(rootDir, outFile)} (${(pageHtml.length / 1024).toFixed(1)} kB)`);
   }
+
+  // Sitemap, generated from the same routes so it never goes stale.
+  const priorities = { '/': '1.0', '/projects': '0.9', '/articles': '0.9', '/community': '0.8' };
+  const lastmod = new Date().toISOString().slice(0, 10);
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${routes
+  .map(
+    (route) => `  <url>
+    <loc>https://obumnwabude.com${route.path}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>${priorities[route.path] ?? '0.7'}</priority>
+  </url>`,
+  )
+  .join('\n')}
+</urlset>
+`;
+  fs.writeFileSync(path.join(distDir, 'sitemap.xml'), sitemap, 'utf-8');
+  console.log(`  ✓ Wrote sitemap.xml (${routes.length} URLs, lastmod ${lastmod})`);
 
   // Clean up temporary dist-ssr directory
   const distSsrDir = path.resolve(rootDir, 'dist-ssr');

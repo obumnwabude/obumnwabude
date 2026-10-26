@@ -10,6 +10,7 @@ import { displayDate, type Article } from '@/types';
 import { trackArticleClick, trackAssetError, trackBottomSheetOpened, trackCardExpansion } from '@/utils/analytics';
 import { contentId } from '@/utils/slug';
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue';
+import { IMAGE_SIZES, hasResponsiveImages, originalSrc, webpSrcset } from '@/utils/images';
 
 const { article } = defineProps<{ article: Article }>();
 const { image, date, title, description, link, publishedOn } = article;
@@ -268,13 +269,10 @@ watch(isExpandedDesktop, async (expanded) => {
           tabindex="0"
           :aria-label="`Show ${title} details`"
         >
-          <img
-            :src="`/assets/${image.name}.${image.png ? 'png' : 'jpg'}`"
-            :alt="image.alt || title"
-            loading="lazy"
-            class="article-image"
-            @error="handleImageError"
-          />
+          <picture>
+            <source v-if="hasResponsiveImages" type="image/webp" :srcset="webpSrcset(image)" :sizes="IMAGE_SIZES.article" />
+            <img :src="originalSrc(image)" :alt="image.alt || title" loading="lazy" decoding="async" class="article-image" @error="handleImageError" />
+          </picture>
         </div>
 
         <div class="article-details">
@@ -288,8 +286,8 @@ watch(isExpandedDesktop, async (expanded) => {
             </span>
           </div>
 
-          <h3 class="article-title" @click.stop="handleCardClick" role="button" tabindex="0">
-            {{ title }}
+          <h3 class="article-title">
+            <button type="button" class="article-title-button" @click.stop="handleCardClick">{{ title }}</button>
           </h3>
 
           <p class="article-description">{{ description }}</p>
@@ -581,6 +579,18 @@ watch(isExpandedDesktop, async (expanded) => {
 .article-card:hover .article-title,
 .article-title:hover {
   color: var(--primary);
+}
+
+/* A real button inside the heading, so screen readers get both a heading and an action. */
+.article-title-button {
+  all: unset;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.article-title-button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
 }
 
 .article-expanded-tags {

@@ -109,6 +109,7 @@ watch(activeFilters, async () => {
   </p>
 
   <div ref="filterAnchorRef" aria-hidden="true" style="height: 0; overflow: hidden"></div>
+  <h2 class="sr-only">All articles</h2>
   <ContentFilter
     :filters="allArticleCategories"
     :model-value="activeFilters"

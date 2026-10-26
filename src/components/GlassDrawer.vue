@@ -4,6 +4,7 @@ import IconExternalLink from '@/icons/IconExternalLink.vue';
 import type { ActionIcon, CodingProject, ContentAction } from '@/types';
 import { trackProjectActionClick } from '@/utils/analytics';
 import { onBeforeUnmount, onMounted, ref, watch, type Component } from 'vue';
+import { IMAGE_SIZES, hasResponsiveImages, originalSrc, webpSrcset } from '@/utils/images';
 
 // Icon mapping for action buttons
 import IconApple from '@/icons/IconApple.vue';
@@ -143,11 +144,10 @@ onBeforeUnmount(() => {
         <div class="drawer-content">
           <!-- Hero Banner Image -->
           <div class="drawer-image-wrap">
-            <img
-              :src="`/assets/${project.image.name}.${project.image.png ? 'png' : 'jpg'}`"
-              :alt="project.image.alt || project.title"
-              class="drawer-image"
-            />
+            <picture>
+              <source v-if="hasResponsiveImages" type="image/webp" :srcset="webpSrcset(project.image)" :sizes="IMAGE_SIZES.drawer" />
+              <img :src="originalSrc(project.image)" :alt="project.image.alt || project.title" decoding="async" class="drawer-image" />
+            </picture>
           </div>
 
           <!-- Title & Role -->

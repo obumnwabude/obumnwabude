@@ -85,7 +85,9 @@ onMounted(() => {
       <div class="avatar-aura" aria-hidden="true"></div>
       <div class="avatar-frame">
         <img
-          src="/assets/obum.webp"
+          src="/assets/obum-384.webp"
+          srcset="/assets/obum-384.webp 384w, /assets/obum-768.webp 768w"
+          sizes="384px"
           alt="Obumuneme Nwabude"
           width="384"
           height="384"
@@ -178,9 +180,10 @@ onMounted(() => {
         <br />
         Let's work together to achieve success.
       </p>
-      <p contact>
+      <!-- A div, not a <p>: ContactMe renders block elements, which a <p> can't contain (it broke hydration). -->
+      <div contact>
         <ContactMe color="var(--primary)" label="Contact Me" location="closing_cta" />
-      </p>
+      </div>
     </div>
   </div>
 </template>

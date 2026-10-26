@@ -39,6 +39,7 @@ const theme = useThemeStore();
     @click="menu.toggle"
     aria-haspopup="true"
     aria-controls="theme-menu"
+    :aria-label="`Theme: ${theme.mode}`"
     :class="{ full }"
     :outlined="full ? true : undefined"
     class="glass-theme-btn"
