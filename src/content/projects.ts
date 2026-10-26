@@ -1,111 +1,99 @@
 import type { CodingProject } from '@/types';
 
+const orctra: CodingProject = {
+  title: 'Orctra',
+  description:
+    'Ladder-climb prediction market: traders stake, pick a market and climb short price rungs with set multipliers, while liquidity providers back the payouts. Live on EVM, Solana rolling out.',
+  longDescription:
+    'Orctra is an on-chain prediction market built as a ladder. Traders lock a stake token, pick a market, and climb short-term price rungs: each winning rung moves the claim up through set multipliers, and a losing rung ends the climb. Liquidity providers deposit into vaults that back the payouts, and every climb, rung, trade and vault movement is stored on-chain so the app can rebuild any screen from contract data. OrcTraders NFTs come with their own token-bound accounts and plug into the Orctra economy.',
+  category: 'Blockchain / Web3',
+  status: 'Live on EVM',
+  role: 'Lead Architect & Smart Contract Developer',
+  architecture: {
+    frontend: ['React', 'Vite', 'TypeScript', 'Tailwind CSS', 'TradingView Charts'],
+    backend: ['Firebase Auth & Firestore', 'Redis + BullMQ Workers', 'Google Cloud Build'],
+    blockchainOrAi: [
+      'Solidity (ERC-2535 Diamond)',
+      'ERC-6551 Token-Bound NFTs',
+      'Anchor & Rust (Solana)',
+    ],
+    infrastructure: ['Trader, Beta & Admin Apps', 'Settlement & Leaderboard Workers'],
+  },
+  highlights: [
+    'Ladder climbs with pinned multipliers, settled from on-chain price feeds',
+    'Liquidity vaults that lock only the profit exposure of the current rung',
+    'OrcTraders NFTs with ERC-6551 token-bound accounts inside an upgradeable diamond',
+    'Background workers that settle stuck rungs, apply inactivity rules and rank traders',
+  ],
+  image: { alt: 'Flyer Image', name: 'orctra' },
+  actions: [
+    { icon: 'zap', link: 'https://orctra.com', title: 'Trade Now' },
+    { icon: 'externallink', link: 'https://x.com/orctra', title: 'kllow Us' },
+  ],
+  tags: ['Solidity', 'Solana'],
+  expandedTags: ['Prediction Market', 'ERC-2535 Diamond', 'ERC-6551', 'Anchor', 'React', 'Pyth'],
+};
+
 const chainbills: CodingProject = {
   title: 'Chainbills',
   description:
-    'Cross-chain, non-custodial payable-link gateway that settles payments across EVM chains and Solana using Circle CCTP and Wormhole. Receive any crypto on any chain from anyone.',
+    'Cross-chain payment links: create a payable, share one link, and get paid in crypto from EVM chains or Solana, settled through Circle CCTP and Wormhole.',
   longDescription:
-    'Chainbills is an interoperable cross-chain crypto payment gateway where users create a payable, share one link, and accept crypto from any supported chain. Payments settle on-chain through Circle CCTP and Wormhole across EVM and Solana, with no custodian in between. Built with Anchor/Rust PDAs on Solana and Solidity smart contracts on EVM, Chainbills features non-custodial merchant payment processing, multi-chain relayers, and real-time settlement tracking.',
+    'Chainbills lets anyone create a payable (a public invoice), share one link, and receive crypto from payers on any supported chain. Payments move across EVM chains and Solana through Circle CCTP and Wormhole, with no custodian in between. Contracts on every chain keep matching records of payables, payments and withdrawals, and Chainbills takes a 2% fee (with a fixed cap) on withdrawals.',
   category: 'Blockchain / Web3',
   status: 'Open Source & Production Ready',
   role: 'Creator & Full-Stack Web3 Engineer',
   architecture: {
-    frontend: ['Vue / React', 'TypeScript', 'Tailwind CSS'],
-    backend: ['Node.js', 'Firebase Cloud Functions'],
-    blockchainOrAi: ['Circle CCTP', 'Wormhole', 'Solidity (EVM)', 'Anchor & Rust (Solana)'],
-    infrastructure: ['Multi-Chain Relayers', 'Cloud Firestore'],
+    frontend: ['Vue 3', 'TypeScript', 'PrimeVue', 'Tailwind CSS', 'wagmi & viem'],
+    backend: ['NestJS', 'Prisma', 'PostgreSQL'],
+    blockchainOrAi: ['Circle CCTP', 'Wormhole', 'Solidity (EVM)', 'Anchor & Rust (Solana)', 'CosmWasm'],
+    infrastructure: ['Contract Indexer', 'Cross-Chain Relayer', 'Email Notifications'],
   },
   highlights: [
-    'Cross-chain settlement powered by Circle CCTP and Wormhole across EVM and Solana',
-    'Non-custodial payable invoices and payment nonces with PDA-level replay protection on Solana',
-    'Single shareable payable link allowing payers to pay from any supported network with automatic routing',
-    'Real-time activity audit trails, fee configurations, and multi-token balance tracking',
+    'One shareable link that accepts payments from any supported chain',
+    'Cross-chain settlement through Circle CCTP and Wormhole',
+    'Matching payable, payment and withdrawal records across EVM, Solana and CosmWasm contracts',
+    'Backend that indexes contracts, relays messages and emails hosts',
   ],
   image: { alt: 'Display of Chainbills', name: 'chainbills', png: true },
   actions: [
-    {
-      icon: 'zap',
-      link: 'https://chainbills.xyz',
-      title: 'Get Started',
-    },
-    {
-      icon: 'github',
-      link: 'https://github.com/chainbills/chainbills',
-      title: 'Source Code',
-    },
+    { icon: 'zap', link: 'https://chainbills.xyz', title: 'Get Started' },
+    { icon: 'github', link: 'https://github.com/chainbills/chainbills', title: 'Source Code' },
   ],
   tags: ['Solidity', 'Solana'],
-  expandedTags: ['Web3', 'Solidity', 'Solana', 'Circle CCTP', 'Wormhole', 'Cross-Chain', 'Anchor Rust', 'TypeScript'],
+  expandedTags: ['Cross-Chain', 'Circle CCTP', 'Wormhole', 'Anchor', 'CosmWasm', 'NestJS', 'Vue 3'],
 };
 
 const dado: CodingProject = {
   title: 'Dado Food',
   description:
-    'On-Demand Food Delivery Ecosystem with Customer, Rider, and Vendor Mobile Apps serving happy users with local food.',
+    'Food delivery for local vendors: Flutter apps for customers, riders and vendors, with live order updates and rider maps.',
   longDescription:
-    'Dado Food is a full-lifecycle on-demand food delivery and logistics ecosystem tailored for African culinary businesses and hungry customers. The ecosystem is composed of three synchronized native-compiled mobile apps built with Flutter: a consumer app for discovery and checkout, a rider app with turn-by-turn navigation and dispatch coordination, and a merchant vendor dashboard for real-time kitchen order management and menu availability.',
+    "Dado Food connects customers with local food vendors and delivery riders. I led the Flutter work on its three mobile apps: a customer app for browsing vendors and ordering, a rider app for campus partners and independent riders to accept and deliver orders with maps and routes, and a vendor app for managing orders and menus. The apps talk to Dado's REST API and use push notifications for live order updates.",
   category: 'Mobile & Flutter',
   status: 'Production Ecosystem',
-  role: 'Lead Mobile Architect & Backend Engineer',
+  role: 'Lead Mobile Engineer',
   architecture: {
-    frontend: ['Flutter (Dart)', 'Bloc State Management', 'Google Maps Platform'],
-    backend: ['Firebase Cloud Firestore', 'Cloud Functions', 'Node.js'],
-    infrastructure: ['Firebase Cloud Messaging (FCM)', 'Realtime Location Tracking'],
+    frontend: ['Flutter (Dart)', 'Bloc', 'Google Maps'],
+    backend: ['REST API (Dio)'],
+    infrastructure: ['Firebase Cloud Messaging', 'Firebase Crashlytics', 'Mixpanel', 'Intercom'],
   },
   highlights: [
-    'Engineered 3 synchronized mobile clients across iOS and Android with single codebase efficiency',
-    'Live geospatial delivery route tracking with real-time ETA updates for customers and dispatchers',
-    'Sub-second order state synchronization using Firebase Realtime streams and Cloud Functions',
-    'Resilient offline caching and graceful recovery for intermittent network conditions',
+    'Three Flutter apps (customer, rider, vendor) on Android and iOS',
+    'Rider maps with route lines and location tracking',
+    'Push notifications for live order updates',
+    'Dev and prod app flavors for safe testing',
   ],
   image: { alt: 'Dado', name: 'dado', png: true },
   actions: [{ icon: 'rocket', link: 'https://dado.ng', title: 'All Apps' }],
   tags: ['Flutter', 'Firebase'],
-  expandedTags: ['Flutter', 'Dart', 'Firebase', 'Mobile Architecture', 'Google Maps Platform', 'Bloc'],
-};
-
-const orctra: CodingProject = {
-  title: 'Orctra',
-  description:
-    'Gamified capital economy live on EVM (minting active) with Solana settlement rolling out. Features on-chain prediction ladders, liquidity vaults, and cross-chain settlement.',
-  longDescription:
-    'Orctra is a gamified capital economy protocol built across EVM and Solana. The protocol features on-chain prediction ladders with progressive multiplier rungs, liquidity swap vaults, NFT-to-token swap fees, and automated royalty distributions. Engineered with high-performance smart contracts on EVM and Solana (Anchor/Rust), Orctra enables non-custodial participants to speculate on asset directions, climb prize ladders, and earn protocol yield with cryptographic settlement.',
-  category: 'Blockchain / Web3',
-  status: 'Live on EVM',
-  role: 'Lead Architect & Smart Contract Developer',
-  architecture: {
-    frontend: ['React / Vite', 'TypeScript', 'Tailwind CSS', 'Lucide Icons'],
-    backend: ['On-Chain State Machine', 'Decentralized Oracle Relays'],
-    blockchainOrAi: ['Solidity (EVM)', 'Anchor & Rust (Solana)', 'Prediction Multiplier Ladders', 'Liquidity Vaults'],
-    infrastructure: ['Cross-Chain Settlement Relays', 'Non-Custodial Wallet Connectors'],
-  },
-  highlights: [
-    'Multi-chain protocol deployed across EVM and Solana with non-custodial signature verification',
-    'Interactive prediction ladders featuring directional rungs, dynamic multipliers, and instant settlement',
-    'Automated liquidity vaults supporting minting, swaps, activation, and reward pool fee routing',
-    'Secondary marketplace royalty routing and holder reward distribution mechanics',
-  ],
-  image: { alt: 'Flyer Image', name: 'orctra' },
-  actions: [
-    {
-      icon: 'zap',
-      link: 'https://orctra.com',
-      title: 'Trade Now',
-    },
-    {
-      icon: 'externallink',
-      link: 'https://x.com/orctra',
-      title: 'Follow Us',
-    },
-  ],
-  tags: ['Solidity', 'Solana'],
-  expandedTags: ['Web3', 'Solidity', 'Solana', 'Anchor Rust', 'Prediction Ladders', 'DeFi Vaults', 'React'],
+  expandedTags: ['Dart', 'Bloc', 'Google Maps', 'Push Notifications', 'Food Delivery'],
 };
 
 const androidBubbles: CodingProject = {
   title: 'Android Bubbles in Flutter',
   description:
-    "Open-source Flutter plugin that exposes Android's native Conversation Bubbles overlay (introduced in Android 11) to Dart apps, so messaging and chat features can pop out as floating, multi-tasking chat heads over other apps. Ships with a working example and clean platform-channel bindings for NotificationManager and BubbleMetadata.",
+    'Open-source Flutter plugin (conversation_bubbles) that shows Android 11+ conversation bubbles, the floating chat heads, from your Flutter app. Comes with an example app.',
   longDescription:
     "Android Bubbles in Flutter (conversation_bubbles) is an open-source Flutter plugin that bridges Flutter apps to Android's native Conversation Bubbles system API (introduced in Android 11+). The plugin enables messaging and communication apps to pop out floating, multi-tasking chat heads over other applications, handling Android NotificationManager lifecycles, BubbleMetadata, shortcuts, and platform channel data transfer seamlessly.",
   category: 'Mobile & Flutter',
@@ -123,36 +111,30 @@ const androidBubbles: CodingProject = {
     'Comprehensive documentation and example application showcasing background state management',
   ],
   image: { alt: 'Android Bubbles in Flutter', name: 'android-bubbles-flutter' },
-  actions: [
-    {
-      icon: 'github',
-      link: 'https://github.com/keepdeploying/conversation_bubbles',
-      title: 'Package Source',
-    },
-  ],
+  actions: [{ icon: 'github', link: 'https://github.com/keepdeploying/conversation_bubbles', title: 'Package Source' }],
   tags: ['Flutter', 'Android'],
-  expandedTags: ['Flutter', 'Dart', 'Android SDK', 'Kotlin', 'Platform Channels'],
+  expandedTags: ['Dart', 'Android SDK', 'Kotlin', 'Platform Channels', 'Notifications'],
 };
 
 const confide: CodingProject = {
   title: 'Confide',
   description:
-    'Mobile-first social network built as a safe, supportive space where members share confidences, seek advice, and celebrate small wins in dual anonymous and identified posting modes. Live on both Google Play and the App Store.',
+    'Community app where people share thoughts, ask for advice and support each other. Built with Flutter and live on Google Play and the App Store.',
   longDescription:
-    'Confide Community is a mobile social network offering a supportive, private space where users can voice thoughts, share personal dilemmas, seek advice, and find mutual inspiration. Built with Flutter for iOS and Android, the application features community moderation, anonymous and identified posting modes, real-time discussions, and accessible wellness resources.',
+    'Confide Community is a mobile social app built for peace and trust while interacting with a global community. I built the Flutter app for iOS and Android from the Figma design, using simple setState for screens and streams with singleton services for app-wide state, and connected it to the Confide REST API.',
   category: 'Mobile & Flutter',
   status: 'Available on App Stores',
   role: 'Mobile Application Developer',
   architecture: {
-    frontend: ['Flutter (Dart)', 'Material Design 3', 'Provider / Riverpod'],
-    backend: ['Cloud REST API', 'Push Notifications'],
-    infrastructure: ['Apple App Store', 'Google Play Store'],
+    frontend: ['Flutter (Dart)', 'Streams & Services (rxdart)', 'GoRouter'],
+    backend: ['REST API (Dio)', 'Hive Local Storage'],
+    infrastructure: ['Firebase Analytics & Crashlytics', 'Apple App Store', 'Google Play Store'],
   },
   highlights: [
-    'Dual-mode posting providing anonymous sharing while maintaining community moderation standards',
-    'Silky-smooth feed rendering with optimistic UI updates and image caching',
-    'Cross-platform deployment to both Apple App Store and Google Play Store',
-    'Encrypted user profile state and fine-grained privacy controls',
+    'Shipped to both the App Store and Google Play from one Flutter codebase',
+    'App-wide state with streams and services instead of a heavy state library',
+    'Sensitive data kept in secure on-device storage',
+    'Crash reporting and analytics with Firebase',
   ],
   image: { alt: 'Confide Logo', name: 'confide', png: true },
   ctasEqualWeights: true,
@@ -169,7 +151,7 @@ const confide: CodingProject = {
     },
   ],
   tags: ['Flutter', 'Community'],
-  expandedTags: ['Flutter', 'Dart', 'iOS & Android', 'Community', 'Mobile Security'],
+  expandedTags: ['Dart', 'iOS & Android', 'rxdart', 'GoRouter', 'Social App'],
 };
 
 export const featuredProjects: CodingProject[] = [orctra, chainbills, dado, androidBubbles, confide];
@@ -183,70 +165,54 @@ export const projects: CodingProject[] = [
   {
     title: 'DevFest Abakaliki 2024',
     description:
-      "Official event portal for DevFest Abakaliki 2024, the Google Developer Groups community's flagship annual conference, covering ticket reservations, live speaker schedules, venue navigation, and sponsor showcases on a responsive React and Firebase build. Led end to end by Obum.",
+      'Registration site for DevFest Abakaliki 2024: free and paid tickets through Paystack, plus an admin app for offline payments. Built with React and Firebase.',
     longDescription:
-      'Official web portal for DevFest Abakaliki 2024 organized by Google Developer Groups (GDG) Abakaliki. Obum led the frontend and backend engineering, designing a responsive, fast-loading event portal for attendee ticket reservation, speaker schedule discovery, venue navigation, and sponsor showcases.',
+      "The custom website for GDG Abakaliki's DevFest 2024. Attendees registered and paid for tickets through Paystack (a free Premium ticket and a paid Luxury ticket with swag), and an admin app let organizers add people who paid in cash or by bank transfer and see every registered attendee. The event has passed and the domain is no longer active; the code is open source.",
     category: 'Full-Stack Web',
-    status: 'Delivered for Event',
+    status: 'Event Completed',
     role: 'Lead Frontend & Web Developer',
     architecture: {
-      frontend: ['React', 'TypeScript', 'Tailwind CSS'],
-      backend: ['Firebase Firestore', 'Firebase Hosting'],
+      frontend: ['React', 'TypeScript', 'Vite', 'PrimeReact'],
+      backend: ['Cloud Functions', 'Cloud Firestore'],
+      infrastructure: ['Firebase Hosting', 'Firebase App Check', 'Paystack'],
     },
     highlights: [
-      'Engineered interactive event schedule with real-time speaker profile inspection',
-      'Integrated ticket booking flows with instant confirmation and QR code passes',
-      'Optimized asset loading achieving sub-second Largest Contentful Paint (LCP)',
+      'Ticket registration with Paystack payments',
+      'Admin app for offline payments and the attendee list',
+      'Firebase App Check so only the official sites can reach the backend',
     ],
     image: { alt: 'DevFest Abakaliki 2024 Flyer', name: 'dfai24' },
-    actions: [
-      {
-        icon: 'ticket',
-        link: 'https://devfestabakaliki.com',
-        title: 'Get Ticket',
-      },
-      {
-        icon: 'github',
-        link: 'https://github.com/obumnwabude/devfestabakaliki2024',
-        title: 'Source Code',
-      },
-    ],
+    actions: [{ icon: 'github', link: 'https://github.com/obumnwabude/devfestabakaliki2024', title: 'Source Code' }],
     tags: ['React', 'Firebase'],
-    expandedTags: ['React', 'Firebase', 'TypeScript', 'Tailwind CSS', 'Cloud Firestore'],
+    expandedTags: ['TypeScript', 'Vite', 'PrimeReact', 'Paystack', 'Cloud Functions'],
   },
   {
     title: 'WalletSMSLockr',
     description:
-      'Privacy-first Android app that end-to-end encrypts SMS between sender and intended recipient, and holds sensitive vault data locally under device-bound cryptographic identifiers so nothing leaks if the phone is lost or the app is uninstalled.',
+      'Privacy app for Android that encrypts SMS before they leave your phone and locks files and notes in a vault tied to your device.',
     longDescription:
-      'WalletSMSLockr is a privacy-focused mobile security vault and encrypted messaging application. It ensures sensitive SMS communications remain strictly between intended parties by utilizing end-to-end cryptographic encryption paired with hardware device identifiers for local vault protection.',
+      "WalletSMSLockr is a privacy app built on the Lokdon encryption SDK. Set as the default SMS app on Android, it encrypts every SMS before sending, so other apps only see cipher text, and shows you the readable version. Its data vault encrypts files and text using your device's identifiers, and secure crypto and fiat wallets were planned as the next features.",
     category: 'Mobile & Flutter',
-    status: 'Store Release',
+    status: 'No Longer on Google Play',
     role: 'Mobile Security Engineer',
     architecture: {
-      frontend: ['Flutter (Dart)', 'Local Hardware Keystore'],
-      backend: ['End-to-End Encryption Engine', 'Device Identifier Vault'],
+      frontend: ['Flutter (Dart)', 'Android Telephony'],
+      backend: ['Lokdon Encryption SDK', 'Hive Local Storage'],
     },
     highlights: [
-      'Client-side symmetric and asymmetric encryption keeping communications confidential',
-      'Zero-knowledge hardware vault secured by device biometric and hardware keys',
-      'Offline-first architecture ensuring message privacy without third-party cloud leaks',
+      'Encrypts SMS before they go over the carrier network',
+      'Data vault for encrypting and sharing files and notes',
+      "Works as Android's default SMS app",
     ],
     image: { alt: 'WalletSMSLockr Logo', name: 'walletsmslockr', png: true },
-    actions: [
-      {
-        icon: 'googleplay',
-        link: 'https://play.google.com/store/apps/details?id=com.lokdon.walletsmslockr',
-        title: 'Download on Google Play',
-      },
-    ],
+    actions: [],
     tags: ['Flutter', 'Security'],
-    expandedTags: ['Flutter', 'Dart', 'Security', 'Encryption', 'Cryptography', 'Android'],
+    expandedTags: ['Dart', 'Android', 'Encryption', 'SMS', 'Lokdon SDK'],
   },
   {
     title: 'obumnwabude',
     description:
-      'The portfolio site you are reading right now. A statically pre-rendered Vue 3 showcase built on a custom Liquid Glass 2.0 design system, with 3D mouse-tilt cards, glass drawers and bento expansions, and deep GA4 telemetry across every meaningful interaction.',
+      'The portfolio site you are reading right now. A pre-rendered Vue 3 site with a custom Liquid Glass design: 3D tilt cards, glass drawers and bento expansions, with Google Analytics 4 on key interactions.',
     longDescription:
       'Personal portfolio and technical showcase engineered with Vue 3, TypeScript, and a modern Liquid Glass 2.0 design system. Features static site generation (SSG) pre-rendering, search engine optimization (SEO) schema structured data, interactive glass tilt surfaces, and comprehensive GA4 telemetry.',
     category: 'Full-Stack Web',
@@ -257,41 +223,32 @@ export const projects: CodingProject[] = [
       infrastructure: ['Firebase Hosting', 'Static Pre-rendering (SSG)', 'Google Analytics 4'],
     },
     highlights: [
-      'Liquid Glass 2.0 theme featuring 3D mouse tilt, specular sheen, and chromatic ambient lighting',
-      'Zero-runtime overhead SSG pre-rendering pipeline with Open Graph & Twitter meta tags',
-      'Deep behavioral telemetry and Google Analytics 4 tracking engine',
+      'Liquid Glass theme with 3D mouse tilt, specular sheen and ambient lighting',
+      'Pre-rendered pages with Open Graph and Twitter meta tags',
+      'Google Analytics 4 events on key interactions',
     ],
-    image: {
-      alt: 'Obum Speaking',
-      name: 'obum-speaking',
-    },
-    actions: [
-      {
-        icon: 'github',
-        link: 'https://github.com/obumnwabude/obumnwabude',
-        title: 'Source Code on GitHub',
-      },
-    ],
+    image: { alt: 'Obum Speaking', name: 'obum-speaking' },
+    actions: [{ icon: 'github', link: 'https://github.com/obumnwabude/obumnwabude', title: 'Source Code on GitHub' }],
     tags: ['Vue 3', 'Firebase'],
-    expandedTags: ['Vue 3', 'TypeScript', 'Glassmorphism', 'SSG', 'Firebase'],
+    expandedTags: ['TypeScript', 'Vite', 'PrimeVue', 'Pre-rendering', 'Firebase Hosting'],
   },
   {
     title: 'CTLearn',
     description:
-      'Cross-platform Flutter app for academic management and live student-to-tutor collaboration, covering course material distribution, Q&A channels, attendance tracking, and assignment submissions across Android and iOS. Ships on Google Play.',
+      "Learning app for Coders Triangle's CT Learn students, built with Flutter from the Figma design: class timetable, course materials and file downloads. On Google Play.",
     longDescription:
-      'CTLearn is an educational management platform connecting academic tutors with students. Engineered with Flutter, the app provides real-time course material distribution, interactive Q&A channels, attendance tracking, and intuitive assignment submissions.',
+      "CTLearn is the mobile app for CT Learn, Coders Triangle's learning platform. I built it in Flutter from the team's Figma design, using the Stacked architecture, with a class timetable, course materials, and file uploads and downloads.",
     category: 'Mobile & Flutter',
     status: 'Store Release',
     role: 'Mobile Developer',
     architecture: {
-      frontend: ['Flutter (Dart)', 'State Management', 'REST API Client'],
-      backend: ['Cloud Database', 'Push Notifications'],
+      frontend: ['Flutter (Dart)', 'Stacked', 'Table Calendar'],
+      backend: ['REST API', 'Hive Local Storage'],
     },
     highlights: [
-      'Interactive student-tutor messaging and academic resource sharing',
-      'Intuitive timetable, course schedule, and attendance management',
-      'Smooth performance across Android and iOS devices',
+      'Class timetable with a calendar view',
+      'Course materials with file uploads and downloads',
+      'Built to match the Figma design',
     ],
     image: { alt: 'CTLearn Logo', name: 'ctlearn', png: true },
     actions: [
@@ -302,7 +259,7 @@ export const projects: CodingProject[] = [
       },
     ],
     tags: ['Flutter', 'Education'],
-    expandedTags: ['Flutter', 'Dart', 'Education', 'Mobile'],
+    expandedTags: ['Dart', 'Stacked', 'Education', 'Mobile'],
   },
   {
     title: 'Todo',
@@ -313,98 +270,64 @@ export const projects: CodingProject[] = [
     category: 'Mobile & Flutter',
     status: 'Teaching Resource',
     role: 'Author & Developer',
-    architecture: {
-      frontend: ['Flutter (Dart)', 'Stacked State Management'],
-    },
+    architecture: { frontend: ['Flutter (Dart)', 'Stacked State Management'] },
     highlights: [
-      'Clean single-screen interface with dark mode support',
-      'Demonstrates Stacked architecture patterns for education',
-      'Reactive task state updates and persistence',
+      'Clean single-screen interface in dark mode',
+      'Shows the Stacked pattern: views, ViewModels and services',
+      'Tasks saved on the device with Hive',
     ],
     image: { alt: 'Screenshots of the Todo App', name: 'stacked-todo' },
     actions: [
-      {
-        icon: 'github',
-        link: 'https://github.com/obumnwabude/Flutter_stacked_todo',
-        title: 'Source Code on GitHub',
-      },
+      { icon: 'github', link: 'https://github.com/obumnwabude/Flutter_stacked_todo', title: 'Source Code on GitHub' },
     ],
     tags: ['Flutter', 'State Management'],
-    expandedTags: ['Flutter', 'Dart', 'Stacked Architecture', 'State Management'],
+    expandedTags: ['Dart', 'Stacked', 'Hive', 'State Management'],
   },
   {
     title: 'LinkedIn Class',
     description:
-      'Registration portal built to gatekeep a live LinkedIn skills class, using LinkedIn OAuth as the login so only real LinkedIn accounts could enroll, plus a Firebase backend for participant tracking and post-class material distribution.',
+      'Sign-in page for my free WhatsApp class on growing on LinkedIn: members logged in with LinkedIn to keep their record and connect with classmates.',
     longDescription:
-      'Event registration portal built to manage participants for a LinkedIn professional development workshop. The platform integrates LinkedIn OAuth authentication, tracks registrations, and grants secure access to class materials.',
+      'The companion site for my free LinkedIn class on WhatsApp. Participants signed in with their LinkedIn accounts to record that they took the class, then came back to connect with every other member who had signed in.',
     category: 'Full-Stack Web',
     status: 'Event Completed',
     role: 'Full-Stack Developer',
-    architecture: {
-      frontend: ['Angular', 'TypeScript'],
-      backend: ['Firebase', 'Cloud Functions'],
-    },
+    architecture: { frontend: ['Angular', 'TypeScript'], backend: ['Firebase', 'Cloud Functions'] },
     highlights: [
-      'LinkedIn OAuth integration for participant authentication',
-      'Real-time registration tracking and participant management',
-      'Secure access control for class materials',
+      'Sign in with LinkedIn',
+      'A shared list of classmates to connect with',
+      'Built with Angular and Firebase',
     ],
     image: { alt: 'LinkedIn Class Flyer', name: 'linkedin-class-ad' },
     actions: [
-      {
-        icon: 'externallink',
-        link: 'https://linkedinclass.obumnwabude.com',
-        title: 'Visit',
-      },
-      {
-        icon: 'github',
-        link: 'https://github.com/obumnwabude/linkedin-class',
-        title: 'Source Code',
-      },
+      { icon: 'externallink', link: 'https://linkedinclass.obumnwabude.com', title: 'Visit' },
+      { icon: 'github', link: 'https://github.com/obumnwabude/linkedin-class', title: 'Source Code' },
     ],
     tags: ['Angular', 'Firebase'],
-    expandedTags: ['Angular', 'Firebase', 'TypeScript', 'OAuth', 'Cloud Functions'],
+    expandedTags: ['TypeScript', 'Firebase', 'LinkedIn Sign-In', 'Cloud Functions'],
   },
   {
     title: 'Calculator',
     description:
-      'Cross-platform Flutter scientific calculator supporting compound expressions, operator precedence, and history recall, implemented with the Stacked MVVM pattern for clean state management. Shipped on Google Play.',
+      'Simple calculator app built with Flutter to practice the Stacked architecture. Runs on Android, iOS, web and Windows.',
     longDescription:
-      'A Flutter-based scientific calculator application demonstrating advanced state management with the Stacked architecture pattern. The app supports complex mathematical expressions, history tracking, and cross-platform iOS and Android functionality.',
+      'A Flutter calculator built to practice the Stacked architecture, with get_it and injectable for dependency injection. The same code builds for Android, iOS, web and Windows.',
     category: 'Mobile & Flutter',
-    status: 'Store Release',
+    status: 'Open Source on GitHub',
     role: 'Mobile Developer',
-    architecture: {
-      frontend: ['Flutter (Dart)', 'Stacked Architecture'],
-    },
-    highlights: [
-      'Complex mathematical expression evaluation with proper operator precedence',
-      'Clean Stacked state management for calculation history',
-      'Available on Google Play Store for Android users',
-    ],
+    architecture: { frontend: ['Flutter (Dart)', 'Stacked Architecture'] },
+    highlights: ['Stacked architecture with get_it and injectable', 'One codebase for Android, iOS, web and Windows'],
     image: { alt: 'Screens of Calculator', name: 'calculator' },
-    actions: [
-      {
-        icon: 'googleplay',
-        link: 'https://play.google.com/store/apps/details?id=com.keepdeploying.calculator',
-        title: 'Google Play',
-      },
-      {
-        icon: 'github',
-        link: 'https://github.com/keepdeploying/calculator',
-        title: 'Source Code',
-      },
-    ],
+    actions: [{ icon: 'github', link: 'https://github.com/keepdeploying/calculator', title: 'Source Code' }],
     tags: ['Flutter', 'Mobile'],
-    expandedTags: ['Flutter', 'Dart', 'Stacked Architecture', 'Mobile App'],
+    expandedTags: ['Dart', 'Stacked', 'Dependency Injection'],
   },
   {
     title: 'obum.me',
     description:
-      'Personal URL shortener that fronts every link Obum shares (profiles, GitHub, achievements) under a memorable custom slug. Built end to end on Firebase (Firestore, Cloud Functions, Hosting), so it stays effectively free to keep running.',
+      'My URL shortener for links to my articles, profiles and videos. Built on Firebase (Firestore, Cloud Functions, Hosting), so it costs almost nothing to run.',
     longDescription:
-      "A serverless URL shortener built entirely on Firebase infrastructure. The service provides custom short links to Obum's professional profiles, social accounts, and key projects, with real-time analytics and link management through a simple Angular web interface.",
+      'A URL shortener built entirely on Firebase. Short links on obum.me redirect to their long links through Cloud Functions, unknown links show a custom 404 page, and the admin site at admin.obum.me lists every link publicly while only my account can edit them.',
     category: 'Full-Stack Web',
     status: 'Live',
     role: 'Full-Stack Developer',
@@ -414,20 +337,17 @@ export const projects: CodingProject[] = [
       infrastructure: ['Firebase Hosting'],
     },
     highlights: [
-      'Serverless URL shortening with custom aliases using Firebase Functions',
-      'Real-time link analytics and click tracking via Firestore',
-      'Minimal infrastructure footprint deployed entirely on Firebase',
+      'Redirects handled by Cloud Functions, with a custom 404 page',
+      'Public admin list at admin.obum.me, editable only by me',
+      'Runs entirely on Firebase',
     ],
     image: { alt: 'Screenshot of the 404 page', name: 'obum.me-404' },
     actions: [
-      {
-        icon: 'github',
-        link: 'https://github.com/obumnwabude/obum.me',
-        title: 'Source Code on GitHub',
-      },
+      { icon: 'externallink', link: 'https://admin.obum.me', title: 'All Links' },
+      { icon: 'github', link: 'https://github.com/obumnwabude/obum.me', title: 'Source Code on GitHub' },
     ],
     tags: ['Firebase', 'Angular'],
-    expandedTags: ['Firebase', 'Angular', 'TypeScript', 'Cloud Functions', 'Firestore', 'Serverless'],
+    expandedTags: ['Angular', 'Cloud Functions', 'Firestore', 'Firebase Auth', 'Serverless'],
   },
   {
     title: 'Tutorial Management System',
@@ -449,16 +369,8 @@ export const projects: CodingProject[] = [
     ],
     image: { alt: 'Screenshot of TMS', name: 'tms' },
     actions: [
-      {
-        icon: 'zap',
-        link: 'https://tutorialmgt.web.app',
-        title: 'Get Started',
-      },
-      {
-        icon: 'github',
-        link: 'https://github.com/obumnwabude/tutorialmgt',
-        title: 'Source Code',
-      },
+      { icon: 'zap', link: 'https://tutorialmgt.web.app', title: 'Get Started' },
+      { icon: 'github', link: 'https://github.com/obumnwabude/tutorialmgt', title: 'Source Code' },
     ],
     tags: ['Angular', 'Firebase'],
     expandedTags: ['Angular', 'Firebase', 'TypeScript', 'Material Design', 'Firestore'],
@@ -472,10 +384,7 @@ export const projects: CodingProject[] = [
     category: 'Full-Stack Web',
     status: 'Live',
     role: 'Developer',
-    architecture: {
-      frontend: ['Angular', 'TypeScript'],
-      backend: ['Firebase Firestore', 'Cloud Functions'],
-    },
+    architecture: { frontend: ['Angular', 'TypeScript'], backend: ['Firebase Firestore', 'Cloud Functions'] },
     highlights: [
       'Custom progress and achievement reporting forms for club members',
       'Real-time data synchronization across the community',
@@ -483,16 +392,8 @@ export const projects: CodingProject[] = [
     ],
     image: { alt: 'Community Picture', name: 'genesys-community' },
     actions: [
-      {
-        icon: 'externallink',
-        link: 'https://genesysaefunai.web.app',
-        title: 'Join Us',
-      },
-      {
-        icon: 'github',
-        link: 'https://github.com/obumnwabude/genesys-community',
-        title: 'Source Code',
-      },
+      { icon: 'externallink', link: 'https://genesysaefunai.web.app', title: 'Join Us' },
+      { icon: 'github', link: 'https://github.com/obumnwabude/genesys-community', title: 'Source Code' },
     ],
     tags: ['Angular', 'Firebase'],
     expandedTags: ['Angular', 'Firebase', 'TypeScript', 'Community', 'Firestore'],
@@ -506,149 +407,108 @@ export const projects: CodingProject[] = [
     category: 'Mobile & Flutter',
     status: 'Open Source on GitHub',
     role: 'Developer',
-    architecture: {
-      frontend: ['Flutter (Dart)', 'System Theme Integration'],
-    },
+    architecture: { frontend: ['Flutter (Dart)', 'System Theme Integration'] },
     highlights: [
       'Real-time battery status display using Flutter battery_info plugin',
       'System theme awareness for seamless dark and light mode support',
       'Simple, focused single-screen user experience',
     ],
     image: { alt: 'Screens of Battery Info', name: 'battery-info' },
-    actions: [
-      {
-        icon: 'github',
-        link: 'https://github.com/obumnwabude/battery_info',
-        title: 'Source Code on GitHub',
-      },
-    ],
+    actions: [{ icon: 'github', link: 'https://github.com/obumnwabude/battery_info', title: 'Source Code on GitHub' }],
     tags: ['Flutter', 'Android'],
     expandedTags: ['Flutter', 'Dart', 'Android', 'System Integration'],
   },
   {
     title: 'Mmèmmè',
     description:
-      'Public event calendar for venues managed by a central authority, so citizens can see every approved gathering in one place and organizers can request slots without back-and-forth emails. Built with Flutter and Firebase; preview is live.',
+      'Public calendar of halls and auditoriums in an institution: anyone can see approved event schedules and request a slot. Built with Flutter and Firebase; preview is live.',
     longDescription:
-      'A community event calendar platform for managing venue schedules and event approvals. Built with Flutter and Firebase, Mmèmmè provides a public-facing calendar where citizens can view all approved events at municipal venues in real time.',
+      "Mmèmmè solves a common problem in schools and institutions: booking a hall or auditorium usually means writing a letter and hoping there's no clash. It shows a public calendar of every requested and approved schedule across all halls an authority manages, and lets anyone request (and pay for) a slot.",
     category: 'Mobile & Flutter',
     status: 'In Development',
     role: 'Developer',
     architecture: {
-      frontend: ['Flutter (Dart)'],
-      backend: ['Firebase Firestore'],
+      frontend: ['Flutter (Dart)', 'Riverpod', 'Syncfusion Calendar'],
+      backend: ['Firebase Auth (Google Sign-In)', 'Cloud Firestore'],
     },
     highlights: [
-      'Real-time public event calendar for venue availability',
-      'Event approval workflow for authority management',
-      'Cross-platform mobile access to community schedules',
+      'Public calendar of all hall schedules in one place',
+      'Anyone can request a slot for an event',
+      'Google sign-in with Firebase Auth',
     ],
     image: { alt: 'Mmèmmè Logo', name: 'mmemme' },
-    actions: [
-      {
-        icon: 'externallink',
-        link: 'https://mmemme1.web.app',
-        title: 'Visit Preview',
-      },
-    ],
+    actions: [{ icon: 'externallink', link: 'https://mmemme1.web.app', title: 'Visit Preview' }],
     tags: ['Flutter', 'Firebase'],
-    expandedTags: ['Flutter', 'Dart', 'Firebase', 'Calendar', 'Community'],
+    expandedTags: ['Dart', 'Riverpod', 'Calendar', 'Firestore'],
   },
   {
     title: 'Christmas Cantata Quiz',
     description:
-      'Two-round competitive quiz portal built for a Christmas Cantata programme, running timed multiple-choice questions on selected Bible chapters with a live leaderboard as participants play across both rounds. Angular front end backed by Firebase.',
+      "Quiz website for the Christmas Cantata of St. Cecilia's Choir, NFCS AE-FUNAI, with the event details and an online quiz. Built with Angular and Firebase.",
     longDescription:
-      'An interactive online quiz platform built for Christmas Cantata event participants. The application features timed multiple-choice rounds with real-time scoring, leaderboards, and secure participant tracking.',
+      "The website for the Christmas Cantata of St. Cecilia's Choir, NFCS AE-FUNAI. It shared what the cantata was about and where it held, and ran an online quiz for participants.",
     category: 'Full-Stack Web',
     status: 'Event Completed',
     role: 'Developer',
-    architecture: {
-      frontend: ['Angular', 'TypeScript'],
-      backend: ['Firebase Firestore', 'Cloud Functions'],
-    },
-    highlights: [
-      'Real-time timed quiz rounds with instant scoring',
-      'Competitive leaderboard tracking across participants',
-      'Responsive interface for desktop and mobile participation',
-    ],
+    architecture: { frontend: ['Angular', 'TypeScript', 'Tailwind CSS', 'Nx'], backend: ['Firebase'] },
+    highlights: ['Event page for the Christmas Cantata', 'Online quiz for participants', 'Light and dark themes'],
     image: { alt: 'Christmas Cantata Flyer', name: 'cantata' },
     actions: [
-      {
-        icon: 'github',
-        link: 'https://github.com/obumnwabude/choircarolquiz',
-        title: 'Source Code on GitHub',
-      },
+      { icon: 'externallink', link: 'https://choircarolquiz.web.app', title: 'Visit' },
+      { icon: 'github', link: 'https://github.com/obumnwabude/choircarolquiz', title: 'Source Code on GitHub' },
     ],
     tags: ['Angular', 'Firebase'],
-    expandedTags: ['Angular', 'Firebase', 'TypeScript', 'Quiz Platform', 'Realtime'],
+    expandedTags: ['TypeScript', 'Tailwind CSS', 'Nx', 'Quiz'],
   },
   {
     title: 'My Notes',
     description:
-      'Note-taking web app written as the reference project for a GDSC AE-FUNAI Firebase workshop, showing off Firestore real-time syncing, security rules, and Firebase Authentication in the smallest useful form. Still up as a teaching sample.',
+      'Notes web app built live in DSC AE-FUNAI\'s "Build MyNotes App with Firestore" workshop in October 2020. Still up as a teaching sample.',
     longDescription:
-      'A note-taking application built to demonstrate Firestore best practices during a GDSC Firebase workshop series. The app showcases real-time data synchronization, cloud storage, and authentication patterns using vanilla JavaScript and Firebase.',
+      'A simple notes app used in DSC AE-FUNAI\'s "Build MyNotes App with Firestore" hands-on workshop. It uses plain HTML, CSS and JavaScript with Cloud Firestore to create, update, delete and query notes.',
     category: 'Full-Stack Web',
     status: 'Teaching Resource',
     role: 'Instructor & Developer',
-    architecture: {
-      frontend: ['HTML', 'CSS', 'JavaScript'],
-      backend: ['Firebase Firestore', 'Firebase Authentication'],
-    },
+    architecture: { frontend: ['HTML', 'CSS', 'JavaScript'], backend: ['Cloud Firestore'] },
     highlights: [
-      'Real-time note synchronization using Firestore listeners',
-      'Firebase Authentication for user access control',
-      'Educational example for GDSC workshop participants',
+      'Create, update, delete and query notes with Firestore',
+      'Built live during a DSC workshop',
+      'Firestore security rules included',
     ],
     image: { alt: 'Screens of using MyNotes', name: 'mynotes' },
     actions: [
-      {
-        icon: 'externallink',
-        link: 'https://mynotesobum.web.app',
-        title: 'Sample',
-      },
-      {
-        icon: 'github',
-        link: 'https://github.com/gdscaefunai/mynotes',
-        title: 'Source Code',
-      },
+      { icon: 'externallink', link: 'https://mynotesobum.web.app', title: 'Sample' },
+      { icon: 'github', link: 'https://github.com/gdscaefunai/mynotes', title: 'Source Code' },
     ],
     tags: ['Firebase', 'JavaScript'],
-    expandedTags: ['Firebase', 'Firestore', 'JavaScript', 'Authentication'],
+    expandedTags: ['Firestore', 'JavaScript', 'Workshop'],
   },
   {
     title: 'GitHub Invite',
     description:
-      'Small utility that takes a GitHub username and an organization name and sends an org invitation through the GitHub API, so organizers can onboard cohorts in bulk instead of pasting invites by hand. Node.js backend on Firebase Functions.',
+      'Invite people to your GitHub organization by username, without pasting invites by hand. Comes as a Node server, a static page and an npm package.',
     longDescription:
-      'A Node.js utility that automates GitHub organization invitations. Users provide a GitHub username and organization identifier, and the tool uses the GitHub API to send direct org invitations.',
-    category: 'AI & Cloud',
+      "GitHub Invite sends invitations to join a GitHub organization through the GitHub API, using an admin's access token. It started as a request from a friend and grew into four versions: a Node monolith server, a static frontend, a Firebase version, and an npm package.",
+    category: 'Full-Stack Web',
     status: 'Open Source on GitHub',
     role: 'Developer',
     architecture: {
-      backend: ['Node.js', 'GitHub API'],
+      frontend: ['Static HTML & JavaScript'],
+      backend: ['Node.js', 'GitHub API', 'Firebase'],
+      infrastructure: ['npm Package', 'GitHub Pages'],
     },
     highlights: [
-      'GitHub API integration for organization invitations',
-      'Simple web interface for bulk user invitations',
-      'Programmatic org membership management',
+      'Invites users to a GitHub organization by username',
+      'Four versions: Node server, static page, Firebase and npm package',
+      'My first published npm package',
     ],
     image: { alt: 'Screenshot of GitHub Invite', name: 'github-invite' },
     actions: [
-      {
-        icon: 'externallink',
-        link: 'https://githubinvite.web.app',
-        title: 'Sample',
-      },
-      {
-        icon: 'github',
-        link: 'https://github.com/obumnwabude/github-invite',
-        title: 'Source Code',
-      },
+      { icon: 'externallink', link: 'https://githubinvite.web.app', title: 'Sample' },
+      { icon: 'github', link: 'https://github.com/obumnwabude/github-invite', title: 'Source Code' },
     ],
     tags: ['Node.js', 'GitHub API'],
-    expandedTags: ['Node.js', 'GitHub API', 'JavaScript', 'Automation'],
+    expandedTags: ['JavaScript', 'npm', 'Firebase', 'Automation'],
   },
   {
     title: 'ECX #30DaysOfCode',
@@ -659,9 +519,7 @@ export const projects: CodingProject[] = [
     category: 'Full-Stack Web',
     status: 'Learning Archive',
     role: 'Participant',
-    architecture: {
-      backend: ['Node.js', 'JavaScript'],
-    },
+    architecture: { backend: ['Node.js', 'JavaScript'] },
     highlights: [
       'Daily backend challenges covering HTTP, APIs, and databases',
       'Node.js and JavaScript fundamentals reinforcement',
@@ -669,46 +527,28 @@ export const projects: CodingProject[] = [
     ],
     image: { alt: '', name: 'backend' },
     actions: [
-      {
-        icon: 'github',
-        link: 'https://github.com/obumnwabude/ecx-backend-30daysofcode',
-        title: 'Submissions',
-      },
+      { icon: 'github', link: 'https://github.com/obumnwabude/ecx-backend-30daysofcode', title: 'Submissions' },
     ],
     tags: ['Node.js', 'Backend'],
     expandedTags: ['Node.js', 'JavaScript', 'Backend', 'Challenge'],
   },
   {
     title: 'Wolverstore',
-    description:
-      'Node.js and Express backend for an e-commerce marketplace, covering product catalogs, carts, checkout, and order state. Fully documented on Postman so a frontend can wire against it without hunting through source code.',
+    description: 'E-commerce backend in Node.js, Express and MongoDB with JWT login, built during ECX #30DaysOfCode.',
     longDescription:
-      'A Node.js backend service for an e-commerce platform providing product catalogs, shopping cart management, and order processing APIs. Built with Express.js and documented via Postman for developer integration.',
+      'The backend for Wolverstore, an online store, built for days 27 to 29 of ECX #30DaysOfCode. It covers products, users and orders with Express and MongoDB, and secures accounts with hashed passwords and JWT login.',
     category: 'Full-Stack Web',
     status: 'Reference Implementation',
     role: 'Backend Developer',
-    architecture: {
-      backend: ['Node.js', 'Express.js', 'REST API'],
-    },
+    architecture: { backend: ['Node.js', 'Express.js', 'MongoDB (Mongoose)', 'JWT Auth'] },
     highlights: [
-      'RESTful API design for product and cart management',
-      'Order processing and transaction handling',
-      'Comprehensive Postman documentation for API consumers',
+      'REST API for products, users and orders',
+      'Hashed passwords and JWT login',
+      'Built for ECX #30DaysOfCode',
     ],
     image: { alt: '', name: 'backend' },
-    actions: [
-      {
-        icon: 'document',
-        link: 'https://documenter.getpostman.com/view/11131742/SzfAxRPo',
-        title: 'Documentation',
-      },
-      {
-        icon: 'github',
-        link: 'https://github.com/obumnwabude/wolverstore',
-        title: 'Source Code',
-      },
-    ],
+    actions: [{ icon: 'github', link: 'https://github.com/obumnwabude/wolverstore', title: 'Source Code' }],
     tags: ['Node.js', 'Backend'],
-    expandedTags: ['Node.js', 'Express.js', 'REST API', 'E-Commerce', 'Backend'],
+    expandedTags: ['Express.js', 'MongoDB', 'JWT', 'E-Commerce'],
   },
 ];

@@ -32,9 +32,9 @@ export const LINKS = {
 
   // Community Organizations, Programs & Tech Initiatives
   gde: 'https://developers.google.com/community/experts?utm_campaign=deveco_gdemembers&utm_source=deveco',
-  gdg: 'https://developers.google.com/community/gdg?utm_campaign=deveco_gdemembers&utm_source=deveco',
+  gdg: 'https://developers.google.com/community?utm_campaign=deveco_gdemembers&utm_source=deveco',
   funai: 'https://funai.edu.ng',
-  gdsc: 'https://developers.google.com/community/gdsc?utm_campaign=deveco_gdemembers&utm_source=deveco',
+  gdsc: 'https://developers.google.com/community?utm_campaign=deveco_gdemembers&utm_source=deveco',
   genesys: 'https://genesystechhub.com',
   mlsa: 'https://mvp.microsoft.com/studentambassadors?utm_campaign=deveco_gdemembers&utm_source=deveco',
   flutter: 'https://flutter.dev?utm_campaign=deveco_gdemembers&utm_source=deveco',
