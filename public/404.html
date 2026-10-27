@@ -111,6 +111,116 @@
         outline: 2px solid var(--primary);
         outline-offset: 2px;
       }
+      .hero {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin: 28px 0 4px;
+      }
+      .hero .code {
+        margin: 0;
+      }
+      .rocket {
+        width: 170px;
+        height: auto;
+        flex-shrink: 0;
+        overflow: visible;
+      }
+      .rocket .trail {
+        fill: none;
+        stroke: var(--primary);
+        stroke-opacity: 0.35;
+        stroke-width: 1.5;
+        stroke-linecap: round;
+        stroke-dasharray: 2 6;
+        animation: trail 2.4s linear infinite;
+      }
+      .rocket .ship {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: drift 5s ease-in-out infinite;
+      }
+      .rocket .hull {
+        fill: var(--card);
+        stroke: var(--primary);
+        stroke-width: 2;
+        stroke-linejoin: round;
+      }
+      .rocket .fin {
+        fill: var(--primary);
+        fill-opacity: 0.25;
+        stroke: var(--primary);
+        stroke-width: 2;
+        stroke-linejoin: round;
+      }
+      .rocket .window {
+        fill: var(--primary);
+        fill-opacity: 0.85;
+      }
+      .rocket .flame {
+        fill: #f59e0b;
+        transform-box: fill-box;
+        transform-origin: 50% 0;
+        animation: flicker 0.35s ease-in-out infinite alternate;
+      }
+      .rocket .star {
+        fill: var(--primary);
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: twinkle 3s ease-in-out infinite;
+      }
+      .rocket .star:nth-of-type(2) {
+        animation-delay: 1s;
+      }
+      .rocket .star:nth-of-type(3) {
+        animation-delay: 2s;
+      }
+      @keyframes drift {
+        0%,
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+        50% {
+          transform: translate(6px, -8px) rotate(6deg);
+        }
+      }
+      @keyframes flicker {
+        from {
+          transform: scaleY(0.75);
+          opacity: 0.8;
+        }
+        to {
+          transform: scaleY(1.15);
+          opacity: 1;
+        }
+      }
+      @keyframes twinkle {
+        0%,
+        100% {
+          opacity: 0.2;
+          transform: scale(0.6);
+        }
+        50% {
+          opacity: 0.9;
+          transform: scale(1);
+        }
+      }
+      @keyframes trail {
+        to {
+          stroke-dashoffset: -16;
+        }
+      }
+      @media (max-width: 400px) {
+        .rocket {
+          width: 110px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .rocket * {
+          animation: none !important;
+        }
+      }
     </style>
     <!-- Google Analytics: count 404s so broken inbound links show up in reports. -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VLJ5M4SZ44"></script>
@@ -127,7 +237,25 @@
   <body>
     <main>
       <a class="logo" href="/">Obum<span>.</span></a>
-      <div class="code">404</div>
+      <div class="hero">
+        <div class="code">404</div>
+        <!-- A small rocket that drifted off course. Decorative. -->
+        <svg class="rocket" viewBox="0 0 150 110" aria-hidden="true" focusable="false">
+          <path class="star" d="M18 14 Q19 18 23 19 Q19 20 18 24 Q17 20 13 19 Q17 18 18 14Z" />
+          <path class="star" d="M136 86 Q137 89 140 90 Q137 91 136 94 Q135 91 132 90 Q135 89 136 86Z" />
+          <path class="star" d="M128 10 Q129 13 132 14 Q129 15 128 18 Q127 15 124 14 Q127 13 128 10Z" />
+          <path class="trail" d="M4 104 C 24 98, 30 70, 52 72 S 70 84, 78 66" />
+          <g class="ship">
+            <g transform="rotate(40 100 46)">
+              <path class="flame" d="M93 74 Q100 96 107 74 Z" />
+              <path class="fin" d="M90 58 L80 74 L92 70 Z" />
+              <path class="fin" d="M110 58 L120 74 L108 70 Z" />
+              <path class="hull" d="M100 16 C 114 28, 114 56, 108 72 L 92 72 C 86 56, 86 28, 100 16 Z" />
+              <circle class="window" cx="100" cy="42" r="6" />
+            </g>
+          </g>
+        </svg>
+      </div>
       <h1>This page doesn't exist</h1>
       <p>The link may be old or mistyped. Everything on the site is one of these pages:</p>
       <nav aria-label="Site pages">

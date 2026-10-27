@@ -5,6 +5,9 @@ import ImpactMetrics from '@/components/ImpactMetrics.vue';
 import ProjectOrEvent from '@/components/ProjectOrEvent.vue';
 import ServicesSection from '@/components/ServicesSection.vue';
 import TechMatrix from '@/components/TechMatrix.vue';
+import HeroOrbits from '@/components/vectors/HeroOrbits.vue';
+import JourneyPath from '@/components/vectors/JourneyPath.vue';
+import PaperPlaneTrail from '@/components/vectors/PaperPlaneTrail.vue';
 import { articles } from '@/content/articles';
 import { community } from '@/content/community';
 import { featuredProjects } from '@/content/projects';
@@ -83,6 +86,7 @@ onMounted(() => {
 
     <div intro-avatar v-reveal="{ delay: 120 }">
       <div class="avatar-aura" aria-hidden="true"></div>
+      <HeroOrbits />
       <div class="avatar-frame">
         <img
           src="/assets/obum-384.webp"
@@ -112,8 +116,12 @@ onMounted(() => {
     </div>
   </div>
 
-  <!-- Key Metrics & Credibility Capsule Bar -->
-  <ImpactMetrics />
+  <!-- Key Metrics & Credibility Capsule Bar, then the Learn → Mentor path.
+       Wrapped in one div so the sections below keep their odd/even heading styles. -->
+  <div>
+    <ImpactMetrics />
+    <JourneyPath v-reveal />
+  </div>
 
   <!-- Core Technical Capabilities Matrix -->
   <section v-reveal>
@@ -173,6 +181,7 @@ onMounted(() => {
 
   <div closing v-reveal>
     <div class="closing-card glass-surface glass-frost">
+      <div class="closing-plane"><PaperPlaneTrail /></div>
       <span leading-flower><IconFlower6P color="var(--primary)" :size="32" :spin="true" :glow="true" /></span>
       <h2>LET'S WORK TOGETHER</h2>
       <p text>
@@ -456,6 +465,18 @@ section h2::after {
   box-shadow: var(--shadow-glass);
 }
 
+.closing-card {
+  position: relative;
+}
+
+.closing-plane {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 120px;
+  pointer-events: none;
+}
+
 .closing-card h2 {
   font-size: 1.85rem;
   font-weight: 600;
@@ -480,6 +501,13 @@ section h2::after {
 
 /* Responsive */
 @media (max-width: 511.98px) {
+  .closing-plane {
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 72px;
+    opacity: 0.7;
+  }
+
   .gde-glass-badge {
     position: relative;
     bottom: auto;

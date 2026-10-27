@@ -235,6 +235,30 @@ export const projects: CodingProject[] = [
     tags: ['React', 'Tailwind CSS'],
     expandedTags: ['TypeScript', 'React Router', 'Sveltia CMS', 'Cloudflare Workers'],
   },
+  {
+    title: 'Keep Deploying',
+    description:
+      'Website for Keep Deploying, my software agency and mentorship movement, rebuilt in React with animated illustrations, light and dark themes, and pre-rendered pages for search.',
+    longDescription:
+      'Keep Deploying is my software agency and mentorship movement: we build web and app products for clients, offer consultancy and IT support, and mentor young developers to ship and showcase their work. I rebuilt its website from scratch in React with Chakra UI, with pages for services, how we work, mentorship and contact, animated SVG illustrations, and light and dark themes. Every route is pre-rendered to static HTML with structured data, so pages load fast and can be found in search.',
+    categories: ['Full-Stack Web', 'AI & Cloud'],
+    status: 'Live',
+    role: 'Founder & Lead Engineer',
+    architecture: {
+      frontend: ['React 19', 'Vite', 'TypeScript', 'Chakra UI 3', 'Framer Motion'],
+      infrastructure: ['Pre-rendered HTML & structured data', 'GA4 lead tracking', 'Firebase Hosting'],
+    },
+    highlights: [
+      'Animated SVG illustrations: idea-to-deploy pipeline, orbits and a mentorship path',
+      'Every page pre-rendered with structured data for search',
+      'GA4 events on every lead and contact action',
+      'Light, dark and system themes',
+    ],
+    image: { alt: 'Keep Deploying home page', name: 'keepdeploying' },
+    actions: [{ icon: 'externallink', link: 'https://keepdeploying.com', title: 'Visit' }],
+    tags: ['React', 'Chakra UI'],
+    expandedTags: ['TypeScript', 'Framer Motion', 'SEO', 'Firebase Hosting'],
+  },
   orctra,
   chainbills,
   dado,

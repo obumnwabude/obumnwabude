@@ -405,7 +405,7 @@ export function trackThemeChange(toTheme: string, fromTheme?: string, triggerLoc
  */
 export function trackNavClick(
   linkName: string,
-  navType: 'desktop_header' | 'mobile_sidebar' | 'footer' | 'hero'
+  navType: 'desktop_header' | 'mobile_sidebar' | 'footer' | 'hero' | 'journey_path'
 ): void {
   trackEvent('navigation_click', {
     link_name: linkName,

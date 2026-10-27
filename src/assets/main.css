@@ -571,6 +571,17 @@ body.dark [filled] * {
   animation-name: vt-slide-in;
 }
 
+/* Theme change: no slide, the new theme spreads out in a circle (see stores/theme.ts) */
+html.theme-transition::view-transition-old(root),
+html.theme-transition::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+html.theme-transition::view-transition-new(root) {
+  z-index: 2;
+}
+
 @keyframes vt-slide-out {
   from {
     opacity: 1;

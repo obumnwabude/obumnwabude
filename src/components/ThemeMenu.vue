@@ -20,6 +20,8 @@ const selectTheme = (mode: ThemeMode, event?: MouseEvent) => {
   sidebar.close();
 };
 
+// props.action (bound on each item button) already calls `command` on click and
+// keyboard select, so the buttons need no extra @click (that ran the change twice).
 const items = ref(
   themes.map((mode) => ({
     label: mode,
@@ -49,12 +51,7 @@ const theme = useThemeStore();
   </button>
   <Menu ref="menu" id="theme-menu" :model="items" :popup="true">
     <template #item="{ item, props }">
-      <button
-        menu-item
-        v-bind="props.action"
-        @click="(e) => selectTheme(item.label as ThemeMode, e)"
-        :class="{ 'is-active-theme': theme.mode === item.label }"
-      >
+      <button menu-item v-bind="props.action" :class="{ 'is-active-theme': theme.mode === item.label }">
         <span class="item-left">
           <component :is="icons()[item.label as ThemeMode]" />
           <span>{{ item.label }}</span>

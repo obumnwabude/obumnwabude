@@ -31,6 +31,8 @@ export const useThemeStore = defineStore('theme', () => {
       window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'Dark Theme' : 'Light Theme';
   };
 
+  let activeTransition: { finished: Promise<void> } | null = null;
+
   const set = (value: ThemeMode, event?: MouseEvent) => {
     const applyTheme = () => {
       mode.value = value;
@@ -54,22 +56,40 @@ export const useThemeStore = defineStore('theme', () => {
     const y = event ? event.clientY : 0;
     const endRadius = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));
 
+    // Mark this as a theme change so the page-slide transition CSS
+    // (used for route changes) doesn't hide the circular reveal.
+    const root = document.documentElement;
+    root.classList.add('theme-transition');
+
     const transition = doc.startViewTransition(() => {
       applyTheme();
     });
+    activeTransition = transition;
 
-    transition.ready.then(() => {
-      document.documentElement.animate(
-        {
-          clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`],
-        },
-        {
-          duration: 480,
-          easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
-          pseudoElement: '::view-transition-new(root)',
-        }
-      );
+    // Only the latest transition removes the class (a newer one may have replaced this one).
+    transition.finished.finally(() => {
+      if (activeTransition === transition) {
+        root.classList.remove('theme-transition');
+        activeTransition = null;
+      }
     });
+
+    transition.ready
+      .then(() => {
+        document.documentElement.animate(
+          {
+            clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`],
+          },
+          {
+            duration: 480,
+            easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+            pseudoElement: '::view-transition-new(root)',
+          }
+        );
+      })
+      .catch(() => {
+        // Transition was skipped (e.g. another one started). The theme still applies.
+      });
   };
 
   onMounted(() => {

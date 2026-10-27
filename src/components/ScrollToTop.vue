@@ -5,10 +5,17 @@ import { onMounted, ref } from 'vue';
 
 const isVisible = ref(false);
 
+// Progress ring: fills as the page is scrolled (0 at top, full at bottom).
+const RADIUS = 21;
+const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
+const progress = ref(0);
+
 const checkScroll = () => {
   if (typeof window === 'undefined') return;
   const next = window.scrollY > 280;
   if (next !== isVisible.value) isVisible.value = next;
+  const total = document.documentElement.scrollHeight - window.innerHeight;
+  progress.value = total > 0 ? Math.min(1, Math.max(0, window.scrollY / total)) : 0;
 };
 
 const scrollToTop = () => {
@@ -39,6 +46,17 @@ useGlobalScroll(checkScroll);
     title="Scroll to top"
   >
     <div class="btn-glow-ring"></div>
+    <svg class="progress-ring" viewBox="0 0 48 48" aria-hidden="true">
+      <circle class="progress-track" cx="24" cy="24" :r="RADIUS" />
+      <circle
+        class="progress-value"
+        cx="24"
+        cy="24"
+        :r="RADIUS"
+        :stroke-dasharray="CIRCUMFERENCE"
+        :stroke-dashoffset="CIRCUMFERENCE * (1 - progress)"
+      />
+    </svg>
     <svg
       width="20"
       height="20"
@@ -113,9 +131,38 @@ body.dark .scroll-to-top-btn {
   transform: translateY(-2px);
 }
 
+.progress-ring {
+  position: absolute;
+  inset: -3px;
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+  transform: rotate(-90deg);
+  pointer-events: none;
+  overflow: visible;
+}
+
+.progress-ring circle {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+}
+
+.progress-track {
+  opacity: 0.15;
+}
+
+.progress-value {
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.15s linear;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .scroll-to-top-btn {
     transition: opacity 0.2s ease;
+  }
+
+  .progress-value {
+    transition: none;
   }
 }
 </style>
