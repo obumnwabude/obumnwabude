@@ -127,8 +127,8 @@ onBeforeUnmount(() => {
       >
         <div class="drawer-header">
           <div class="drawer-header-meta">
-            <span v-if="project.category" class="drawer-category-badge">
-              {{ project.category }}
+            <span v-for="cat of project.categories" :key="cat" class="drawer-category-badge">
+              {{ cat }}
             </span>
             <span v-if="project.status" class="drawer-status-badge">
               <span class="status-pulse-dot" aria-hidden="true"></span>
@@ -145,8 +145,18 @@ onBeforeUnmount(() => {
           <!-- Hero Banner Image -->
           <div class="drawer-image-wrap">
             <picture>
-              <source v-if="hasResponsiveImages" type="image/webp" :srcset="webpSrcset(project.image)" :sizes="IMAGE_SIZES.drawer" />
-              <img :src="originalSrc(project.image)" :alt="project.image.alt || project.title" decoding="async" class="drawer-image" />
+              <source
+                v-if="hasResponsiveImages"
+                type="image/webp"
+                :srcset="webpSrcset(project.image)"
+                :sizes="IMAGE_SIZES.drawer"
+              />
+              <img
+                :src="originalSrc(project.image)"
+                :alt="project.image.alt || project.title"
+                decoding="async"
+                class="drawer-image"
+              />
             </picture>
           </div>
 

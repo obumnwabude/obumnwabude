@@ -81,9 +81,7 @@ const updateViewport = () => {
   }
 };
 
-const idleHintText = computed(() =>
-  isCommunityEvent(content) ? 'See curriculum' : 'See architecture'
-);
+const idleHintText = computed(() => (isCommunityEvent(content) ? 'See curriculum' : 'See architecture'));
 
 const hasIdleHintTarget = computed(() =>
   isCommunityEvent(content) ? hasCommunityRichContent() : hasProjectRichContent()
@@ -170,7 +168,7 @@ onBeforeUnmount(() => {
 const openProjectInspector = () => {
   if (!isCommunityEvent(content)) {
     dismissIdleHint();
-    trackProjectInspectOpened(title, content.category, 'inspect_button');
+    trackProjectInspectOpened(title, content.categories.join(', '), 'inspect_button');
     isDrawerOpen.value = true;
   }
 };
@@ -270,7 +268,7 @@ const hasProjectRichContent = () => {
       project.expandedTags?.length ||
       project.metrics ||
       project.role ||
-      project.category ||
+      project.categories?.length ||
       project.status ||
       project.architecture?.frontend?.length ||
       project.architecture?.backend?.length ||
@@ -426,8 +424,20 @@ watch(isExpandedDesktop, async (expanded) => {
       <div class="project-inner">
         <div class="project-image-container clickable-image" @click.stop="handleCardClick">
           <picture>
-            <source v-if="hasResponsiveImages" type="image/webp" :srcset="webpSrcset(image)" :sizes="IMAGE_SIZES.project" />
-            <img :src="originalSrc(image)" :alt="image.alt" loading="lazy" decoding="async" class="project-image" @error="handleImageError" />
+            <source
+              v-if="hasResponsiveImages"
+              type="image/webp"
+              :srcset="webpSrcset(image)"
+              :sizes="IMAGE_SIZES.project"
+            />
+            <img
+              :src="originalSrc(image)"
+              :alt="image.alt"
+              loading="lazy"
+              decoding="async"
+              class="project-image"
+              @error="handleImageError"
+            />
           </picture>
         </div>
 
@@ -505,7 +515,6 @@ watch(isExpandedDesktop, async (expanded) => {
                 <IconUp v-if="isExpandedDesktop && !isMobile" :size="20" />
                 <IconDown v-else :size="20" />
               </button>
-
 
               <Transition name="idle-hint">
                 <div
@@ -590,11 +599,11 @@ watch(isExpandedDesktop, async (expanded) => {
         @click.stop
       >
         <div
-          v-if="(content as CodingProject).category || (content as CodingProject).status || (content as CodingProject).role"
+          v-if="(content as CodingProject).categories?.length || (content as CodingProject).status || (content as CodingProject).role"
           class="bento-meta-row"
         >
-          <span v-if="(content as CodingProject).category" class="bento-meta-pill">
-            {{ (content as CodingProject).category }}
+          <span v-for="cat of (content as CodingProject).categories" :key="cat" class="bento-meta-pill">
+            {{ cat }}
           </span>
           <span v-if="(content as CodingProject).status" class="bento-meta-pill">
             <span class="status-pulse-dot" aria-hidden="true"></span>

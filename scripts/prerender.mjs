@@ -50,7 +50,7 @@ function generateStructuredData(route, content) {
         '@type': 'SoftwareApplication',
         name: project.title,
         description: project.description,
-        applicationCategory: project.category || undefined,
+        applicationCategory: project.categories?.join(', ') || undefined,
       };
 
       if (project.actions && project.actions.length > 0) {

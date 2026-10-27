@@ -111,7 +111,7 @@ const projectItems: PaletteResult[] = projects.map((p) => ({
   sublabel: p.description,
   searchExtras: [
     p.longDescription ?? '',
-    p.category,
+    p.categories.join(' '),
     p.status ?? '',
     p.role ?? '',
     (p.tags ?? []).join(' '),
@@ -122,7 +122,7 @@ const projectItems: PaletteResult[] = projects.map((p) => ({
     (p.architecture?.blockchainOrAi ?? []).join(' '),
     (p.architecture?.infrastructure ?? []).join(' '),
   ].join(' '),
-  badges: [p.category],
+  badges: [...p.categories],
   route: '/projects',
   hash: '#' + contentId(p.title),
 }));

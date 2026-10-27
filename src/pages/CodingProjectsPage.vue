@@ -29,12 +29,14 @@ const activeFilters = computed((): CodingCategory[] => parseFiltersFromRoute());
 const allCategories = [...CodingCategories];
 
 const filteredProjects = computed(() =>
-  activeFilters.value.length ? projects.filter((p) => activeFilters.value.includes(p.category)) : projects
+  activeFilters.value.length
+    ? projects.filter((p) => p.categories.some((c) => activeFilters.value.includes(c)))
+    : projects
 );
 
 const projectCounts = computed(() =>
   allCategories.reduce<Record<string, number>>((acc, cat) => {
-    acc[cat] = projects.filter((p) => p.category === cat).length;
+    acc[cat] = projects.filter((p) => p.categories.includes(cat as CodingCategory)).length;
     return acc;
   }, {})
 );

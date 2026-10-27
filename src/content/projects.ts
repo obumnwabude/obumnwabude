@@ -1,22 +1,49 @@
 import type { CodingProject } from '@/types';
 
+const crosdatPikin: CodingProject = {
+  title: 'crosdatPikin',
+  description:
+    'Clinical clerking system for neonatal and paediatric wards: structured patient records, safer prescribing, and AI decision support that keeps working when the internet is down.',
+  longDescription:
+    "crosdatPikin helps doctors and nurses in neonatal and paediatric care record each patient in a structured, guided way on tablets and phones. A clerking wizard walks clinicians from presenting complaint through history, examination, differentials, investigations and the management plan. Built-in engines handle weight-based drug doses, total parenteral nutrition (TPN) calculations with safety stops, WHO and Fenton growth charts, and 16 bedside calculators. AI suggestions run on Google's MedGemma by default and always need a clinician's sign-off. Pikin can be installed on a hospital's own network and stay useful through internet outages, or hosted in the cloud for several hospitals at once.",
+  categories: ['AI & Cloud', 'Full-Stack Web'],
+  role: 'CTO, crosdat',
+  architecture: {
+    frontend: ['React 19', 'Vite', 'TanStack Query & Router', 'Tailwind CSS'],
+    backend: ['NestJS 11', 'Prisma', 'PostgreSQL (row-level security)', 'Redis'],
+    blockchainOrAi: ['MedGemma (self-hosted)', 'Ollama, vLLM & Vertex AI adapters'],
+    infrastructure: [
+      'Docker',
+      'S3-compatible storage + ClamAV',
+      'Signed updates with rollback',
+      'Licensing & telemetry via HQ Console',
+    ],
+  },
+  highlights: [
+    'Guided clerking from presenting complaint to management plan',
+    'Dose, TPN and growth-chart engines with hard safety stops',
+    "AI suggestions that always need a clinician's sign-off",
+    "Runs on a hospital's own network, offline for days, or in the cloud for many hospitals",
+  ],
+  image: { alt: 'crosdatPikin growth charts screen', name: 'crosdat-pikin-growth-charts' },
+  actions: [{ icon: 'externallink', link: 'https://crosdat.org/products/pikin', title: 'Learn More' }],
+  tags: ['AI', 'Healthcare'],
+  expandedTags: ['MedGemma', 'React', 'NestJS', 'PostgreSQL', 'Offline-First'],
+};
+
 const orctra: CodingProject = {
   title: 'Orctra',
   description:
     'Ladder-climb prediction market: traders stake, pick a market and climb short price rungs with set multipliers, while liquidity providers back the payouts. Live on EVM, Solana rolling out.',
   longDescription:
     'Orctra is an on-chain prediction market built as a ladder. Traders lock a stake token, pick a market, and climb short-term price rungs: each winning rung moves the claim up through set multipliers, and a losing rung ends the climb. Liquidity providers deposit into vaults that back the payouts, and every climb, rung, trade and vault movement is stored on-chain so the app can rebuild any screen from contract data. OrcTraders NFTs come with their own token-bound accounts and plug into the Orctra economy.',
-  category: 'Blockchain / Web3',
+  categories: ['Blockchain / Web3', 'Full-Stack Web'],
   status: 'Live on EVM',
   role: 'Lead Architect & Smart Contract Developer',
   architecture: {
     frontend: ['React', 'Vite', 'TypeScript', 'Tailwind CSS', 'TradingView Charts'],
     backend: ['Firebase Auth & Firestore', 'Redis + BullMQ Workers', 'Google Cloud Build'],
-    blockchainOrAi: [
-      'Solidity (ERC-2535 Diamond)',
-      'ERC-6551 Token-Bound NFTs',
-      'Anchor & Rust (Solana)',
-    ],
+    blockchainOrAi: ['Solidity (ERC-2535 Diamond)', 'ERC-6551 Token-Bound NFTs', 'Anchor & Rust (Solana)'],
     infrastructure: ['Trader, Beta & Admin Apps', 'Settlement & Leaderboard Workers'],
   },
   highlights: [
@@ -40,7 +67,7 @@ const chainbills: CodingProject = {
     'Cross-chain payment links: create a payable, share one link, and get paid in crypto from EVM chains or Solana, settled through Circle CCTP and Wormhole.',
   longDescription:
     'Chainbills lets anyone create a payable (a public invoice), share one link, and receive crypto from payers on any supported chain. Payments move across EVM chains and Solana through Circle CCTP and Wormhole, with no custodian in between. Contracts on every chain keep matching records of payables, payments and withdrawals, and Chainbills takes a 2% fee (with a fixed cap) on withdrawals.',
-  category: 'Blockchain / Web3',
+  categories: ['Blockchain / Web3', 'Full-Stack Web'],
   status: 'Open Source & Production Ready',
   role: 'Creator & Full-Stack Web3 Engineer',
   architecture: {
@@ -70,7 +97,7 @@ const dado: CodingProject = {
     'Food delivery for local vendors: Flutter apps for customers, riders and vendors, with live order updates and rider maps.',
   longDescription:
     "Dado Food connects customers with local food vendors and delivery riders. I led the Flutter work on its three mobile apps: a customer app for browsing vendors and ordering, a rider app for campus partners and independent riders to accept and deliver orders with maps and routes, and a vendor app for managing orders and menus. The apps talk to Dado's REST API and use push notifications for live order updates.",
-  category: 'Mobile & Flutter',
+  categories: ['Mobile & Flutter'],
   status: 'Production Ecosystem',
   role: 'Lead Mobile Engineer',
   architecture: {
@@ -96,7 +123,7 @@ const androidBubbles: CodingProject = {
     'Open-source Flutter plugin (conversation_bubbles) that shows Android 11+ conversation bubbles, the floating chat heads, from your Flutter app. Comes with an example app.',
   longDescription:
     "Android Bubbles in Flutter (conversation_bubbles) is an open-source Flutter plugin that bridges Flutter apps to Android's native Conversation Bubbles system API (introduced in Android 11+). The plugin enables messaging and communication apps to pop out floating, multi-tasking chat heads over other applications, handling Android NotificationManager lifecycles, BubbleMetadata, shortcuts, and platform channel data transfer seamlessly.",
-  category: 'Mobile & Flutter',
+  categories: ['Mobile & Flutter'],
   status: 'Open Source on GitHub',
   role: 'Author & Maintainer',
   architecture: {
@@ -122,7 +149,7 @@ const confide: CodingProject = {
     'Community app where people share thoughts, ask for advice and support each other. Built with Flutter and live on Google Play and the App Store.',
   longDescription:
     'Confide Community is a mobile social app built for peace and trust while interacting with a global community. I built the Flutter app for iOS and Android from the Figma design, using simple setState for screens and streams with singleton services for app-wide state, and connected it to the Confide REST API.',
-  category: 'Mobile & Flutter',
+  categories: ['Mobile & Flutter'],
   status: 'Available on App Stores',
   role: 'Mobile Application Developer',
   architecture: {
@@ -154,9 +181,60 @@ const confide: CodingProject = {
   expandedTags: ['Dart', 'iOS & Android', 'rxdart', 'GoRouter', 'Social App'],
 };
 
-export const featuredProjects: CodingProject[] = [orctra, chainbills, dado, androidBubbles, confide];
+export const featuredProjects: CodingProject[] = [crosdatPikin, chainbills, confide];
 
 export const projects: CodingProject[] = [
+  crosdatPikin,
+  {
+    title: 'crosdatLMS',
+    description:
+      'Learning platform shared by many institutions: past questions, practice quizzes, assignments, grades, discussions and an AI assistant, with each school keeping its own structure.',
+    longDescription:
+      'crosdatLMS gives students, tutors and administrators from one or many institutions a single app, while each institution keeps its own faculties, departments, courses, users and policies. Students study past questions, take auto-scored practice quizzes, submit assignments and see their grades; tutors grade with rubrics and post announcements; admins manage the academic structure and question banks. AI features, including extracting past exam papers into question banks and a study assistant, sit behind institution-level controls and work with Gemini or any OpenAI-compatible provider. It is built to support classroom teaching, not replace it.',
+    categories: ['AI & Cloud', 'Full-Stack Web'],
+    status: 'Live',
+    role: 'CTO, crosdat',
+    architecture: {
+      frontend: ['React 19', 'Vite', 'TanStack Query & Router', 'Tailwind CSS'],
+      backend: ['NestJS', 'Prisma', 'PostgreSQL', 'BullMQ + Redis'],
+      blockchainOrAi: ['Gemini (or any OpenAI-compatible provider)', 'AI past-exam extraction'],
+      infrastructure: ['S3-compatible storage + ClamAV', 'Email, SMS & WhatsApp notifications', 'Google Cloud Logging'],
+    },
+    highlights: [
+      'One account across every institution a student or tutor belongs to',
+      'Question banks, past exams and auto-scored practice',
+      'Assignments with rubrics and grade finalization',
+      'Fine-grained roles and permissions with a full audit trail',
+    ],
+    image: { alt: 'crosdatLMS landing page', name: 'crosdat-lms' },
+    actions: [{ icon: 'zap', link: 'https://lms.crosdat.org', title: 'Open the LMS' }],
+    tags: ['React', 'NestJS'],
+    expandedTags: ['TypeScript', 'PostgreSQL', 'Gemini', 'Multi-Tenant', 'EdTech'],
+  },
+  {
+    title: 'crosdat.org',
+    description:
+      'Public website of the crosdat Center for Multidisciplinary Research at AE-FUNAI, rebuilt from WordPress as a fast, pre-rendered React site with its own content editor.',
+    longDescription:
+      'The website of the crosdat Center for Multidisciplinary Research, a research centre at Alex Ekwueme Federal University, Ndufu-Alike (AE-FUNAI) that designs studies, collects and analyses data, supports publication and trains researchers. It replaced the old WordPress site with a React site where every page is pre-rendered as static HTML, matches the LMS design, lets the team edit content through a CMS, and sends enquiries through a Cloudflare Worker.',
+    categories: ['AI & Cloud', 'Full-Stack Web'],
+    status: 'Live',
+    role: 'CTO, crosdat',
+    architecture: {
+      frontend: ['React 19', 'React Router 7 (pre-rendered)', 'Tailwind CSS 4'],
+      backend: ['Cloudflare Worker (enquiries)', 'Sveltia CMS'],
+      infrastructure: ['Static hosting', 'Cloudflare Pages previews'],
+    },
+    highlights: [
+      'Every page pre-rendered as static HTML for speed and SEO',
+      'Content edited through a CMS, validated at build time',
+      'Same enquiry checks in the browser and the Worker',
+    ],
+    image: { alt: 'crosdat.org home page', name: 'crosdat-org' },
+    actions: [{ icon: 'externallink', link: 'https://crosdat.org', title: 'Visit' }],
+    tags: ['React', 'Tailwind CSS'],
+    expandedTags: ['TypeScript', 'React Router', 'Sveltia CMS', 'Cloudflare Workers'],
+  },
   orctra,
   chainbills,
   dado,
@@ -168,7 +246,7 @@ export const projects: CodingProject[] = [
       'Registration site for DevFest Abakaliki 2024: free and paid tickets through Paystack, plus an admin app for offline payments. Built with React and Firebase.',
     longDescription:
       "The custom website for GDG Abakaliki's DevFest 2024. Attendees registered and paid for tickets through Paystack (a free Premium ticket and a paid Luxury ticket with swag), and an admin app let organizers add people who paid in cash or by bank transfer and see every registered attendee. The event has passed and the domain is no longer active; the code is open source.",
-    category: 'Full-Stack Web',
+    categories: ['Full-Stack Web', 'AI & Cloud'],
     status: 'Event Completed',
     role: 'Lead Frontend & Web Developer',
     architecture: {
@@ -192,7 +270,7 @@ export const projects: CodingProject[] = [
       'Privacy app for Android that encrypts SMS before they leave your phone and locks files and notes in a vault tied to your device.',
     longDescription:
       "WalletSMSLockr is a privacy app built on the Lokdon encryption SDK. Set as the default SMS app on Android, it encrypts every SMS before sending, so other apps only see cipher text, and shows you the readable version. Its data vault encrypts files and text using your device's identifiers, and secure crypto and fiat wallets were planned as the next features.",
-    category: 'Mobile & Flutter',
+    categories: ['Mobile & Flutter'],
     status: 'No Longer on Google Play',
     role: 'Mobile Security Engineer',
     architecture: {
@@ -215,7 +293,7 @@ export const projects: CodingProject[] = [
       'The portfolio site you are reading right now. A pre-rendered Vue 3 site with a custom Liquid Glass design: 3D tilt cards, glass drawers and bento expansions, with Google Analytics 4 on key interactions.',
     longDescription:
       'Personal portfolio and technical showcase engineered with Vue 3, TypeScript, and a modern Liquid Glass 2.0 design system. Features static site generation (SSG) pre-rendering, search engine optimization (SEO) schema structured data, interactive glass tilt surfaces, and comprehensive GA4 telemetry.',
-    category: 'Full-Stack Web',
+    categories: ['Full-Stack Web'],
     status: 'Live & Continuously Deployed',
     role: 'Creator & Software Architect',
     architecture: {
@@ -238,7 +316,7 @@ export const projects: CodingProject[] = [
       "Learning app for Coders Triangle's CT Learn students, built with Flutter from the Figma design: class timetable, course materials and file downloads. On Google Play.",
     longDescription:
       "CTLearn is the mobile app for CT Learn, Coders Triangle's learning platform. I built it in Flutter from the team's Figma design, using the Stacked architecture, with a class timetable, course materials, and file uploads and downloads.",
-    category: 'Mobile & Flutter',
+    categories: ['Mobile & Flutter'],
     status: 'Store Release',
     role: 'Mobile Developer',
     architecture: {
@@ -267,7 +345,7 @@ export const projects: CodingProject[] = [
       'Minimalist single-screen Flutter todo app in dark mode, written as the canonical reference for the FilledStacks Stacked architecture (MVVM with reactive ViewModels and get_it services). Companion codebase to the freeCodeCamp Stacked tutorial.',
     longDescription:
       'A minimalist Flutter todo list application demonstrating the Stacked architecture pattern for scalable state management. Built to teach Stacked best practices, the app features a clean dark-mode interface and reactive task tracking.',
-    category: 'Mobile & Flutter',
+    categories: ['Mobile & Flutter'],
     status: 'Teaching Resource',
     role: 'Author & Developer',
     architecture: { frontend: ['Flutter (Dart)', 'Stacked State Management'] },
@@ -289,7 +367,7 @@ export const projects: CodingProject[] = [
       'Sign-in page for my free WhatsApp class on growing on LinkedIn: members logged in with LinkedIn to keep their record and connect with classmates.',
     longDescription:
       'The companion site for my free LinkedIn class on WhatsApp. Participants signed in with their LinkedIn accounts to record that they took the class, then came back to connect with every other member who had signed in.',
-    category: 'Full-Stack Web',
+    categories: ['Full-Stack Web'],
     status: 'Event Completed',
     role: 'Full-Stack Developer',
     architecture: { frontend: ['Angular', 'TypeScript'], backend: ['Firebase', 'Cloud Functions'] },
@@ -312,7 +390,7 @@ export const projects: CodingProject[] = [
       'Simple calculator app built with Flutter to practice the Stacked architecture. Runs on Android, iOS, web and Windows.',
     longDescription:
       'A Flutter calculator built to practice the Stacked architecture, with get_it and injectable for dependency injection. The same code builds for Android, iOS, web and Windows.',
-    category: 'Mobile & Flutter',
+    categories: ['Mobile & Flutter'],
     status: 'Open Source on GitHub',
     role: 'Mobile Developer',
     architecture: { frontend: ['Flutter (Dart)', 'Stacked Architecture'] },
@@ -328,7 +406,7 @@ export const projects: CodingProject[] = [
       'My URL shortener for links to my articles, profiles and videos. Built on Firebase (Firestore, Cloud Functions, Hosting), so it costs almost nothing to run.',
     longDescription:
       'A URL shortener built entirely on Firebase. Short links on obum.me redirect to their long links through Cloud Functions, unknown links show a custom 404 page, and the admin site at admin.obum.me lists every link publicly while only my account can edit them.',
-    category: 'Full-Stack Web',
+    categories: ['Full-Stack Web', 'AI & Cloud'],
     status: 'Live',
     role: 'Full-Stack Developer',
     architecture: {
@@ -355,7 +433,7 @@ export const projects: CodingProject[] = [
       'Responsive scheduling dashboard that pairs students with tutors for one-to-one sessions, using a shared scheduler form that opens as a bottom sheet on mobile and a side panel on wide screens. Real-time state stays in sync via Firestore across both roles.',
     longDescription:
       'A responsive two-way platform for coordinating tutorial sessions between educators and learners. Built with Angular and Firebase, the system features responsive scheduling forms, real-time session updates, and role-based access for both tutors and students.',
-    category: 'Full-Stack Web',
+    categories: ['Full-Stack Web'],
     status: 'Live',
     role: 'Full-Stack Developer',
     architecture: {
@@ -381,7 +459,7 @@ export const projects: CodingProject[] = [
       'Custom reporting form where members of the Genesys Campus Club at AE-FUNAI log their weekly progress, share what they shipped, and surface small wins to the rest of the community. Built with Angular and Firebase and used through multiple cohorts.',
     longDescription:
       'A community engagement platform for the Genesys Campus Club at AE-FUNAI. The application provides a structured form for members to share progress reports, document achievements, and celebrate milestones within the organization.',
-    category: 'Full-Stack Web',
+    categories: ['Full-Stack Web'],
     status: 'Live',
     role: 'Developer',
     architecture: { frontend: ['Angular', 'TypeScript'], backend: ['Firebase Firestore', 'Cloud Functions'] },
@@ -404,7 +482,7 @@ export const projects: CodingProject[] = [
       'One-screen Android app that surfaces live battery diagnostics (level, health, temperature, charging state), respects the system dark and light theme, and stays completely offline. Built with Flutter on top of the battery_info pub.dev plugin.',
     longDescription:
       'A lightweight Flutter application that displays real-time battery information on Android devices. The app respects system theme preferences and provides a single-screen interface showing battery level, health, temperature, and charging status.',
-    category: 'Mobile & Flutter',
+    categories: ['Mobile & Flutter'],
     status: 'Open Source on GitHub',
     role: 'Developer',
     architecture: { frontend: ['Flutter (Dart)', 'System Theme Integration'] },
@@ -424,7 +502,7 @@ export const projects: CodingProject[] = [
       'Public calendar of halls and auditoriums in an institution: anyone can see approved event schedules and request a slot. Built with Flutter and Firebase; preview is live.',
     longDescription:
       "Mmèmmè solves a common problem in schools and institutions: booking a hall or auditorium usually means writing a letter and hoping there's no clash. It shows a public calendar of every requested and approved schedule across all halls an authority manages, and lets anyone request (and pay for) a slot.",
-    category: 'Mobile & Flutter',
+    categories: ['Mobile & Flutter', 'Full-Stack Web'],
     status: 'In Development',
     role: 'Developer',
     architecture: {
@@ -447,7 +525,7 @@ export const projects: CodingProject[] = [
       "Quiz website for the Christmas Cantata of St. Cecilia's Choir, NFCS AE-FUNAI, with the event details and an online quiz. Built with Angular and Firebase.",
     longDescription:
       "The website for the Christmas Cantata of St. Cecilia's Choir, NFCS AE-FUNAI. It shared what the cantata was about and where it held, and ran an online quiz for participants.",
-    category: 'Full-Stack Web',
+    categories: ['Full-Stack Web'],
     status: 'Event Completed',
     role: 'Developer',
     architecture: { frontend: ['Angular', 'TypeScript', 'Tailwind CSS', 'Nx'], backend: ['Firebase'] },
@@ -466,7 +544,7 @@ export const projects: CodingProject[] = [
       'Notes web app built live in DSC AE-FUNAI\'s "Build MyNotes App with Firestore" workshop in October 2020. Still up as a teaching sample.',
     longDescription:
       'A simple notes app used in DSC AE-FUNAI\'s "Build MyNotes App with Firestore" hands-on workshop. It uses plain HTML, CSS and JavaScript with Cloud Firestore to create, update, delete and query notes.',
-    category: 'Full-Stack Web',
+    categories: ['Full-Stack Web'],
     status: 'Teaching Resource',
     role: 'Instructor & Developer',
     architecture: { frontend: ['HTML', 'CSS', 'JavaScript'], backend: ['Cloud Firestore'] },
@@ -489,7 +567,7 @@ export const projects: CodingProject[] = [
       'Invite people to your GitHub organization by username, without pasting invites by hand. Comes as a Node server, a static page and an npm package.',
     longDescription:
       "GitHub Invite sends invitations to join a GitHub organization through the GitHub API, using an admin's access token. It started as a request from a friend and grew into four versions: a Node monolith server, a static frontend, a Firebase version, and an npm package.",
-    category: 'Full-Stack Web',
+    categories: ['Full-Stack Web', 'AI & Cloud'],
     status: 'Open Source on GitHub',
     role: 'Developer',
     architecture: {
@@ -516,7 +594,7 @@ export const projects: CodingProject[] = [
       'Personal submissions from the ECX #30DaysOfCode backend track in 2020, working through daily Node.js and JavaScript challenges from HTTP fundamentals up through API design and lightweight databases. Public archive of the full 30-day journey.',
     longDescription:
       'A collection of backend development challenges completed during the ECX #30DaysOfCode program in 2020. The submissions showcase Node.js solutions for progressive backend engineering tasks, from fundamentals to API design.',
-    category: 'Full-Stack Web',
+    categories: ['Full-Stack Web'],
     status: 'Learning Archive',
     role: 'Participant',
     architecture: { backend: ['Node.js', 'JavaScript'] },
@@ -537,7 +615,7 @@ export const projects: CodingProject[] = [
     description: 'E-commerce backend in Node.js, Express and MongoDB with JWT login, built during ECX #30DaysOfCode.',
     longDescription:
       'The backend for Wolverstore, an online store, built for days 27 to 29 of ECX #30DaysOfCode. It covers products, users and orders with Express and MongoDB, and secures accounts with hashed passwords and JWT login.',
-    category: 'Full-Stack Web',
+    categories: ['Full-Stack Web'],
     status: 'Reference Implementation',
     role: 'Backend Developer',
     architecture: { backend: ['Node.js', 'Express.js', 'MongoDB (Mongoose)', 'JWT Auth'] },

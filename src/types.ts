@@ -66,7 +66,7 @@ interface ProjectOrEventType extends Card {
 }
 
 export interface CodingProject extends ProjectOrEventType {
-  category: CodingCategory;
+  categories: CodingCategory[];
   status?: string;
   role?: string;
   architecture?: ProjectArchitecture;
