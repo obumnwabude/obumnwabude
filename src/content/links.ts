@@ -14,6 +14,19 @@ export const LINKS = {
   mailto: 'mailto:contact@obum.me',
   telegram: 'https://t.me/obumnwabude',
 
+  // Paid Bookings & Services (Selar store; prices shown in USD on the site, checkout in local currency)
+  book: 'https://obum.me/book',
+  selarStore: 'https://selar.com/m/obumnwabude',
+  bookCall30: 'https://selar.com/1882922v75',
+  bookCall60: 'https://selar.com/1818ji233z',
+  codeReviewPr: 'https://selar.com/0613585039',
+  codeReviewApp: 'https://selar.com/53287p8884',
+  aiAppRescue: 'https://selar.com/128921w82k',
+
+  // Social Proof
+  linkedinRecommendations: 'https://www.linkedin.com/in/obumnwabude/details/recommendations/',
+  upwork: 'https://www.upwork.com/freelancers/~015ef7417d89c39dc5',
+
   // Social & Community Profiles
   linkedin: 'https://linkedin.com/in/obumnwabude',
   github: 'https://github.com/obumnwabude',

@@ -13,7 +13,7 @@ const routes = [
     path: '/',
     title: 'Obum (Obumuneme Nwabude)',
     description:
-      'Full-Stack AI, Blockchain, Cloud, Mobile, & Web Developer. Google Developer Expert (GDE) in Cloud AI & Dart-Flutter.',
+      'Full-Stack AI, Blockchain, Cloud, Mobile & Web Developer and GDE. Book a 1:1 call, a code review or an AI-built app rescue with Obum.',
     structuredData: null,
   },
   {
@@ -35,6 +35,13 @@ const routes = [
     title: 'Community | Obum (Obumuneme Nwabude)',
     description:
       'Community contributions, speaking engagements, and workshops delivered by Google Developer Expert Obumuneme Nwabude across Cloud AI & Dart-Flutter.',
+    structuredData: null,
+  },
+  {
+    path: '/work-with-me',
+    title: 'Work With Me | Obum (Obumuneme Nwabude)',
+    description:
+      'Book a 1:1 call, a code review or an AI-built app rescue with Obum (Obumuneme Nwabude). Flutter, web, Cloud AI and Web3. Calls from $25.',
     structuredData: null,
   },
 ];
@@ -139,14 +146,54 @@ function generateStructuredData(route, content) {
     });
   }
 
+  if (route.path === '/work-with-me') {
+    const offers = content.offers || [];
+    return JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'ProfessionalService',
+      name: 'Obum (Obumuneme Nwabude): calls, code reviews and AI-built app rescue',
+      url: 'https://obumnwabude.com/work-with-me',
+      image: 'https://obumnwabude.com/assets/obum.jpg',
+      email: 'contact@obum.me',
+      areaServed: 'Worldwide',
+      provider: {
+        '@type': 'Person',
+        name: 'Obumuneme Nwabude',
+        alternateName: 'Obum',
+        url: 'https://obumnwabude.com/',
+        sameAs: [
+          'https://linkedin.com/in/obumnwabude',
+          'https://github.com/obumnwabude',
+          'https://x.com/obumnwabude',
+          'https://instagram.com/obumnwabude',
+          'https://www.upwork.com/freelancers/~015ef7417d89c39dc5',
+        ],
+      },
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Calls, code reviews and AI-built app rescue',
+        itemListElement: offers.map((offer) => ({
+          '@type': 'Offer',
+          name: offer.title,
+          description: offer.tagline,
+          price: offer.priceUsd,
+          priceCurrency: 'USD',
+          url: offer.link,
+          availability: 'https://schema.org/InStock',
+          itemOffered: { '@type': 'Service', name: offer.title },
+        })),
+      },
+    });
+  }
+
   return null;
 }
 
 async function prerender() {
   const template = fs.readFileSync(path.resolve(distDir, 'index.html'), 'utf-8');
-  const { render, projects, articles, community } = await import(ssrEntryPath);
+  const { render, projects, articles, community, offers } = await import(ssrEntryPath);
 
-  const content = { projects, articles, community };
+  const content = { projects, articles, community, offers };
 
   console.log('⚡ Pre-rendering routes into static HTML...');
 
@@ -226,7 +273,7 @@ async function prerender() {
   }
 
   // Sitemap, generated from the same routes so it never goes stale.
-  const priorities = { '/': '1.0', '/projects': '0.9', '/articles': '0.9', '/community': '0.8' };
+  const priorities = { '/': '1.0', '/work-with-me': '0.9', '/projects': '0.9', '/articles': '0.9', '/community': '0.8' };
   const lastmod = new Date().toISOString().slice(0, 10);
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

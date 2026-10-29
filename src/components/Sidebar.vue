@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import BookCall from '@/components/BookCall.vue';
 import ContactMe from '@/components/ContactMe.vue';
 import SocialIcons from '@/components/SocialIcons.vue';
 import ThemeMenu from '@/components/ThemeMenu.vue';
 import IconArticle from '@/icons/IconArticle.vue';
 import IconHome from '@/icons/IconHome.vue';
 import IconRocket from '@/icons/IconRocket.vue';
+import IconBriefcase from '@/icons/IconBriefcase.vue';
 import IconUsers from '@/icons/IconUsers.vue';
 import { useSidebarStore } from '@/stores/sidebar';
 import { trackNavClick } from '@/utils/analytics';
@@ -17,6 +19,7 @@ const navItems = [
   { path: '/projects', label: 'Projects', icon: IconRocket },
   { path: '/articles', label: 'Articles', icon: IconArticle },
   { path: '/community', label: 'Community', icon: IconUsers },
+  { path: '/work-with-me', label: 'Work With Me', icon: IconBriefcase },
 ];
 </script>
 
@@ -55,6 +58,9 @@ const navItems = [
             <span>{{ item.label }}</span>
           </router-link>
         </li>
+        <li book>
+          <BookCall label="Book a call" location="sidebar" />
+        </li>
         <li contact>
           <ContactMe color="var(--text)" :icon="true" label="Contact Me" location="sidebar" />
         </li>
@@ -73,7 +79,7 @@ nav ul {
   gap: 0.5rem;
 }
 
-li:not([contact]):not([theme]) a {
+li:not([contact]):not([theme]):not([book]) a {
   display: flex;
   align-items: center;
   gap: 0.85rem;
@@ -92,14 +98,14 @@ li:not([contact]):not([theme]) a {
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-li:not([contact]):not([theme]) a:hover .sidebar-nav-icon,
+li:not([contact]):not([theme]):not([book]) a:hover .sidebar-nav-icon,
 .router-link-active .sidebar-nav-icon {
   opacity: 1;
   color: var(--primary);
   transform: scale(1.1);
 }
 
-li:not([contact]):not([theme]) a:hover {
+li:not([contact]):not([theme]):not([book]) a:hover {
   background: rgb(from var(--primary) r g b / 12%);
   color: var(--primary);
   transform: translateX(4px);
@@ -113,8 +119,19 @@ li:not([contact]):not([theme]) a:hover {
   box-shadow: 0 2px 10px rgb(from var(--primary) r g b / 15%);
 }
 
-[contact] {
+[book] {
   padding-top: 1.25rem;
+}
+
+[book] :deep(a) {
+  min-width: 152px;
+  height: 2.35rem;
+  padding: 0 1.2rem;
+  font-size: 0.875rem;
+}
+
+[contact] {
+  padding-top: 0.75rem;
 }
 
 [theme] {

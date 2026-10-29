@@ -152,7 +152,7 @@ export function trackContactMenuOpened(triggerLocation: string): void {
  * Tracks primary lead conversion (selecting Email or Telegram).
  */
 export function trackLead(
-  method: 'email' | 'telegram',
+  method: 'email' | 'telegram' | 'booking',
   details: {
     triggerLocation?: string;
     contactTarget?: string;
@@ -161,9 +161,25 @@ export function trackLead(
   trackEvent('generate_lead', {
     method,
     trigger_location: details.triggerLocation || 'unknown',
-    contact_target: details.contactTarget || (method === 'email' ? LINKS.mailto : LINKS.telegram),
+    contact_target:
+      details.contactTarget ||
+      (method === 'email' ? LINKS.mailto : method === 'telegram' ? LINKS.telegram : LINKS.book),
     ...getSessionAttribution(),
   });
+}
+
+/**
+ * Tracks a click on any paid booking link (Selar store or a specific offer).
+ * Fires a `booking_click` event plus a `generate_lead` conversion with method 'booking'.
+ */
+export function trackBookingClick(offerId: string, triggerLocation: string, url: string): void {
+  trackEvent('booking_click', {
+    offer_id: offerId,
+    trigger_location: triggerLocation,
+    destination_url: url,
+    ...getSessionAttribution(),
+  });
+  trackLead('booking', { triggerLocation: `${triggerLocation}:${offerId}`, contactTarget: url });
 }
 
 /**
@@ -405,7 +421,7 @@ export function trackThemeChange(toTheme: string, fromTheme?: string, triggerLoc
  */
 export function trackNavClick(
   linkName: string,
-  navType: 'desktop_header' | 'mobile_sidebar' | 'footer' | 'hero' | 'journey_path'
+  navType: 'desktop_header' | 'mobile_sidebar' | 'footer' | 'hero' | 'journey_path' | 'work_with_me'
 ): void {
   trackEvent('navigation_click', {
     link_name: linkName,

@@ -1,6 +1,7 @@
 import { renderToString } from '@vue/server-renderer';
 import { articles } from './content/articles';
 import { community } from './content/community';
+import { OFFERS as offers } from './content/offers';
 import { featuredProjects, projects } from './content/projects';
 import { createAppInstance } from './main';
 
@@ -14,4 +15,4 @@ export async function render(url: string) {
   return { html };
 }
 
-export { articles, community, featuredProjects, projects };
+export { articles, community, featuredProjects, offers, projects };

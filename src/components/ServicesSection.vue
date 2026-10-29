@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import BookCall from '@/components/BookCall.vue';
 import ContactMe from '@/components/ContactMe.vue';
 import GlassCard from '@/components/GlassCard.vue';
 import { trackServiceInquiryClick } from '@/utils/analytics';
@@ -9,7 +10,7 @@ const services = [
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>`,
     title: 'MVP Architecture & Engineering',
     description:
-      'Translating ambitious product visions into production-grade, highly resilient web and mobile applications with battle-tested system architecture and rapid iteration cycles.',
+      'Turning your product idea into a production-ready web or mobile app, with solid architecture and fast, steady releases.',
     highlights: [
       'Rapid prototype-to-production engineering',
       'Cross-platform Flutter apps with 60fps polish',
@@ -17,14 +18,14 @@ const services = [
       'Offline-first sync & reactive state patterns',
     ],
     tags: ['Flutter', 'Dart', 'Vue.js', 'Node.js', 'GCP'],
-    cta: 'Discuss Your MVP',
+    cta: 'Book a call about your MVP',
   },
   {
     badge: 'Decentralized Systems',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
     title: 'Smart Contracts & Web3 Protocols',
     description:
-      'Architecting battle-tested on-chain programs on Solana and EVM networks with bespoke indexers, automated testing harnesses, and seamless frontend integrations.',
+      'Building and testing on-chain programs on Solana and EVM networks, with custom indexers, automated test suites and clean frontend integrations.',
     highlights: [
       'Solana program dev with Rust & Anchor',
       'EVM smart contracts with Solidity & Foundry',
@@ -32,7 +33,7 @@ const services = [
       'Cross-chain bridges (Wormhole) & wallet UX',
     ],
     tags: ['Solana', 'Rust / Anchor', 'Solidity', 'Wormhole', 'dApps'],
-    cta: 'Architect Web3 Solution',
+    cta: 'Book a call about Web3',
   },
   {
     badge: 'GDE & Strategic Advisory',
@@ -47,7 +48,7 @@ const services = [
       'Engineering mentorship & team upskilling',
     ],
     tags: ['Gemini API', 'Vertex AI', 'Cloud AI', 'Keynotes', 'Advisory'],
-    cta: 'Book Keynote or Advisory',
+    cta: 'Book a call for AI or advisory',
   },
 ];
 </script>
@@ -89,8 +90,14 @@ const services = [
             </div>
 
             <div class="service-action-row">
-              <ContactMe
+              <BookCall
                 :label="service.cta"
+                class="service-book-cta"
+                :offer-id="'project_' + service.title.toLowerCase().replace(/[^a-z0-9]+/g, '_')"
+                :location="'service_' + service.title.toLowerCase().replace(/[^a-z0-9]+/g, '_')"
+              />
+              <ContactMe
+                label="Or send a message"
                 color="var(--primary)"
                 class="service-card-cta"
                 :location="'service_' + service.title.toLowerCase().replace(/[^a-z0-9]+/g, '_')"
@@ -262,6 +269,18 @@ const services = [
   margin-top: 1.15rem;
   padding-top: 0.85rem;
   border-top: 1px dashed var(--glass-border);
+}
+
+.service-action-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.service-book-cta {
+  width: 100%;
+  height: 2.25rem;
+  font-size: 0.8125rem;
 }
 
 .service-card-cta {

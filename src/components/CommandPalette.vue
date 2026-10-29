@@ -1,8 +1,13 @@
 <script setup lang="ts">
 import { articles } from '@/content/articles';
 import { community } from '@/content/community';
+import { LINKS } from '@/content/links';
 import { projects } from '@/content/projects';
 import IconArticle from '@/icons/IconArticle.vue';
+import IconBriefcase from '@/icons/IconBriefcase.vue';
+import IconCalendar from '@/icons/IconCalendar.vue';
+import IconCode from '@/icons/IconCode.vue';
+import IconZap from '@/icons/IconZap.vue';
 import IconHome from '@/icons/IconHome.vue';
 import IconMoon from '@/icons/IconMoon.vue';
 import IconRocket from '@/icons/IconRocket.vue';
@@ -12,6 +17,7 @@ import IconUsers from '@/icons/IconUsers.vue';
 import { themes, useThemeStore, type ThemeMode } from '@/stores/theme';
 import { displayDate } from '@/types';
 import {
+  trackBookingClick,
   trackPaletteDismissed,
   trackPaletteOpened,
   trackPaletteResultSelected,
@@ -57,11 +63,47 @@ const themeIcons: Record<ThemeMode, Component> = {
 
 const submenuMode = ref<'none' | 'theme'>('none');
 
+function openBooking(offerId: string, url: string) {
+  trackBookingClick(offerId, 'command_palette', url);
+  window.open(url, '_blank', 'noopener noreferrer');
+}
+
 const navItems: PaletteResult[] = [
   { type: 'nav', label: 'Go to Home', route: '/', iconComponent: markRaw(IconHome) },
   { type: 'nav', label: 'Go to Projects', route: '/projects', iconComponent: markRaw(IconRocket) },
   { type: 'nav', label: 'Go to Articles', route: '/articles', iconComponent: markRaw(IconArticle) },
   { type: 'nav', label: 'Go to Community', route: '/community', iconComponent: markRaw(IconUsers) },
+  {
+    type: 'nav',
+    label: 'Go to Work With Me',
+    route: '/work-with-me',
+    searchExtras: 'hire consult consulting services pricing prices offers faq',
+    iconComponent: markRaw(IconBriefcase),
+  },
+  {
+    type: 'action',
+    label: 'Book a call',
+    searchExtras: 'book call meeting consult hire schedule calendar meet 30 60 minutes',
+    href: LINKS.book,
+    iconComponent: markRaw(IconCalendar),
+    action: () => openBooking('store', LINKS.book),
+  },
+  {
+    type: 'action',
+    label: 'Get a code review',
+    searchExtras: 'code review pull request pr audit flutter web app',
+    href: LINKS.codeReviewPr,
+    iconComponent: markRaw(IconCode),
+    action: () => openBooking('review-pr', LINKS.codeReviewPr),
+  },
+  {
+    type: 'action',
+    label: 'Rescue an AI-built app',
+    searchExtras: 'ai app rescue fix cursor lovable bolt replit v0 flutterflow claude vibe coded broken',
+    href: LINKS.aiAppRescue,
+    iconComponent: markRaw(IconZap),
+    action: () => openBooking('ai-rescue', LINKS.aiAppRescue),
+  },
   {
     type: 'action',
     label: 'Toggle Theme',

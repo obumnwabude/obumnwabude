@@ -13,7 +13,7 @@ export const routes: RouteRecordRaw[] = [
     meta: {
       title: baseTitle,
       description:
-        'Full-Stack AI, Blockchain, Cloud, Mobile, & Web Developer. Google Developer Expert (GDE) in Cloud AI & Dart-Flutter.',
+        'Full-Stack AI, Blockchain, Cloud, Mobile & Web Developer and GDE. Book a 1:1 call, a code review or an AI-built app rescue with Obum.',
     },
   },
   {
@@ -44,6 +44,16 @@ export const routes: RouteRecordRaw[] = [
       title: `Community | ${baseTitle}`,
       description:
         'Community contributions, speaking engagements, and workshops delivered by Google Developer Expert Obumuneme Nwabude across Cloud AI & Dart-Flutter.',
+    },
+  },
+  {
+    path: '/work-with-me',
+    name: 'work-with-me',
+    component: () => import('@/pages/WorkWithMePage.vue'),
+    meta: {
+      title: `Work With Me | ${baseTitle}`,
+      description:
+        'Book a 1:1 call, a code review or an AI-built app rescue with Obum (Obumuneme Nwabude). Flutter, web, Cloud AI and Web3. Calls from $25.',
     },
   },
   {

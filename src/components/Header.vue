@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import BookCall from '@/components/BookCall.vue';
 import ContactMe from '@/components/ContactMe.vue';
 import ThemeMenu from '@/components/ThemeMenu.vue';
 import IconArticle from '@/icons/IconArticle.vue';
 import IconHome from '@/icons/IconHome.vue';
 import IconMenu from '@/icons/IconMenu.vue';
 import IconRocket from '@/icons/IconRocket.vue';
+import IconBriefcase from '@/icons/IconBriefcase.vue';
 import IconUsers from '@/icons/IconUsers.vue';
 import { useGlobalScroll } from '@/composables/useGlobalScroll';
 import { useSidebarStore } from '@/stores/sidebar';
@@ -16,6 +18,7 @@ const navItems = [
   { path: '/projects', label: 'Projects', icon: IconRocket },
   { path: '/articles', label: 'Articles', icon: IconArticle },
   { path: '/community', label: 'Community', icon: IconUsers },
+  { path: '/work-with-me', label: 'Work With Me', icon: IconBriefcase },
 ];
 
 const sidebar = useSidebarStore();
@@ -72,6 +75,7 @@ useGlobalScroll(handleScroll);
 
       <div class="header-actions">
         <ContactMe color="var(--primary)" contact-me :label="'Contact Me'" location="header" />
+        <BookCall book-call label="Book a call" location="header" />
         <!-- Search / Command Palette trigger -->
         <button
           type="button"
@@ -375,15 +379,70 @@ body.dark .router-link-active.nav-link {
   transform: scale(1.1);
 }
 
-@media (max-width: 511.98px) {
+[book-call] {
+  height: 2.125rem;
+  padding: 0 0.95rem;
+  font-size: 0.8125rem;
+  margin-right: 0.25rem;
+}
+
+/* Book a call stays visible on every width; Contact Me moves to the sidebar on smaller screens. */
+@media (max-width: 1099.98px) {
   [contact-me] {
     display: none;
+  }
+}
+
+@media (max-width: 379.98px) {
+  [book-call] :deep(.book-call-icon) {
+    display: none;
+  }
+
+  [book-call] {
+    padding: 0 0.75rem;
   }
 }
 
 @media (max-width: 767.98px) {
   .desktop-nav {
     display: none;
+  }
+}
+
+.nav-link {
+  white-space: nowrap;
+}
+
+/* Tablet: six nav items plus Book a call must fit on one row. */
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  .header-left {
+    gap: 0.75rem;
+  }
+
+  .desktop-nav ul {
+    gap: 0;
+  }
+
+  .nav-link {
+    padding: 0.32rem 0.55rem;
+  }
+
+  .nav-link-icon {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1199.98px) {
+  .header-left {
+    gap: 1.5rem;
+  }
+
+  .nav-link {
+    padding: 0.32rem 0.55rem;
+  }
+
+  .header-actions {
+    margin-left: 0.75rem;
   }
 }
 

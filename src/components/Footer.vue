@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import BookCall from '@/components/BookCall.vue';
 import ContactMe from '@/components/ContactMe.vue';
 import SocialIcons from '@/components/SocialIcons.vue';
 import IconArticle from '@/icons/IconArticle.vue';
 import IconHome from '@/icons/IconHome.vue';
 import IconRocket from '@/icons/IconRocket.vue';
+import IconBriefcase from '@/icons/IconBriefcase.vue';
 import IconUsers from '@/icons/IconUsers.vue';
 import { trackNavClick } from '@/utils/analytics';
 
@@ -12,6 +14,7 @@ const navItems = [
   { path: '/projects', label: 'Projects', icon: IconRocket },
   { path: '/articles', label: 'Articles', icon: IconArticle },
   { path: '/community', label: 'Community', icon: IconUsers },
+  { path: '/work-with-me', label: 'Work With Me', icon: IconBriefcase },
 ];
 
 const year = new Date().getFullYear();
@@ -38,7 +41,10 @@ const year = new Date().getFullYear();
           </ul>
         </nav>
       </div>
-      <ContactMe color="var(--primary)" label="Contact Me" location="footer" />
+      <div class="footer-ctas">
+        <BookCall label="Book a call" location="footer" />
+        <ContactMe color="var(--primary)" label="Contact Me" location="footer" />
+      </div>
     </div>
     <div bottom>
       <SocialIcons placement="footer" />
@@ -63,6 +69,13 @@ body.dark footer {
 
 [top] {
   margin-bottom: 2rem;
+}
+
+.footer-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 [obum] {

@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import Article from '@/components/Article.vue';
+import BookCall from '@/components/BookCall.vue';
 import ContactMe from '@/components/ContactMe.vue';
 import ImpactMetrics from '@/components/ImpactMetrics.vue';
 import ProjectOrEvent from '@/components/ProjectOrEvent.vue';
 import ServicesSection from '@/components/ServicesSection.vue';
 import TechMatrix from '@/components/TechMatrix.vue';
+import TestimonialsSection from '@/components/TestimonialsSection.vue';
+import WorkWithMeSection from '@/components/WorkWithMeSection.vue';
 import HeroOrbits from '@/components/vectors/HeroOrbits.vue';
 import JourneyPath from '@/components/vectors/JourneyPath.vue';
 import PaperPlaneTrail from '@/components/vectors/PaperPlaneTrail.vue';
@@ -27,11 +30,13 @@ onMounted(() => {
     { id: 'hero', selector: '[intro]' },
     { id: 'skills_banner', selector: '[banner]' },
     { id: 'impact_metrics', selector: '.metrics-container' },
-    { id: 'core_capabilities', selector: '.tech-matrix-container' },
-    { id: 'latest_projects', selector: 'section:nth-of-type(2)' },
-    { id: 'latest_articles', selector: 'section:nth-of-type(3)' },
-    { id: 'community_talks', selector: 'section:nth-of-type(4)' },
-    { id: 'services_collaboration', selector: 'section:nth-of-type(5)' },
+    { id: 'work_with_me', selector: '[data-section="work_with_me"]' },
+    { id: 'core_capabilities', selector: '[data-section="core_capabilities"]' },
+    { id: 'latest_projects', selector: '[data-section="latest_projects"]' },
+    { id: 'latest_articles', selector: '[data-section="latest_articles"]' },
+    { id: 'community_talks', selector: '[data-section="community_talks"]' },
+    { id: 'testimonials', selector: '[data-section="testimonials"]' },
+    { id: 'services_collaboration', selector: '[data-section="services_collaboration"]' },
     { id: 'closing_cta', selector: '[closing]' },
   ];
 
@@ -73,7 +78,7 @@ onMounted(() => {
         also a Google Developer Expert (GDE) in Cloud AI & Dart-Flutter.
       </p>
       <div contact class="hero-cta-group">
-        <ContactMe :filled="true" label="Get In Touch" location="hero" />
+        <BookCall label="Book a call" location="hero" class="hero-primary-cta" />
         <router-link
           to="/projects"
           outlined
@@ -81,7 +86,17 @@ onMounted(() => {
           @click="() => trackNavClick('Explore My Work', 'hero')"
           >Explore My Work</router-link
         >
+        <ContactMe label="Get In Touch" color="var(--primary)" location="hero" class="hero-contact-cta" />
       </div>
+      <p class="hero-offer-line">
+        <span class="live-pulse-dot" aria-hidden="true"></span>
+        <span
+          >Open for
+          <router-link to="/work-with-me" @click="() => trackNavClick('Hero offer line', 'hero')"
+            >calls, code reviews and AI-built app rescue</router-link
+          ></span
+        >
+      </p>
     </div>
 
     <div intro-avatar v-reveal="{ delay: 120 }">
@@ -123,13 +138,19 @@ onMounted(() => {
     <JourneyPath v-reveal />
   </div>
 
+  <!-- Paid offers: calls, code review, AI-built app rescue -->
+  <section v-reveal id="work-with-me" data-section="work_with_me">
+    <h2>WORK WITH ME</h2>
+    <WorkWithMeSection />
+  </section>
+
   <!-- Core Technical Capabilities Matrix -->
-  <section v-reveal>
+  <section v-reveal data-section="core_capabilities">
     <h2>CORE CAPABILITIES</h2>
     <TechMatrix />
   </section>
 
-  <section v-reveal>
+  <section v-reveal data-section="latest_projects">
     <h2>LATEST PROJECTS</h2>
     <ProjectOrEvent
       :content="project"
@@ -147,7 +168,7 @@ onMounted(() => {
     </div>
   </section>
 
-  <section v-reveal>
+  <section v-reveal data-section="latest_articles">
     <h2>LATEST ARTICLES</h2>
     <Article :article="article" v-for="article of articles.slice(0, 5)" :key="article.title" />
     <div more class="glass-surface glass-frost glass-more-box">
@@ -160,7 +181,7 @@ onMounted(() => {
     </div>
   </section>
 
-  <section v-reveal>
+  <section v-reveal data-section="community_talks">
     <h2>COMMUNITY & TALKS</h2>
     <ProjectOrEvent :content="contribution" v-for="contribution of community.slice(0, 5)" :key="contribution.title" />
     <div more class="glass-surface glass-frost glass-more-box">
@@ -173,9 +194,16 @@ onMounted(() => {
     </div>
   </section>
 
+  <!-- Social proof: LinkedIn recommendations -->
+  <section v-reveal data-section="testimonials">
+    <h2>WHAT PEOPLE SAY</h2>
+    <TestimonialsSection :featured-only="true" location="home" />
+  </section>
+
   <!-- Collaboration & Services -->
-  <section v-reveal>
+  <section v-reveal id="services" data-section="services_collaboration">
     <h2>SERVICES & COLLABORATION</h2>
+    <p class="section-lead">Need more than a call or a review? I build products end to end. Let's start with a call.</p>
     <ServicesSection />
   </section>
 
@@ -185,12 +213,11 @@ onMounted(() => {
       <span leading-flower><IconFlower6P color="var(--primary)" :size="32" :spin="true" :glow="true" /></span>
       <h2>LET'S WORK TOGETHER</h2>
       <p text>
-        "Coming together is a beginning. Keeping together is progress. Working together is success." ~ Henry Ford.
-        <br />
-        Let's work together to achieve success.
+        Have a bug, an idea or an app that needs a second pair of eyes? Book a call and let's look at it together.
       </p>
       <!-- A div, not a <p>: ContactMe renders block elements, which a <p> can't contain (it broke hydration). -->
       <div contact>
+        <BookCall label="Book a call" location="closing_cta" />
         <ContactMe color="var(--primary)" label="Contact Me" location="closing_cta" />
       </div>
     </div>
@@ -235,8 +262,39 @@ onMounted(() => {
   max-width: 600px;
 }
 
-.hero-secondary-cta {
-  margin-left: 0.75rem;
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.hero-offer-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  margin-top: 1.1rem;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.hero-offer-line .live-pulse-dot {
+  flex-shrink: 0;
+  margin-top: 0.45rem;
+}
+
+.hero-offer-line a {
+  color: var(--primary);
+  font-weight: 550;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.section-lead {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: -0.75rem 0 1.75rem;
+  opacity: 0.9;
 }
 
 /* Avatar Aura & Frame */
@@ -391,6 +449,7 @@ body.dark [banner] {
 /* Sections */
 section {
   padding-bottom: 7.5rem;
+  scroll-margin-top: 5.5rem;
 }
 
 section h2 {
@@ -496,7 +555,9 @@ section h2::after {
 
 .closing-card [contact] {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  gap: 0.75rem;
 }
 
 /* Responsive */
@@ -530,8 +591,8 @@ section h2::after {
 }
 
 @media (max-width: 767.98px) {
-  [intro] [contact] {
-    margin-bottom: 3.5rem;
+  .hero-offer-line {
+    margin-bottom: 2.5rem;
   }
 
   [intro-avatar] {
