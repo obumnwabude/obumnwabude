@@ -11,7 +11,7 @@ export const routes: RouteRecordRaw[] = [
     name: 'home',
     component: HomePage,
     meta: {
-      title: 'Obum (Obumuneme Nwabude): Flutter, AI & Web3 Developer',
+      title: 'Obum (Obumuneme Nwabude) | Full-Stack AI, Blockchain, Cloud, Mobile & Web Developer',
       description:
         'Full-Stack AI, Blockchain, Cloud, Mobile & Web Developer and GDE. Book a 1:1 call, a code review or an AI-built app rescue with Obum.',
     },
@@ -53,7 +53,7 @@ export const routes: RouteRecordRaw[] = [
     meta: {
       title: 'Work With Me: Calls, Code Reviews & AI App Rescue | Obum',
       description:
-        'Book a 1:1 call, a code review or an AI-built app rescue with Obum (Obumuneme Nwabude). Flutter, web, Cloud AI and Web3. Calls from $25.',
+        'Book a 1:1 call, a code review or an AI-built app rescue with Obum (Obumuneme Nwabude). AI, blockchain, cloud, mobile and web. Calls from $25.',
     },
   },
   {
