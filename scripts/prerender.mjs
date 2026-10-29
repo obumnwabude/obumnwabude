@@ -8,10 +8,21 @@ const rootDir = path.resolve(__dirname, '..');
 const distDir = path.resolve(rootDir, 'dist');
 const ssrEntryPath = path.resolve(rootDir, 'dist-ssr/entry-server.mjs');
 
+// Same anchor ids the site uses for cards (src/utils/slug.ts).
+function contentId(title) {
+  const slug = title
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  return `content-${slug}`;
+}
+
 const routes = [
   {
     path: '/',
-    title: 'Obum (Obumuneme Nwabude)',
+    title: 'Obum (Obumuneme Nwabude): Flutter, AI & Web3 Developer',
     description:
       'Full-Stack AI, Blockchain, Cloud, Mobile & Web Developer and GDE. Book a 1:1 call, a code review or an AI-built app rescue with Obum.',
     structuredData: null,
@@ -39,7 +50,7 @@ const routes = [
   },
   {
     path: '/work-with-me',
-    title: 'Work With Me | Obum (Obumuneme Nwabude)',
+    title: 'Work With Me: Calls, Code Reviews & AI App Rescue | Obum',
     description:
       'Book a 1:1 call, a code review or an AI-built app rescue with Obum (Obumuneme Nwabude). Flutter, web, Cloud AI and Web3. Calls from $25.',
     structuredData: null,
@@ -113,27 +124,46 @@ function generateStructuredData(route, content) {
   }
 
   if (route.path === '/community') {
-    const items = (content.community || []).map(event => {
-      const dateStr = `${event.date.year}-${String(event.date.month).padStart(2, '0')}-01`;
-      const item = {
-        '@type': 'Event',
-        name: event.title,
-        startDate: dateStr,
-        organizer: {
-          '@type': 'Person',
-          name: 'Obumuneme Nwabude',
-        },
-      };
-
-      if (event.location) {
-        item.location = {
-          '@type': 'Place',
-          name: event.location,
+    // Google's Event rich result needs a location. Talks without a recorded location are left
+    // out of the structured data (they still appear on the page); "Online" talks become
+    // online events. See Search Console > Enhancements > Events.
+    const obum = { '@type': 'Person', name: 'Obumuneme Nwabude', url: 'https://obumnwabude.com/' };
+    const items = (content.community || [])
+      .filter((event) => event.location)
+      .map((event) => {
+        const dateStr = `${event.date.year}-${String(event.date.month).padStart(2, '0')}-01`;
+        const pageUrl = `https://obumnwabude.com/community#${contentId(event.title)}`;
+        const isOnline = /^(online|virtual)$/i.test(event.location.trim());
+        const item = {
+          '@type': 'Event',
+          name: event.title,
+          description: event.description,
+          url: pageUrl,
+          startDate: dateStr,
+          endDate: dateStr,
+          eventStatus: 'https://schema.org/EventScheduled',
+          eventAttendanceMode: isOnline
+            ? 'https://schema.org/OnlineEventAttendanceMode'
+            : 'https://schema.org/OfflineEventAttendanceMode',
+          location: isOnline
+            ? { '@type': 'VirtualLocation', url: event.actions?.[0]?.link || pageUrl }
+            : {
+                '@type': 'Place',
+                name: event.location,
+                address: {
+                  '@type': 'PostalAddress',
+                  addressLocality: event.location,
+                  addressCountry: /cameroon/i.test(event.location) ? 'CM' : 'NG',
+                },
+              },
+          performer: obum,
+          organizer: obum,
         };
-      }
-
-      return item;
-    });
+        if (event.image?.name) {
+          item.image = `https://obumnwabude.com/assets/${event.image.name}.${event.image.png ? 'png' : 'jpg'}`;
+        }
+        return item;
+      });
 
     return JSON.stringify({
       '@context': 'https://schema.org',

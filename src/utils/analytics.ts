@@ -641,7 +641,8 @@ export function trackAssetError(assetName: string, assetType: string = 'image', 
 export function trackWebVital(metricName: string, value: number, rating?: 'good' | 'needs-improvement' | 'poor'): void {
   trackEvent('web_vital', {
     metric_name: metricName,
-    value: Math.round(value),
+    // Not "value": GA sums that field as money ("Event value"), which made reports show 900K+.
+    metric_value: Math.round(value),
     rating: rating || 'unknown',
   });
 }

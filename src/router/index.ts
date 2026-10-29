@@ -11,7 +11,7 @@ export const routes: RouteRecordRaw[] = [
     name: 'home',
     component: HomePage,
     meta: {
-      title: baseTitle,
+      title: 'Obum (Obumuneme Nwabude): Flutter, AI & Web3 Developer',
       description:
         'Full-Stack AI, Blockchain, Cloud, Mobile & Web Developer and GDE. Book a 1:1 call, a code review or an AI-built app rescue with Obum.',
     },
@@ -51,7 +51,7 @@ export const routes: RouteRecordRaw[] = [
     name: 'work-with-me',
     component: () => import('@/pages/WorkWithMePage.vue'),
     meta: {
-      title: `Work With Me | ${baseTitle}`,
+      title: 'Work With Me: Calls, Code Reviews & AI App Rescue | Obum',
       description:
         'Book a 1:1 call, a code review or an AI-built app rescue with Obum (Obumuneme Nwabude). Flutter, web, Cloud AI and Web3. Calls from $25.',
     },

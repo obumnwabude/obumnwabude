@@ -38,6 +38,9 @@ export function createAppInstance(isServer = false) {
     app.use(
       VueGtag,
       {
+        // GA4's enhanced measurement already sends a page_view on every route change
+        // (browser history events), so vue-gtag's own router tracking would count each one twice.
+        pageTrackerEnabled: false,
         config: {
           id: GA_MEASUREMENT_ID,
           // GA treats ANY debug_mode value (even false) as "on", so only send it when debugging.
