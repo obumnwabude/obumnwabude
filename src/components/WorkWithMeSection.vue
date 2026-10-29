@@ -83,8 +83,8 @@ const groups: Group[] = [
 <template>
   <div class="wwm">
     <p class="wwm-intro">
-      Book time with me, get your code reviewed, or get your AI-built app working again. Flutter, web, backend, Cloud AI
-      and Web3.
+      Book time with me, get your code reviewed, or get your AI-built app working again. AI, blockchain, cloud, mobile
+      and web.
     </p>
 
     <div class="wwm-grid">
