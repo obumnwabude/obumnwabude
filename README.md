@@ -30,7 +30,7 @@ I write technical deep-dives on architectures, best practices, and tooling. Publ
 - [What Every Dev Should Know About Tracking Product Data](https://www.freecodecamp.org/news/what-devs-should-know-about-tracking-product-data/) — Product analytics, event instrumentation, privacy compliance
 - [How to Make Your Antigravity Agent Skills Configurable (Without Forking Them)](https://www.freecodecamp.org/news/make-your-antigravity-agent-skills-configurable-without-forking-them/) — AI agent skills, YAML config, reusable automation
 - [Road to Mastery — Being a Google Developer Expert](https://stories.obumnwabude.com/6157b05ed803) — Career, mentorship, developer advocacy impact
-- [How to Implement RBAC in a Community Dashboard with Nuxt](https://dev.to) — Authorization, role-based access control, full-stack security
+- [How to Implement RBAC in a Community Dashboard with Nuxt](https://www.freecodecamp.org/news/rbac-community-dashboard-with-nuxt/) — Authorization, role-based access control, full-stack security
 
 Read more: [Medium](https://obumnwabude.medium.com) | [Hashnode](https://obumnwabude.hashnode.dev) | [Dev.to](https://dev.to/obumnwabude)
 
@@ -45,6 +45,19 @@ I organize and speak at developer conferences, teach AI & mobile workshops, and 
 - **#BuildwithAI Workshops** — Hands-on sessions on Google Cloud Agent Studio, Retrieval-Augmented Generation (RAG), Gemini API, and prompt engineering
 - **#DevFest Sessions** — GDE talks on AI agents, Flutter, and Web3 infrastructure
 - **Google Digital Skills for Africa** — Former trainer
+
+---
+
+## Work With Me
+
+I take on consulting and project work in Flutter, Cloud AI and Web3.
+
+- **Book a 1:1 call** (30 or 60 minutes): [obum.me/book](https://obum.me/book)
+- **Code review**: a written review of your pull request, feature or full app
+- **AI-built app rescue**: your app was built with AI tools and now it breaks, so I find out why and fix it
+- **Project work**: Flutter apps, AI features on Google Cloud, smart contracts and dApps
+
+Email: [contact@obum.me](mailto:contact@obum.me)
 
 ---
 
