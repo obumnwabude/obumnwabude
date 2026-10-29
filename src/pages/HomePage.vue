@@ -19,9 +19,16 @@ import IconFlower6P from '@/icons/IconFlower6P.vue';
 import IconRight from '@/icons/IconRight.vue';
 import { banners } from '@/types';
 import { trackExploreMoreClick, trackGdeBadgeInteraction, trackNavClick, trackSectionView } from '@/utils/analytics';
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 
 const years = new Date().getFullYear() - 2018;
+
+// On phones the GDE badge shows a short label; tapping it reveals the full title.
+const badgeExpanded = ref(false);
+const toggleBadge = () => {
+  badgeExpanded.value = !badgeExpanded.value;
+  if (badgeExpanded.value) trackGdeBadgeInteraction();
+};
 
 onMounted(() => {
   if (typeof window === 'undefined' || typeof IntersectionObserver === 'undefined') return;
@@ -78,15 +85,15 @@ onMounted(() => {
         also a Google Developer Expert (GDE) in Cloud AI & Dart-Flutter.
       </p>
       <div contact class="hero-cta-group">
-        <BookCall label="Book a call" location="hero" class="hero-primary-cta" />
         <router-link
           to="/projects"
           outlined
-          class="hero-secondary-cta"
+          class="hero-cta hero-explore-cta"
           @click="() => trackNavClick('Explore My Work', 'hero')"
           >Explore My Work</router-link
         >
-        <ContactMe label="Get In Touch" color="var(--primary)" location="hero" class="hero-contact-cta" />
+        <ContactMe label="Get In Touch" color="var(--primary)" location="hero" class="hero-cta hero-contact-cta" />
+        <BookCall label="Book a call" location="hero" class="hero-cta hero-book-cta" />
       </div>
       <p class="hero-offer-line">
         <span class="live-pulse-dot" aria-hidden="true"></span>
@@ -113,10 +120,21 @@ onMounted(() => {
           fetchpriority="high"
           class="avatar-img"
         />
-        <div class="gde-glass-badge glass-surface glass-frost" @mouseenter.once="trackGdeBadgeInteraction">
+        <button
+          type="button"
+          class="gde-glass-badge glass-surface glass-frost"
+          :class="{ 'is-expanded': badgeExpanded }"
+          :aria-expanded="badgeExpanded"
+          aria-label="Google Developer Expert (GDE) in Cloud AI and Dart-Flutter"
+          @mouseenter.once="trackGdeBadgeInteraction"
+          @click="toggleBadge"
+        >
           <span class="live-pulse-dot" aria-hidden="true"></span>
-          <span class="badge-text">Google Developer Expert (GDE) • Cloud AI & Dart-Flutter</span>
-        </div>
+          <span class="badge-text badge-full" aria-hidden="true"
+            >Google Developer Expert (GDE) • Cloud AI & Dart-Flutter</span
+          >
+          <span class="badge-text badge-short" aria-hidden="true">GDE • Cloud AI & Dart-Flutter</span>
+        </button>
       </div>
     </div>
   </div>
@@ -217,8 +235,8 @@ onMounted(() => {
       </p>
       <!-- A div, not a <p>: ContactMe renders block elements, which a <p> can't contain (it broke hydration). -->
       <div contact>
-        <BookCall label="Book a call" location="closing_cta" />
         <ContactMe color="var(--primary)" label="Contact Me" location="closing_cta" />
+        <BookCall label="Book a call" location="closing_cta" />
       </div>
     </div>
   </div>
@@ -266,7 +284,49 @@ onMounted(() => {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.85rem;
+}
+
+/* Hero buttons share one size so the row reads as a set. */
+.hero-explore-cta,
+.hero-book-cta,
+.hero-contact-cta :deep(button) {
+  height: 2.75rem;
+  padding: 0 1.4rem;
+  font-size: 0.925rem;
+}
+
+.hero-contact-cta :deep(button) {
+  width: 100%;
+}
+
+/* Match the two outlined hero buttons. */
+.hero-explore-cta {
+  border-color: var(--primary);
+}
+
+@media (max-width: 511.98px) {
+  /* Phones: Explore + Get In Touch share the first row, Book a call fills the second. */
+  .hero-cta-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .hero-cta {
+    width: 100%;
+  }
+
+  .hero-explore-cta,
+  .hero-book-cta,
+  .hero-contact-cta :deep(button) {
+    width: 100%;
+    padding: 0 0.75rem;
+  }
+
+  .hero-book-cta {
+    grid-column: 1 / -1;
+  }
 }
 
 .hero-offer-line {
@@ -292,8 +352,8 @@ onMounted(() => {
 
 .section-lead {
   font-size: 1.05rem;
-  line-height: 1.6;
-  margin: -0.75rem 0 1.75rem;
+  line-height: 1.65;
+  margin: -1rem 0 2.25rem;
   opacity: 0.9;
 }
 
@@ -322,6 +382,8 @@ body.dark .avatar-aura {
 
 .avatar-frame {
   position: relative;
+  width: 100%;
+  max-width: 384px;
   z-index: 1;
   border-radius: 28px;
   overflow: visible;
@@ -344,6 +406,8 @@ body.dark .avatar-frame {
 
 /* Floating GDE Credential Pill */
 .gde-glass-badge {
+  font: inherit;
+  cursor: default;
   position: absolute;
   bottom: -16px;
   left: 50%;
@@ -379,6 +443,15 @@ body.dark .avatar-frame {
     opacity: 0.4;
     transform: scale(0.85);
   }
+}
+
+.badge-short {
+  display: none;
+}
+
+.gde-glass-badge:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
 }
 
 .badge-text {
@@ -448,7 +521,7 @@ body.dark [banner] {
 
 /* Sections */
 section {
-  padding-bottom: 7.5rem;
+  padding-bottom: 8rem;
   scroll-margin-top: 5.5rem;
 }
 
@@ -456,7 +529,7 @@ section h2 {
   font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: -0.01em;
-  margin-bottom: 2.25rem;
+  margin-bottom: 2.75rem;
   color: var(--text);
 }
 
@@ -517,7 +590,7 @@ section h2::after {
 
 .closing-card {
   border-radius: 24px;
-  padding: 3rem 2rem;
+  padding: 3.5rem 2.5rem;
   max-width: 640px;
   margin: 0 auto;
   text-align: center;
@@ -562,6 +635,10 @@ section h2::after {
 
 /* Responsive */
 @media (max-width: 511.98px) {
+  .closing-card {
+    padding: 3rem 1.5rem;
+  }
+
   .closing-plane {
     top: 0.75rem;
     right: 0.75rem;
@@ -570,12 +647,29 @@ section h2::after {
   }
 
   .gde-glass-badge {
-    position: relative;
-    bottom: auto;
-    left: auto;
-    transform: none;
-    margin-top: 1rem;
-    font-size: 0.72rem;
+    cursor: pointer;
+    bottom: -14px;
+    max-width: calc(100% - 1.5rem);
+    padding: 0.4rem 0.85rem;
+  }
+
+  .gde-glass-badge .badge-text {
+    font-size: 0.74rem;
+  }
+
+  .gde-glass-badge:not(.is-expanded) .badge-full {
+    display: none;
+  }
+
+  .gde-glass-badge:not(.is-expanded) .badge-short {
+    display: inline;
+  }
+
+  .gde-glass-badge.is-expanded {
+    width: max-content;
+    white-space: normal;
+    text-align: left;
+    border-radius: 16px;
   }
 
   section h2::after {
@@ -586,18 +680,27 @@ section h2::after {
 
 @media (max-width: 767.98px) {
   section {
-    padding-bottom: 5rem;
+    padding-bottom: 5.5rem;
+  }
+
+  section h2 {
+    margin-bottom: 2.25rem;
   }
 }
 
 @media (max-width: 767.98px) {
+  [intro] {
+    padding-bottom: 3.5rem;
+  }
+
   .hero-offer-line {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2.75rem;
   }
 
   [intro-avatar] {
-    margin-top: 1.25rem;
-    margin-bottom: 2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    padding: 0 0.25rem;
   }
 }
 

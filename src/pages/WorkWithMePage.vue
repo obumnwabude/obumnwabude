@@ -7,7 +7,7 @@ import { LINKS } from '@/content/links';
 import { AI_TOOLS, CURRENCY_NOTE, formatUsd, OFFERS, STACKS, type OfferCategory } from '@/content/offers';
 import IconFlower6P from '@/icons/IconFlower6P.vue';
 import { trackEvent, trackSectionView } from '@/utils/analytics';
-import { onMounted } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 
 const years = new Date().getFullYear() - 2018;
 
@@ -69,10 +69,25 @@ const faqs = [
   },
 ];
 
-const onFaqToggle = (q: string, e: Event) => {
-  if ((e.target as HTMLDetailsElement).open) {
-    trackEvent('faq_open', { question: q, page_path: '/work-with-me' });
+const openFaqs = ref<boolean[]>(faqs.map(() => false));
+const allOpen = computed(() => openFaqs.value.every(Boolean));
+const noneOpen = computed(() => openFaqs.value.every((o) => !o));
+let bulkToggle = false;
+
+const onFaqToggle = (idx: number, e: Event) => {
+  const isOpen = (e.target as HTMLDetailsElement).open;
+  openFaqs.value[idx] = isOpen;
+  if (isOpen && !bulkToggle) {
+    trackEvent('faq_open', { question: faqs[idx].q, page_path: '/work-with-me' });
   }
+};
+
+const setAllFaqs = (open: boolean) => {
+  bulkToggle = true;
+  openFaqs.value = faqs.map(() => open);
+  trackEvent(open ? 'faq_expand_all' : 'faq_collapse_all', { page_path: '/work-with-me' });
+  // <details> fires its toggle events asynchronously, after this tick.
+  setTimeout(() => (bulkToggle = false), 50);
 };
 
 onMounted(() => {
@@ -104,8 +119,8 @@ onMounted(() => {
       longer works, here is how I can help. Pick an offer below and pay on my Selar page.
     </p>
     <div class="intro-ctas">
-      <BookCall label="Book a call" location="wwm_intro" />
       <ContactMe label="Ask a question first" color="var(--primary)" location="wwm_intro" />
+      <BookCall label="Book a call" location="wwm_intro" />
     </div>
   </div>
 
@@ -212,18 +227,29 @@ onMounted(() => {
 
   <section data-section="faq" aria-labelledby="faq-heading">
     <h2 id="faq-heading">QUESTIONS</h2>
+    <div class="faq-toolbar" role="group" aria-label="Show or hide all answers">
+      <button type="button" outlined class="faq-tool" :disabled="allOpen" @click="setAllFaqs(true)">
+        <span aria-hidden="true">+</span> Expand all
+      </button>
+      <button type="button" outlined class="faq-tool" :disabled="noneOpen" @click="setAllFaqs(false)">
+        <span aria-hidden="true">−</span> Collapse all
+      </button>
+    </div>
     <div class="faq">
       <details
-        v-for="faq in faqs"
+        v-for="(faq, idx) in faqs"
         :key="faq.q"
         class="faq-item glass-surface glass-frost"
-        @toggle="(e: Event) => onFaqToggle(faq.q, e)"
+        :open="openFaqs[idx]"
+        @toggle="(e: Event) => onFaqToggle(idx, e)"
       >
         <summary>
-          <span>{{ faq.q }}</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
+          <span class="faq-q">{{ faq.q }}</span>
+          <span class="faq-icon" aria-hidden="true"></span>
         </summary>
-        <p>{{ faq.a }}</p>
+        <div class="faq-a">
+          <p>{{ faq.a }}</p>
+        </div>
       </details>
     </div>
   </section>
@@ -234,8 +260,8 @@ onMounted(() => {
       <h2>READY WHEN YOU ARE</h2>
       <p text>Book a call, tell me what you are working on, and we will take it from there.</p>
       <div contact>
-        <BookCall label="Book a call" location="wwm_closing" />
         <ContactMe color="var(--primary)" label="Contact Me" location="wwm_closing" />
+        <BookCall label="Book a call" location="wwm_closing" />
       </div>
     </div>
   </div>
@@ -255,14 +281,48 @@ onMounted(() => {
 .intro-ctas {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 1.5rem;
+  gap: 0.85rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 511.98px) {
+  section {
+    padding-bottom: 5.5rem;
+  }
+
+  section h2 {
+    margin-bottom: 2.25rem;
+  }
+
+  .offer-card {
+    padding: 1.6rem 1.25rem;
+  }
+
+  .closing-card {
+    padding: 3rem 1.5rem;
+  }
+
+  .intro-ctas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .intro-ctas > * {
+    width: 100%;
+  }
+
+  .intro-ctas > a,
+  .intro-ctas :deep(button) {
+    width: 100%;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
 }
 
 section {
   max-width: 1440px;
   margin: 0 auto;
-  padding-bottom: 6rem;
+  padding-bottom: 7rem;
   scroll-margin-top: 5.5rem;
 }
 
@@ -270,7 +330,7 @@ section h2 {
   font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: -0.01em;
-  margin-bottom: 2.25rem;
+  margin-bottom: 2.75rem;
 }
 
 section h2::after {
@@ -322,7 +382,7 @@ section h2::after {
 .offer-card {
   display: flex;
   flex-direction: column;
-  padding: 1.75rem 1.5rem;
+  padding: 2rem 1.75rem;
   height: 100%;
   scroll-margin-top: 6rem;
 }
@@ -372,7 +432,7 @@ section h2::after {
   display: flex;
   align-items: baseline;
   gap: 0.4rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .price {
@@ -397,10 +457,10 @@ section h2::after {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.6rem;
   border-top: 1px solid var(--glass-border);
-  padding-top: 1rem;
-  margin-bottom: 1rem;
+  padding-top: 1.15rem;
+  margin-bottom: 1.35rem;
 }
 
 .offer-list li {
@@ -447,8 +507,8 @@ section h2::after {
   list-style: none;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.25rem;
-  margin-bottom: 2.5rem;
+  gap: 1.75rem 2rem;
+  margin-bottom: 3rem;
 }
 
 @media (min-width: 900px) {
@@ -515,18 +575,57 @@ section h2::after {
 }
 
 /* FAQ */
+.faq-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: -0.75rem 0 1.25rem;
+}
+
+.faq-tool {
+  height: 2.1rem;
+  padding: 0 1rem;
+  font-size: 0.82rem;
+}
+
+.faq-tool span {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.faq-tool:disabled {
+  opacity: 0.45;
+  cursor: default;
+  transform: none;
+  box-shadow: none;
+}
+
+.faq-tool:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
 .faq {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  max-width: 860px;
+  gap: 1rem;
 }
 
 .faq-item {
-  border-radius: 16px;
+  border-radius: 18px;
   border: 1px solid var(--glass-border);
-  padding: 0;
   box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.faq-item:hover {
+  border-color: rgb(from var(--primary) r g b / 28%);
+}
+
+.faq-item[open] {
+  border-color: rgb(from var(--primary) r g b / 32%);
+  box-shadow: var(--shadow-glass);
 }
 
 .faq-item summary {
@@ -534,12 +633,10 @@ section h2::after {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem 1.25rem;
-  font-weight: 600;
-  font-size: 0.98rem;
+  gap: 1.25rem;
+  padding: 1.35rem 1.75rem;
   cursor: pointer;
-  border-radius: 16px;
+  border-radius: 18px;
 }
 
 .faq-item summary::-webkit-details-marker {
@@ -551,23 +648,75 @@ section h2::after {
   outline-offset: 2px;
 }
 
-.faq-icon {
-  flex-shrink: 0;
-  font-size: 1.35rem;
-  line-height: 1;
+.faq-q {
+  font-weight: 600;
+  font-size: 1.02rem;
+  line-height: 1.45;
+}
+
+.faq-item[open] .faq-q {
   color: var(--primary);
+}
+
+/* Plus that turns into a minus */
+.faq-icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: rgb(from var(--primary) r g b / 8%);
+  border: 1px solid rgb(from var(--primary) r g b / 18%);
+}
+
+.faq-icon::before,
+.faq-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.75rem;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--primary);
+  transform: translate(-50%, -50%);
   transition: transform 0.2s ease;
 }
 
-.faq-item[open] .faq-icon {
-  transform: rotate(45deg);
+.faq-icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
 }
 
-.faq-item p {
-  padding: 0 1.25rem 1.15rem;
-  font-size: 0.93rem;
-  line-height: 1.65;
+.faq-item[open] .faq-icon::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.faq-a {
+  margin: 0 1.75rem;
+  padding: 1.15rem 0 1.5rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.faq-a p {
+  max-width: 78ch;
+  font-size: 0.97rem;
+  line-height: 1.75;
   opacity: 0.9;
+}
+
+@media (max-width: 511.98px) {
+  .faq-item summary {
+    padding: 1.1rem 1.15rem;
+  }
+
+  .faq-q {
+    font-size: 0.97rem;
+  }
+
+  .faq-a {
+    margin: 0 1.15rem;
+    padding: 1rem 0 1.25rem;
+  }
 }
 
 /* Closing */
@@ -577,7 +726,7 @@ section h2::after {
 
 .closing-card {
   border-radius: 24px;
-  padding: 3rem 2rem;
+  padding: 3.5rem 2.5rem;
   max-width: 640px;
   margin: 0 auto;
   text-align: center;
@@ -630,7 +779,8 @@ section h2::after {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .faq-icon {
+  .faq-icon::before,
+  .faq-icon::after {
     transition: none;
   }
 }

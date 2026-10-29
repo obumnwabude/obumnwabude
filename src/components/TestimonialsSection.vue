@@ -99,7 +99,7 @@ const onVerify = (name: string) =>
 .t-card {
   display: flex;
   flex-direction: column;
-  padding: 1.75rem 1.5rem 1.4rem;
+  padding: 2rem 1.75rem 1.6rem;
   height: 100%;
   margin: 0;
 }
@@ -114,13 +114,13 @@ const onVerify = (name: string) =>
 }
 
 .t-quote {
-  margin: 0 0 1.25rem;
+  margin: 0.25rem 0 1.5rem;
   flex-grow: 1;
 }
 
 .t-quote p {
   font-size: 0.98rem;
-  line-height: 1.65;
+  line-height: 1.75;
   opacity: 0.92;
 }
 
@@ -129,7 +129,7 @@ const onVerify = (name: string) =>
   align-items: center;
   gap: 0.8rem;
   border-top: 1px solid var(--glass-border);
-  padding-top: 1rem;
+  padding-top: 1.15rem;
 }
 
 .t-avatar {
@@ -199,13 +199,19 @@ const onVerify = (name: string) =>
 
 .t-all {
   text-align: center;
-  margin-top: 1.75rem;
+  margin-top: 2.25rem;
   font-size: 0.95rem;
 }
 
 .t-all a {
   color: var(--primary);
   font-weight: 550;
+}
+
+@media (max-width: 511.98px) {
+  .t-card {
+    padding: 1.6rem 1.25rem 1.3rem;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1139.98px) {

@@ -419,15 +419,17 @@ ul li {
   font-size: clamp(1.9rem, 4vw, 2.6rem);
   line-height: 1.15;
   letter-spacing: -0.025em;
-  margin: 0 auto 2.25rem;
+  margin: 0 auto 2.5rem;
   max-width: 1440px;
 }
 
 [page-intro] {
-  font-size: 1rem;
-  line-height: 1.75;
+  font-size: 1.025rem;
+  line-height: 1.8;
   margin: 0 auto 5.5rem;
   max-width: 1440px;
+  /* Keep intro lines at a readable length while the block still spans the page. */
+  padding-right: max(0px, calc(100% - 56rem));
 }
 
 [page-content] {

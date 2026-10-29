@@ -149,8 +149,14 @@ const services = [
 }
 
 .service-card {
-  padding: 2rem 1.75rem;
+  padding: 2rem 1.75rem 1.6rem;
   height: 100%;
+}
+
+@media (max-width: 511.98px) {
+  .service-card {
+    padding: 1.6rem 1.25rem 1.25rem;
+  }
 }
 
 .service-inner {

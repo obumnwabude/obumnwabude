@@ -169,9 +169,9 @@ const groups: Group[] = [
 
 .wwm-intro {
   font-size: 1.1rem;
-  line-height: 1.65;
+  line-height: 1.7;
   max-width: 720px;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   opacity: 0.92;
 }
 
@@ -202,8 +202,14 @@ const groups: Group[] = [
 }
 
 .wwm-card {
-  padding: 1.75rem 1.5rem;
+  padding: 2rem 1.75rem 1.5rem;
   height: 100%;
+}
+
+@media (max-width: 511.98px) {
+  .wwm-card {
+    padding: 1.6rem 1.25rem 1.1rem;
+  }
 }
 
 .wwm-card.is-highlight {
@@ -222,7 +228,7 @@ const groups: Group[] = [
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: 1.1rem;
+  margin-bottom: 1.35rem;
 }
 
 .wwm-icon {
@@ -271,17 +277,17 @@ const groups: Group[] = [
 
 .wwm-desc {
   font-size: 0.95rem;
-  line-height: 1.6;
+  line-height: 1.65;
   opacity: 0.88;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .wwm-points {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.45rem;
-  margin-bottom: 1rem;
+  gap: 0.55rem;
+  margin-bottom: 1.35rem;
 }
 
 .wwm-points li {
@@ -317,7 +323,7 @@ const groups: Group[] = [
 .wwm-options {
   margin-top: auto;
   border-top: 1px solid var(--glass-border);
-  padding-top: 0.6rem;
+  padding-top: 0.75rem;
   display: flex;
   flex-direction: column;
 }
@@ -329,8 +335,8 @@ const groups: Group[] = [
     'text price'
     'cta cta';
   align-items: center;
-  gap: 0.55rem 0.75rem;
-  padding: 0.75rem 0;
+  gap: 0.7rem 0.75rem;
+  padding: 0.95rem 0;
 }
 
 .wwm-option + .wwm-option {
@@ -371,7 +377,7 @@ const groups: Group[] = [
 }
 
 .wwm-foot {
-  margin-top: 1.75rem;
+  margin-top: 2.25rem;
   display: flex;
   flex-direction: column;
   align-items: center;

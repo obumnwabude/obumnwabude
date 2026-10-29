@@ -42,8 +42,8 @@ const year = new Date().getFullYear();
         </nav>
       </div>
       <div class="footer-ctas">
-        <BookCall label="Book a call" location="footer" />
         <ContactMe color="var(--primary)" label="Contact Me" location="footer" />
+        <BookCall label="Book a call" location="footer" />
       </div>
     </div>
     <div bottom>
@@ -59,7 +59,7 @@ footer {
   background: var(--glass-tint);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  padding: 2.5rem 1.5rem 3.5rem;
+  padding: 3rem 1.5rem 3.5rem;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
@@ -68,14 +68,29 @@ body.dark footer {
 }
 
 [top] {
-  margin-bottom: 2rem;
+  margin-bottom: 2.25rem;
 }
 
 .footer-ctas {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: flex-end;
   gap: 0.75rem;
+}
+
+@media (max-width: 767.98px) {
+  /* Phones: two equal buttons across the full width, Book a call on the right. */
+  .footer-ctas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-ctas > *,
+  .footer-ctas :deep(button) {
+    width: 100%;
+  }
 }
 
 [obum] {
