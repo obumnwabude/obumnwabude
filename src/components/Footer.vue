@@ -59,7 +59,7 @@ footer {
   background: var(--glass-tint);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  padding: 3rem 1.5rem 3.5rem;
+  padding: 3rem var(--page-x) 3.5rem;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
@@ -191,6 +191,16 @@ body.dark footer {
     justify-content: space-between;
   }
 
+  /* Let the buttons drop under the links when the row is too tight, instead of spilling off screen. */
+  [top] {
+    flex-wrap: wrap;
+    gap: 1.5rem 2rem;
+  }
+
+  .footer-ctas {
+    margin-left: auto;
+  }
+
   .footer-left {
     display: flex;
     flex-direction: row;
@@ -216,13 +226,6 @@ body.dark footer {
     border-right: 1px solid var(--glass-border);
     padding-right: 0.55rem;
     margin-right: 0.3rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  footer {
-    padding-left: 5rem;
-    padding-right: 5rem;
   }
 }
 

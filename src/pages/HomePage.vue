@@ -517,7 +517,7 @@ body.dark .avatar-frame {
   font-size: 1.2rem;
   font-weight: 550;
   letter-spacing: 0.04em;
-  margin: 0 -1.5rem 4.5rem;
+  margin: 0 calc(-1 * var(--page-x)) 4.5rem;
   padding: 1.1rem 1rem 1.1rem 8rem;
   overflow-x: hidden;
   white-space: nowrap;
@@ -778,11 +778,6 @@ section h2::after {
 }
 
 @media (min-width: 1024px) {
-  [banner] {
-    margin-left: -5rem;
-    margin-right: -5rem;
-  }
-
   [intro] [tagline] {
     font-size: 2.75rem;
   }

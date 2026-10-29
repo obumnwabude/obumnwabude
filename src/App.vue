@@ -43,12 +43,6 @@ onMounted(() => (mounted.value = true));
 
 <style scoped>
 main {
-  padding: 3rem 1.5rem;
-}
-
-@media (min-width: 1024px) {
-  main {
-    padding: 3rem 5rem;
-  }
+  padding: 3rem var(--page-x);
 }
 </style>

@@ -63,6 +63,10 @@
   --glass-sheen: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
   --popover-bg: rgba(255, 255, 255, 0.92);
   --popover-border: rgba(16, 30, 159, 0.12);
+
+  /* Side padding for header, page content and footer. Grows smoothly with the screen:
+     24px on phones, about 40px at 1024px, 65px at 1280px, and 80px from about 1440px up. */
+  --page-x: clamp(1.5rem, calc(9.5vw - 3.5rem), 5rem);
 }
 
 html {

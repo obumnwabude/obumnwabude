@@ -173,7 +173,7 @@ body.dark .glass-header.is-scrolled {
   justify-content: space-between;
   margin: 0 auto;
   max-width: 1440px;
-  padding: 0.75rem 1.25rem;
+  padding: 0.75rem var(--page-x);
   transition: padding 0.2s ease;
 }
 
@@ -458,11 +458,6 @@ body.dark .router-link-active.nav-link {
 }
 
 @media (min-width: 1024px) {
-  .header-inner {
-    padding-left: 5rem;
-    padding-right: 5rem;
-  }
-
   .header-left {
     gap: 2.75rem;
   }
