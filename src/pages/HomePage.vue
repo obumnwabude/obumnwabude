@@ -92,7 +92,7 @@ onMounted(() => {
           @click="() => trackNavClick('Explore My Work', 'hero')"
           >Explore My Work</router-link
         >
-        <ContactMe label="Get In Touch" color="var(--primary)" location="hero" class="hero-cta hero-contact-cta" />
+        <ContactMe label="Get In Touch" location="hero" class="hero-cta hero-contact-cta" />
         <BookCall label="Book a call" location="hero" class="hero-cta hero-book-cta" />
       </div>
       <p class="hero-offer-line">
@@ -300,9 +300,44 @@ onMounted(() => {
   width: 100%;
 }
 
-/* Match the two outlined hero buttons. */
-.hero-explore-cta {
-  border-color: var(--primary);
+/* The two secondary hero buttons: no border, a soft neutral fill and a lifted shadow,
+   so the blue Book a call button stays the clear main action. */
+.hero-explore-cta,
+.hero-contact-cta :deep(button) {
+  border: none !important;
+  background: rgb(from var(--text) r g b / 6%);
+  color: var(--text) !important;
+  font-weight: 550;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 6%), 0 4px 14px -4px rgb(from var(--primary) r g b / 18%),
+    inset 0 1px 0 rgb(255 255 255 / 60%);
+}
+
+.hero-explore-cta:hover,
+.hero-contact-cta :deep(button:hover) {
+  background: rgb(from var(--text) r g b / 9%);
+  color: var(--primary) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 6%), 0 8px 20px -6px rgb(from var(--primary) r g b / 28%),
+    inset 0 1px 0 rgb(255 255 255 / 70%);
+}
+
+body.dark .hero-explore-cta,
+body.dark .hero-contact-cta :deep(button) {
+  background: rgb(255 255 255 / 8%);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 40%), 0 6px 18px -6px rgb(0 0 0 / 60%), inset 0 1px 0 rgb(255 255 255 / 8%);
+}
+
+body.dark .hero-explore-cta:hover,
+body.dark .hero-contact-cta :deep(button:hover) {
+  background: rgb(255 255 255 / 12%);
+}
+
+.hero-explore-cta:focus-visible,
+.hero-contact-cta :deep(button:focus-visible) {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
 }
 
 @media (max-width: 511.98px) {

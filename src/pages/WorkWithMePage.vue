@@ -56,10 +56,6 @@ const faqs = [
     a: 'Yes. Book a 30-minute call first so I can look at the size and shape of it, then I will send you a fixed quote.',
   },
   {
-    q: 'When are calls available?',
-    a: 'Tuesdays and Thursdays from 4pm to 9pm, and Saturdays from 10am to 4pm, Lagos time (WAT, UTC+1). The booking page shows every open slot.',
-  },
-  {
     q: 'Can I pay in my own currency, or in naira?',
     a: `Yes. Prices here are in US dollars, and Selar shows you the price in your currency at checkout. You can pay by card, and bank transfer is available too.`,
   },
@@ -177,7 +173,7 @@ onMounted(() => {
         <p class="offer-price"><span class="price price-quote">Custom quote</span></p>
         <ul class="offer-list">
           <li><span class="check" aria-hidden="true">✓</span><span>Start with a call to scope the work</span></li>
-          <li><span class="check" aria-hidden="true">✓</span><span>Fixed price or hourly, your choice</span></li>
+          <li><span class="check" aria-hidden="true">✓</span><span>Flexible pricing: fixed price or hourly</span></li>
           <li><span class="check" aria-hidden="true">✓</span><span>Also available on Upwork</span></li>
         </ul>
         <div class="custom-ctas">
