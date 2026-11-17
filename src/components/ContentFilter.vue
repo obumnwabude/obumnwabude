@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useGlobalScroll } from '@/composables/useGlobalScroll';
+import { trackEvent } from '@/utils/analytics';
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue';
 
 interface Props {
@@ -26,14 +27,21 @@ function toggle(filter: string) {
   const current = props.modelValue;
   const alreadyPicked = current.includes(filter);
   let next = alreadyPicked ? current.filter((f) => f !== filter) : [...current, filter];
-  // Picking the last missing filter is semantically the same as "All" — collapse to empty.
   if (!alreadyPicked && next.length === props.filters.length) {
     next = [];
   }
+  trackEvent('content_filter_applied', {
+    filter,
+    action: alreadyPicked ? 'remove' : 'add',
+    page_path: typeof window !== 'undefined' ? window.location.pathname : '',
+  });
   emit('update:modelValue', next);
 }
 
 function clearAll() {
+  trackEvent('content_filter_cleared', {
+    page_path: typeof window !== 'undefined' ? window.location.pathname : '',
+  });
   emit('update:modelValue', []);
 }
 

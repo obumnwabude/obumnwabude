@@ -9,7 +9,7 @@ import IconRocket from '@/icons/IconRocket.vue';
 import IconBriefcase from '@/icons/IconBriefcase.vue';
 import IconUsers from '@/icons/IconUsers.vue';
 import { useSidebarStore } from '@/stores/sidebar';
-import { trackNavClick } from '@/utils/analytics';
+import { trackMobileMenuToggle, trackNavClick } from '@/utils/analytics';
 import Sidebar from 'primevue/sidebar';
 
 const sidebar = useSidebarStore();
@@ -24,7 +24,7 @@ const navItems = [
 </script>
 
 <template>
-  <Sidebar v-model:visible="sidebar.status" position="right" blockScroll>
+  <Sidebar v-model:visible="sidebar.status" position="right" blockScroll @hide="trackMobileMenuToggle('close')">
     <template #header>
       <router-link
         to="/"

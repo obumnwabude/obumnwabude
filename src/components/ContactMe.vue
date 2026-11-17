@@ -44,8 +44,8 @@ const onSelectOption = (itemLabel: string) => {
 };
 
 const items = ref([
-  { label: 'Email', command: () => onSelectOption('Email') },
-  { label: 'Telegram', command: () => onSelectOption('Telegram') },
+  { label: 'Email' },
+  { label: 'Telegram' },
 ]);
 
 const menu = ref();
