@@ -3,6 +3,120 @@ import type { CommunityEvent } from '@/types';
 export const community: CommunityEvent[] = [
   {
     title: 'Create your AI with RAG in Google Cloud.',
+    date: { month: 11, year: 2026 },
+    description:
+      '@ #DevFest Uyo 2026. Walked through #BuildWithAI in the process and in the product, and how to ground LLMs with RAG on Google Cloud.',
+    longDescription:
+      'A talk at DevFest Uyo 2026 covering what it means to #BuildWithAI both in your build process (Gemini, NotebookLM, Stitch, AI Studio, Antigravity, Jules) and inside your product (Plug in, Make it yours, Build your own). Broke down Retrieval-Augmented Generation (Retrieve, Augment, Generate) and walked through four Google Cloud paths from zero-code NotebookLM and Gemini File Search in Colab to Google Skills grounding labs and an ADK AI barista agent on Cloud Run with Firestore Vector Search.',
+    eventSeries: 'DevFest',
+    location: 'Uyo, Nigeria',
+    categories: ['Talk', '#DevFest'],
+    curriculum: [
+      'AI in the process: Think, Design, Make, Check, and Ship with Google AI tools',
+      'AI in the product: choosing between Plug in, Make it yours, and Build your own',
+      'How RAG works: Retrieve, Augment, Generate, chunks, embeddings, and vector search',
+      'RAG on Google Cloud: NotebookLM, Gemini File Search in Colab, Google Skills lab, and ADK + Cloud Run',
+      'Testing RAG apps vigorously with known questions, source citations, and gap checks',
+    ],
+    keyTakeaways: [
+      'Build with AI means two things: AI working next to you in the process, and AI living inside your product.',
+      'Plug in first, make it yours with RAG and tools when the model needs your data, and train your own model only when you must.',
+      'Grounding ties answers to real sources with citations; test with known questions and treat "I don\'t know" on gaps as a good answer.',
+    ],
+    resources: {
+      slides: 'https://docs.google.com/presentation/d/1EBvs3N5uT7PFgs7tt8eshS6HLbVzc1ukiekcDCTiRJM/edit?usp=sharing',
+    },
+    image: { alt: 'Obum speaking at DevFest Uyo 2026', name: 'obum-df-uyo-26' },
+    actions: [
+      {
+        icon: 'slides',
+        link: 'https://docs.google.com/presentation/d/1EBvs3N5uT7PFgs7tt8eshS6HLbVzc1ukiekcDCTiRJM/edit?usp=sharing',
+        title: 'Slides',
+      },
+    ],
+    tags: ['AI', 'Google Cloud'],
+    expandedTags: ['RAG', 'Gemini', 'Vector Search', 'ADK', 'GDG Uyo'],
+  },
+  {
+    title: 'Create your AI with RAG in Google Cloud.',
+    date: { month: 11, year: 2026 },
+    description:
+      '@ #DevFest Onitsha 2026. Shared how to #BuildWithAI across the workflow and product, and ground Gemini with RAG on Google Cloud.',
+    longDescription:
+      'A talk at DevFest Onitsha 2026 ("Developers and Builders in the Agentic Era") on how to #BuildWithAI in two ways: using AI tools across your build workflow and embedding AI inside your product. Explained when to plug in, make it yours with RAG and tools, or train a model, then walked through Retrieve-Augment-Generate on Google Cloud using NotebookLM, Gemini File Search in Colab, Google Skills grounding labs, and an ADK agent on Cloud Run.',
+    eventSeries: 'DevFest',
+    location: 'Onitsha, Nigeria',
+    categories: ['Talk', '#DevFest'],
+    curriculum: [
+      'AI in the process: Think, Design, Make, Check, and Ship with Google AI tools',
+      'AI in the product: choosing between Plug in, Make it yours, and Build your own',
+      'How RAG works: Retrieve, Augment, Generate, chunks, embeddings, and vector search',
+      'RAG on Google Cloud: NotebookLM, Gemini File Search in Colab, Google Skills lab, and ADK + Cloud Run',
+      'Testing RAG apps vigorously with known questions, source citations, and gap checks',
+    ],
+    keyTakeaways: [
+      'Build with AI means two things: AI working next to you in the process, and AI living inside your product.',
+      'Plug in first, make it yours with RAG and tools when the model needs your data, and train your own model only when you must.',
+      'Grounding ties answers to real sources with citations; test with known questions and treat "I don\'t know" on gaps as a good answer.',
+    ],
+    resources: {
+      slides: 'https://docs.google.com/presentation/d/1EBvs3N5uT7PFgs7tt8eshS6HLbVzc1ukiekcDCTiRJM/edit?usp=sharing',
+    },
+    image: { alt: 'Obum speaking at DevFest Onitsha 2026', name: 'obum-df-onitsha-26' },
+    actions: [
+      {
+        icon: 'slides',
+        link: 'https://docs.google.com/presentation/d/1EBvs3N5uT7PFgs7tt8eshS6HLbVzc1ukiekcDCTiRJM/edit?usp=sharing',
+        title: 'Slides',
+      },
+    ],
+    tags: ['AI', 'Google Cloud'],
+    expandedTags: ['RAG', 'Gemini', 'Vector Search', 'ADK', 'GDG Onitsha'],
+  },
+  {
+    title: 'Faster Flutter: Accessing On-Device AI with Dart FFI',
+    date: { month: 10, year: 2026 },
+    description:
+      '@ #DevFest Ebonyi (Abakaliki) 2026. Benchmarked running on-device AI models in Flutter through platform channels vs Dart FFI in DevTools.',
+    longDescription:
+      'A talk at DevFest Ebonyi (Abakaliki) 2026 answering one question: what does it cost a Flutter app to talk to an on-device AI model? Compared calling the same model (MobileNet on LiteRT; SmolLM2 and Qwen2.5 on llama.cpp) through platform channels versus direct C calls via Dart FFI on a real phone, covering modern Dart FFI (@Native, build hooks, worker isolates) and measuring bridge overhead and dropped frames in Flutter DevTools in profile mode.',
+    eventSeries: 'DevFest',
+    location: 'Abakaliki, Nigeria',
+    categories: ['Talk', '#DevFest'],
+    curriculum: [
+      'Why on-device AI: privacy, zero network latency, offline support, and no per-request billing',
+      'How Flutter talks to native code: platform channels, Pigeon, codec/copy costs, and the merged UI thread',
+      'Dart FFI in 2026: @Native, build hooks, package_ffi, ffigen/jnigen, and worker isolates',
+      'Live demo: one model (LiteRT & llama.cpp) across platform channel vs Dart FFI on a real phone',
+      'Measuring bridge overhead, dropped frames, and native CPU time in Flutter DevTools (profile mode)',
+    ],
+    keyTakeaways: [
+      'Platform channels pay codec, buffer copy, thread-hop, and async overhead on every call; Dart FFI calls C directly.',
+      'FFI pays off most for frequent calls or large payloads like camera frames; keep rare, small calls on platform channels.',
+      'Keep slow FFI inference off the merged UI isolate using a worker isolate, and always profile on a real device.',
+    ],
+    resources: {
+      slides: 'https://docs.google.com/presentation/d/1yNVCwJqFfUb8y4y3yvwHLD6WMm7v0AiR9viaNaXi-lE/edit?usp=sharing',
+      githubRepo: 'https://github.com/keepdeploying/faster_flutter_ffi_ai',
+    },
+    image: { alt: 'DevFest Ebonyi 2026 group photo in Abakaliki', name: 'df-abk-26-group' },
+    actions: [
+      {
+        icon: 'slides',
+        link: 'https://docs.google.com/presentation/d/1yNVCwJqFfUb8y4y3yvwHLD6WMm7v0AiR9viaNaXi-lE/edit?usp=sharing',
+        title: 'Slides',
+      },
+      {
+        icon: 'github',
+        link: 'https://github.com/keepdeploying/faster_flutter_ffi_ai',
+        title: 'Demo Repo',
+      },
+    ],
+    tags: ['Flutter', 'AI'],
+    expandedTags: ['Dart FFI', 'On-Device AI', 'LiteRT', 'llama.cpp', 'DevTools', 'GDG Abakaliki'],
+  },
+  {
+    title: 'Create your AI with RAG in Google Cloud.',
     date: { month: 10, year: 2026 },
     description:
       '@ #DevFest Ajah 2026. Explained how to #BuildwithAI using RAG and Google Cloud to ground LLMs with private knowledge bases.',

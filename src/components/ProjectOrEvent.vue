@@ -38,7 +38,7 @@ import {
   trackProjectActionClick,
   trackProjectInspectOpened,
 } from '@/utils/analytics';
-import { contentId } from '@/utils/slug';
+import { communityEventId, contentId } from '@/utils/slug';
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch, type Component } from 'vue';
 import { IMAGE_SIZES, hasResponsiveImages, originalSrc, webpSrcset } from '@/utils/images';
 
@@ -399,7 +399,7 @@ watch(isExpandedDesktop, async (expanded) => {
   <div
     v-reveal="{ delay: 50 }"
     ref="wrapperRef"
-    :id="contentId(title)"
+    :id="isCommunityEvent(content) ? communityEventId(content) : contentId(title)"
     class="project-wrapper"
     :class="{
       'is-coding-project': !isCommunityEvent(content),

@@ -177,9 +177,9 @@ watch(activeFilters, async () => {
     audiences.
     <br />
     <br />
-    In recent years the work has landed at the #BuildwithAI workshop series across Nigerian cities and on the 2024 and
-    2025 DevFest circuit (Nsukka, Abuja, Owerri, Kaduna, Onitsha, and beyond), alongside keynotes for Women Techmakers
-    and university outreach sessions on AI, ethics, and career.
+    In recent years the work has landed at the #BuildwithAI workshop series across Nigerian cities and on the 2024,
+    2025, and 2026 DevFest circuit (Nsukka, Abuja, Owerri, Kaduna, Onitsha, Ajah, Abakaliki, Uyo, and beyond), alongside
+    keynotes for Women Techmakers and university outreach sessions on AI, ethics, and career.
     <br />
     <br />
     Following are community engagements that I kept track of.
@@ -200,7 +200,7 @@ watch(activeFilters, async () => {
     <TransitionGroup name="filter-list" tag="div">
       <div
         v-for="(contribution, index) of filteredCommunity"
-        :key="contribution.title"
+        :key="`${contribution.title}-${contribution.image.name}`"
         :id="`timeline-item-${index}`"
         class="timeline-item"
       >

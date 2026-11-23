@@ -9,14 +9,17 @@ const distDir = path.resolve(rootDir, 'dist');
 const ssrEntryPath = path.resolve(rootDir, 'dist-ssr/entry-server.mjs');
 
 // Same anchor ids the site uses for cards (src/utils/slug.ts).
-function contentId(title) {
-  const slug = title
+function slug(input) {
+  return input
     .toLowerCase()
     .normalize('NFKD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
-  return `content-${slug}`;
+}
+
+function contentId(title) {
+  return `content-${slug(title)}`;
 }
 
 const routes = [
@@ -128,11 +131,22 @@ function generateStructuredData(route, content) {
     // out of the structured data (they still appear on the page); "Online" talks become
     // online events. See Search Console > Enhancements > Events.
     const obum = { '@type': 'Person', name: 'Obumuneme Nwabude', url: 'https://obumnwabude.com/' };
-    const items = (content.community || [])
+    const allEvents = content.community || [];
+    const titleCounts = new Map();
+    for (const e of allEvents) {
+      const s = slug(e.title);
+      titleCounts.set(s, (titleCounts.get(s) || 0) + 1);
+    }
+    const items = allEvents
       .filter((event) => event.location)
       .map((event) => {
         const dateStr = `${event.date.year}-${String(event.date.month).padStart(2, '0')}-01`;
-        const pageUrl = `https://obumnwabude.com/community#${contentId(event.title)}`;
+        const base = slug(event.title);
+        const anchor =
+          (titleCounts.get(base) || 0) > 1
+            ? `content-${base}-${slug(event.location || event.image?.name || `${event.date.year}-${event.date.month}`)}`
+            : `content-${base}`;
+        const pageUrl = `https://obumnwabude.com/community#${anchor}`;
         const isOnline = /^(online|virtual)$/i.test(event.location.trim());
         const item = {
           '@type': 'Event',

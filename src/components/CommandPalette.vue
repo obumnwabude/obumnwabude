@@ -24,7 +24,7 @@ import {
   trackPaletteSubmenuOpened,
   type PaletteOpenTrigger,
 } from '@/utils/analytics';
-import { contentId } from '@/utils/slug';
+import { communityEventId, contentId } from '@/utils/slug';
 import { computed, markRaw, nextTick, onBeforeUnmount, onMounted, ref, watch, type Component } from 'vue';
 import { useRouter } from 'vue-router';
 
@@ -189,7 +189,7 @@ const communityItems: PaletteResult[] = community.map((c) => {
     ].join(' '),
     badges: [sessionType],
     route: '/community',
-    hash: '#' + contentId(c.title),
+    hash: '#' + communityEventId(c),
   };
 });
 

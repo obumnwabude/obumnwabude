@@ -201,7 +201,11 @@ onMounted(() => {
 
   <section v-reveal data-section="community_talks">
     <h2>COMMUNITY & TALKS</h2>
-    <ProjectOrEvent :content="contribution" v-for="contribution of community.slice(0, 5)" :key="contribution.title" />
+    <ProjectOrEvent
+      :content="contribution"
+      v-for="contribution of community.slice(0, 5)"
+      :key="`${contribution.title}-${contribution.image.name}`"
+    />
     <div more class="glass-surface glass-frost glass-more-box">
       <span leading-flower><IconFlower6P color="var(--primary)" :size="28" :spin="true" :glow="true" /></span>
       <p>Of Course, There Are More.</p>
